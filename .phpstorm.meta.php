@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-07-19.
+    * Generated on 2017-07-20.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -129,6 +129,8 @@ namespace PHPSTORM_META {
         'command.ide-helper.generate' => Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.models' => Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
+        'html' => Collective\Html\HtmlBuilder::class,
+        'form' => Collective\Html\FormBuilder::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
@@ -251,6 +253,8 @@ namespace PHPSTORM_META {
         'command.ide-helper.generate' => Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.models' => Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
+        'html' => Collective\Html\HtmlBuilder::class,
+        'form' => Collective\Html\FormBuilder::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
@@ -373,6 +377,8 @@ namespace PHPSTORM_META {
         'command.ide-helper.generate' => Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.models' => Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
+        'html' => Collective\Html\HtmlBuilder::class,
+        'form' => Collective\Html\FormBuilder::class,
     ]));
     override(\App::make(0), map([
         '' => '@',
@@ -495,6 +501,8 @@ namespace PHPSTORM_META {
         'command.ide-helper.generate' => Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.models' => Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
+        'html' => Collective\Html\HtmlBuilder::class,
+        'form' => Collective\Html\FormBuilder::class,
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
@@ -617,6 +625,8 @@ namespace PHPSTORM_META {
         'command.ide-helper.generate' => Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.models' => Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
+        'html' => Collective\Html\HtmlBuilder::class,
+        'form' => Collective\Html\FormBuilder::class,
     ]));
     override(\app(0), map([
         '' => '@',
@@ -739,6 +749,8 @@ namespace PHPSTORM_META {
         'command.ide-helper.generate' => Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.models' => Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
+        'html' => Collective\Html\HtmlBuilder::class,
+        'form' => Collective\Html\FormBuilder::class,
     ]));
     override(\resolve(0), map([
         '' => '@',
@@ -861,6 +873,8 @@ namespace PHPSTORM_META {
         'command.ide-helper.generate' => Barryvdh\LaravelIdeHelper\Console\GeneratorCommand::class,
         'command.ide-helper.models' => Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
+        'html' => Collective\Html\HtmlBuilder::class,
+        'form' => Collective\Html\FormBuilder::class,
     ]));
 
     override(\Illuminate\Support\Arr::add(0), type(0));
