@@ -19,11 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
 
-            if (env('APP_LOGIN') == 'username') {
+            if (env('APP_LOGIN_WITH') == 'username') {
                 $table->string('username')->unique();
                 $table->string('email');
             } else {
-                $table->string('username');
+                $table->string('username')->unique();
                 $table->string('email')->unique();
             }
 
