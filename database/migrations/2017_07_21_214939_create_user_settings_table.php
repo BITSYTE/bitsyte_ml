@@ -16,10 +16,13 @@ class CreateUserSettingsTable extends Migration
         Schema::create('user_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->uuid('uuid')->unique()->index();
             $table->string('field');
             $table->json('data');
             $table->string('status');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

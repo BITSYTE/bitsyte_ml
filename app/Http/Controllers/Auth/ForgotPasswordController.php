@@ -54,6 +54,20 @@ class ForgotPasswordController extends Controller
             : $this->sendResetLinkFailedResponse($request, $response);
     }
 
+    /**
+     * Get the response for a failed password reset link.
+     *
+     * @param  \Illuminate\Http\Request
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendResetLinkFailedResponse(Request $request, $response)
+    {
+        return back()->withErrors(
+            [env('APP_LOGIN_WITH') => trans($response)]
+        );
+    }
+
     public function validateFormRequest(Request $request)
     {
         if (env('APP_LOGIN_WITH') == 'email') {
@@ -86,15 +100,5 @@ class ForgotPasswordController extends Controller
     public function validateEmail(Request $request)
     {
         $this->validate($request, ['email' => 'required|email']);
-    }
-
-    /**
-     * Get the broker to be used during password reset.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker
-     */
-    public function broker()
-    {
-        return Password::broker();
     }
 }

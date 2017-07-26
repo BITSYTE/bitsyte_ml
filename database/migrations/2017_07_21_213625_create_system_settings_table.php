@@ -15,6 +15,7 @@ class CreateSystemSettingsTable extends Migration
     {
         Schema::create('system_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uuid')->unique()->index();
             $table->string('field');
             $table->json('data');
             $table->string('status');
