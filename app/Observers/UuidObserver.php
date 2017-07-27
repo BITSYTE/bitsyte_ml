@@ -1,17 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Herminio
- * Date: 25/07/2017
- * Time: 12:44
- */
 
 namespace app\Observers;
 
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
-class UuidOserver
+class UuidObserver
 {
     public function creating(Model $model)
     {

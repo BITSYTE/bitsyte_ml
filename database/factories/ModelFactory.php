@@ -16,7 +16,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'uuid' => $faker->uuid,
+        //'uuid' => $faker->uuid,
         'first_name' => $faker->name,
         'last_name' => $faker->name,
         'username' => $faker->userName,
@@ -32,7 +32,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\UserAddresses::class, function (Faker\Generator $faker) {
 
     return [
-        'uuid' => $faker->uuid,
+        //'uuid' => $faker->uuid,
         'user_id' => factory(\App\Models\User::class)->lazy(),
         'type' => $faker->word,
         'address' => $faker->address,
@@ -57,7 +57,7 @@ $factory->define(App\Models\State::class, function (Faker\Generator $faker) {
 
     return [
         'country_id' => factory(\App\Models\Country::class)->lazy(),
-        'uuid' => $faker->uuid,
+        //'uuid' => $faker->uuid,
         'name' => $faker->word,
         'code' => $faker->word,
     ];
@@ -68,7 +68,7 @@ $factory->define(App\Models\City::class, function (Faker\Generator $faker) {
 
     return [
         'state_id' => factory(\App\Models\State::class)->lazy(),
-        'uuid' => $faker->uuid,
+        //'uuid' => $faker->uuid,
         'name' => $faker->word,
         'code' => $faker->word,
     ];
@@ -78,7 +78,7 @@ $factory->define(App\Models\City::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\SystemSettings::class, function (Faker\Generator $faker) {
 
     return [
-        'uuid' => $faker->uuid,
+        //'uuid' => $faker->uuid,
         'field' => $faker->word,
         'data' => $faker->word,
         'status' => $faker->word,
@@ -90,7 +90,7 @@ $factory->define(App\Models\UserSettings::class, function (Faker\Generator $fake
 
     return [
         'user_id' => factory(\App\Models\User::class)->lazy(),
-        'uuid' => $faker->uuid,
+        //'uuid' => $faker->uuid,
         'field' => $faker->word,
         'data' => $faker->word,
         'status' => $faker->word,
