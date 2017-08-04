@@ -12,7 +12,6 @@ use App\Models\User;
 use App\Models\UserAddresses;
 use App\Models\UserSettings;
 use App\Observers\UuidObserver;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -58,16 +57,6 @@ class EventServiceProvider extends ServiceProvider
 
     public function registerUuidObservers()
     {
-        /*User::observe(app(UuidObserver::class));
-        UserAddresses::observe(app(UuidObserver::class));
-        Category::observe(app(UuidObserver::class));
-        Country::observe(app(UuidObserver::class));
-        State::observe(app(UuidObserver::class));
-        City::observe(app(UuidObserver::class));
-        Product::observe(app(UuidObserver::class));
-        SystemSettings::observe(app(UuidObserver::class));
-        UserSettings::observe(app(UuidObserver::class));*/
-
         collect($this->models)->each(function($model) {
 
             /** @var \Illuminate\Database\Eloquent\Model $model */
