@@ -1,13 +1,12 @@
-<div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-    <label for="username" class="col-md-4 control-label">Username</label>
+<fieldset class="form-group position-relative has-icon-left{{ $errors->has('username') ? ' has-warning' : '' }}">
+    <input type="text" class="form-control form-control-lg input-lg" id="username" placeholder="Your Username" name="username" value="{{old('username')}}" required>
+    <div class="form-control-position">
+        <i class="ft-user"></i>
+    </div>
 
-    <div class="col-md-6">
-        <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
-
-        @if ($errors->has('username'))
-            <span class="help-block">
+    @if ($errors->has('username'))
+        <span class="help-block text-warning">
                 <strong>{{ $errors->first('username') }}</strong>
             </span>
-        @endif
-    </div>
-</div>
+    @endif
+</fieldset>

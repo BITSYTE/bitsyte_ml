@@ -1,4 +1,4 @@
-@extends('layout.base')
+@extends('layouts.base')
 
 @section('body')
   <body data-open="click" data-menu="horizontal-menu" data-col="1-column" class="horizontal-layout horizontal-menu 1-column  blank-page blank-page">
@@ -18,13 +18,15 @@
             </div>
             <div class="card-body collapse in">
                 <div class="card-block">
-                    <form class="form-horizontal" action="login-simple.html" novalidate>
-                        <fieldset class="form-group position-relative has-icon-left">
-                            <input type="email" class="form-control form-control-lg input-lg" id="user-email" placeholder="Your Email Address" required>
-                            <div class="form-control-position">
-                                <i class="ft-mail"></i>
-                            </div>
-                        </fieldset>
+                    <form class="form-horizontal" action="{{route('password.email')}}" method="post" novalidate>
+                        {{ csrf_field() }}
+
+                        @if(env('APP_LOGIN_WITH') == 'email')
+                            @include('auth.passwords.partial.email')
+                        @else
+                            @include('auth.passwords.partial.username_email')
+                        @endif
+
                         <button type="submit" class="btn btn-outline-primary btn-lg btn-block"><i class="ft-unlock"></i> Recover Password</button>
                     </form>
                 </div>

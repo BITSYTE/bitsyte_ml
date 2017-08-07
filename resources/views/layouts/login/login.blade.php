@@ -20,7 +20,15 @@
             </div>
             <div class="card-body collapse in">
                 <div class="card-block">
-                    <form class="form-horizontal form-simple" action="index.html" novalidate>
+                    <form class="form-horizontal form-simple" method="post" action="{{route('login')}}" novalidate>
+                        {{ csrf_field() }}
+
+                        @if (env('APP_LOGIN_WITH') == 'email')
+                            @include('auth.partial.email')
+                        @else
+                            @include('auth.partial.username')
+                        @endif
+
                         <fieldset class="form-group position-relative has-icon-left mb-0">
                             <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Username" required>
                             <div class="form-control-position">

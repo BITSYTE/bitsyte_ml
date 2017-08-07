@@ -1,13 +1,11 @@
-<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-    <label for="email" class="col-md-4 control-label">E-Mail </label>
-
-    <div class="col-md-6">
-        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-        @if ($errors->has('email'))
-            <span class="help-block">
+<fieldset class="form-group position-relative has-icon-left mb-0 {{ $errors->has('email') ? ' has-warning' : '' }}">
+    <input type="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your E-mail Address" name='email' value="{{ old('email') }}" required>
+    <div class="form-control-position">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+    </div>
+</fieldset>
+@if ($errors->has('email'))
+    <span class="help-block text-warning">
                 <strong>{{ $errors->first('email') }}</strong>
             </span>
-        @endif
-    </div>
-</div>
+@endif
