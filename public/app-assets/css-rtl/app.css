@@ -4,8 +4,11 @@ html {
 html body {
   height : 100%;
   background-color : #F5F7FA;
-  direction : ltr;
+  direction : rtl;
 }
+
+
+
 html body.fixed-navbar {
   padding-top : 4rem;
 }
@@ -3872,7 +3875,13 @@ select.form-control:not([size]):not([multiple]).form-group-lg select.form-contro
 }
 select.form-control:not([size]):not([multiple]).form-group-lg textarea.form-control, select.form-control:not([size]):not([multiple]).form-group-lg select[multiple].form-control, input.form-control.form-group-lg textarea.form-control, input.form-control.form-group-lg select[multiple].form-control {
   height : auto;
+
 }
+
+textarea{
+direction: ltr;
+}
+
 select.form-control:not([size]):not([multiple]).form-group-lg .form-control-static, input.form-control.form-group-lg .form-control-static {
   height : 3.166667rem;
   min-height : 2.7rem;
