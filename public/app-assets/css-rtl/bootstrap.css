@@ -16,6 +16,7 @@ body {
   margin : 0;
 }
 
+
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display : block;
 }
@@ -167,6 +168,7 @@ legend {
 
 textarea {
   overflow : auto;
+  direction: rtl;
 }
 
 [type='checkbox'], [type='radio'] {

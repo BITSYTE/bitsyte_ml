@@ -2,6 +2,7 @@
 
 
 @section('body')
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/login-register.css')}}">
 
   <body data-open="click" data-menu="horizontal-menu" data-col="1-column" class="horizontal-layout horizontal-menu 1-column  blank-page blank-page">
     <!-- //////////////////////////////////////-->
@@ -48,7 +49,7 @@
                                     <label for="remember-me"> Remember Me</label>
                                 </fieldset>
                             </div>
-                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="{{ url('/recover-password') }}" class="card-link">Forgot Password?</a></div>
+                            <div class="col-md-6 col-xs-12 text-xs-center text-md-left"><a href="{{ url('/recover-password') }}" class="card-link">Forgot Password</a></div>
                         </fieldset>
                         <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="ft-unlock"></i> Login</button>
                     </form>
