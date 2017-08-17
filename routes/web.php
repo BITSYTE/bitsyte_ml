@@ -40,7 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mycelium/order/create',function (){
     require_once('../app/Http/Controllers/Web/Geary.php');
 
-    $gateway_id = '2945';
+    $gateway_id = '69897df7c38067fd628a1158512adae408e33fa6501b1c93e1c093b58efc15ef';
     $gateway_secret = '67VvTot3rSrWXad7cXKprgZryRTZh1H2hgccaneDJbyEKefnc4jWLVTLcqAACY9b';
 
     $price = 13.9;
