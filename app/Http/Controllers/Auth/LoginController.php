@@ -45,7 +45,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('auth.login'); //TODO: se acordo que las vistas tendrian el nombre del metodo
     }
 
     /**
