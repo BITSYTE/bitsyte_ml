@@ -46,8 +46,7 @@ Route::get('/mycelium/order/create',function (){
     $price = 13.9;
     $keychain_id = 0;
 
-    //$geary = new Geary($gateway_id, $gateway_secret);
-    $geary = new Geary();
+    $geary = new Geary($gateway_id, $gateway_secret);
     $order = $geary->create_order($price, $keychain_id);
 
     if ($order->payment_id) {
