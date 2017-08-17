@@ -69,7 +69,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return env('APP_LOGIN_WITH');
+        return env('APP_LOGIN_WITH', 'email');
     }
 
     /**
