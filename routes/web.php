@@ -51,6 +51,6 @@ Route::get('/mycelium/order/create',function (){
 
     if ($order->payment_id) {
         // Redirect to a payment gateway
-        redirect("https://gateway.gear.mycelium.com/pay/{$order->payment_id}");
+        return redirect()->to("https://gateway.gear.mycelium.com/pay/{$order->payment_id}");
     }
 });
