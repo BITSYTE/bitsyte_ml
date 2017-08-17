@@ -40,15 +40,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mycelium/order/create',function (){
     require_once('../app/Http/Controllers/Web/Geary.php');
 
-//    $gateway_id = 'XXXXXXXXX';
-//    $gateway_secret = 'YYYYYYYYY';
     $gateway_id = '2942';
     $gateway_secret = '9csrxTgmqRu1YozonHcto9tP6RvdjSigGv4r1R2GgXskqoEfUb3yvgm534b6kaj8';
 
     $price = 13.9;
     $keychain_id = 0;
 
-    $geary = new Geary($gateway_id, $gateway_secret);
+    //$geary = new Geary($gateway_id, $gateway_secret);
+    $geary = new Geary();
     $order = $geary->create_order($price, $keychain_id);
 
     if ($order->payment_id) {
