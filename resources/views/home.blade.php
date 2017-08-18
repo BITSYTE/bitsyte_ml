@@ -71,34 +71,11 @@
       <div data-menu="menu-container" class="navbar-container main-menu-content container center-layout">
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
-          <li  class=" nav-item"><a href="index.html" class=" nav-link"><i class="ft-home"></i>
-          <span>Dashboard</span></a>
-           
-          </li>
-          <li  class=" nav-item"><a href="#" class=" nav-link"><i class="ft-monitor">
-          </i><span>Wallets</span></a>
-           
-          </li>
-         
-         
-         
-          <li  class="dropdown "><a href="#"  class=" nav-link"><i class="ft-droplet"></i><span>Network</span></a>
-            
-          </li>
-          <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-briefcase"></i><span>Profile</span></a>
-            
-          </li>
-          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-grid"></i><span>Setting</span></a>
-            <ul class="dropdown-menu">
-              <a href="#" data-toggle="dropdown" class="dropdown-item ">User Setting<i class="icon-table2"></i></a>
-                
-              <a href="#"  class="dropdown-item ">Advance Setting<i class="icon-th"></i></a>
-               
-              
-              
-              
-            </ul>
-          </li>
+          <li  class=" nav-item"><a href="index.html" class=" nav-link"><i class="ft-home"></i><span>Dashboard</span></a></li>
+          <li  class=" nav-item"><a href="#" class=" nav-link"><i class="ft-monitor"></i><span>Wallets</span></a></li>
+          <li  class="nav-item "><a href="#"  class=" nav-link"><i class="ft-droplet"></i><span>Network</span></a></li>
+          <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-briefcase"></i><span>Profile</span></a></li>
+          <li  class=" nav-item"><a href="#" class="nav-link"><i class="ft-grid"></i><span>Setting</span></a> </li>
           
         </ul>  <!-- menu-->
       </div>
