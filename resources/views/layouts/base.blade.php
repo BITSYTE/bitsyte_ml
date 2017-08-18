@@ -33,6 +33,8 @@
           <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/horizontal-menu.css')}}">
           <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css')}}">
 
+          
+
           <!-- END Page Level CSS-->
   </head>        
     @show
@@ -46,17 +48,18 @@
         <!-- BEGIN VENDOR JS-->
         <script src="{{ asset('backoffice/app-assets/vendors/js/vendors.js')}}" type="text/javascript"></script>
         <!-- BEGIN VENDOR JS-->
+
         <!-- BEGIN PAGE VENDOR JS-->
         <script type="text/javascript" src="{{ asset('backoffice/app-assets/vendors/js/ui/jquery.sticky.js')}}"></script>
         <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/unslider-min.js')}}" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/fonts/simple-line-icons/style.css')}}">
         <!-- END PAGE VENDOR JS-->
+
         <!-- BEGIN STACK JS-->
         <script src="{{ asset('backoffice/app-assets/js/core/app-menu.js')}}" type="text/javascript"></script>
         <script src="{{ asset('backoffice/app-assets/js/core/app.js')}}" type="text/javascript"></script>
         <!-- END STACK JS-->
-        <!-- BEGIN PAGE LEVEL JS-->
-        <!-- END PAGE LEVEL JS-->
+      
     
   </body>
 </html>
