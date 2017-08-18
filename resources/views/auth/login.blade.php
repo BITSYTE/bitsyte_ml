@@ -7,7 +7,7 @@
     <meta name="description" content="BitSyte">
     <meta name="keywords" content="layout">
     <meta name="author" content="Bitsyte">
-    <title> @yield('title') </title>
+    <title> Login to Bitsyte </title>
 
     @section('styles')
           <link rel="apple-touch-icon" href="{{ asset('backoffice/app-assets/images/ico/apple-icon-120.png')}}">
@@ -35,14 +35,13 @@
 
           <!-- END Page Level CSS-->
          
-    @show
+    
+
   </head>
 
-  <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  blank-page blank-page">
-  
-
-
+@show
 @section('body')
+
 
     <body data-open="click" data-menu="horizontal-menu" data-col="1-column" class="horizontal-layout horizontal-menu 1-column  blank-page blank-page">
     <!-- //////////////////////////////////////-->
@@ -142,6 +141,8 @@
         <script type="text/javascript" src="{{ asset('backoffice/app-assets/js/scripts/ui/breadcrumbs-with-stats.js')}}"></script>
 
         <!-- END PAGE LEVEL JS-->
-    @show
+   
   </body>
 </html>
+
+ @show
