@@ -1,4 +1,6 @@
 
+
+@section('body')
  <body data-open="click" data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns ">
 
    
