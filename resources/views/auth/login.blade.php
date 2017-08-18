@@ -9,7 +9,7 @@
     <meta name="author" content="Bitsyte">
     <title> Login to Bitsyte </title>
 
-    @section('styles')
+  
           <link rel="apple-touch-icon" href="{{ asset('backoffice/app-assets/images/ico/apple-icon-120.png')}}">
           <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backoffice/app-assets/images/ico/favicon.ico')}}">
           <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -39,8 +39,7 @@
 
   </head>
 
-@show
-@section('body')
+
 
 
     <body data-open="click" data-menu="horizontal-menu" data-col="1-column" class="horizontal-layout horizontal-menu 1-column  blank-page blank-page">
@@ -111,9 +110,8 @@
         </div>
     </div>
     <!-- //////////////////////////////////////-->
-@endsection
 
-   @section('scripts')
+ 
         <!-- BEGIN VENDOR JS-->
         <script src="{{ asset('backoffice/app-assets/vendors/js/vendors.js')}}" type="text/javascript"></script>
         <!-- BEGIN VENDOR JS-->
@@ -145,4 +143,3 @@
   </body>
 </html>
 
- @show
