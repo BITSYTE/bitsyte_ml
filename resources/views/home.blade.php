@@ -94,7 +94,7 @@
                 
               <a href="#"  class="dropdown-item ">Advance Setting<i class="icon-th"></i></a>
                
-              </li>
+              
               
               
             </ul>
