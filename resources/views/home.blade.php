@@ -24,7 +24,7 @@
               <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand"><i class="ficon ft-maximize"></i></a></li>
               <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search"></i></a>
                 <div class="search-input">
-                  <input type="text" placeholder="Explore Stack..." class="input">
+                  <input type="text" placeholder="Explore BitSyte..." class="input">
                 </div>
               </li>
             </ul>
@@ -32,13 +32,11 @@
             
             <!-- menu perfil -->
             <ul class="nav navbar-nav float-xs-right">
-            <!--  <li class="dropdown dropdown-language nav-item"><a id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link"><i class="flag-icon flag-icon-gb"></i><span class="selected-language"></span></a>
-                <div aria-labelledby="dropdown-flag" class="dropdown-menu"><a href="#" class="dropdown-item"><i class="flag-icon flag-icon-gb"></i> English</a><a href="#" class="dropdown-item"><i class="flag-icon flag-icon-fr"></i> French</a></div>
-              </li>  -->
               
-              
-              <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="{{ asset('app-assets/images/portrait/small/avatar-s-1.png')}}" alt="avatar"><i></i>
-              </span><span class="user-name"> @yield('user') </span></a>
+              <li class="dropdown dropdown-user nav-item">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
+              <span class="avatar avatar-online"><img src="{{ asset('app-assets/images/portrait/small/avatar-s-1.png')}}" alt="avatar">
+              <i></i>              </span><span class="user-name"> @yield('user') </span></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
                    
@@ -49,7 +47,7 @@
                 <a class="dropdown-item"  href="{{ route('logout') }}"   onclick="event.preventDefault(); 
                 document.getElementById('logout-form').submit();">
                                             <i class="ft-power"></i> Logout</a>
-                                        </a>
+                                        
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -60,9 +58,9 @@
               </li>
             </ul> <!-- fin menu perfil -->
           </div>
-        </div>
-      </div>
-    </nav>
+        </div> <!-- navbar container -->
+      </div> <!-- navbar wrapper -->
+    </nav> <!-- navbar -->
 
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
@@ -258,6 +256,10 @@
       <a href="https://bitsyte.mxcorp.net/" target="_blank" class="text-bold-800 grey darken-2">BitSyte </a>, All rights reserved. </span>
       <span class="float-md-right d-xs-block d-md-inline-block"> MX </span></p>
     </footer>
+
+
+
+
 
     @endsection
 

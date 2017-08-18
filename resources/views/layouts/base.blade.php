@@ -22,7 +22,6 @@
           <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css')}}">
           <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/charts/morris.css')}}">
           <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/unslider.css')}}">
-          <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/weather-icons/climacons.css')}}">
           <!-- END VENDOR CSS-->
           <!-- BEGIN STACK CSS-->
           <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/bootstrap-extended.css')}}">
@@ -35,11 +34,10 @@
           <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css')}}">
 
           <!-- END Page Level CSS-->
-          
+  </head>        
     @show
-  </head>
+  
 
-  <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  blank-page blank-page">
     @section('body')
 
     @show
@@ -58,9 +56,9 @@
         <script src="{{ asset('backoffice/app-assets/js/core/app.js')}}" type="text/javascript"></script>
         <!-- END STACK JS-->
         <!-- BEGIN PAGE LEVEL JS-->
-        <script type="text/javascript" src="{{ asset('backoffice/app-assets/js/scripts/ui/breadcrumbs-with-stats.js')}}"></script>
-
         <!-- END PAGE LEVEL JS-->
-    @show
+    
   </body>
 </html>
+
+@show
