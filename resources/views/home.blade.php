@@ -71,156 +71,36 @@
       <div data-menu="menu-container" class="navbar-container main-menu-content container center-layout">
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
-          <li data-menu="dropdown" class="dropdown nav-item"><a href="index.html" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-home"></i>
+          <li  class=" nav-item"><a href="index.html" class=" nav-link"><i class="ft-home"></i>
           <span>Dashboard</span></a>
-            <ul class="dropdown-menu">
-              <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">eCommerce</a>
-              </li>
-            </ul>
+           
           </li>
-          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-monitor">
-          </i><span>Templates</span></a>
+          <li  class=" nav-item"><a href="#" class=" nav-link"><i class="ft-monitor">
+          </i><span>Wallets</span></a>
+           
+          </li>
+         
+         
+         
+          <li  class="dropdown "><a href="#"  class=" nav-link"><i class="ft-droplet"></i><span>Network</span></a>
+            
+          </li>
+          <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-briefcase"></i><span>Profile</span></a>
+            
+          </li>
+          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-grid"></i><span>Setting</span></a>
             <ul class="dropdown-menu">
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu">
-              <a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Vertical</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Semi Light</a>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Horizontal</a>
+              <a href="#" data-toggle="dropdown" class="dropdown-item ">User Setting<i class="icon-table2"></i></a>
                 
+              <a href="#"  class="dropdown-item ">Advance Setting<i class="icon-th"></i></a>
+               
               </li>
-            </ul>
-          </li>
-         
-         
-         
-          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-droplet"></i><span>UI</span></a>
-            <ul class="dropdown-menu">
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Content</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Grid</a>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Cards</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Bootstrap</a>
-                  </li>
-                 
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Advance Cards</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Statistics</a>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Color Palette</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Primary palette</a>
-                  </li>
-                  
-                  <li class="dropdown-divider"></li>
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Red palette</a>
-                  </li>
-                 
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Icons</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Feather</a>
-                  </li>
-                  
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-briefcase"></i><span>Components</span></a>
-            <ul class="dropdown-menu">
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Bootstrap Components</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Alerts</a>
-                  </li>
-                  <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Buttons</a>
-                    <ul class="dropdown-menu">
-                      <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Basic Buttons</a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Extra Components</a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Sweet Alerts</a>
-                  </li>
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Forms</a>
-                <ul class="dropdown-menu">
-                  <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Form Elements<i class="icon-wpforms"></i></a>
-                    <ul class="dropdown-menu">
-                      <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Form Inputs</a>
-                      </li>
-                    
-                    </ul>
-                  </li>
-                  <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Form Layouts<i class="icon-wpforms"></i></a>
-                    <ul class="dropdown-menu">
-                      <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Basic Forms</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Form Wizard<i class="icon-paste"></i></a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-grid"></i><span>Tables</span></a>
-            <ul class="dropdown-menu">
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Bootstrap Tables<i class="icon-table2"></i></a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Basic Tables</a>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">DataTables<i class="icon-th"></i></a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Basic Initialisation</a>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">DataTables Ext.<i class="icon-th-large"></i></a>
-                <ul class="dropdown-menu">
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">AutoFill</a>
-                  </li>
-                  <li data-menu="dropdown-submenu" class="dropdown dropdown-submenu"><a href="#" data-toggle="dropdown" class="dropdown-item dropdown-toggle">Buttons</a>
-                    <ul class="dropdown-menu">
-                      <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Basic Buttons</a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                  <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Column Reorder</a>
-                  </li>
-                  
-                </ul>
-              </li>
-              <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">jsGrid<i class="icon-table"></i></a>
-              </li>
+              
+              
             </ul>
           </li>
           
-        </ul>
+        </ul>  <!-- menu-->
       </div>
       <!-- /horizontal menu content-->
     </div>
