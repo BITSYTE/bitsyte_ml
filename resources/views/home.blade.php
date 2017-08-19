@@ -6,7 +6,7 @@
  <body data-open="click" data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns ">
 
    
-    <nav class="header-navbar navbar navbar-with-menu navbar-static-top navbar-light navbar-border navbar-brand-center bg-gradient-x-grey-blue">
+    <nav class="header-navbar navbar navbar-with-menu navbar-static-top  navbar-border navbar-brand-center bg-blue.bg-darken-4">
       <div class="navbar-wrapper">
         <div class="navbar-header">
           <ul class="nav navbar-nav">
@@ -67,7 +67,7 @@
 
     <!-- Horizontal navigation-->
     <div role="navigation" data-menu="menu-wrapper" 
-    class="header-navbar navbar navbar-horizontal navbar-fixed navbar-light bg-gradient-x-grey-blue navbar-without-dd-arrow navbar-bordered navbar-shadow menu-border navbar-fixed-bottom">
+    class="header-navbar navbar navbar-horizontal navbar-fixed navbar-light navbar-without-dd-arrow navbar-bordered navbar-shadow menu-border ">
       <!-- Horizontal menu content-->
       <div data-menu="menu-container" class="navbar-container main-menu-content container center-layout">
         <!-- include ../../../includes/mixins-->
@@ -109,7 +109,7 @@
     </div>
 
 
-    <footer class="footer footer-static footer-light navbar-shadow ">
+    <footer class="footer footer-static footer-light navbar-shadow navbar-fixed-bottom ">
       <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 
       <a href="https://bitsyte.mxcorp.net/" target="_blank" class="text-bold-800 grey darken-2">BitSyte </a>, All rights reserved. </span>
       <span class="float-md-right d-xs-block d-md-inline-block"> MX </span></p>
