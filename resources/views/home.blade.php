@@ -36,7 +36,7 @@
               <li class="dropdown dropdown-user nav-item">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
               <span class="avatar avatar-online"><img src="{{ asset('backoffice/app-assets/images/portrait/small/avatar-s-1.png')}}" alt="avatar">
-              <i></i>              </span><span class="user-name"> {{ auth()->user()->name }} </span></a>
+              <i></i>              </span><span class="user-name"> User </span></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
                    
@@ -88,7 +88,7 @@
                
                 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12 ">
             <div class="panel panel-default">
