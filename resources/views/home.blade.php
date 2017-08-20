@@ -6,7 +6,7 @@
  <body data-open="click" data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns ">
 
    
-    <nav class="header-navbar navbar navbar-with-menu navbar-static-top  navbar-border navbar-brand-center bg-blue bg-darken-4">
+    <nav class="header-navbar navbar navbar-with-menu navbar-static-top navbar-dark bg-gradient-x-grey-blue navbar-border navbar-brand-center">
       <div class="navbar-wrapper">
         <div class="navbar-header">
           <ul class="nav navbar-nav">
