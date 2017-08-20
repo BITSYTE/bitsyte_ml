@@ -16,7 +16,7 @@
             <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a></li>
           </ul>
         </div>
-        <div class="navbar-container container center-layout">
+        <div class="navbar-container content container-fluid">
           <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
             <ul class="nav navbar-nav">
               <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu"></i></a></li>
