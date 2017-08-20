@@ -65,11 +65,9 @@
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 
-    <!-- Horizontal navigation-->
-    <div role="navigation" data-menu="menu-wrapper" 
-    class="header-navbar navbar navbar-horizontal navbar-fixed navbar-light navbar-without-dd-arrow navbar-bordered navbar-shadow menu-border ">
+    <div role="navigation" data-menu="menu-wrapper" class="header-navbar navbar navbar-horizontal navbar-fixed navbar-light navbar-without-dd-arrow navbar-shadow menu-border">
       <!-- Horizontal menu content-->
-      <div data-menu="menu-container" class="navbar-container main-menu-content container center-layout">
+      <div data-menu="menu-container" class="navbar-container main-menu-content">
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
           <li  class=" nav-item"><a href="index.html" class=" nav-link"><i class="ft-home"></i><span>Dashboard</span></a></li>
