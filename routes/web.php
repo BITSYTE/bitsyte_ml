@@ -34,7 +34,9 @@ Route::group(['namespace' => 'Auth'], function () {
     $this->post('password/reset', 'ResetPasswordController@reset'); //TODO: de preferencia todas las rutas deben tener nombre
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['namespace' => 'Web'], function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+});
 
 //testing route
 Route::get('/mycelium/order/create',function (){
