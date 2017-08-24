@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -83,5 +83,10 @@ class LoginController extends Controller
             'email' => 'required|string|email',
             'username' => 'required|string|min:4|max:30',
         ];
+    }
+
+    public function show()
+    {
+
     }
 }
