@@ -50,7 +50,7 @@
 <body data-open="hover" data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns   menu-expanded">
 
 <!-- navbar-fixed-top-->
-<nav class="header-navbar navbar navbar-with-menu navbar-static-top navbar-dark bg-gradient-x-grey-blue navbar-border navbar-brand-center">
+<nav class="header-navbar navbar navbar-with-menu navbar-static-top navbar-dark bg-blue bg-gradient-x-grey-blue navbar-border navbar-brand-center">
     <div class="navbar-wrapper">
         <div class="navbar-header">
             <ul class="nav navbar-nav">
@@ -78,13 +78,13 @@
 
                     <li class="dropdown dropdown-user nav-item">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
-                            <span class="avatar avatar-online"><img src="{{ asset('backoffice/app-assets/images/portrait/small/avatar-s-1.png')}}" alt="avatar"><i></i></span><span class="user-name">Product Name</span>
+                            <span class="avatar avatar-online">
+                                <img src="{{ asset('backoffice/app-assets/images/portrait/small/avatar-s-1.png')}}" alt="avatar"><i></i>
+                            </span>
+                            <span class="user-name">{{ auth()->user()[env('APP_LOGIN_WITH')] }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
-                            <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>
-                            <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>
-                            <a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>
+                            <a href="#" class="dropdown-item"><i class="ft-user"></i>Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item"  href="{{ route('logout') }}"   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -106,7 +106,7 @@
 
 
 <!-- Horizontal navigation-->
-<div role="navigation" data-menu="menu-wrapper" class="header-navbar navbar navbar-horizontal navbar-fixed navbar-light navbar-without-dd-arrow navbar-shadow menu-border">
+<div role="navigation" data-menu="menu-wrapper" class="header-navbar navbar navbar-horizontal navbar-fixed navbar-light  navbar-without-dd-arrow navbar-shadow menu-border">
     <!-- Horizontal menu content-->
     <div data-menu="menu-container" class="navbar-container main-menu-content">
         <!-- include ../../../includes/mixins-->
