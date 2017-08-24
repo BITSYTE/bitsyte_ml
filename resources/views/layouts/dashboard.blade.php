@@ -32,8 +32,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/bootstrap-extended.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/app.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/colors.css')}}">
-    {{--<link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/custom.css')}}">--}}
-    <!-- END STACK CSS-->
+{{--<link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/custom.css')}}">--}}
+<!-- END STACK CSS-->
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/horizontal-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css')}}">
