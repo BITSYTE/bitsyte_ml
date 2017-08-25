@@ -8,9 +8,6 @@
     <meta name="keywords" content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Dashboard eCommerce - Stack Responsive Bootstrap 4 Admin Template</title>
-    <link rel="apple-touch-icon" href="{{ asset('backoffice/app-assets/images/ico/apple-icon-120.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backoffice/app-assets/images/ico/favicon.ico')}}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
     <link rel="apple-touch-icon" href="{{ asset('backoffice/app-assets/images/ico/apple-icon-120.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backoffice/app-assets/images/ico/favicon.ico')}}">
@@ -22,8 +19,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/fonts/flag-icon-css/css/flag-icon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/pace.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/unslider.css')}}">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/weather-icons/climacons.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/meteocons/style.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/charts/morris.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css')}}">
 
@@ -37,14 +32,10 @@
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/horizontal-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css')}}">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/simple-line-icons/style.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/timeline.css">
 
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/style.css') }}">
     <!-- END Custom CSS-->
     @yield('head')
 </head>
@@ -56,7 +47,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav">
                 <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
-                <li class="nav-item"><a href="index.html" class="navbar-brand"><img alt="stack admin logo" src="{{ asset('backoffice/app-assets/images/logo/stack-logo.png')}}" class="brand-logo">
+                <li class="nav-item"><a href="{{ route('dashboard') }}" class="navbar-brand"><img alt="stack admin logo" src="{{ asset('backoffice/app-assets/images/logo/stack-logo-light.png')}}" class="brand-logo">
                         <h2 class="brand-text">Stack</h2></a></li>
                 <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a></li>
             </ul>
@@ -112,11 +103,11 @@
     <div data-menu="menu-container" class="navbar-container main-menu-content">
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
-            <li  class=" nav-item"><a href="index.html" class=" nav-link"><i class="ft-home"></i><span>Dashboard</span></a></li>
-            <li  class=" nav-item"><a href="#" class=" nav-link"><i class="ft-monitor"></i><span>Wallets</span></a></li>
-            <li  class="nav-item "><a href="#"  class=" nav-link"><i class="ft-droplet"></i><span>Network</span></a></li>
-            <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-briefcase"></i><span>Profile</span></a></li>
-            <li  class=" nav-item"><a href="#" class="nav-link"><i class="ft-grid"></i><span>Setting</span></a> </li>
+            <li  class=" nav-item"><a href="#" class=" nav-link"><i class="ft-home"></i><span>Dashboard</span></a></li>
+            <li  class=" nav-item"><a href="#" class=" nav-link"><i class="icon-wallet"></i><span>Wallets</span></a></li>
+            <li  class="nav-item "><a href="#"  class=" nav-link"><i class="fa fa-sitemap"></i><span>Networks</span></a></li>
+            <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-user"></i><span>Profile</span></a></li>
+            <li  class=" nav-item"><a href="#" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a> </li>
         </ul>
         <!-- menu-->
     </div>
@@ -132,7 +123,7 @@
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-xs-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a>
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                             </li>
                             <li class="breadcrumb-item"><a href="#">Page headers</a>
                             </li>
@@ -165,8 +156,13 @@
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 
-<footer class="footer footer-static footer-light navbar-shadow">
-    <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">PIXINVENT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block hidden-md-down">Hand-crafted & Made with <i class="ft-heart pink"></i></span></p>
+<footer class="footer footer-static footer-light navbar-shadow ">
+    <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
+        <span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017
+            <a href="#" target="_blank" class="text-bold-800 grey darken-2">Bitsyte </a>, All rights reserved.
+        </span>
+        <span class="float-md-right d-xs-block d-md-inline-block hidden-md-down">... <i class="ft-heart pink"></i></span>
+    </p>
 </footer>
 
 <!-- BEGIN VENDOR JS-->
@@ -176,10 +172,7 @@
 <!-- BEGIN PAGE VENDOR JS-->
 <script type="text/javascript" src="{{ asset('backoffice/app-assets/vendors/js/ui/jquery.sticky.js')}}"></script>
 <script type="text/javascript" src="{{ asset('backoffice/app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
-<script src="../../../app-assets/vendors/js/charts/raphael-min.js" type="text/javascript"></script>
-<script src="../../../app-assets/vendors/js/charts/morris.min.js" type="text/javascript"></script>
 <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/unslider-min.js')}}" type="text/javascript"></script>
-<script src="../../../app-assets/vendors/js/timeline/horizontal-timeline.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/fonts/simple-line-icons/style.css')}}">
 <!-- END PAGE VENDOR JS-->
 
@@ -189,7 +182,6 @@
 <!-- END STACK JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 <script type="text/javascript" src="{{ asset('backoffice/app-assets/js/scripts/ui/breadcrumbs-with-stats.js') }}"></script>
-<script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
 @yield('scripts')
 </body>
