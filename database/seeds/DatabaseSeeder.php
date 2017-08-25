@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         factory(App\Models\User::class)->create([
             'username' => 'mxcorp',
-            'email' => 'servirse@mxcorp.net',
+            'email' => 'servers@mxcorp.net',
             'password' => 'bitsyte',
         ]);
 

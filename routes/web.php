@@ -40,19 +40,19 @@ Route::group(['namespace' => 'Web'], function () {
 
 //testing route
 Route::get('/mycelium/order/create',function (){
-    require_once('../app/Http/Controllers/Web/Geary.php');
-
-    $gateway_id = '69897df7c38067fd628a1158512adae408e33fa6501b1c93e1c093b58efc15ef';
-    $gateway_secret = '67VvTot3rSrWXad7cXKprgZryRTZh1H2hgccaneDJbyEKefnc4jWLVTLcqAACY9b';
-
-    $price = 13.9;
-    $keychain_id = 0;
-
-    $geary = new Geary($gateway_id, $gateway_secret);
-    $order = $geary->create_order($price, $keychain_id);
-
-    if ($order->payment_id) {
-        // Redirect to a payment gateway
-        return redirect()->to("https://gateway.gear.mycelium.com/pay/{$order->payment_id}");
-    }
+//    require_once('../app/Http/Controllers/Web/Geary.php');
+//
+//    $gateway_id = '69897df7c38067fd628a1158512adae408e33fa6501b1c93e1c093b58efc15ef';
+//    $gateway_secret = '67VvTot3rSrWXad7cXKprgZryRTZh1H2hgccaneDJbyEKefnc4jWLVTLcqAACY9b';
+//
+//    $price = 13.9;
+//    $keychain_id = 0;
+//
+//    $geary = new Geary($gateway_id, $gateway_secret);
+//    $order = $geary->create_order($price, $keychain_id);
+//
+//    if ($order->payment_id) {
+//        // Redirect to a payment gateway
+//        return redirect()->to("https://gateway.gear.mycelium.com/pay/{$order->payment_id}");
+//    }
 });

@@ -16,8 +16,8 @@ class Geary {
     const CONNECT_TIMEOUT = 60;
     const API_URL = 'https://gateway.gear.mycelium.com';
 
-    private $gateway_id = '2942';
-    private $gateway_secret = '9csrxTgmqRu1YozonHcto9tP6RvdjSigGv4r1R2GgXskqoEfUb3yvgm534b6kaj8';
+    private $gateway_id = '';
+    private $gateway_secret = '';
 
     /**
      * @param string $gateway_id       Your API key obtained from https://admin.gear.mycelium.com/gateways
