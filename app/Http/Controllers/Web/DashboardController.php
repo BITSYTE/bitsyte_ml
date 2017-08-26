@@ -15,7 +15,10 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('backoffice.dashboard');
+        $breadcrumbs[0]['name']='dashboard';
+        $breadcrumbs[0]['route']='dashboard';
+
+        return view('dashboard.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 
 }

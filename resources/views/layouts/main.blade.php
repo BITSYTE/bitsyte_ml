@@ -104,7 +104,7 @@
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
             <li  class=" nav-item"><a href="#" class=" nav-link"><i class="ft-home"></i><span>Dashboard</span></a></li>
-            <li  class=" nav-item"><a href="#" class=" nav-link"><i class="icon-wallet"></i><span>Wallets</span></a></li>
+            <li  class=" nav-item"><a href="{{ route('wallet') }}" class=" nav-link"><i class="icon-wallet"></i><span>Wallets</span></a></li>
             <li  class="nav-item "><a href="#"  class=" nav-link"><i class="fa fa-sitemap"></i><span>Networks</span></a></li>
             <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-user"></i><span>Profile</span></a></li>
             <li  class=" nav-item"><a href="#" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a> </li>
@@ -117,35 +117,7 @@
 
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
-        <div class="content-header row">
-            <div class="content-header-left col-md-6 col-xs-12 mb-2">
-                <h3 class="content-header-title mb-0">Breadcrumbs with stats</h3>
-                <div class="row breadcrumbs-top">
-                    <div class="breadcrumb-wrapper col-xs-12">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#">Page headers</a>
-                            </li>
-                            <li class="breadcrumb-item active">Breadcrumbs with stats
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <div class="content-header-right col-md-6 col-xs-12">
-                <div class="media width-250 float-xs-right">
-                    <div class="media-left media-middle">
-                        <div id="sp-bar-total-sales"></div>
-                    </div>
-                    <div class="media-body media-right text-xs-right">
-                        <h3 class="m-0">$5,668</h3><span class="text-muted">Sales</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content-header row">
-        </div>
+        @include('layouts.partial.breadcrumbs',['breadcrumbs'=>$breadcrumbs])
         <div class="content-body"><!-- Stats -->
 
             @yield('content')
