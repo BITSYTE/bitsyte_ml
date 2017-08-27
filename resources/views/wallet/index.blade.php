@@ -15,48 +15,51 @@
             </div>
             <div class="card-body px-1">
                 <div id="recent-buyers" class="list-group height-300 position-relative">
-                    <a href="#" class="list-group-item list-group-item-action media no-border">
-                        <div class="media-left">
-                            <span class="avatar avatar-md avatar-online"><img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-7.png" alt="Generic placeholder image">
-                            <i></i>
-                            </span>
+                    <a href="#" class="list-group-item list-group-item-action media no-border list-wallet no-padding" >
+                        <div class="media-left fonticon-container-small">
+                            <div class="fonticon-wrap2">
+                                <i class="icon-wallet"></i>
+                            </div>
                         </div>
-                        <div class="media-body">
+                        {{--<div class="media-left">
+                            <span class="avatar avatar-md avatar-online">
+                                <img class="media-object rounded-circle" src="{{ asset('backoffice/images/paquete oro.png') }}" alt="Generic placeholder image">
+                            --}}{{--<i></i>--}}{{--
+                            </span>
+                        </div>--}}
+                        <div class="media-middle-align">
                             <h6 class="list-group-item-heading">Kristopher Candy <span class="font-medium-4 float-xs-right pt-1">$1,021</span></h6>
-                            <p class="list-group-item-text"><span class="tag tag-primary">Electronics</span><span class="tag tag-warning ml-1">Decor</span></p>
+                            {{--<p class="list-group-item-text"><span class="tag tag-primary">Electronics</span><span class="tag tag-warning ml-1">Decor</span></p>--}}
                         </div>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action media no-border">
-                        <div class="media-left">
-                            <span class="avatar avatar-md avatar-away"><img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-8.png" alt="Generic placeholder image">
-                            <i></i>
-                            </span>
+                    <a href="#" class="list-group-item list-group-item-action media no-border list-wallet no-padding" >
+                        <div class="media-left fonticon-container-small">
+                            <div class="fonticon-wrap2">
+                                <i class="icon-wallet"></i>
+                            </div>
                         </div>
-                        <div class="media-body">
+                        <div class="media-middle-align">
                             <h6 class="list-group-item-heading">Lawrence Fowler <span class="font-medium-4 float-xs-right pt-1">$2,021</span></h6>
-                            <p class="list-group-item-text"><span class="tag tag-danger">Appliances</span></p>
                         </div>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action media no-border">
-                        <div class="media-left">
-                            <span class="avatar avatar-md avatar-busy"><img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-9.png" alt="Generic placeholder image">
-                            <i></i>
-                            </span>
+                    <a href="#" class="list-group-item list-group-item-action media no-border list-wallet no-padding" >
+                        <div class="media-left fonticon-container-small">
+                            <div class="fonticon-wrap2">
+                                <i class="icon-wallet"></i>
+                            </div>
                         </div>
-                        <div class="media-body">
+                        <div class="media-middle-align">
                             <h6 class="list-group-item-heading">Linda Olson <span class="font-medium-4 float-xs-right pt-1">$1,112</span></h6>
-                            <p class="list-group-item-text"><span class="tag tag-primary">Electronics</span> <span class="tag tag-success ml-1">Office</span></p>
                         </div>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action media no-border">
-                        <div class="media-left">
-                            <span class="avatar avatar-md avatar-online"><img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-10.png" alt="Generic placeholder image">
-                            <i></i>
-                            </span>
+                    <a href="#" class="list-group-item list-group-item-action media no-border list-wallet no-padding">
+                        <div class="media-left fonticon-container-small">
+                            <div class="fonticon-wrap2">
+                                <i class="icon-wallet"></i>
+                            </div>
                         </div>
-                        <div class="media-body">
+                        <div class="media-middle-align">
                             <h6 class="list-group-item-heading">Roy Clark <span class="font-medium-4 float-xs-right pt-1">$2,815</span></h6>
-                            <p class="list-group-item-text"><span class="tag tag-warning">Decor</span> <span class="tag tag-danger ml-1">Appliances</span></p>
                         </div>
                     </a>
                 </div>
@@ -66,7 +69,7 @@
     <div id="description" class=" col-sm-8 ">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Description</h4>
+                <h4 class="card-title">Summary</h4>
                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
