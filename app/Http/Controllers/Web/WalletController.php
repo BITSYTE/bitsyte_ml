@@ -14,7 +14,7 @@ class WalletController extends Controller
         $breadcrumbs[0]['route']='wallet';
         $breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';
-
-        return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
+        $title= "Wallets";
+        return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs, 'title'=>$title]);
     }
 }

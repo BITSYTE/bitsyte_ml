@@ -12,14 +12,15 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 
 
 .list-wallet{
-    height: 50px !important;
+    /*height: 50px !important;*/
+    width: 100%;
     margin-bottom: 5px;
 }
 
 .fonticon-container-small > .fonticon-wrap2 {
     float: left;
-    width: 40px;
-    height: 40px;
+    width: 10px;
+    height: 10px;
     line-height: 4.8rem;
     text-align: center;
     border-radius: 0.1875rem;
