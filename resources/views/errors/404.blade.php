@@ -1,7 +1,7 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
 
-@section('body')
+@section('content')
 
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     <div class="app-content content container-fluid">
