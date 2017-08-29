@@ -103,7 +103,7 @@
     <div data-menu="menu-container" class="navbar-container main-menu-content">
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
-            <li  class=" nav-item"><a href="#" class=" nav-link"><i class="ft-home"></i><span>Dashboard</span></a></li>
+            <li  class=" nav-item"><a href="{{ route('dashboard') }}" class=" nav-link"><i class="ft-home"></i><span>Dashboard</span></a></li>
             <li  class=" nav-item"><a href="{{ route('wallet') }}" class=" nav-link"><i class="icon-wallet"></i><span>Wallets</span></a></li>
             <li  class="nav-item "><a href="#"  class=" nav-link"><i class="fa fa-sitemap"></i><span>Networks</span></a></li>
             <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-user"></i><span>Profile</span></a></li>
@@ -117,7 +117,7 @@
 
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
-        @include('layouts.partial.breadcrumbs',['breadcrumbs'=>$breadcrumbs])
+        @yield('breadcrumbs')
         <div class="content-body"><!-- Stats -->
 
             @yield('content')
