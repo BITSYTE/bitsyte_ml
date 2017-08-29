@@ -37,7 +37,7 @@ Route::group(['namespace' => 'Auth'], function () {
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/Home', 'DashboardController@index')->name('Home');
 
-    Route::get('/wallet', 'WalletController@index')->name('wallet');
+    Route::get('/wallet', 'WalletsController@index')->name('wallet');
 });
 
 //testing route

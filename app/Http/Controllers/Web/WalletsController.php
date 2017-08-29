@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class WalletController extends Controller
+class WalletsController extends Controller
 {
 
     public function index()
@@ -14,7 +14,11 @@ class WalletController extends Controller
         $breadcrumbs[0]['route']='wallet';
         $breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';
-        $title= "Wallets";
-        return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs, 'title'=>$title]);
+
+        return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
+
+
+
+
 }
