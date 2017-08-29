@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-@endsection()
+@endsection
 
 @section('content')
 <div class="row match-height">
@@ -41,7 +41,7 @@
             </div>
             <div class="card-body px-1">
                 <div id="recent-buyers" class="list-group height-300 position-relative">
-                    <a href="#" class="list-group-item list-group-item-action media no-border " >
+                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border " >
                         <div class="media-left ">
                             <div class="">
                                 <i class="icon-wallet"></i>
@@ -60,7 +60,7 @@
                             {{--<p class="list-group-item-text"><span class="tag tag-primary">Electronics</span><span class="tag tag-warning ml-1">Decor</span></p>--}}
                         </div>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action media no-border " >
+                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border " >
                         <div class="media-left ">
                             <div class="">
                                 <i class="icon-wallet"></i>
@@ -72,19 +72,20 @@
                             </h6>
                         </div>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action media no-border ">
+                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border ">
                         <div class="media-left ">
-                            <div class="">
+                            <div class="ptopwallet">
                                 <i class="icon-wallet"></i>
                             </div>
                         </div>
-                        <div class="media-middle-align">
-                            <h6 class="list-group-item-heading">
-                                <span class="font-medium-3">Linda Olson </span><span class="font-medium-4 ">$1,112</span>
+                        <div class="media-middle-align" style="width: 100%!important;">
+                            <h6 class="list-group-item wallets">
+                                <span class="font-medium-3">Linda Olson </span>
                             </h6>
+                            <span class="font-medium-4 saldo">$1,112</span>
                         </div>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action media no-border ">
+                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border ">
                         <div class="media-left ">
                             <div class="">
                                 <i class="icon-wallet"></i>

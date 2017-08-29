@@ -41,3 +41,19 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     display: table-cell;
     vertical-align: middle;
 }
+
+.saldo{
+    width: 40%!important;
+    float: right;
+    text-align: right;
+}
+
+.wallets{
+    width: 60%!important;
+    float: left;
+    padding: 5px;
+}
+
+.ptopwallet{
+    padding-top: 7px;
+}
