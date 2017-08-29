@@ -72,17 +72,15 @@
                             </h6>
                         </div>
                     </a>
+
                     <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border ">
                         <div class="media-left ">
-                            <div class="ptopwallet">
+                            <div class="">
                                 <i class="icon-wallet"></i>
                             </div>
                         </div>
-                        <div class="media-middle-align" style="width: 100%!important;">
-                            <h6 class="list-group-item wallets">
-                                <span class="font-medium-3">Linda Olson </span>
-                            </h6>
-                            <span class="font-medium-4 saldo">$1,112</span>
+                        <div class="media-middle-align">
+                            <h6 class="list-group-item-heading">Roy Clark <span class="font-medium-4 ">$2,815</span></h6>
                         </div>
                     </a>
                     <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border ">
@@ -95,6 +93,7 @@
                             <h6 class="list-group-item-heading">Roy Clark <span class="font-medium-4 ">$2,815</span></h6>
                         </div>
                     </a>
+
                 </div>
             </div>
         </div>
