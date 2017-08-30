@@ -10,8 +10,8 @@ class WalletsController extends Controller
 
     public function index()
     {
-        $breadcrumbs[0]['name']='wallet';
-        $breadcrumbs[0]['route']='wallet';
+        $breadcrumbs[0]['name']='wallets';
+        $breadcrumbs[0]['route']='wallets';
         $breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';
 
@@ -20,10 +20,10 @@ class WalletsController extends Controller
 
     public function show()
     {
-        $breadcrumbs[0]['name']='wallet';
-        $breadcrumbs[0]['route']='';
+        $breadcrumbs[0]['name']='wallets';
+        $breadcrumbs[0]['route']='wallets';
         $breadcrumbs[1]['name']='details';
-
+        $breadcrumbs[1]['route']='details';
 
         return view('wallet.show')->with(['breadcrumbs'=>$breadcrumbs]);
     }

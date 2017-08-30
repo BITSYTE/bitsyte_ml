@@ -104,7 +104,7 @@
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
             <li  class=" nav-item"><a href="{{ route('Home') }}" class=" nav-link"><i class="ft-home"></i><span>Home</span></a></li>
-            <li  class=" nav-item"><a href="{{ route('wallet') }}" class=" nav-link"><i class="icon-wallet"></i><span>Wallets</span></a></li>
+            <li  class=" nav-item"><a href="{{ route('Wallets') }}" class=" nav-link"><i class="icon-wallet"></i><span>Wallets</span></a></li>
             <li  class="nav-item "><a href="#"  class=" nav-link"><i class="fa fa-sitemap"></i><span>Networks</span></a></li>
             <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-user"></i><span>Profile</span></a></li>
             <li  class=" nav-item"><a href="#" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a> </li>
@@ -128,7 +128,7 @@
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 
-<footer class="footer footer-static footer-light navbar-shadow " style="position: fixed; height: 30px; bottom: 0; width: 100%;">
+<footer class="footer navbar-fixed-bottom footer-light navbar-shadow " >
     <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
         <span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017
             <a href="#" target="_blank" class="text-bold-800 grey darken-2">Bitsyte </a>, All rights reserved.
