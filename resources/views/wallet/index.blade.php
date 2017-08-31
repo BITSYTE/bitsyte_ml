@@ -7,7 +7,7 @@
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-xs-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('Home') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         @include('layouts.partial.breadcrumbs')
                     </ol>
                 </div>
@@ -41,26 +41,19 @@
             </div>
             <div class="card-body px-1">
                 <div id="recent-buyers" class="list-group height-300 position-relative">
-                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border " >
+                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border " >
                         <div class="media-left ">
                             <div class="">
                                 <i class="icon-wallet"></i>
                             </div>
                         </div>
-                        {{--<div class="media-left">
-                            <span class="avatar avatar-md avatar-online">
-                                <img class="media-object rounded-circle" src="{{ asset('backoffice/images/paquete oro.png') }}" alt="Generic placeholder image">
-                            --}}{{--<i></i>--}}{{--
-                            </span>
-                        </div>--}}
                         <div class="media-middle-align">
                             <h6 class="list-group-item-heading">
                                 <span class="font-medium-3">Kristopher Candy</span> <span class="font-medium-4 ">$1,021</span>
                             </h6>
-                            {{--<p class="list-group-item-text"><span class="tag tag-primary">Electronics</span><span class="tag tag-warning ml-1">Decor</span></p>--}}
                         </div>
                     </a>
-                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border " >
+                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border " >
                         <div class="media-left ">
                             <div class="">
                                 <i class="icon-wallet"></i>
@@ -73,7 +66,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border ">
+                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border ">
                         <div class="media-left ">
                             <div class="">
                                 <i class="icon-wallet"></i>
@@ -83,7 +76,7 @@
                             <h6 class="list-group-item-heading">Roy Clark <span class="font-medium-4 ">$2,815</span></h6>
                         </div>
                     </a>
-                    <a href="{{ route('wallet.show') }}" class="list-group-item list-group-item-action media no-border ">
+                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border ">
                         <div class="media-left ">
                             <div class="">
                                 <i class="icon-wallet"></i>

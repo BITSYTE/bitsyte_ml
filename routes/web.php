@@ -36,16 +36,18 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'Web'], function () {
 
-    Route::get('/Home', 'DashboardController@index')->name('Home');
+    Route::get('/home', 'DashboardController@index')->name('home');
 
-    Route::get('/wallets', 'WalletsController@index')->name('Wallets');
-    Route::get('/wallet/show', 'WalletsController@show')->name('wallet.show');
-
-    Route::get('/users/new', 'UsersControllers@new')->name('user.new');
+    Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+        Route::get('/new', 'UsersControllers@new')->name('new');
+        Route::post('/store', 'UsersControllers@store')->name('new');
+    });
 
     Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
-        Route::get('/', 'WalletController@index')->name('index');
+        Route::get('/', 'WalletsController@index')->name('index');
+        Route::get('/wallet/show', 'WalletsController@show')->name('show');
     });
+
 });
 
 

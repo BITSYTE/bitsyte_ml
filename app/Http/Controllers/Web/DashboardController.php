@@ -10,8 +10,8 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $breadcrumbs[0]['name']='dashboard';
-        $breadcrumbs[0]['route']='dashboard';
+        $breadcrumbs[0]['name']='home';
+        $breadcrumbs[0]['route']='home';
 
         return view('dashboard.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
