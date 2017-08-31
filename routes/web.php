@@ -40,7 +40,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
         Route::get('/new', 'UsersControllers@new')->name('new');
-        Route::post('/store', 'UsersControllers@store')->name('new');
+        Route::post('/store', 'UsersControllers@store')->name('store');
     });
 
     Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
