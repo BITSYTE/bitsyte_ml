@@ -32,18 +32,17 @@
         <div class="row match-height">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title" id="basic-layout-colored-form-control">User Profile</h4>
+                    {{--<div class="card-header">
                         <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
-                                {{--<li><a data-action="collapse"><i class="ft-minus"></i></a></li>--}}
-                                {{--<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>--}}
+                                --}}{{--<li><a data-action="collapse"><i class="ft-minus"></i></a></li>--}}{{--
+                                --}}{{--<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>--}}{{--
                                 <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                {{--<li><a data-action="close"><i class="ft-x"></i></a></li>--}}
+                                --}}{{--<li><a data-action="close"><i class="ft-x"></i></a></li>--}}{{--
                             </ul>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="card-body collapse in">
                         <div class="card-block">
                             <form class="form">
@@ -53,15 +52,15 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="userinput1">Fist Name</label>
-                                                <input type="text" id="userinput1" class="form-control border-primary"
-                                                       placeholder="Name" name="name">
+                                                <input type="text" id="first_name" class="form-control border-primary"
+                                                       placeholder="Name" name="first_name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="userinput2">Last Name</label>
-                                                <input type="text" id="userinput2" class="form-control border-primary"
-                                                       placeholder="Company" name="company">
+                                                <input type="text" id="last_name" class="form-control border-primary"
+                                                       placeholder="Last Name" name="last_name">
                                             </div>
                                         </div>
                                     </div>
@@ -69,43 +68,28 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="userinput3">Username</label>
-                                                <input type="text" id="userinput3" class="form-control border-primary"
+                                                <input type="text" id="username" class="form-control border-primary"
                                                        placeholder="Username" name="username">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="userinput4">Nick Name</label>
-                                                <input type="text" id="userinput4" class="form-control border-primary"
-                                                       placeholder="Nick Name" name="nickname">
+                                                <label for="issueinput4">Birthday</label>
+                                                <input type="date" id="Birthday" class="form-control" name="Birthday" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Birthday">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <h4 class="form-section"><i class="ft-mail"></i> Contact Info & Bio</h4>
+                                    <h4 class="form-section"><i class="ft-mail"></i> Contact Info </h4>
 
                                     <div class="form-group">
                                         <label for="userinput5">Email</label>
-                                        <input class="form-control border-primary" type="email" placeholder="email"
-                                               id="userinput5">
+                                        <input class="form-control border-primary" type="email" placeholder="email" id="email">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="userinput6">Website</label>
-                                        <input class="form-control border-primary" type="url" placeholder="http://"
-                                               id="userinput6">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Contact Number</label>
-                                        <input class="form-control border-primary" id="userinput7" type="tel"
-                                               placeholder="Contact Number">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="userinput8">Bio</label>
-                                        <textarea id="userinput8" rows="5" class="form-control border-primary"
-                                                  name="bio" placeholder="Bio"></textarea>
+                                        <label for="userinput6">Password</label>
+                                        <input class="form-control border-primary" type="password" placeholder="password" id="password">
                                     </div>
 
                                 </div>

@@ -27,8 +27,6 @@
 @endsection
 
 @section('content')
-
-
     <div class="row match-height">
         <div class="col-xl-4 col-lg-12">
             <div class="card">
