@@ -68,12 +68,24 @@
                                                                 <div class="carousel-inner" role="listbox">
                                                                     <div class="carousel-item active">
                                                                         <img src="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}" alt="First slide">
+                                                                        <div class="carousel-caption">
+                                                                            <h3>Package Gold</h3>
+                                                                            <p>Price $1000.</p>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="carousel-item">
                                                                         <img src="{{ asset('backoffice/app-assets/images/carousel/04.jpg') }}" alt="Second slide">
+                                                                        <div class="carousel-caption">
+                                                                            <h3>Package plate</h3>
+                                                                            <p>Price $500.</p>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="carousel-item">
                                                                         <img src="{{ asset('backoffice/app-assets/images/carousel/08.jpg') }}" alt="Third slide">
+                                                                        <div class="carousel-caption">
+                                                                            <h3>Package Silver</h3>
+                                                                            <p>Price $100.</p>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <a class="left carousel-control" href="#carousel-wrap" role="button" data-slide="prev">
