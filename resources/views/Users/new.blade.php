@@ -47,7 +47,7 @@
                         <div class="card-block">
                             <form class="form">
                                 <div class="form-body">
-                                    <h4 class="form-section"><i class="icon-eye6"></i> About User</h4>
+                                    <h4 class="form-section"><i class="ft-user"></i> New User</h4>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
