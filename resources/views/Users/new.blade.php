@@ -95,14 +95,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="userinput1">Fist Name</label>
+                                                <label for="first_name">Fist Name</label>
                                                 <input type="text" id="first_name" class="form-control border-primary"
-                                                       placeholder="Name" name="first_name">
+                                                       placeholder="Fist Name" name="first_name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="userinput2">Last Name</label>
+                                                <label for="last_name">Last Name</label>
                                                 <input type="text" id="last_name" class="form-control border-primary"
                                                        placeholder="Last Name" name="last_name">
                                             </div>
@@ -111,15 +111,15 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="userinput3">Username</label>
+                                                <label for="username">Username</label>
                                                 <input type="text" id="username" class="form-control border-primary"
                                                        placeholder="Username" name="username">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="issueinput4">Birthday</label>
-                                                <input type="date" id="Birthday" class="form-control" name="Birthday" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Birthday">
+                                                <label for="birthday">Birthday</label>
+                                                <input type="date" id="Birthday" class="form-control" name="birthday" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="birthday">
                                             </div>
                                         </div>
                                     </div>
@@ -128,12 +128,17 @@
 
                                     <div class="form-group">
                                         <label for="userinput5">Email</label>
-                                        <input class="form-control border-primary" type="email" placeholder="email" id="email">
+                                        <input class="form-control border-primary" type="email" placeholder="Email" name="email" id="email">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="userinput6">Password</label>
-                                        <input class="form-control border-primary" type="password" placeholder="password" id="password">
+                                        <label for="password">Password</label>
+                                        <input class="form-control border-primary" type="password" placeholder="Password" name="password" id="password">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmation">Confirmation Password</label>
+                                        <input class="form-control border-primary" type="password" placeholder="Confirmation Password" name="confirmation" id="confirmation">
                                     </div>
 
                                 </div>

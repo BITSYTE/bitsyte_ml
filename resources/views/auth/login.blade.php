@@ -102,7 +102,7 @@
                                                     href="{{ route('password.request') }}" class="card-link">Forgot
                                                 Password?</a></div>
                                     </fieldset>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i
+                                    <button type="submit" class="btn btn-blue btn-lg btn-block"><i
                                                 class="ft-unlock"></i> Login
                                     </button>
                                 </form>
