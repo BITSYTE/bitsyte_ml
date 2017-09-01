@@ -50,7 +50,7 @@
                                     <h4 class="form-section"><i class="ft-user"></i> New User</h4>
 
                                     <div class="row">
-                                        <div class="col-md-offset-3 col-sm-offset-3 col-md-6 col-sm-12 ">
+                                        <div class="col-md-offset-3 col-sm-offset-3 col-md-12 col-sm-12 ">
                                             <div class="" style="margin: 0 30%">
                                                 <div class="card">
                                                     <div class="card-header">
@@ -58,7 +58,7 @@
                                                     </div>
                                                     <div class="card-body collapse in">
                                                         <div class="card-block">
-                                                            <p>Whether the carousel should cycle continuously or have hard stops. Default: true</p>
+                                                            {{--<p>Whether the carousel should cycle continuously or have hard stops. Default: true</p>--}}
                                                             <div id="carousel-wrap" class="carousel slide" data-ride="carousel" data-wrap="false">
                                                                 <ol class="carousel-indicators">
                                                                     <li data-target="#carousel-wrap" data-slide-to="0" class="active"></li>
