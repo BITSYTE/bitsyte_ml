@@ -72,12 +72,3 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     box-shadow: 0 6px 10px rgba(0,0,0,.15);
 }
 
-scroll-to-top {
-    padding: 1px;
-    text-align: center;
-    position: fixed;
-    bottom: 10px;
-    z-index: 10001;
-    display: none;
-    right: 10px;
-}
