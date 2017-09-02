@@ -57,3 +57,27 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .ptopwallet{
     padding-top: 7px;
 }
+
+/*****      floating.        ******/
+.btn-floating {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    margin: -85px 95%;
+    font-size: 24px;
+    text-align: center;
+    position: fixed;
+    border-radius: 100%;
+    -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+    box-shadow: 0 6px 10px rgba(0,0,0,.15);
+}
+
+scroll-to-top {
+    padding: 1px;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    z-index: 10001;
+    display: none;
+    right: 10px;
+}

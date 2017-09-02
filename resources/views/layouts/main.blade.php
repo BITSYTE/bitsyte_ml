@@ -135,6 +135,9 @@
         </span>
         <span class="float-md-right d-xs-block d-md-inline-block hidden-md-down">... </span>
     </p>
+    <button type="button" class="btn btn-floating btn-danger">
+        <i class="fa fa-plus-circle"></i>
+    </button>
 </footer>
 
 <!-- BEGIN VENDOR JS-->
