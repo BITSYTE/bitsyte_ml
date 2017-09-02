@@ -42,36 +42,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card-body collapse in">
-                    <div class="card-block">
-                        <div class="media-list media-bordered">
-                            <div class="media">
-                                <div class="media-body">
-                                    <h5 class="media-heading">Wallet Name :</h5>
-                                    <span> prueba 2</span>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-body">
-                                    <h5 class="media-heading"> Saldo :</h5>
-                                    $450
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-body">
-                                    <h5 class="media-heading">Otro dato : </h5>
-                                    Otro dato
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-body">
-                                    <h5 class="media-heading">Otro dato : </h5>
-                                    Otro dato
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('wallet.partials.wallets')
             </div>
         </div>
         <div class="col-xl-8 col-lg-12">

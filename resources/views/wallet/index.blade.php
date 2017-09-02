@@ -39,56 +39,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="card-body px-1">
-                <div id="recent-buyers" class="list-group height-300 position-relative">
-                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border " >
-                        <div class="media-left ">
-                            <div class="">
-                                <i class="icon-wallet"></i>
-                            </div>
-                        </div>
-                        <div class="media-middle-align">
-                            <h6 class="list-group-item-heading">
-                                <span class="font-medium-3">Kristopher Candy</span> <span class="font-medium-4 ">$1,021</span>
-                            </h6>
-                        </div>
-                    </a>
-                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border " >
-                        <div class="media-left ">
-                            <div class="">
-                                <i class="icon-wallet"></i>
-                            </div>
-                        </div>
-                        <div class="media-middle-align">
-                            <h6 class="list-group-item-heading">
-                                <span class="font-medium-3">Lawrence Fowler   </span> <span class="font-medium-4 ">$2,021</span>
-                            </h6>
-                        </div>
-                    </a>
+            @include('wallet.partials.wallets')
 
-                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border ">
-                        <div class="media-left ">
-                            <div class="">
-                                <i class="icon-wallet"></i>
-                            </div>
-                        </div>
-                        <div class="media-middle-align">
-                            <h6 class="list-group-item-heading">Roy Clark <span class="font-medium-4 ">$2,815</span></h6>
-                        </div>
-                    </a>
-                    <a href="{{ route('wallets.show') }}" class="list-group-item list-group-item-action media no-border ">
-                        <div class="media-left ">
-                            <div class="">
-                                <i class="icon-wallet"></i>
-                            </div>
-                        </div>
-                        <div class="media-middle-align">
-                            <h6 class="list-group-item-heading">Roy Clark <span class="font-medium-4 ">$2,815</span></h6>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
         </div>
     </div>
     <div id="description" class=" col-sm-8 ">
