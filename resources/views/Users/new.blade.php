@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('head')
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
+@endsection
+
 @section('breadcrumbs')
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-xs-12 mb-2">
@@ -50,56 +54,103 @@
                                     <h4 class="form-section"><i class="ft-user"></i> New User</h4>
 
                                     <div class="row">
-                                        <div class="col-md-offset-3 col-sm-offset-3 col-md-12 col-sm-12 ">
-                                            <div class="" style="margin: 0 30%">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title">Select a Package</h4>
-                                                    </div>
-                                                    <div class="card-body collapse in">
-                                                        <div class="card-block">
-                                                            {{--<p>Whether the carousel should cycle continuously or have hard stops. Default: true</p>--}}
-                                                            <div id="carousel-wrap" class="carousel slide" data-ride="carousel" data-wrap="false">
-                                                                <ol class="carousel-indicators">
-                                                                    <li data-target="#carousel-wrap" data-slide-to="0" class="active"></li>
-                                                                    <li data-target="#carousel-wrap" data-slide-to="1"></li>
-                                                                    <li data-target="#carousel-wrap" data-slide-to="2"></li>
-                                                                </ol>
-                                                                <div class="carousel-inner" role="listbox">
-                                                                    <div class="carousel-item active">
-                                                                        <img src="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}" alt="First slide">
-                                                                        <div class="carousel-caption">
-                                                                            <h3>Package Gold</h3>
-                                                                            <p>Price $1000.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="carousel-item">
-                                                                        <img src="{{ asset('backoffice/app-assets/images/carousel/04.jpg') }}" alt="Second slide">
-                                                                        <div class="carousel-caption">
-                                                                            <h3>Package plate</h3>
-                                                                            <p>Price $500.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="carousel-item">
-                                                                        <img src="{{ asset('backoffice/app-assets/images/carousel/08.jpg') }}" alt="Third slide">
-                                                                        <div class="carousel-caption">
-                                                                            <h3>Package Silver</h3>
-                                                                            <p>Price $100.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <a class="left carousel-control" href="#carousel-wrap" role="button" data-slide="prev">
-                                                                    <span class="icon-prev" aria-hidden="true"></span>
-                                                                    <span class="sr-only">Previous</span>
-                                                                </a>
-                                                                <a class="right carousel-control" href="#carousel-wrap" role="button" data-slide="next">
-                                                                    <span class="icon-next" aria-hidden="true"></span>
-                                                                    <span class="sr-only">Next</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        <div class=" col-md-12 col-sm-12 ">
+                                            <div class="auto-container" style="">
+                                                {{--<div class="">--}}
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Select a Package</h4>
                                                 </div>
+
+                                                <!--Carousel-->
+                                                <div id="owl-carousel" class="gallery-slider column-carousel four-column">
+
+                                                    <article class="slide-item">
+                                                        <figure class="image-box"><a
+                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
+                                                                    class="lightbox-image" title="Awsome Title Here">
+                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                     alt=""></a>
+                                                        </figure>
+                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
+                                                        <div class="item-caption">
+                                                            <h4><strong>Package Golden</strong></h4>
+                                                            <p>price $5000</p>
+                                                        </div>
+                                                    </article>
+                                                    <article class="slide-item">
+                                                        <figure class="image-box"><a
+                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
+                                                                    class="lightbox-image" title="Awsome Title Here">
+                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                     alt=""></a>
+                                                        </figure>
+                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
+                                                        <div class="item-caption">
+                                                            <h4><strong>Package Golden</strong></h4>
+                                                            <p>price $5000</p>
+                                                        </div>
+                                                    </article>
+                                                    <article class="slide-item">
+                                                        <figure class="image-box"><a
+                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
+                                                                    class="lightbox-image" title="Awsome Title Here">
+                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                     alt=""></a>
+                                                        </figure>
+                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
+                                                        <div class="item-caption">
+                                                            <h4><strong>Package Golden</strong></h4>
+                                                            <p>price $5000</p>
+                                                        </div>
+                                                    </article>
+                                                    <article class="slide-item">
+                                                        <figure class="image-box"><a
+                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
+                                                                    class="lightbox-image" title="Awsome Title Here">
+                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                     alt=""></a>
+                                                        </figure>
+                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
+                                                        <div class="item-caption">
+                                                            <h4><strong>Package Golden</strong></h4>
+                                                            <p>price $5000</p>
+                                                        </div>
+                                                    </article>
+                                                    <article class="slide-item">
+                                                        <figure class="image-box"><a
+                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
+                                                                    class="lightbox-image" title="Awsome Title Here">
+                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                     alt=""></a>
+                                                        </figure>
+                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
+                                                        <div class="item-caption">
+                                                            <h4><strong>Package Golden</strong></h4>
+                                                            <p>price $5000</p>
+                                                        </div>
+                                                    </article>
+                                                    <article class="slide-item">
+                                                        <figure class="image-box"><a
+                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
+                                                                    class="lightbox-image" title="Awsome Title Here">
+                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                     alt=""></a>
+                                                        </figure>
+                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
+                                                        <div class="item-caption">
+                                                            <h4><strong>Package Golden</strong></h4>
+                                                            <p>price $5000</p>
+                                                        </div>
+                                                    </article>
+
+                                                </div>
+                                                {{--</div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +182,9 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="birthday">Birthday</label>
-                                                <input type="date" id="Birthday" class="form-control" name="birthday" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="birthday">
+                                                <input type="date" id="Birthday" class="form-control" name="birthday"
+                                                       data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                       data-title="birthday">
                                             </div>
                                         </div>
                                     </div>
@@ -140,17 +193,21 @@
 
                                     <div class="form-group">
                                         <label for="userinput5">Email</label>
-                                        <input class="form-control border-primary" type="email" placeholder="Email" name="email" id="email">
+                                        <input class="form-control border-primary" type="email" placeholder="Email"
+                                               name="email" id="email">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input class="form-control border-primary" type="password" placeholder="Password" name="password" id="password">
+                                        <input class="form-control border-primary" type="password"
+                                               placeholder="Password" name="password" id="password">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="confirmation">Confirmation Password</label>
-                                        <input class="form-control border-primary" type="password" placeholder="Confirmation Password" name="confirmation" id="confirmation">
+                                        <input class="form-control border-primary" type="password"
+                                               placeholder="Confirmation Password" name="confirmation"
+                                               id="confirmation">
                                     </div>
 
                                 </div>
@@ -171,5 +228,41 @@
             </div>
         </div>
     </section>
+
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('backoffice/assets/js/owl.carousel.min.js')}}" type="text/javascript"></script>
+
+    <script>
+        //Four Column Slider
+
+        $('#owl-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            autoplayHoverPause: true,
+            autoplay: 5000,
+            smartSpeed: 1000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                800: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                },
+                1100: {
+                    items: 4
+                }
+            }
+        });
+
+    </script>
 
 @endsection
