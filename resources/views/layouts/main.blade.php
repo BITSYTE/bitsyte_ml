@@ -142,7 +142,15 @@
         <span class="float-md-right d-xs-block d-md-inline-block hidden-md-down">... </span>
     </p>
     <button type="button" class="btn btn-floating btn-danger">
-        <i class="fa fa-plus-circle"></i>
+        <ul class="btn-float-ul">
+            <li data-menu="dropdown" class="dropdown nav-item">
+                <i class="fa fa-plus-circle icon-btn-float"></i>
+                <ul class="dropdown-menu" style="list-style-type: none!important;">
+                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Binary</a></li>
+                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
+                </ul>
+            </li>
+        </ul>
     </button>
 </footer>
 
@@ -163,7 +171,7 @@
 <!-- END STACK JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 <script type="text/javascript" src="{{ asset('backoffice/app-assets/js/scripts/ui/breadcrumbs-with-stats.js') }}"></script>
-<script type="text/javascript" src="{{ asset('backoffice/app-assets/js/core/libraries/bootstrap.min.js') }}"></script>
+{{--<script type="text/javascript" src="{{ asset('backoffice/app-assets/js/core/libraries/bootstrap.min.js') }}"></script>--}}
 <!-- END PAGE LEVEL JS-->
 @yield('scripts')
 </body>

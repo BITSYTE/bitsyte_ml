@@ -72,3 +72,12 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     box-shadow: 0 6px 10px rgba(0,0,0,.15);
 }
 
+.btn-float-ul{
+    padding:5px 0 !important;
+    list-style-type: none!important;
+}
+
+.icon-btn-float{
+    font-size: 40px;
+    margin: 0px!important;
+}
