@@ -48,7 +48,8 @@
             <ul class="nav navbar-nav">
                 <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item"><a href="{{ route('home') }}" class="navbar-brand"><img alt="stack admin logo" src="{{ asset('backoffice/app-assets/images/logo/stack-logo-light.png')}}" class="brand-logo">
-                        <h2 class="brand-text">Stack</h2></a></li>
+                        <h2 class="brand-text">Stack</h2></a>
+                </li>
                 <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a></li>
             </ul>
         </div>
@@ -105,7 +106,12 @@
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
             <li  class=" nav-item"><a href="{{ route('home') }}" class=" nav-link"><i class="ft-home"></i><span>Home</span></a></li>
             <li  class=" nav-item"><a href="{{ route('wallets.index') }}" class=" nav-link"><i class="icon-wallet"></i><span>Wallets</span></a></li>
-            <li  class="nav-item "><a href="#"  class=" nav-link"><i class="fa fa-sitemap"></i><span>Networks</span></a></li>
+            <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="fa fa-sitemap"></i><span>Networks</span></a>
+                <ul class="dropdown-menu">
+                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Binary</a></li>
+                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
+                </ul>
+            </li>
             <li  class=" nav-item"><a href="#"  class=" nav-link"><i class="ft-user"></i><span>Profile</span></a></li>
             <li  class=" nav-item"><a href="#" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a> </li>
         </ul>
@@ -157,6 +163,7 @@
 <!-- END STACK JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 <script type="text/javascript" src="{{ asset('backoffice/app-assets/js/scripts/ui/breadcrumbs-with-stats.js') }}"></script>
+<script type="text/javascript" src="{{ asset('backoffice/app-assets/js/core/libraries/bootstrap.min.js') }}"></script>
 <!-- END PAGE LEVEL JS-->
 @yield('scripts')
 </body>
