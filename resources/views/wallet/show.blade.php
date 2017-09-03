@@ -19,7 +19,7 @@
                     <div id="sp-bar-total-sales"></div>
                 </div>
                 <div class="media-body media-right text-xs-right">
-                    <h3 class="m-0">$5,668</h3><span class="text-muted">Sales</span>
+                    <h3 class="m-0">$5,668</h3><span class="text-muted">Balance</span>
                 </div>
             </div>
         </div>
@@ -28,23 +28,9 @@
 
 @section('content')
     <div class="row match-height">
-        <div class="col-xl-4 col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Wallet Details</h4>
-                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis font-medium-3"></i></a>
-                    <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                            {{--<li><a data-action="collapse"><i class="ft-minus"></i></a></li>--}}
-                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                            {{--<li><a data-action="close"><i class="ft-x"></i></a></li>--}}
-                        </ul>
-                    </div>
-                </div>
-                @include('wallet.partials.wallets')
-            </div>
-        </div>
+
+        @include('wallet.partials.wallets')
+
         <div class="col-xl-8 col-lg-12">
             <div class="card">
                 <div class="card-header">
