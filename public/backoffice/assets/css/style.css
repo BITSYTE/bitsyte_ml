@@ -61,6 +61,30 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     padding-top: 7px;
 }
 
+#walletSelect{
+    /*visibility: hidden;*/
+    display: none;
+}
+#listWallets {
+    /*visibility: visible;*/
+    display: block;
+}
+
+@media screen and (max-width: 720px) {
+    #walletSelect{
+        display: block;
+    }
+}
+@media screen and (max-width: 720px){
+    #listWallets {
+        display: none;
+    }
+}
+
+@media screen and ( max-width: 540px){
+
+}
+
 /*****      floating.        ******/
 .btn-floating {
     width: 56px;

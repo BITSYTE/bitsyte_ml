@@ -29,9 +29,13 @@
 @section('content')
     <div class="row match-height">
 
-        @include('wallet.partials.wallets')
-
-        <div class="col-xl-8 col-lg-12">
+        <div class=" col-xs-12 col-sm-12 " >
+            <div class="card">
+                @include('wallet.partials.selectWallets')
+                @include('wallet.partials.wallets')
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Recent Orders</h4>
