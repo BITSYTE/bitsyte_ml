@@ -18,14 +18,14 @@ class WalletsController extends Controller
         return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 
-    public function show()
+    public function show($name)
     {
         $breadcrumbs[0]['name']='wallets';
         $breadcrumbs[0]['route']='wallets';
-        $breadcrumbs[1]['name']='nombre de wallet';
+        $breadcrumbs[1]['name']='Details';
 
 
-        return view('wallet.show')->with(['breadcrumbs'=>$breadcrumbs]);
+        return view('wallet.show')->with(['breadcrumbs'=>$breadcrumbs,'name'=>$name]);
     }
 
 

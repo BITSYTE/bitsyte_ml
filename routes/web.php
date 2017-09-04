@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
         Route::get('/', 'WalletsController@index')->name('index');
-        Route::get('/show', 'WalletsController@show')->name('show');
+        Route::get('/show/{name}', 'WalletsController@show')->name('show');
     });
 
 });
