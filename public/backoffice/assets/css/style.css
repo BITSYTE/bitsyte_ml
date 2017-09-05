@@ -207,8 +207,8 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 
 .md-fab-wrapper {
     position: fixed;
-    bottom: 35px;
-    right: 24px;
+    bottom: 45px!important;
+    right: 24px!important;
     z-index: 1004;
     -webkit-transition: margin 280ms cubic-bezier(.4, 0, .2, 1);
     transition: margin 280ms cubic-bezier(.4, 0, .2, 1)

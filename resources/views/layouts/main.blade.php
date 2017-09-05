@@ -161,23 +161,6 @@
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-{{--///////////////////////      buton float.    //////////////--}}
-<div class="md-fab-wrapper md-fab-speed-dial">
-    <a class="md-fab md-fab-primary" href="#" data-uk-tooltip="{pos:'right'}" title="More actions">
-        <i class="ft-plus"></i>
-    </a>
-    <div class="md-fab-wrapper-small ">
-        <a class="md-fab md-fab-small md-fab-success" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="Help">
-            <i class="fa fa-question"></i>
-        </a>
-        <a class="md-fab md-fab-small md-fab-warning" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New Transfer">
-            <i class="ft-chevrons-right"></i><i class="icon-wallet"></i>
-        </a>
-        <a class="md-fab md-fab-small md-fab-danger" href="{{ route('users.new') }}" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New user">
-            <i class="ft-user-plus"></i>
-        </a>
-    </div>
-</div>
 
 <footer class="footer navbar-fixed-bottom footer-light navbar-shadow ">
     <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
@@ -197,6 +180,23 @@
             </li>
         </ul>
     </button>--}}
+    {{--///////////////////////      buton float.    //////////////--}}
+    <div class="md-fab-wrapper md-fab-speed-dial">
+        <a class="md-fab md-fab-primary" href="#" data-uk-tooltip="{pos:'right'}" title="More actions">
+            <i class="ft-plus"></i>
+        </a>
+        <div class="md-fab-wrapper-small ">
+            <a class="md-fab md-fab-small md-fab-success" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="Help">
+                <i class="fa fa-question"></i>
+            </a>
+            <a class="md-fab md-fab-small md-fab-warning" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New Transfer">
+                <i class="ft-chevrons-right"></i><i class="icon-wallet"></i>
+            </a>
+            <a class="md-fab md-fab-small md-fab-danger" href="{{ route('users.new') }}" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New user">
+                <i class="ft-user-plus"></i>
+            </a>
+        </div>
+    </div>
 </footer>
 
 <!-- BEGIN VENDOR JS-->
