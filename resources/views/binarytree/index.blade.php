@@ -3,7 +3,7 @@
 @section('breadcrumbs')
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-xs-12 mb-2">
-            <h3 class="content-header-title mb-0">My Wallets</h3>
+            <h3 class="content-header-title mb-0">Binary Tree</h3>
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-xs-12">
                     <ol class="breadcrumb">
@@ -27,25 +27,14 @@
 @endsection
 
 @section('content')
-<div class="row match-height">
+    <div class="row match-height">
+        <div class="card-header">
+            <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="card">
 
-    <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" >
-        <div class="card">
-            @include('wallet.partials.selectWallets')
-            @include('wallet.partials.wallets')
+                </div>
+            </div>
         </div>
     </div>
-    <div id="description" class=" col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
-        <div class="card">
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-            </ul>
-        </div>
-    </div>
-</div>
 
 @endsection

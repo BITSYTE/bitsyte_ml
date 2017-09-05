@@ -4,7 +4,7 @@
 
     <section id="description" class="card">
         <div class="card-header">
-            <h4 class="card-title">Description</h4>
+            <h4 class="card-title"></h4>
             <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
             <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -16,15 +16,7 @@
             </div>
         </div>
         <div class="card-body collapse in">
-            <div class="card-block">
-                <p class="card-text">An example of page header with page title, breadcrumbs, content title and
-                    stats.</p>
-                <div class="alert bg-success alert-icon-left mb-2" role="alert">
-                    <strong>Experience it!</strong>
-                    <p>This page contain breadcrumbs with stats example, check on the top of the page container
-                        section.</p>
-                </div>
-            </div>
+
         </div>
     </section>
 
