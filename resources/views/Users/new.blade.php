@@ -52,17 +52,6 @@
 
                                                 <!--Carousel-->
                                                 <div id="owl-carousel" class="">
-
-                                                    <div class="slide-item" style="width: 150px">
-                                                        <div class="image-box">
-                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
-                                                        </div>
-                                                        <div class="item-caption" style="width: 100px">
-                                                            <h6><strong>Package Golden</strong></h6>
-                                                            <p>price $5000</p>
-                                                        </div>
-                                                    </div>
-
                                                     <div class="slide-item" style="width: 150px">
                                                         <div class="image-box">
                                                             <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
@@ -81,7 +70,15 @@
                                                             <p>price $5000</p>
                                                         </div>
                                                     </div>
-
+                                                    <div class="slide-item" style="width: 150px">
+                                                        <div class="image-box">
+                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
+                                                        </div>
+                                                        <div class="item-caption" style="width: 100px">
+                                                            <h6><strong>Package Golden</strong></h6>
+                                                            <p>price $5000</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 {{--</div>--}}
                                             </div>
