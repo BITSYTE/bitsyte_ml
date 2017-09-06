@@ -15,6 +15,6 @@ class UsersControllers extends Controller
         $breadcrumbs[1]['name']='New';
         $breadcrumbs[1]['route']='new';
 
-        return view('Users.new')->with(['breadcrumbs'=>$breadcrumbs]);
+        return view('Users.new2')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 }

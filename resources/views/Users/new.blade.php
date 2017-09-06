@@ -36,17 +36,6 @@
         <div class="row match-height">
             <div class="col-md-12">
                 <div class="card">
-                    {{--<div class="card-header">
-                        <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-                                --}}{{--<li><a data-action="collapse"><i class="ft-minus"></i></a></li>--}}{{--
-                                --}}{{--<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>--}}{{--
-                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                --}}{{--<li><a data-action="close"><i class="ft-x"></i></a></li>--}}{{--
-                            </ul>
-                        </div>
-                    </div>--}}
                     <div class="card-body collapse in">
                         <div class="card-block">
                             <form class="form">
@@ -54,7 +43,7 @@
                                     <h4 class="form-section"><i class="ft-user"></i> New User</h4>
 
                                     <div class="row">
-                                        <div class=" col-md-12 col-sm-12 ">
+                                        <div class=" offset-2 col-sm-12 col-md-8 offset-md-2">
                                             <div class="auto-container" style="">
                                                 {{--<div class="">--}}
                                                 <div class="card-header">
@@ -62,92 +51,36 @@
                                                 </div>
 
                                                 <!--Carousel-->
-                                                <div id="owl-carousel" class="gallery-slider column-carousel four-column">
+                                                <div id="owl-carousel" class="">
 
-                                                    <article class="slide-item">
-                                                        <figure class="image-box"><a
-                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
-                                                                    class="lightbox-image" title="Awsome Title Here">
-                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                                     alt=""></a>
-                                                        </figure>
-                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
-                                                        <div class="item-caption">
-                                                            <h4><strong>Package Golden</strong></h4>
+                                                    <div class="slide-item" style="width: 150px">
+                                                        <div class="image-box">
+                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
+                                                        </div>
+                                                        <div class="item-caption" style="width: 100px">
+                                                            <h6><strong>Package Golden</strong></h6>
                                                             <p>price $5000</p>
                                                         </div>
-                                                    </article>
-                                                    <article class="slide-item">
-                                                        <figure class="image-box"><a
-                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
-                                                                    class="lightbox-image" title="Awsome Title Here">
-                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                                     alt=""></a>
-                                                        </figure>
-                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
-                                                        <div class="item-caption">
-                                                            <h4><strong>Package Golden</strong></h4>
+                                                    </div>
+
+                                                    <div class="slide-item" style="width: 150px">
+                                                        <div class="image-box">
+                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
+                                                        </div>
+                                                        <div class="item-caption" style="width: 100px">
+                                                            <h6><strong>Package Golden</strong></h6>
                                                             <p>price $5000</p>
                                                         </div>
-                                                    </article>
-                                                    <article class="slide-item">
-                                                        <figure class="image-box"><a
-                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
-                                                                    class="lightbox-image" title="Awsome Title Here">
-                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                                     alt=""></a>
-                                                        </figure>
-                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
-                                                        <div class="item-caption">
-                                                            <h4><strong>Package Golden</strong></h4>
+                                                    </div>
+                                                    <div class="slide-item" style="width: 150px">
+                                                        <div class="image-box">
+                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
+                                                        </div>
+                                                        <div class="item-caption" style="width: 100px">
+                                                            <h6><strong>Package Golden</strong></h6>
                                                             <p>price $5000</p>
                                                         </div>
-                                                    </article>
-                                                    <article class="slide-item">
-                                                        <figure class="image-box"><a
-                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
-                                                                    class="lightbox-image" title="Awsome Title Here">
-                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                                     alt=""></a>
-                                                        </figure>
-                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
-                                                        <div class="item-caption">
-                                                            <h4><strong>Package Golden</strong></h4>
-                                                            <p>price $5000</p>
-                                                        </div>
-                                                    </article>
-                                                    <article class="slide-item">
-                                                        <figure class="image-box"><a
-                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
-                                                                    class="lightbox-image" title="Awsome Title Here">
-                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                                     alt=""></a>
-                                                        </figure>
-                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
-                                                        <div class="item-caption">
-                                                            <h4><strong>Package Golden</strong></h4>
-                                                            <p>price $5000</p>
-                                                        </div>
-                                                    </article>
-                                                    <article class="slide-item">
-                                                        <figure class="image-box"><a
-                                                                    href="{{ asset('backoffice/app-assets/images/carousel/02.jpg') }}"
-                                                                    class="lightbox-image" title="Awsome Title Here">
-                                                                <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                                     alt=""></a>
-                                                        </figure>
-                                                        <a href="{{ asset('backoffice/images/post-image-4.jpg') }}"
-                                                           class="overlay lightbox-image" title="Awsome Title Here"></a>
-                                                        <div class="item-caption">
-                                                            <h4><strong>Package Golden</strong></h4>
-                                                            <p>price $5000</p>
-                                                        </div>
-                                                    </article>
+                                                    </div>
 
                                                 </div>
                                                 {{--</div>--}}
@@ -239,26 +172,28 @@
 
         $('#owl-carousel').owlCarousel({
             loop: true,
+            center: false,
+            autoWidth: true,
             margin: 30,
             nav: true,
             autoplayHoverPause: true,
-            autoplay: 5000,
+            autoplay: 0,
             smartSpeed: 1000,
             responsive: {
                 0: {
                     items: 1
                 },
-                600: {
-                    items: 2
+                540: {
+                    items: 1
                 },
-                800: {
-                    items: 2
+                720: {
+                    items: 1
                 },
                 1024: {
-                    items: 3
+                    items: 8
                 },
                 1100: {
-                    items: 4
+                    items: 8
                 }
             }
         });
