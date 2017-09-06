@@ -17,6 +17,14 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     float: none;!important;
 }
 
+.wallet-drop-dawn a{
+    padding: 0.25rem 0.25rem;
+}
+
+.wallet-drop-dawn a button{
+    padding: 0.25rem 0.25rem;
+}
+
 .list-wallet {
     /*height: 50px !important;*/
     width: 100%;

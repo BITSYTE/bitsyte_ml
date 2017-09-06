@@ -17,17 +17,17 @@
                             Wallets
                         </button>
                         <div class="dropdown-menu wallet-drop-dawn">
-                            <a href="{{ route('wallets.show',["name" => "Wallet personal"]) }}" class="list-group-item list-group-item-action media no-border ">
-                                <button type="button" class="btn btn-info btn-block">Info</button>
+                            <a href="{{ route('wallets.show',["name" => "Wallet bonus"]) }}" class="list-group-item list-group-item-action media no-border ">
+                                <button type="button" class="btn btn-info btn-block">Wallet bonus</button>
                             </a>
                             <a href="{{ route('wallets.show',["name" => "Wallet personal"]) }}" class="list-group-item list-group-item-action media no-border ">
-                                <button type="button" class="btn btn-info btn-block">Info</button>
+                                <button type="button" class="btn btn-info btn-block">Wallet personal</button>
                             </a>
-                            <a href="{{ route('wallets.show',["name" => "Wallet personal"]) }}" class="list-group-item list-group-item-action media no-border ">
-                                <button type="button" class="btn btn-info btn-block">Info</button>
+                            <a href="{{ route('wallets.show',["name" => "Wallet Dos"]) }}" class="list-group-item list-group-item-action media no-border ">
+                                <button type="button" class="btn btn-info btn-block">Wallet Dos</button>
                             </a>
-                            <a href="{{ route('wallets.show',["name" => "Wallet personal"]) }}" class="list-group-item list-group-item-action media no-border ">
-                                <button type="button" class="btn btn-info btn-block">Info</button>
+                            <a href="{{ route('wallets.show',["name" => "Wallet tree"]) }}" class="list-group-item list-group-item-action media no-border ">
+                                <button type="button" class="btn btn-info btn-block">Wallet tree</button>
                             </a>
                         </div>
                     </div>
