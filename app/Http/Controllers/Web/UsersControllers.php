@@ -17,4 +17,10 @@ class UsersControllers extends Controller
 
         return view('Users.new')->with(['breadcrumbs'=>$breadcrumbs]);
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+
+    }
 }

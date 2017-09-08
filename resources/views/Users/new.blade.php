@@ -42,7 +42,8 @@
                 <div class="card">
                     <div class="card-body collapse in">
                         <div class="card-block">
-                            <form class="form">
+                            <form class="form" action="{{ route('users.store') }}" method="post">
+                                {{ csrf_field() }}
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="ft-user"></i> New User</h4>
 
@@ -65,7 +66,7 @@
                                                             {{--<h6><strong>Package Golden</strong></h6>--}}
                                                             <div class="row skin skin-line">
                                                                 <div class="col-md-12 col-sm-12">
-                                                                    <input type="radio" name="input-radio-1" id="input-radio-1" checked>
+                                                                    <input type="radio" name="paquete" id="input-radio-1" checked value="gold">
                                                                     <label for="input-radio-1">Package Golden</label>
                                                                 </div>
                                                             </div>
@@ -81,8 +82,8 @@
                                                         <div class="item-caption carousel-item-caption">
                                                             <div class="row skin skin-line">
                                                                 <div class="col-md-12 col-sm-12">
-                                                                    <input type="radio" name="input-radio-1" id="input-radio-2">
-                                                                    <label for="input-radio-1">Package Golden</label>
+                                                                    <input type="radio" name="paquete" id="input-radio-2" value="silver">
+                                                                    <label for="input-radio-1">Package silver</label>
                                                                 </div>
                                                             </div>
                                                             <p>price $5000</p>
@@ -96,8 +97,8 @@
                                                         <div class="item-caption carousel-item-caption">
                                                             <div class="row skin skin-line">
                                                                 <div class="col-md-12 col-sm-12">
-                                                                    <input type="radio" name="input-radio-1" id="input-radio-3">
-                                                                    <label for="input-radio-1">Package Golden</label>
+                                                                    <input type="radio" name="paquete" id="input-radio-3" value="platino">
+                                                                    <label for="input-radio-1">Package platino</label>
                                                                 </div>
                                                             </div>
                                                             <p>price $5000</p>
@@ -161,7 +162,7 @@
                                     <div class="form-group">
                                         <label for="confirmation">Confirmation Password</label>
                                         <input class="form-control border-primary" type="password"
-                                               placeholder="Confirmation Password" name="confirmation"
+                                               placeholder="Confirmation Password" name="password_confirm"
                                                id="confirmation">
                                     </div>
 
