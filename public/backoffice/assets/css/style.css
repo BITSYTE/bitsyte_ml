@@ -10,18 +10,36 @@ NOTE:
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
-.wallet-drop-dawn {
-    position: inherit!important;
-    margin: 0!important;
-    padding: 0!important;
-    float: none;!important;
+.carousel-img {
+    width: 100px;
+    height: 100px
 }
 
-.wallet-drop-dawn a{
+.carousel-slide-item {
+    width: 140px
+}
+
+.carousel-item-caption {
+    width: 150px
+}
+
+.owl-stage {
+    margin: auto;
+}
+
+.wallet-drop-dawn {
+    position: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none;
+!important;
+}
+
+.wallet-drop-dawn a {
     padding: 0.25rem 0.25rem;
 }
 
-.wallet-drop-dawn a button{
+.wallet-drop-dawn a button {
     padding: 0.25rem 0.25rem;
 }
 
@@ -76,27 +94,29 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     padding-top: 7px;
 }
 
-#walletSelect{
+#walletSelect {
     /*visibility: hidden;*/
     display: none;
 }
+
 #listWallets {
     /*visibility: visible;*/
     display: block;
 }
 
 @media screen and (max-width: 720px) {
-    #walletSelect{
+    #walletSelect {
         display: block;
     }
 }
-@media screen and (max-width: 720px){
+
+@media screen and (max-width: 720px) {
     #listWallets {
         display: none;
     }
 }
 
-@media screen and ( max-width: 540px){
+@media screen and ( max-width: 540px) {
 
 }
 
@@ -222,8 +242,8 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 
 .md-fab-wrapper {
     position: fixed;
-    bottom: 45px!important;
-    right: 24px!important;
+    bottom: 45px !important;
+    right: 24px !important;
     z-index: 1004;
     -webkit-transition: margin 280ms cubic-bezier(.4, 0, .2, 1);
     transition: margin 280ms cubic-bezier(.4, 0, .2, 1)

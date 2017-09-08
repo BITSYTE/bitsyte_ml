@@ -2,6 +2,10 @@
 
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
 @endsection
 
 @section('breadcrumbs')
@@ -44,7 +48,7 @@
 
                                     <div class="row">
                                         <div class=" offset-2 col-sm-12 col-md-8 offset-md-2">
-                                            <div class="auto-container" style="">
+                                            <div class="" style="">
                                                 {{--<div class="">--}}
                                                 <div class="card-header">
                                                     <h4 class="card-title">Select a Package</h4>
@@ -52,33 +56,54 @@
 
                                                 <!--Carousel-->
                                                 <div id="owl-carousel" class="">
-                                                    <div class="slide-item" style="width: 150px">
+                                                    <div class="slide-item carousel-slide-item" >
                                                         <div class="image-box">
-                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
+                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                 class="carousel-img">
                                                         </div>
-                                                        <div class="item-caption" style="width: 100px">
-                                                            <h6><strong>Package Golden</strong></h6>
+                                                        <div class="item-caption carousel-item-caption" >
+                                                            {{--<h6><strong>Package Golden</strong></h6>--}}
+                                                            <div class="row skin skin-line">
+                                                                <div class="col-md-12 col-sm-12">
+                                                                    <input type="radio" name="input-radio-1" id="input-radio-1" checked>
+                                                                    <label for="input-radio-1">Package Golden</label>
+                                                                </div>
+                                                            </div>
                                                             <p>price $5000</p>
                                                         </div>
                                                     </div>
-                                                    <div class="slide-item" style="width: 150px">
+
+                                                    <div class="slide-item carousel-slide-item" >
                                                         <div class="image-box">
-                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
+                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                 class="carousel-img">
                                                         </div>
-                                                        <div class="item-caption" style="width: 100px">
-                                                            <h6><strong>Package Golden</strong></h6>
+                                                        <div class="item-caption carousel-item-caption">
+                                                            <div class="row skin skin-line">
+                                                                <div class="col-md-12 col-sm-12">
+                                                                    <input type="radio" name="input-radio-1" id="input-radio-2">
+                                                                    <label for="input-radio-1">Package Golden</label>
+                                                                </div>
+                                                            </div>
                                                             <p>price $5000</p>
                                                         </div>
                                                     </div>
-                                                    <div class="slide-item" style="width: 150px">
+                                                    <div class="slide-item carousel-slide-item" >
                                                         <div class="image-box">
-                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}" style="width: 100px;height: 100px">
+                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                                 class="carousel-img">
                                                         </div>
-                                                        <div class="item-caption" style="width: 100px">
-                                                            <h6><strong>Package Golden</strong></h6>
+                                                        <div class="item-caption carousel-item-caption">
+                                                            <div class="row skin skin-line">
+                                                                <div class="col-md-12 col-sm-12">
+                                                                    <input type="radio" name="input-radio-1" id="input-radio-3">
+                                                                    <label for="input-radio-1">Package Golden</label>
+                                                                </div>
+                                                            </div>
                                                             <p>price $5000</p>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                                 {{--</div>--}}
                                             </div>
@@ -152,23 +177,38 @@
                                 </div>
                             </form>
 
+
+                            <div class="row skin skin-line">
+                                <div class="col-md-6 col-sm-12">
+                                    <fieldset>
+                                        <input type="radio" name="input-radio-1" id="input-radio-1">
+                                        <label for="input-radio-1">Radio Button</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
 @endsection
 
 @section('scripts')
     <script src="{{ asset('backoffice/assets/js/owl.carousel.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/icheck/icheck.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>
+
 
     <script>
         //Four Column Slider
 
-        $('#owl-carousel').owlCarousel({
-            loop: true,
+        var owl = $('#owl-carousel');
+        owl.owlCarousel({
+            loop: false,
             center: false,
             autoWidth: true,
             margin: 30,
@@ -194,6 +234,14 @@
                 }
             }
         });
+
+        function item() {
+            var item = owl(owl-item.active);
+            console.log(item);
+        }
+
+        //        $('#owl-carousel .owl-item.active')
+
 
     </script>
 
