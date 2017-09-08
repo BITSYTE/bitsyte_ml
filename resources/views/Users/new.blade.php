@@ -48,7 +48,7 @@
                                     <h4 class="form-section"><i class="ft-user"></i> New User</h4>
 
                                     <div class="row">
-                                        <div class=" offset-2 col-sm-12 col-md-8 offset-md-2">
+                                        <div class="col-sm-12 col-md-12 ">
                                             <div class="" style="">
                                                 {{--<div class="">--}}
                                                 <div class="card-header">
@@ -176,18 +176,8 @@
                                         <i class="fa fa-check-square-o"></i> Save
                                     </button>
                                 </div>
+
                             </form>
-
-
-                            <div class="row skin skin-line">
-                                <div class="col-md-6 col-sm-12">
-                                    <fieldset>
-                                        <input type="radio" name="input-radio-1" id="input-radio-1">
-                                        <label for="input-radio-1">Radio Button</label>
-                                    </fieldset>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -210,7 +200,7 @@
         var owl = $('#owl-carousel');
         owl.owlCarousel({
             loop: false,
-            center: false,
+            center: true,
             autoWidth: true,
             margin: 30,
             nav: true,
@@ -228,10 +218,10 @@
                     items: 1
                 },
                 1024: {
-                    items: 8
+                    items: 3
                 },
                 1100: {
-                    items: 8
+                    items: 3
                 }
             }
         });
