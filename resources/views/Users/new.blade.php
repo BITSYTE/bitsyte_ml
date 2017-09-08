@@ -227,11 +227,12 @@
         });
 
         function item() {
-            var item = owl(owl-item.active);
+            owl.trigger('to.owl.carousel',1);
+            //            var item = owl(owl-item.active);
             console.log(item);
         }
 
-        //        $('#owl-carousel .owl-item.active')
+        item();
 
 
     </script>
