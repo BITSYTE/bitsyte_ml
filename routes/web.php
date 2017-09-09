@@ -58,6 +58,10 @@ Route::group(['namespace' => 'Web'], function () {
         Route::get('/show', 'UnilevelTreeController@show')->name('show');
     });
 
+    Route::get('payments', function () {
+        return view('payments.index');
+    });
+
 });
 
 
