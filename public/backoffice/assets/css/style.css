@@ -10,6 +10,19 @@ NOTE:
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
+.bg-black{
+    background-color : black!important; ;
+}
+
+.navbar-red{
+    background: #FF0000;
+}
+
+.navbar-red  a{
+    color: #FFFFFF!important;
+}
+
+/*****      carousel.        ******/
 .carousel-img {
     width: 100px;
     height: 100px
@@ -22,10 +35,6 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .carousel-item-caption {
     width: 150px
 }
-
-/*.owl-stage {
-    margin: auto;
-}*/
 
 .iradio_line-blue{
     height: 40px;
@@ -53,6 +62,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     margin-bottom: 5px;
 }
 
+/*****      wallet.        ******/
 .fonticon-container-small > .fonticon-wrap2 {
     float: left;
     width: 10px;
@@ -99,12 +109,10 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 }
 
 #walletSelect {
-    /*visibility: hidden;*/
     display: none;
 }
 
 #listWallets {
-    /*visibility: visible;*/
     display: block;
 }
 

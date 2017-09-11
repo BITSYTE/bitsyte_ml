@@ -62,6 +62,13 @@ Route::group(['namespace' => 'Web'], function () {
         return view('payments.index');
     });
 
+    /*******************        ADMIN.      ****************/
+    Route::group(['prefix' => 'admins', 'as' => 'admins.'], function () {
+        Route::get('dashboard', function () {
+            return view('layouts.mainblack');
+        });
+    });
+
 });
 
 
