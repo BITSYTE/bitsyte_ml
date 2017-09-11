@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="content-header-right col-md-6 col-xs-12">
+        <div id="bred-graph" class="content-header-right col-md-6 col-xs-12">
             <div class="media width-250 float-xs-right">
                 <div class="media-left media-middle">
                     <div id="sp-bar-total-sales"></div>

@@ -1,5 +1,5 @@
 <div id="walletSelect">
-    <div class="card-header">
+    <div id="title-mobil" class="card-header">
         <h4 class="card-title">My Wallets</h4>
         <div class="heading-elements">
             <ul class="list-inline mb-0">
@@ -9,9 +9,23 @@
     </div>
     <div class="card-body px-1">
         <div class="card-block">
-            <div class="form-group">
-
-                <div class="col-sm-12 col-xs-12">
+            <div class="width-100-per">
+                <div class="form-group width-100-per">
+                    <div class="btn-group width-cien-per">
+                        <button type="button" class="btn btn-outline-primary dropdown-toggle btn-lg width-cien-per"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-wallet"></i> <span>Wallets</span>
+                        </button>
+                        <div class="dropdown-menu width-cien-per">
+                            <a class="dropdown-item" href="{{ route('wallets.show',["name" => "Wallet bonus"]) }}">Wallet bonus</a>
+                            <a class="dropdown-item" href="{{ route('wallets.show',["name" => "Wallet personal"]) }}">Wallet personal</a>
+                            <a class="dropdown-item" href="{{ route('wallets.show',["name" => "Wallet Dos"]) }}">Wallet Dos</a>
+                            {{--<div class="dropdown-divider"></div>--}}
+                            <a class="dropdown-item" href="{{ route('wallets.show',["name" => "Wallet tree"]) }}">Wallet tree</a>
+                        </div>
+                    </div>
+                </div>
+                {{--<div class="col-sm-12 col-xs-12">
                     <div class=" mr-1 mb-1">
                         <button type="button" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Wallets
@@ -31,7 +45,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 {{--<select class="select2 form-control">
                     <option value="1">Wallet bonus</option>
                     <option value="2">Wallet personal</option>

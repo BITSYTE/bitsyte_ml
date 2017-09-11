@@ -118,19 +118,25 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 }
 
 @media screen and (max-width: 720px) {
-    #walletSelect {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 720px) {
     #listWallets {
         display: none;
     }
 }
 
-@media screen and ( max-width: 540px) {
+@media screen and ( max-width: 720px) {
+    #walletSelect {
+        display: block;
+    }
+    #bred-graph{
+        display: none;
+    }
+    #title-mobil{
+        display: none;
+    }
+}
 
+.width-cien-per{
+    width: 100%;
 }
 
 /*****      floating.        ******/
