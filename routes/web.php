@@ -48,14 +48,11 @@ Route::group(['namespace' => 'Web'], function () {
         Route::get('/show/{name}', 'WalletsController@show')->name('show');
     });
 
-    Route::group(['prefix' => 'binarytree', 'as' => 'binarytree.'], function () {
-        Route::get('/', 'BinaryTreeController@index')->name('index');
-        Route::get('/show', 'BinaryTreeController@show')->name('show');
-    });
-
-    Route::group(['prefix' => 'unileveltree', 'as' => 'unileveltree.'], function () {
-        Route::get('/', 'UnilevelTreeController@index')->name('index');
-        Route::get('/show', 'UnilevelTreeController@show')->name('show');
+    Route::group(['prefix' => 'trees', 'as' => 'trees.'], function () {
+//        Route::get('/', 'TreesController@index')->name('index');
+        Route::get('/unilevel', 'UnilevelTreeController@index')->name('unilevel');
+        Route::get('/binary', 'BinaryTreeController@index')->name('binary');
+//        Route::get('/show', 'BinaryTreeController@show')->name('show');
     });
 
     Route::get('payments', function () {
