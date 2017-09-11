@@ -15,7 +15,8 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 }
 
 .navbar-red{
-    background: #FF0000;
+    background: #FF0000!important;
+    /*height: 56px!important;*/
 }
 
 .navbar-red  a{

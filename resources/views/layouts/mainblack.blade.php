@@ -119,7 +119,7 @@
 
 <!-- Horizontal navigation-->
 <div role="navigation" data-menu="menu-wrapper"
-     class="header-navbar navbar navbar-horizontal navbar-fixed navbar-red  navbar-without-dd-arrow navbar-shadow menu-border">
+     class="header-navbar navbar navbar-horizontal navbar-fixed navbar-light navbar-red navbar-without-dd-arrow navbar-shadow menu-border">
     <!-- Horizontal menu content-->
     <div data-menu="menu-container" class="navbar-container main-menu-content">
         <!-- include ../../../includes/mixins-->

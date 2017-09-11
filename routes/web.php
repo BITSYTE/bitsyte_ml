@@ -65,8 +65,11 @@ Route::group(['namespace' => 'Web'], function () {
     /*******************        ADMIN.      ****************/
     Route::group(['prefix' => 'admins', 'as' => 'admins.'], function () {
         Route::get('dashboard', function () {
-            return view('layouts.mainblack');
-        });
+            return view('admin.dashboard');
+        })->name('dashboard');
+        Route::get('wallets', function () {
+            return view('admin.wallets.index');
+        })->name('wallets');
     });
 
 });
