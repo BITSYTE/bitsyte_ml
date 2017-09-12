@@ -28,7 +28,14 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     width: 100px;
     height: 100px
 }
-
+/*****      nota este estilo quedo en _all.css. 225       ******/
+.iradio_line-blue{
+    background: #82B1FF;
+}
+.iradio_line-blue {
+    padding: 6px 0 0 37px!important;
+    height: 30px!important;
+}
 .carousel-slide-item {
     width: 140px
 }

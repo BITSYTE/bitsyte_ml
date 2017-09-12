@@ -97,6 +97,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="#" class="dropdown-item"><i class="ft-user"></i>Profile</a>
+                            <a href="{{ route('home') }}" class="dropdown-item"><i class="ft-home"></i>Backoffice</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -181,8 +182,8 @@
         </ul>
     </button>--}}
     {{--///////////////////////      buton float.    //////////////--}}
-    <div class="md-fab-wrapper md-fab-speed-dial">
-        <a class="md-fab md-fab-primary" href="#" data-uk-tooltip="{pos:'right'}" title="More actions">
+    <div class="md-fab-wrapper md-fab-speed-dial ">
+        <a class="md-fab md-fab-primary bg-black" href="#" data-uk-tooltip="{pos:'right'}" title="More actions">
             <i class="ft-plus"></i>
         </a>
         <div class="md-fab-wrapper-small ">

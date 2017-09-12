@@ -36,7 +36,7 @@
 
 @section('content')
 
-    <section id="register" class="card">
+    <section id="register" class="card col-md-10 offset-md-1">
         <div class="row match-height">
             <div class="col-md-12">
                 <div class="card">
@@ -169,9 +169,11 @@
                                 </div>
 
                                 <div class="form-actions right">
-                                    <button type="button" class="btn btn-warning mr-1">
-                                        <i class="ft-x"></i> Cancel
-                                    </button>
+                                    <a href="{{ route('home') }}">
+                                        <button type="button" class="btn btn-warning mr-1">
+                                            <i class="ft-x"></i> Cancel
+                                        </button>
+                                    </a>
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-check-square-o"></i> Save
                                     </button>
