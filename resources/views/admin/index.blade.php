@@ -1,4 +1,4 @@
-@extends ('layouts.mainblack')
+@extends ('layouts.adminmain')
 
 @section('content')
     <div class="row match-height">

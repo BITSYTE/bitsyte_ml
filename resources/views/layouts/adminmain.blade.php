@@ -135,8 +135,8 @@
                     <i class="fa fa-sitemap"></i><span>Networks</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li data-menu=""><a href="{{ route('binarytree.index') }}" data-toggle="dropdown" class="dropdown-item">Binary</a></li>
-                    <li data-menu=""><a href="{{ route('unileveltree.index') }}" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
+                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Binary</a></li>
+                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
                 </ul>
             </li>
             <li class=" nav-item"><a href="#" class=" nav-link"><i class="ft-user"></i><span>Profile</span></a></li>
