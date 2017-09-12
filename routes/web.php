@@ -60,9 +60,9 @@ Route::group(['namespace' => 'Web'], function () {
     });
 
     /*******************        ADMIN.      ****************/
-    Route::group(['prefix' => 'admins', 'as' => 'admins.'], function () {
-        Route::get('dashboard', function () {
-            return view('admin.dashboard');
+    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::get('home', function () {
+            return view('admin.index');
         })->name('dashboard');
         Route::get('wallets', function () {
             return view('admin.wallets.index');
@@ -70,6 +70,3 @@ Route::group(['namespace' => 'Web'], function () {
     });
 
 });
-
-
-
