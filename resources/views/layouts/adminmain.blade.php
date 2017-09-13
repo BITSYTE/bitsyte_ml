@@ -140,7 +140,7 @@
                     <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#" class=" nav-link"><i class="ft-user"></i><span>Profile</span></a></li>
+            <li class=" nav-item"><a href="#" class=" nav-link"><i class="ft-user"></i><span>Compensations</span></a></li>
             <li class=" nav-item"><a href="#" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a>
             </li>
         </ul>

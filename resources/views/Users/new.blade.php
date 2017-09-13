@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/switch.css') }}">
 @endsection
 
 @section('breadcrumbs')
@@ -36,13 +38,13 @@
 
 @section('content')
 
-    <section id="register" class="card col-md-10 offset-md-1">
+    <section id="register" class="card ">
         <div class="row match-height">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body collapse in">
                         <div class="card-block">
-                            <form class="form" action="{{ route('users.store') }}" method="post">
+                            <form class="form" action="{{ route('users.store') }}" method="post" novalidate>
                                 {{ csrf_field() }}
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="ft-user"></i> New User</h4>
@@ -57,16 +59,17 @@
 
                                                 <!--Carousel-->
                                                 <div id="owl-carousel" class="">
-                                                    <div class="slide-item carousel-slide-item" >
+                                                    <div class="slide-item carousel-slide-item">
                                                         <div class="image-box">
                                                             <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
                                                                  class="carousel-img">
                                                         </div>
-                                                        <div class="item-caption carousel-item-caption" >
+                                                        <div class="item-caption carousel-item-caption">
                                                             {{--<h6><strong>Package Golden</strong></h6>--}}
                                                             <div class="row skin skin-line">
                                                                 <div class="col-md-12 col-sm-12">
-                                                                    <input type="radio" name="paquete" id="input-radio-1" checked value="gold">
+                                                                    <input type="radio" name="paquete"
+                                                                           id="input-radio-1" checked value="gold">
                                                                     <label for="input-radio-1">Package Golden</label>
                                                                 </div>
                                                             </div>
@@ -74,7 +77,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="slide-item carousel-slide-item" >
+                                                    <div class="slide-item carousel-slide-item">
                                                         <div class="image-box">
                                                             <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
                                                                  class="carousel-img">
@@ -82,14 +85,15 @@
                                                         <div class="item-caption carousel-item-caption">
                                                             <div class="row skin skin-line">
                                                                 <div class="col-md-12 col-sm-12">
-                                                                    <input type="radio" name="paquete" id="input-radio-2" value="silver">
+                                                                    <input type="radio" name="paquete"
+                                                                           id="input-radio-2" value="silver">
                                                                     <label for="input-radio-1">Package silver</label>
                                                                 </div>
                                                             </div>
                                                             <p>price $5000</p>
                                                         </div>
                                                     </div>
-                                                    <div class="slide-item carousel-slide-item" >
+                                                    <div class="slide-item carousel-slide-item">
                                                         <div class="image-box">
                                                             <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
                                                                  class="carousel-img">
@@ -97,7 +101,8 @@
                                                         <div class="item-caption carousel-item-caption">
                                                             <div class="row skin skin-line">
                                                                 <div class="col-md-12 col-sm-12">
-                                                                    <input type="radio" name="paquete" id="input-radio-3" value="platino">
+                                                                    <input type="radio" name="paquete"
+                                                                           id="input-radio-3" value="platino">
                                                                     <label for="input-radio-1">Package platino</label>
                                                                 </div>
                                                             </div>
@@ -114,33 +119,50 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="first_name">Fist Name</label>
-                                                <input type="text" id="first_name" class="form-control border-primary"
-                                                       placeholder="Fist Name" name="first_name">
+                                                <label for="first_name">Fist Name
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="controls">
+                                                    <input type="text" id="first_name"
+                                                           class="form-control border-primary"
+                                                           placeholder="Fist Name" name="first_name" required
+                                                           data-validation-required-message="This field is required">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="last_name">Last Name</label>
-                                                <input type="text" id="last_name" class="form-control border-primary"
-                                                       placeholder="Last Name" name="last_name">
+                                                <label for="last_name">Last Name <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <input type="text" id="last_name"
+                                                           class="form-control border-primary"
+                                                           placeholder="Last Name" name="last_name" required
+                                                           data-validation-required-message="This field is required">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="username">Username</label>
-                                                <input type="text" id="username" class="form-control border-primary"
-                                                       placeholder="Username" name="username">
+                                                <label for="username">Username <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <input type="text" id="username" class="form-control border-primary"
+                                                           placeholder="Username" name="username" required
+                                                           data-validation-required-message="This field is required">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="birthday">Birthday</label>
-                                                <input type="date" id="Birthday" class="form-control" name="birthday"
-                                                       data-toggle="tooltip" data-trigger="hover" data-placement="top"
-                                                       data-title="birthday">
+                                                <label for="birthday">Birthday <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <input type="date" id="Birthday" class="form-control"
+                                                           name="birthday" data-placement="top"
+                                                           data-toggle="tooltip" data-trigger="hover"
+                                                           data-title="birthday" required
+                                                           data-validation-required-message="This field is required">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -148,22 +170,31 @@
                                     <h4 class="form-section"><i class="ft-mail"></i> Contact Info </h4>
 
                                     <div class="form-group">
-                                        <label for="userinput5">Email</label>
-                                        <input class="form-control border-primary" type="email" placeholder="Email"
-                                               name="email" id="email">
+                                        <label for="userinput5">Email <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <input class="form-control border-primary" type="email" placeholder="Email"
+                                                   name="email" id="email" required
+                                                   data-validation-required-message="This field is required">
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input class="form-control border-primary" type="password"
-                                               placeholder="Password" name="password" id="password">
+                                        <label for="password">Password <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <input class="form-control border-primary" type="password"
+                                                   placeholder="Password" name="password" id="password" required
+                                                   data-validation-required-message="This field is required">
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="confirmation">Confirmation Password</label>
-                                        <input class="form-control border-primary" type="password"
-                                               placeholder="Confirmation Password" name="password_confirm"
-                                               id="confirmation">
+                                        <label for="confirmation">Confirmation Password <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <input class="form-control border-primary" type="password"
+                                                   placeholder="Confirmation Password" name="password_confirm"
+                                                   id="confirmation" data-validation-match-match="password" required
+                                                   data-validation-required-message="This field is required">
+                                        </div>
                                     </div>
 
                                 </div>
@@ -192,8 +223,15 @@
 
 @section('scripts')
     <script src="{{ asset('backoffice/assets/js/owl.carousel.min.js')}}" type="text/javascript"></script>
+
+    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}" type="text/javascript"></script>
+
+    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/vendors/js/forms/icheck/icheck.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>
+
+    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>
 
 
     <script>
@@ -229,9 +267,7 @@
         });
 
         function item() {
-            owl.trigger('to.owl.carousel',1);
-            //            var item = owl(owl-item.active);
-            console.log(item);
+            owl.trigger('to.owl.carousel', 1);
         }
 
         item();
