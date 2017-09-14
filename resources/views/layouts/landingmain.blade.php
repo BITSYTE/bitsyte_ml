@@ -20,11 +20,11 @@
     <!-- Custom styling -->
     <link href=" {{ asset('landing/css/style.css') }}" rel="stylesheet">
     <!-- Iconic font - FontAwesome -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Google fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
     <!-- Site thumbnail -->
     <link rel="image_src" href="{{ asset('landing/thumbnail.png') }}">
     <!-- Favicon -->
@@ -136,7 +136,9 @@
 <!-- Gallery lightbox -->
 <script src="{{ asset('landing/js/ekko-lightbox.min.js') }}"></script>
 <!-- Contact form and google map -->
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+{{--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>--}}
+<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+{{--<script src="{{ asset('landing/js/googlemaps.js') }}"></script>--}}
 <script src="{{ asset('landing/js/jquery.form.js') }}"></script>
 <script src="{{ asset('landing/js/jquery.flowuplabels.js') }}"></script>
 <!-- Custom scripts and triggers -->

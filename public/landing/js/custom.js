@@ -160,17 +160,17 @@ $(document).ready(function() {
 			icon: image
 		});
 /* Marker #2 */
-		var marker = new google.maps.Marker({
+		/*var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(45.255, 19.850),
 			map: map,
 			icon: image
-		});
+		});*/
 /* Marker #3 */
-		var marker = new google.maps.Marker({
+		/*var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(45.257, 19.840),
 			map: map,
 			icon: image
-		});
+		});*/
 	}
 
 });
