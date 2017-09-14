@@ -57,8 +57,8 @@
             </button>
             <!-- Light and dark logo -->
             <a href="#intro" class="navbar-brand">
-                <img class="img-responsive" src="http://placehold.it/120x40" alt="" data-start="opacity: 1;" data-20p="opacity: 0;">
-                <img class="img-responsive" src="http://placehold.it/120x40" alt="" data-start="opacity: 0;" data-20p="opacity: 1;">
+                <img class="img-responsive" src="https://placehold.it/120x40" alt="" data-start="opacity: 1;" data-20p="opacity: 0;">
+                <img class="img-responsive" src="https://placehold.it/120x40" alt="" data-start="opacity: 0;" data-20p="opacity: 1;">
             </a>
         </div>
         <!-- Navigation links -->
@@ -71,7 +71,7 @@
                 <li><a href="#gallery-top" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Gallery</a></li>
                 <li><a href="#team-top" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Team</a></li>
                 <li><a href="#contact-top" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Contact</a></li>
-                <li><a href="http://themeforest.net/item/myway-onepage-bootstrap-parallax-retina-template/4058880?ref=awerest" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Purchase</a></li>
+                <li><a href="https://themeforest.net/item/myway-onepage-bootstrap-parallax-retina-template/4058880?ref=awerest" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Purchase</a></li>
             </ul>
         </div>
     </div>
@@ -94,16 +94,16 @@
                 <a href="#works-top"><h4>Works</h4></a>
                 <a href="#gallery-top"><h4>Gallery</h4></a>
                 <a href="#team-top"><h4>Team</h4></a>
-                <a href="http://themeforest.net/item/myway-onepage-bootstrap-parallax-retina-template/4058880?ref=awerest"><h4>Purchase</h4></a>
+                <a href="https://themeforest.net/item/myway-onepage-bootstrap-parallax-retina-template/4058880?ref=awerest"><h4>Purchase</h4></a>
             </div>
             <!-- Social networks -->
             <div class="col-sm-12 divide-xs">
-                <a class="facebook" href="http://www.facebook.com/awerest" target="_blank">Facebook</a>
-                <a class="twitter" href="http://www.twitter.com/awerest" target="_blank">Twitter</a>
+                <a class="facebook" href="https://www.facebook.com/awerest" target="_blank">Facebook</a>
+                <a class="twitter" href="https://www.twitter.com/awerest" target="_blank">Twitter</a>
                 <a class="google" href="https://plus.google.com/u/0/104533843132286032110/posts" target="_blank">Google+</a>
                 <a class="linkedin" href="https://www.linkedin.com/profile/view?id=196747581" target="_blank">LinkedIn</a>
-                <a class="instagram" href="http://www.instagram.com/awerest" target="_blank">Instagram</a>
-                <a class="pinterest" href="http://www.pinterest.com/awerest" target="_blank">Pinterest</a>
+                <a class="instagram" href="https://www.instagram.com/awerest" target="_blank">Instagram</a>
+                <a class="pinterest" href="https://www.pinterest.com/awerest" target="_blank">Pinterest</a>
             </div>
             <!-- Copyright -->
             <div class="col-sm-12 divide-xs">
@@ -136,7 +136,7 @@
 <!-- Gallery lightbox -->
 <script src="{{ asset('landing/js/ekko-lightbox.min.js') }}"></script>
 <!-- Contact form and google map -->
-{{--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>--}}
+{{--<script src="https://maps.google.com/maps/api/js?sensor=false"></script>--}}
 <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
 {{--<script src="{{ asset('landing/js/googlemaps.js') }}"></script>--}}
 <script src="{{ asset('landing/js/jquery.form.js') }}"></script>
