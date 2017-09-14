@@ -10,32 +10,62 @@ NOTE:
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
-.bg-black{
-    background-color : black!important; ;
+.bg-black {
+    background-color: black !important;;
 }
 
-.navbar-red{
-    background: #FF0000!important;
-    /*height: 56px!important;*/
+.navbar-red {
+    background: #FF0000;
 }
 
-.navbar-red  a{
-    color: #FFFFFF!important;
+.navbar-red.navbar-horizontal {
+    background: #FF0000;
 }
+
+.navbar-red .navbar-nav li {
+    line-height: 1;
+}
+
+.navbar-red .navbar-nav .active.nav-link {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.navbar-red .navbar-nav .disabled.nav-link {
+    color: #FFFFFF;
+}
+
+.navbar-red .navbar-header .navbar-nav .nav-link,
+.navbar-semi-red .navbar-header .navbar-nav .nav-link {
+    color: #FFFFFF;
+}
+
+.navbar-red .navbar-container .navbar-nav .nav-link,
+.navbar-semi-red .navbar-container .navbar-nav .nav-link {
+    color: #FFFFFF;
+}
+
+
+/*.navbar-red {
+    background: #FF0000 !important;
+    color: #FFFFFF !important;
+}*/
 
 /*****      carousel.        ******/
 .carousel-img {
     width: 100px;
     height: 100px
 }
+
 /*****      nota este estilo quedo en _all.css. 225       ******/
-.iradio_line-blue{
+.iradio_line-blue {
     background: #82B1FF;
 }
+
 .iradio_line-blue {
-    padding: 6px 0 0 37px!important;
-    height: 30px!important;
+    padding: 6px 0 0 37px !important;
+    height: 30px !important;
 }
+
 .carousel-slide-item {
     width: 140px
 }
@@ -44,7 +74,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     width: 150px
 }
 
-.iradio_line-blue{
+.iradio_line-blue {
     height: 40px;
 }
 
@@ -134,15 +164,17 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     #walletSelect {
         display: block;
     }
-    #bred-graph{
+
+    #bred-graph {
         display: none;
     }
-    #title-mobil{
+
+    #title-mobil {
         display: none;
     }
 }
 
-.width-cien-per{
+.width-cien-per {
     width: 100%;
 }
 
