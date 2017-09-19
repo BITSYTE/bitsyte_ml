@@ -125,10 +125,10 @@
     <div data-menu="menu-container" class="navbar-container main-menu-content">
         <!-- include ../../../includes/mixins-->
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="nav navbar-nav">
-            <li class=" nav-item"><a href="{{ route('home') }}" class=" nav-link">
+            <li class=" nav-item"><a href="{{ route('admin.index') }}" class=" nav-link">
                     <i class="ft-home"></i><span>Home</span></a>
             </li>
-            <li class=" nav-item"><a href="{{ route('wallets.index') }}" class=" nav-link">
+            <li class=" nav-item"><a href="#" class=" nav-link">
                     <i class="icon-wallet"></i><span>Wallets</span></a>
             </li>
             <li data-menu="dropdown" class="dropdown nav-item">
@@ -170,17 +170,6 @@
         </span>
         <span class="float-md-right d-xs-block d-md-inline-block hidden-md-down">... </span>
     </p>
-    {{--<button type="button" class="btn btn-floating btn-danger">
-        <ul class="btn-float-ul">
-            <li data-menu="dropdown" class="dropdown nav-item">
-                <i class="fa fa-plus-circle icon-btn-float"></i>
-                <ul class="dropdown-menu" style="list-style-type: none!important;">
-                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Binary</a></li>
-                    <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
-                </ul>
-            </li>
-        </ul>
-    </button>--}}
     {{--///////////////////////      buton float.    //////////////--}}
     <div class="md-fab-wrapper md-fab-speed-dial ">
         <a class="md-fab md-fab-primary bg-black" href="#" data-uk-tooltip="{pos:'right'}" title="More actions">
@@ -193,7 +182,7 @@
             <a class="md-fab md-fab-small md-fab-warning" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New Transfer">
                 <i class="ft-chevrons-right"></i><i class="icon-wallet"></i>
             </a>
-            <a class="md-fab md-fab-small md-fab-danger" href="{{ route('users.new') }}" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New user">
+            <a class="md-fab md-fab-small md-fab-danger" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New user">
                 <i class="ft-user-plus"></i>
             </a>
         </div>
