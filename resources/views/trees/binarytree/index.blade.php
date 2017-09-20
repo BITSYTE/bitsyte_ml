@@ -125,13 +125,13 @@
                     var posR;
                     var cambio = false;
                     /*******************CREANDO NODO RAIZ****************************/
-                    ctx.fillStyle = color;
+                    /*ctx.fillStyle = "rgba(19,52,149,1)";
                     ctx.fillRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
                     this.pinta(paquete,icon,ctx,x,y);
                     ctx.font = "15px Verdana";
                     ctx.lineWidth = 2;
                     ctx.fillStyle = "white";
-                    ctx.fillText("user name",x+52,y+25);
+                    ctx.fillText("user name",x+52,y+25);*/
 
                     for (var k in json['users']) {
                         console.log("empieza");
