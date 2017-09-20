@@ -15,6 +15,9 @@ class BinaryTreeController extends Controller
         /*$breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';*/
 
+//        $Users = array();
+//        $Users['padre']=
+
         return view('trees.binarytree.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 
