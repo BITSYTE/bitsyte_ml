@@ -37,14 +37,14 @@
 
 @section('content')
     <div class="row match-height">
-        <div class="card-header">
-            <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <canvas id="miCanvas" width="1200" height="600">
+        <div class="card-header col-xs-1 col-sm-1 col-md-12 col-lg-12 col-xl-12" style="padding: 6px!important;">
+            {{--<div class=" col-xs-12 col-sm-12 ">--}}
+                {{--<div class="card">--}}
+                    <canvas id="miCanvas" width="1240" height="600">
                         Tu navegador no soporta el canvas de HTML5
                     </canvas>
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     </div>
 
@@ -64,21 +64,32 @@
                      VARIABLES
                      *****************/
                     var i;
-                    var raiz = {fondo: "rgba(19,52,149,1)"};
-                    var lvl1 = {fondo: "rgba(0,94,212,1)"};
-                    var lvl2 = {fondo: "rgba(19,52,149,1)"};
-                    var lvl3 = {fondo: "rgba(19,52,149,1)"};
+//                    var raiz = {fondo: "rgba(33,150,243,1)"};
+                    var lvl1 = 1;
+                    var lvl2 = 3;
+                    var lvl3 = 7;
                     var add = {fondo: "rgba(19,52,149,1)"};
                     var posInicial = {x: canvas.width / 2 - 90, y: 30};
-                    var rectangulo = {largo: 180, alto: 50};
+                    console.log(posInicial);
+                    var rectangulo = {largo: 180, alto: 50, fondo: "rgba(33,150,243,1)"};
                     var json = {
-                        "users": [
-                            {"nombre": "asdru", "paquete": "gold", "id": "1", "padre": "0"},
-                            {"nombre": "John", "paquete": "gold", "id": "2", "padre": "1"},
-                            {"nombre": "jose", "paquete": "gold", "id": "2", "padre": "1"}
+                        "padre": [
+                            {"nombre": "asdru", "paquete": "gold", "id": "1", "padre": "0"}
+                        ],
+                        users: [
+                            {"nombre": "John", "paquete": "gold", "id": "2", "padre": "1", "pos":"L"},
+                            {"nombre": "jose", "paquete": "gold", "id": "3", "padre": "1", "pos":"R"},
+                            {"nombre": "jose", "paquete": "gold", "id": "4", "padre": "2", "pos":"L"},
+                            {"nombre": "jose", "paquete": "gold", "id": "5", "padre": "2", "pos":"R"},
+                            {"nombre": "jose", "paquete": "gold", "id": "6", "padre": "4", "pos":"R"}
                         ]
                     };
-                    console.log(json);
+                    console.log(json["users"]);
+                    var location = {
+                        lvl2:[
+                            {pos:"L",x:233,y:200}
+                        ]
+                    };
 
                     /*****************
                      FUNCIONES
@@ -101,6 +112,17 @@
                             ctx.stroke();
                         }
                     }
+                    function lado(pos) {
+                        if (pos = "L") {
+                            console.log("left");
+                            x = posR.x;
+                            y = posR.y;
+                        } else {
+                            console.log("right");
+                            x = posL.x;
+                            y = posL.y;
+                        }
+                    }
 
                     function limpiar() {
 //                        var w = imagen.width;
@@ -111,7 +133,7 @@
                     var paquete = "{{asset('backoffice/images/circulo1.png')}}";
                     var icon = "{{asset('backoffice/images/icons/info-ico-azul.png')}}";
 
-                    pintaGrid(20, 20, "gray");
+//                    pintaGrid(20, 20, "gray");
                     /******************************/
                     var arbol = new BinaryTree(ctx);
                     /*arbol.createNode(posInicial.x, posInicial.y, raiz.fondo, paquete, icon, ctx);
@@ -121,61 +143,122 @@
                     var x = posInicial.x;
                     var y = posInicial.y;
                     var nivel;
+                    var padre = "1";
                     var posL;
                     var posR;
                     var cambio = false;
                     /*******************CREANDO NODO RAIZ****************************/
-                    /*ctx.fillStyle = "rgba(19,52,149,1)";
-                    ctx.fillRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
-                    this.pinta(paquete,icon,ctx,x,y);
+                    ctx.fillStyle = rectangulo.fondo;
+                    ctx.fillRect(x, y, rectangulo.largo, rectangulo.alto);
+                    /***** INICIO IMAGEN.  *****/
+                    var imagen = new Image();
+                    var icono = new Image();
+                    imagen.src = paquete;
+                    icono.src = icon;
+                    console.log("load");
+                    imagen.onload = function () {
+                        console.log("load");
+                        ctx.drawImage(imagen, posInicial.x, posInicial.y);
+                        ctx.drawImage(icono, posInicial.x + 140, posInicial.y + 6);
+                    };
+                    /***** FIN IMAGEN  *****/
                     ctx.font = "15px Verdana";
                     ctx.lineWidth = 2;
                     ctx.fillStyle = "white";
-                    ctx.fillText("user name",x+52,y+25);*/
+                    ctx.fillText("user name", x + 52, y + 25);
+                    /***** LINEA DERECHA  ****/
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = "rgba(58,150,235,1)";
+                    ctx.beginPath();
+                    ctx.moveTo(x + 100, y + 50);   //baja inicio
+                    ctx.lineTo(x + 100, 110);   //baja final
+                    ctx.lineTo(canvas.width / 4+40, 110);    //izquierda
+                    ctx.quadraticCurveTo(canvas.width / 4, 110, canvas.width / 4, y + 110);
+                    ctx.stroke();
+                    posL = {x: x - 100, y: y + 100};
+                    /***** LINEA IZQUIERDA  **************/
+                    ctx.beginPath();
+                    ctx.moveTo(x + 100, y + 80);   //baja final
+                    ctx.lineTo(canvas.width / 4*3-40, y + 80);   //derecha
+                    ctx.quadraticCurveTo(canvas.width / 4*3, y + 80, canvas.width / 4*3, y + 110);
+                    ctx.stroke();
+                    posR = {x: x + 300, y: y + 100};
+                    /*******************FIN NODO RAIZ****************************/
+                    console.log("/2="+posInicial.x/2);
+                    arbol.createNode(310-80,140, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(canvas.width / 4, 140);
+                    arbol.lineRight2(310, 140);
+                    arbol.createNode(310+310+310-80,140, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(310+310+310, 140);
+                    arbol.lineRight2(310+310+310, 140);
 
+                    arbol.createNode(155-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(155, 240);
+                    arbol.lineRight2(155, 240);
+                    arbol.createNode(155+155+155-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(155+155+155, 240);
+                    arbol.lineRight2(155+155+155, 240);
+                    arbol.createNode(155+155+155+155+155-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(155+155+155+155+155, 240);
+                    arbol.lineRight2(155+155+155+155+155, 240);
+                    arbol.createNode(155+155+155+155+155+155+155-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(155+155+155+155+155+155+155, 240);
+                    arbol.lineRight2(155+155+155+155+155+155+155, 240);
+
+
+                    arbol.createNodeS(0,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(155,320, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(155*2,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(155*3,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(155*4,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(155*5,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(155*6,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(155*7,340, rectangulo.fondo, paquete, icon, ctx);
+                    /*******************INICIO FOREACH DE LOS HIJOS****************************/
                     for (var k in json['users']) {
                         console.log("empieza");
-                        console.log(k, json['users'][k]['padre']);
-                        console.log("x = " + x);
-                        if (json['users'][k]['padre'] == 0) {
-                            console.log('/');
-                            arbol.createNode(posInicial.x, posInicial.y, raiz.fondo, paquete, icon, ctx);
-                            posL = arbol.lineLeft(posInicial.x, posInicial.y);
-                            posR = arbol.lineRight(posInicial.x, posInicial.y);
-                            console.log(posL);
-                            console.log(posR);
-                            /*x=posL;
-                            y=posR;*/
-                            nivel = "lvl1";
-                        } else if (nivel = "lvl1") {
-                            if (cambio){
+                        console.log("indice =" + k, "padre =" + json['users'][k]['padre']);
+//                        console.log("x = " + x);
+                        if (json['users'][k]['padre'] !== padre) {
+                            padre=json['users'][k]['padre'];
+                            console.log("cambio de padre");
+                        }/*else {
+                            console.log("cambio de padre");
+                        }*/
+                        if (k >=1){
+                            x = canvas.width / 4
+                        }
+
+
+                        /*if (json['users'][k]['padre'] = padre && lvl1 >= k) {
+                            if (cambio) {
                                 console.log("true");
                                 x = posR.x;
                                 y = posR.y;
-                            }else{
+                            } else {
                                 console.log("false");
                                 x = posL.x;
                                 y = posL.y;
-                                cambio= true;
+                                cambio = true;
                             }
-
+                            console.log(posL);
                             if (k > k + 2) {
                                 nivel = "lvl2";
                                 console.log(lvl2);
                             } else {
                                 console.log("lvl1");
-                                arbol.createNodeHijo(x, y, lvl1.fondo, paquete, icon, ctx);
-//                                arbol.lineLeft(x, y);
-//                                arbol.lineRight(x, y);
+                                arbol.createNodeHijo(x, y, rectangulo.fondo, paquete, icon, ctx);
+                                arbol.lineLeft2(x, y);
+                                arbol.lineRight2(x, y);
                             }
-                        }
+                            ctx.fillRect(x, y, 10, 10);
+                        } else if (json['users'][k]['padre'] = padre && lvl2 >= k) {
+                            console.log("otro");
+                        }*/
 
                     }
-                    /*for (i = 0; i <= 3; i++) {
-                        pinta(paquete,x,y);
-                        y=y+60;
-                    }*/
-
+//                    if (json['users'][k]['padre'] == 0) {
+                    /*******************FIN FOREACH DE LOS HIJOS****************************/
 
                 } else {
                     alert("NO cuentas con CANVAS")

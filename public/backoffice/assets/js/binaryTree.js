@@ -40,17 +40,31 @@ class BinaryTree {
         this.ctx = ctx;
         this.posInicial = {x:300,y:50};
         this.rectangulo = {largo:180, alto:50};
+        this.rectangulo2 = {largo: 150, alto: 50, fondo: "rgba(33,150,243,1)"};
     }
 
 
     createNode(x,y,color,paquete,icon,ctx) {
+        ctx.lineWidth = 1;
         ctx.fillStyle = color;
         ctx.fillRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
         this.pinta(paquete,icon,ctx,x,y);
         ctx.font = "15px Verdana";
         ctx.lineWidth = 2;
         ctx.fillStyle = "white";
-        ctx.fillText("user name",x+52,y+25);
+        ctx.fillText("user name",x+52,y+15);
+        ctx.strokeRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
+    }
+    createNodeS(x,y,color,paquete,icon,ctx) {
+        ctx.lineWidth = 1;
+        ctx.fillStyle = color;
+        ctx.fillRect(x,y,this.rectangulo2.largo, this.rectangulo2.alto);
+        this.pinta2(paquete,icon,ctx,x,y);
+        ctx.font = "15px Verdana";
+        ctx.lineWidth = 2;
+        ctx.fillStyle = "white";
+        ctx.fillText("user name",x+52,y+15);
+        ctx.strokeRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
     }
 
     createNodeHijo(x,y,color,paquete,icon,ctx) {
@@ -76,6 +90,29 @@ class BinaryTree {
         return (pl);
     }
 
+    lineLeft2(x,y){
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeStyle = "rgba(58,150,235,1)";
+        this.ctx.beginPath();
+        this.ctx.moveTo(x,y+50);   //baja inicio
+        // this.ctx.fillRect(x,y+50,10,10);
+        this.ctx.lineTo(x,y+80);   //baja final
+        this.ctx.lineTo(x-100,y+80);    //izquierda
+        this.ctx.quadraticCurveTo(x-130,y+80, x-130,y+100);
+        this.ctx.stroke();
+        var pl={x:x-100,y:y+100};
+        return (pl);
+    }
+
+    lineRight2(x,y){
+        this.ctx.beginPath();
+        this.ctx.moveTo(x,y+80);   //baja final
+        this.ctx.lineTo(x+100,y+80);   //derecha
+        this.ctx.quadraticCurveTo(x+130,y+80, x+130,y+100);
+        this.ctx.stroke();
+        var pI={x:x+300,y:y+100};
+        return (pI);
+    }
 
     lineRight(x,y){
         this.ctx.beginPath();
@@ -96,9 +133,10 @@ class BinaryTree {
         icono.src = icon;
         imagen.onload = function(){
             ctx.drawImage(imagen,x,y);
+            // ctx.drawImage(icono, x + 115, y+15);
         };
         icono.onload = function(){
-            ctx.drawImage(icono, x + 140, y + 6);
+            ctx.drawImage(icono, x + 140, y +6);
         };
     }
     pinta2(paquete,icon,ctx,x,y){
@@ -109,11 +147,27 @@ class BinaryTree {
         imagen.src = paquete;
         icono.src = icon;
         imagen.onload = function(){
-            ctx.drawImage(imagen,x-90,y);
+            ctx.drawImage(imagen,x,y);
+            // ctx.drawImage(icono, x + 115, y+15);
         };
         icono.onload = function(){
+            ctx.drawImage(icono, x + 115, y +15);
+        };
+    }
+    pinta3(paquete,icon,ctx,x,y){
+        // ctx.fillStyle = colorDelante;
+        // ctx.fillRect(carta.x, carta.y, carta.ancho, carta.largo);
+        var imagen = new Image();
+        var icono = new Image();
+        imagen.src = paquete;
+        icono.src = icon;
+        imagen.onload = function(){
+            ctx.drawImage(imagen,x-90,y);
             ctx.drawImage(icono, x + 50, y + 6);
         };
+        /*icono.onload = function(){
+            ctx.drawImage(icono, x + 50, y + 6);
+        };*/
     }
 
 }
