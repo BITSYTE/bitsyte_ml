@@ -54,6 +54,12 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/binaryTree.js') }}"></script>
     <script>
+        var tNode = new TreeNode(ctx);
+
+        tNode.SetImage = 'http://.....';
+        tNode.SetImagePosition = {x: 100, y: 200};
+        tNode.SetUsername = "Hola mundo!";
+
         var canvas;
         var positionNode;
         var info;

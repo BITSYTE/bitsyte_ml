@@ -64,6 +64,7 @@ Route::group(['namespace' => 'Web'], function () {
         Route::get('home', function () {
             return view('admin.index');
         })->name('index');
+
         Route::group(['prefix' => 'wallets', 'as' => 'wallets.'],function (){
             Route::get('/', function () {
                 return view('admin.wallets.index');
