@@ -52,7 +52,7 @@ class BinaryTree {
         ctx.font = "15px Verdana";
         ctx.lineWidth = 2;
         ctx.fillStyle = "white";
-        ctx.fillText("user name",x+52,y+15);
+        ctx.fillText("user name",x+52,y+25);
         ctx.strokeRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
     }
     createNodeS(x,y,color,paquete,icon,ctx) {
@@ -63,8 +63,8 @@ class BinaryTree {
         ctx.font = "15px Verdana";
         ctx.lineWidth = 2;
         ctx.fillStyle = "white";
-        ctx.fillText("user name",x+52,y+15);
-        ctx.strokeRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
+        ctx.fillText("user name",x+40,y+25);
+        // ctx.strokeRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
     }
 
     createNodeHijo(x,y,color,paquete,icon,ctx) {
@@ -91,14 +91,15 @@ class BinaryTree {
     }
 
     lineLeft2(x,y){
+        console.log("izquierda x="+x);
         this.ctx.lineWidth = 2;
         this.ctx.strokeStyle = "rgba(58,150,235,1)";
         this.ctx.beginPath();
         this.ctx.moveTo(x,y+50);   //baja inicio
         // this.ctx.fillRect(x,y+50,10,10);
         this.ctx.lineTo(x,y+80);   //baja final
-        this.ctx.lineTo(x-100,y+80);    //izquierda
-        this.ctx.quadraticCurveTo(x-130,y+80, x-130,y+100);
+        this.ctx.lineTo(x-(x/2-30),y+80);    //izquierda
+        this.ctx.quadraticCurveTo(x-(x/2),y+80, x-(x/2),y+100);
         this.ctx.stroke();
         var pl={x:x-100,y:y+100};
         return (pl);
@@ -133,25 +134,22 @@ class BinaryTree {
         icono.src = icon;
         imagen.onload = function(){
             ctx.drawImage(imagen,x,y);
-            // ctx.drawImage(icono, x + 115, y+15);
         };
         icono.onload = function(){
-            ctx.drawImage(icono, x + 140, y +6);
+            ctx.drawImage(icono, x + 155, y +25,20,20);
         };
     }
     pinta2(paquete,icon,ctx,x,y){
-        // ctx.fillStyle = colorDelante;
-        // ctx.fillRect(carta.x, carta.y, carta.ancho, carta.largo);
         var imagen = new Image();
         var icono = new Image();
         imagen.src = paquete;
         icono.src = icon;
         imagen.onload = function(){
-            ctx.drawImage(imagen,x,y);
+            ctx.drawImage(imagen,x,y+5,35,35);
             // ctx.drawImage(icono, x + 115, y+15);
         };
         icono.onload = function(){
-            ctx.drawImage(icono, x + 115, y +15);
+            ctx.drawImage(icono, x + 125, y +25,20,20);
         };
     }
     pinta3(paquete,icon,ctx,x,y){
@@ -171,10 +169,10 @@ class BinaryTree {
     }
 
 }
-/*var BinaryTree = {
-    createNode: function(x,y,color,ctx,rectangulo) {
-    }
-};*/
+
+// ctx.font = '20px glyphicon';
+// ctx.fillText(String.fromCharCode(0x2a), 10, 50);
+
 
 /*function createNode(x,y,color){
     ctx.fillStyle = color;

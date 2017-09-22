@@ -5,6 +5,7 @@
         #miCanvas {
             background: #eaeaea;
             border: solid red 3px;
+            margin: auto;
         }
     </style>
 @endsection
@@ -39,11 +40,11 @@
     <div class="row match-height">
         <div class="card-header col-xs-1 col-sm-1 col-md-12 col-lg-12 col-xl-12" style="padding: 6px!important;">
             {{--<div class=" col-xs-12 col-sm-12 ">--}}
-                {{--<div class="card">--}}
-                    <canvas id="miCanvas" width="1240" height="600">
+                <div class="canvas-wrapper" >
+                    <canvas id="miCanvas" width="1310" height="600">
                         Tu navegador no soporta el canvas de HTML5
                     </canvas>
-                {{--</div>--}}
+                </div>
             {{--</div>--}}
         </div>
     </div>
@@ -53,8 +54,18 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/binaryTree.js') }}"></script>
     <script>
+        var canvas;
+
+        function setPositionNode() {
+
+        }
+
+        function getPositionNode() {
+
+        }
+
         window.onload = function () {
-            var canvas = document.getElementById("miCanvas");
+            canvas = document.getElementById("miCanvas");
             if (canvas && canvas.getContext) {
                 var ctx = canvas.getContext("2d");
                 if (ctx) {
@@ -64,13 +75,11 @@
                      VARIABLES
                      *****************/
                     var i;
-//                    var raiz = {fondo: "rgba(33,150,243,1)"};
                     var lvl1 = 1;
                     var lvl2 = 3;
                     var lvl3 = 7;
                     var add = {fondo: "rgba(19,52,149,1)"};
                     var posInicial = {x: canvas.width / 2 - 90, y: 30};
-                    console.log(posInicial);
                     var rectangulo = {largo: 180, alto: 50, fondo: "rgba(33,150,243,1)"};
                     var json = {
                         "padre": [
@@ -84,7 +93,6 @@
                             {"nombre": "jose", "paquete": "gold", "id": "6", "padre": "4", "pos":"R"}
                         ]
                     };
-                    console.log(json["users"]);
                     var location = {
                         lvl2:[
                             {pos:"L",x:233,y:200}
@@ -124,16 +132,11 @@
                         }
                     }
 
-                    function limpiar() {
-//                        var w = imagen.width;
-//                        var h = imagen.height;
-                        ctx.clearRect(250, 10, w, h);
-                    }
 
                     var paquete = "{{asset('backoffice/images/circulo1.png')}}";
-                    var icon = "{{asset('backoffice/images/icons/info-ico-azul.png')}}";
+                    var icon = "{{ asset('backoffice/images/icons/info.svg') }}";
 
-//                    pintaGrid(20, 20, "gray");
+                    pintaGrid(20, 20, "gray");
                     /******************************/
                     var arbol = new BinaryTree(ctx);
                     /*arbol.createNode(posInicial.x, posInicial.y, raiz.fondo, paquete, icon, ctx);
@@ -157,9 +160,10 @@
                     icono.src = icon;
                     console.log("load");
                     imagen.onload = function () {
-                        console.log("load");
                         ctx.drawImage(imagen, posInicial.x, posInicial.y);
-                        ctx.drawImage(icono, posInicial.x + 140, posInicial.y + 6);
+                    };
+                    icono.onload = function () {
+                        ctx.drawImage(icono, posInicial.x + 150, posInicial.y + 25,20,20);
                     };
                     /***** FIN IMAGEN  *****/
                     ctx.font = "15px Verdana";
@@ -185,35 +189,36 @@
                     posR = {x: x + 300, y: y + 100};
                     /*******************FIN NODO RAIZ****************************/
                     console.log("/2="+posInicial.x/2);
-                    arbol.createNode(310-80,140, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNode(canvas.width / 4-80,140, rectangulo.fondo, paquete, icon, ctx);
                     arbol.lineLeft2(canvas.width / 4, 140);
-                    arbol.lineRight2(310, 140);
-                    arbol.createNode(310+310+310-80,140, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(310+310+310, 140);
+                    arbol.lineRight2(canvas.width / 4, 140);
+                    arbol.createNode(canvas.width / 4*3-80,140, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(canvas.width / 4*3, 140);
                     arbol.lineRight2(310+310+310, 140);
+                    console.log("segundo lvl termina");
 
-                    arbol.createNode(155-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNode(canvas.width / 8-80,240, rectangulo.fondo, paquete, icon, ctx);
                     arbol.lineLeft2(155, 240);
-                    arbol.lineRight2(155, 240);
-                    arbol.createNode(155+155+155-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineRight2(155, 260);
+                    arbol.createNode(canvas.width / 8*3-80,240, rectangulo.fondo, paquete, icon, ctx);
                     arbol.lineLeft2(155+155+155, 240);
                     arbol.lineRight2(155+155+155, 240);
-                    arbol.createNode(155+155+155+155+155-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNode(canvas.width / 8*5-80,240, rectangulo.fondo, paquete, icon, ctx);
                     arbol.lineLeft2(155+155+155+155+155, 240);
                     arbol.lineRight2(155+155+155+155+155, 240);
-                    arbol.createNode(155+155+155+155+155+155+155-80,240, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(155+155+155+155+155+155+155, 240);
-                    arbol.lineRight2(155+155+155+155+155+155+155, 240);
+                    arbol.createNode(canvas.width / 8*7-80,240, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.lineLeft2(155*7, 240);
+                    arbol.lineRight2(155*7, 240);
 
 
                     arbol.createNodeS(0,340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(155,320, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(155*2,340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(155*3,340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(155*4,340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(155*5,340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(155*6,340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(155*7,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(canvas.width / 8+5,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(canvas.width / 8*2+5,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(canvas.width / 8*3+5,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(canvas.width / 8*4+5,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(canvas.width / 8*5+5,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(canvas.width / 8*6+5,340, rectangulo.fondo, paquete, icon, ctx);
+                    arbol.createNodeS(canvas.width / 8*7+5,340, rectangulo.fondo, paquete, icon, ctx);
                     /*******************INICIO FOREACH DE LOS HIJOS****************************/
                     for (var k in json['users']) {
                         console.log("empieza");
