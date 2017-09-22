@@ -55,13 +55,43 @@
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/binaryTree.js') }}"></script>
     <script>
         var canvas;
+        var positionNode;
+        var info;
+        var info_array = new Array();
 
-        function setPositionNode() {
+        function ajusta(xx, yy){
+            var posCanvas = canvas.getBoundingClientRect();
+            var x = xx - posCanvas.left;
+            var y = yy - posCanvas.top;
+            return {x:x, y:y}
+        }
 
+        function selecciona(e){
+            var pos = ajusta(e.clientX, e.clientY);
+            console.log(pos);
+            var x = pos.x;
+            var y = pos.y;
+            var tecla;
+            var bandera = false;
+            for(var i=0; i<info_array.length; i++){
+                tecla = info_array[i];
+                if(tecla.x > 0){
+                    if((x > tecla.x)&&(x < tecla.x + tecla.ancho)&&(y > tecla.y)&&(y< tecla.y + tecla.alto)){
+                        break;
+                    }
+                }
+            }
+            if(i<info_array.length){
+                alert(i);
+            }
+        }
+
+        function setPositionNode(x,y) {
+            positionNode={x:x,y:y};
         }
 
         function getPositionNode() {
-
+            return positionNode;
         }
 
         window.onload = function () {
@@ -71,6 +101,7 @@
                 if (ctx) {
                     console.log(canvas.width);
                     console.log(canvas.width / 2);
+                    canvas.addEventListener("click",selecciona,false);
                     /****************
                      VARIABLES
                      *****************/
@@ -165,6 +196,8 @@
                     icono.onload = function () {
                         ctx.drawImage(icono, posInicial.x + 150, posInicial.y + 25,20,20);
                     };
+                    info = {x:posInicial.x + 150,y:posInicial.y + 25};
+                    info_array.push(info);
                     /***** FIN IMAGEN  *****/
                     ctx.font = "15px Verdana";
                     ctx.lineWidth = 2;
