@@ -34,28 +34,50 @@
 
 
 class TreeNode {
-    constructor(context, position, bgcolor = "$2196F3", dimensions = {w: 180, h: 50}) {
+    constructor(context, position, bgcolor = "#2196F3", dimensions = {w: 180, h: 50}) {
         this._context = context;
         this._position = position;
         this._dimensions = dimensions;
         this._bgcolor = bgcolor;
 
-        this._context.fillStyle = this._bgcolor;
+        this._context.fillStyle =this._bgcolor;
         this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
 
         this._image = new Image();
     }
 
+    set SetPosition(position){
+        this._position = position
+    }
+
     set SetUsername(name) {
+        this._context.fillStyle = "#FFFFFF";
         this._username = name;
         this._context.fillText(this._username, this._position.x + 52, this._position.y + 25);
     }
 
     set SetImage(url) {
-        this._image.onload = function () {
-            this._context.drawImage(this._image, this._position.x, this._position.y);
-        };
+        // var context = this._context;
         this._image.src = url;
+        this._image.onload = (function () {
+            this._context.drawImage(this._image, this._position.x, this._position.y);
+        }).bind(this);
+        console.log(this._position.x, this._position.y);
+        console.log(this._context.drawImage);
+    }
+
+    createNode(){
+        this._context.fillStyle = this._bgcolor;
+        this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
+    }
+    pintar (url,x,y){
+        console.log(this._position);
+        var image = new Image();
+        var context = this._context;
+        image.src = url;
+        image.onload = function () {
+            context.drawImage(image, x, y);
+        };
     }
 }
 
@@ -63,15 +85,13 @@ class BinaryTree {
 
     constructor(ctx) {
 
+        this._context = ctx;
         //------------------------------------------
         this._context.font = "15px Verdana";
         this._context.lineWidth = 2;
         this._context.fillStyle = "white";
         //------------------------------------------
 
-        // imagen = new Image();
-        // icon = new Image();
-        this.ctx = ctx;
         this.posInicial = {x: 300, y: 50};
         this.rectangulo = {largo: 180, alto: 50};
         this.rectangulo2 = {largo: 150, alto: 50, fondo: "rgba(33,150,243,1)"};
@@ -113,39 +133,39 @@ class BinaryTree {
     }
 
     lineLeft(x, y) {
-        this.ctx.lineWidth = 2;
-        this.ctx.strokeStyle = "rgba(58,150,235,1)";
-        this.ctx.beginPath();
-        this.ctx.moveTo(x + 100, y + 50);   //baja inicio
-        this.ctx.lineTo(x + 100, 110);   //baja final
-        this.ctx.lineTo(x - 70, 110);    //izquierda
-        this.ctx.quadraticCurveTo(x - 100, 110, x - 100, y + 100);
-        this.ctx.stroke();
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.beginPath();
+        this._context.moveTo(x + 100, y + 50);   //baja inicio
+        this._context.lineTo(x + 100, 110);   //baja final
+        this._context.lineTo(x - 70, 110);    //izquierda
+        this._context.quadraticCurveTo(x - 100, 110, x - 100, y + 100);
+        this._context.stroke();
         var pl = {x: x - 100, y: y + 100};
         return (pl);
     }
 
     lineLeft2(x, y) {
         console.log("izquierda x=" + x);
-        this.ctx.lineWidth = 2;
-        this.ctx.strokeStyle = "rgba(58,150,235,1)";
-        this.ctx.beginPath();
-        this.ctx.moveTo(x, y + 50);   //baja inicio
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.beginPath();
+        this._context.moveTo(x, y + 50);   //baja inicio
         // this.ctx.fillRect(x,y+50,10,10);
-        this.ctx.lineTo(x, y + 80);   //baja final
-        this.ctx.lineTo(x - (x / 2 - 30), y + 80);    //izquierda
-        this.ctx.quadraticCurveTo(x - (x / 2), y + 80, x - (x / 2), y + 100);
-        this.ctx.stroke();
+        this._context.lineTo(x, y + 80);   //baja final
+        this._context.lineTo(x - (x / 2 - 30), y + 80);    //izquierda
+        this._context.quadraticCurveTo(x - (x / 2), y + 80, x - (x / 2), y + 100);
+        this._context.stroke();
         var pl = {x: x - 100, y: y + 100};
         return (pl);
     }
 
     lineRight2(x, y) {
-        this.ctx.beginPath();
-        this.ctx.moveTo(x, y + 80);   //baja final
-        this.ctx.lineTo(x + 100, y + 80);   //derecha
-        this.ctx.quadraticCurveTo(x + 130, y + 80, x + 130, y + 100);
-        this.ctx.stroke();
+        this._context.beginPath();
+        this._context.moveTo(x, y + 80);   //baja final
+        this._context.lineTo(x + 100, y + 80);   //derecha
+        this._context.quadraticCurveTo(x + 130, y + 80, x + 130, y + 100);
+        this._context.stroke();
         var pI = {x: x + 300, y: y + 100};
         return (pI);
     }
@@ -200,9 +220,7 @@ class BinaryTree {
             ctx.drawImage(imagen, x - 90, y);
             ctx.drawImage(icono, x + 50, y + 6);
         };
-        /*icono.onload = function(){
-         ctx.drawImage(icono, x + 50, y + 6);
-         };*/
+
     }
 
 }
