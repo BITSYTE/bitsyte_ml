@@ -56,8 +56,6 @@
     <script>
         var canvas;
         var ctx;
-        var position;
-        var info;
         var info_array = new Array();
 
         function ajusta(xx, yy) {
@@ -167,10 +165,6 @@
 
                     pintaGrid(20, 20, "gray");
                     var tNode = new TreeNode(ctx, posInicial);
-//                    tNode.SetUsername = "Hola mundo!";
-//                    tNode.SetImage=paquete;
-//                    tNode.pintar(paquete,posInicial.x,posInicial.y);
-//                    tNode.SetImage=paquete;
 
                     for (var k in json){
                         console.log("indice =" + k, "position =" + json[k]["position"]);
@@ -186,136 +180,11 @@
                     }
 //                    console.info( posiciones.includes( '1,1' ) );
 //                    console.info( ("1,1" in posiciones) );
-
-
-                    /******************************/
-                    /*var arbol = new BinaryTree(ctx);
-                    arbol.createNode(posInicial.x, posInicial.y, raiz.fondo, paquete, icon, ctx);
-                    arbol.lineLeft(posInicial.x, posInicial.y);
-                    arbol.lineRight(posInicial.x, posInicial.y);*/
-
-                    /*var x = posInicial.x;
-                    var y = posInicial.y;
-                    var nivel;*/
-
-                    /*******************CREANDO NODO RAIZ****************************/
-                    /*ctx.fillStyle = rectangulo.fondo;
-                    ctx.fillRect(x, y, rectangulo.largo, rectangulo.alto);
-                    /!***** INICIO IMAGEN.  *****!/
-                    var imagen = new Image();
-                    var icono = new Image();
-                    imagen.src = paquete;
-                    icono.src = icon;
-                    imagen.onload = function () {
-                        ctx.drawImage(imagen, posInicial.x, posInicial.y);
-                    };
-                    icono.onload = function () {
-                        ctx.drawImage(icono, posInicial.x + 150, posInicial.y + 25, 20, 20);
-                    };
-                    info = {x: posInicial.x + 150, y: posInicial.y + 25};
-                    info_array.push(info);
-                    /!***** FIN IMAGEN  *****!/
-                    ctx.font = "15px Verdana";
-                    ctx.lineWidth = 2;
-                    ctx.fillStyle = "white";
-                    ctx.fillText("user name", x + 52, y + 25);
-                    /!***** LINEA DERECHA  ****!/
-                    ctx.lineWidth = 2;
-                    ctx.strokeStyle = "rgba(58,150,235,1)";
-                    ctx.beginPath();
-                    ctx.moveTo(x + 100, y + 50);   //baja inicio
-                    ctx.lineTo(x + 100, 110);   //baja final
-                    ctx.lineTo(canvas.width / 4 + 40, 110);    //izquierda
-                    ctx.quadraticCurveTo(canvas.width / 4, 110, canvas.width / 4, y + 110);
-                    ctx.stroke();
-                    posL = {x: x - 100, y: y + 100};
-                    /!***** LINEA IZQUIERDA  **************!/
-                    ctx.beginPath();
-                    ctx.moveTo(x + 100, y + 80);   //baja final
-                    ctx.lineTo(canvas.width / 4 * 3 - 40, y + 80);   //derecha
-                    ctx.quadraticCurveTo(canvas.width / 4 * 3, y + 80, canvas.width / 4 * 3, y + 110);
-                    ctx.stroke();
-                    posR = {x: x + 300, y: y + 100};
-                    /!*******************FIN NODO RAIZ****************************!/
-                    console.log("/2=" + posInicial.x / 2);
-                    arbol.createNode(canvas.width / 4 - 80, 140, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(canvas.width / 4, 140);
-                    arbol.lineRight2(canvas.width / 4, 140);
-                    arbol.createNode(canvas.width / 4 * 3 - 80, 140, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(canvas.width / 4 * 3, 140);
-                    arbol.lineRight2(310 + 310 + 310, 140);
-                    console.log("segundo lvl termina");
-
-                    arbol.createNode(canvas.width / 8 - 80, 240, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(155, 240);
-                    arbol.lineRight2(155, 260);
-                    arbol.createNode(canvas.width / 8 * 3 - 80, 240, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(155 + 155 + 155, 240);
-                    arbol.lineRight2(155 + 155 + 155, 240);
-                    arbol.createNode(canvas.width / 8 * 5 - 80, 240, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(155 + 155 + 155 + 155 + 155, 240);
-                    arbol.lineRight2(155 + 155 + 155 + 155 + 155, 240);
-                    arbol.createNode(canvas.width / 8 * 7 - 80, 240, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.lineLeft2(155 * 7, 240);
-                    arbol.lineRight2(155 * 7, 240);
-
-
-                    arbol.createNodeS(0, 340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(canvas.width / 8 + 5, 340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(canvas.width / 8 * 2 + 5, 340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(canvas.width / 8 * 3 + 5, 340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(canvas.width / 8 * 4 + 5, 340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(canvas.width / 8 * 5 + 5, 340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(canvas.width / 8 * 6 + 5, 340, rectangulo.fondo, paquete, icon, ctx);
-                    arbol.createNodeS(canvas.width / 8 * 7 + 5, 340, rectangulo.fondo, paquete, icon, ctx);*/
-                    /*******************INICIO FOREACH DE LOS HIJOS****************************/
-//                    for (var k in json['users']) {
-                        /*console.log("empieza");
-                        console.log("indice =" + k, "padre =" + json['users'][k]['padre']);
-//                        console.log("x = " + x);
-                        if (json['users'][k]['padre'] !== padre) {
-                            padre = json['users'][k]['padre'];
-                            console.log("cambio de padre");
-                        }*/
-
-                        /*if (json['users'][k]['padre'] = padre && lvl1 >= k) {
-                            if (cambio) {
-                                console.log("true");
-                                x = posR.x;
-                                y = posR.y;
-                            } else {
-                                console.log("false");
-                                x = posL.x;
-                                y = posL.y;
-                                cambio = true;
-                            }
-                            console.log(posL);
-                            if (k > k + 2) {
-                                nivel = "lvl2";
-                                console.log(lvl2);
-                            } else {
-                                console.log("lvl1");
-                                arbol.createNodeHijo(x, y, rectangulo.fondo, paquete, icon, ctx);
-                                arbol.lineLeft2(x, y);
-                                arbol.lineRight2(x, y);
-                            }
-                            ctx.fillRect(x, y, 10, 10);
-                        } else if (json['users'][k]['padre'] = padre && lvl2 >= k) {
-                            console.log("otro");
-                        }*/
-
-//                    }
-//                    if (json['users'][k]['padre'] == 0) {
-                    /*******************FIN FOREACH DE LOS HIJOS****************************/
-
                 } else {
                     alert("NO cuentas con CANVAS");
                 }
 
             }
         };
-        {{--var img = "{{ asset('backoffice/images/circulo1.png') }}";--}}
-        {{--window.onload = start(img);--}}
-        console.log("asd2");
     </script>
 @endsection
