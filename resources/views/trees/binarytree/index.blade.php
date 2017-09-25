@@ -97,10 +97,8 @@
                     /****************
                      VARIABLES
                      *****************/
-                    var i;
-                    var add = {fondo: "rgba(19,52,149,1)"};
+                    var pos;
                     var posInicial = {x: canvas.width / 2 - 90, y: 30};
-                    var rectangulo = {largo: 180, alto: 50, fondo: "rgba(33,150,243,1)"};
                     var json = [
                         {"username": "John0", "paquete": "gold", "type": "user", "position": "1,1"},
                         {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
@@ -118,25 +116,7 @@
                         {"username": "jose13", "paquete": "gold", "type": "add", "position": "4,7"},
                         {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
                     ];
-
-                    /*var posiciones = {
-                        "1,1": {x: canvas.width / 2 - 90, y: 40, hl:{x:canvas.width / 4 - 80, yf: 140},hr:{x: canvas.width / 4 * 3 - 80, y: 140}},
-                        "2,1": {x: canvas.width / 4 - 80, y: 140,hl:{x: canvas.width / 8 - 80, y: 240},hr:{x: canvas.width / 8 * 3 - 80, y: 240}},
-                        "2,2": {x: canvas.width / 4 * 3 - 80, y: 140,hl:{x: canvas.width / 8 * 5 - 80, y: 240},hr:{x: canvas.width / 8 * 7 - 80, y: 240}},
-                        "3,1": {x: canvas.width / 8 - 80, y: 240,hl:{x: 0, y: 340},hr:{x: canvas.width / 8 + 5, y: 340}},
-                        "3,2": {x: canvas.width / 8 * 3 - 80, y: 240,hl:{x: canvas.width / 8 * 2 + 5, y: 340},hr:{x: canvas.width / 8 * 3 + 5, y: 340}},
-                        "3,3": {x: canvas.width / 8 * 5 - 80, y: 240},
-                        "3,4": {x: canvas.width / 8 * 7 - 80, y: 240},
-                        "4,1": {x: 0, y: 340},
-                        "4,2": {x: canvas.width / 8 + 5, y: 340},
-                        "4,3": {x: canvas.width / 8 * 2 + 5, y: 340},
-                        "4,4": {x: canvas.width / 8 * 3 + 5, y: 340},
-                        "4,5": {x: canvas.width / 8 * 4 + 5, y: 340},
-                        "4,6": {x: canvas.width / 8 * 5 + 5, y: 340},
-                        "4,7": {x: canvas.width / 8 * 6 + 5, y: 340},
-                        "4,8": {x: canvas.width / 8 * 7 + 5, y: 340}
-                    };*/
-
+                    //ARREGLO DE LAS POSICIONES
                     var posiciones = {
                         "1,1": {x: canvas.width / 2 - 90, y: 40, hl:"2,1",hr:"2,2"},
                         "2,1": {x: canvas.width / 4 - 80, y: 140,hl:"3,1",hr:"3,2"},
@@ -154,7 +134,7 @@
                         "4,7": {x: canvas.width / 8 * 6 + 5, y: 340,hl:"no",hr:"no"},
                         "4,8": {x: canvas.width / 8 * 7 + 5, y: 340,hl:"no",hr:"no"}
                     };
-
+                    // RUTA DE LAS IMAGENES
                     var paquete = "{{asset('backoffice/images/circulo1.png')}}";
                     var icon = "{{ asset('backoffice/images/icons/info.svg') }}";
                     var icon_plus = "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}";
@@ -183,12 +163,28 @@
                         }
                     }
 
-                    pintaGrid(20, 20, "gray");
+//                    pintaGrid(20, 20, "gray");
                     var tNode = new TreeNode(ctx, posInicial);
-
+                    var dimensions = 0;
                     for (var k in json) {
                         console.log("indice =" + k, "position =" + json[k]["position"]);
-//                        console.log( posiciones[json[k]["position"]] );
+
+                        pos=posiciones[json[k]["position"]];    // se obtiene la posicion del nodo
+                        //se checa si el nodo es de nivel 4 para cambiar el tipo de linea
+                        if(pos["hl"] !== "no" && json[k]["type"] === "user"){
+                            fin_l=posiciones[pos["hl"]];
+                            tNode.lineLeft(pos, fin_l);
+                            fin_r=posiciones[pos["hr"]];
+                            tNode.lineRight(pos,fin_r);
+                            dimensions = {x:0, d:0};
+                        }else if(pos["hl"] === "no" ) {
+                            console.log("linea de mostrar mas ");
+                            tNode.drawLineViewMore(pos, icon_plus);
+                            dimensions = {x:15,d:30};
+                        }else{
+                            console.log("no hay linea");
+                        }
+                        // se checa que tipo de usuario es para cambiar el color y los iconos
                         if (json[k]["type"] === "user") {
                             tNode.SetbgColor = "#2196F3";
                             paquete = "{{asset('backoffice/images/circulo1.png')}}";
@@ -198,41 +194,15 @@
                             paquete = "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}";
                             icon = "{{ asset('') }}";
                         }
-
-                        var pos=posiciones[json[k]["position"]];
-                        console.log(pos);
-                        console.log("pos x= "+pos.x);
-                        console.log("position Y=" + pos.y);
+                        //se dibuja el nodo
                         tNode.SetPosition = pos;
-                        tNode.createNode();
-                        tNode.SetUsername = json[k]["username"];
-                        tNode.pintar(paquete, pos.x, pos.y);
-                        tNode.icon(icon, pos.x, pos.y);
-                        /*next = parseInt(k) + parseInt(1);
-                        console.log("next =" + next);
-                        fin = posiciones[json[next]["position"]];
-                        console.log(fin);*/
-                        if(pos["hl"] !== "no" && json[k]["type"] === "user"){
-                            fin_l=posiciones[pos["hl"]];
-                            /*console.log(fin_l);
-                            console.log(fin_l.x);
-                            console.log(fin_l.y);
-                            console.log("--------------");*/
-                            tNode.lineLeft(pos, fin_l);
-                            fin_r=posiciones[pos["hr"]];
-                            tNode.lineRight(pos,fin_r);
-                        }else if(pos["hl"] === "no" ) {
-                            console.log("linea de mostrar mas ");
-                            tNode.lineViewMore(pos, icon_plus);
-                        }else{
-                            console.log("no hay linea");
-                        }
+                        tNode.createNode(dimensions);
+                        tNode.drawUserName(json[k]["username"],dimensions);
+                        tNode.drawPaquete(paquete, pos.x, pos.y,dimensions);
+                        tNode.drawIconInfo(icon, pos.x, pos.y,dimensions);
 
-
-//                        if (json[k]["position"] !== "4,2") {}
                     }
-//                    console.info( posiciones.includes( '1,1' ) );
-//                    console.info( ("1,1" in posiciones) );
+
                 } else {
                     alert("NO cuentas con CANVAS");
                 }
