@@ -40,19 +40,24 @@ class TreeNode {
         this._dimensions = dimensions;
         this._bgcolor = bgcolor;
 
-        this._context.fillStyle =this._bgcolor;
-        this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
+        this._context.fillStyle = this._bgcolor;
+        // this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
 
         this._image = new Image();
     }
 
-    set SetPosition(position){
+    set SetPosition(position) {
         this._position = position
+    }
+
+    set SetbgColor(bgcolor) {
+        this._bgcolor = bgcolor
     }
 
     set SetUsername(name) {
         this._context.fillStyle = "#FFFFFF";
         this._username = name;
+        this._context.font = "12px Verdana";
         this._context.fillText(this._username, this._position.x + 52, this._position.y + 25);
     }
 
@@ -66,19 +71,71 @@ class TreeNode {
         console.log(this._context.drawImage);
     }
 
-    createNode(){
+    createNode() {
         this._context.fillStyle = this._bgcolor;
         this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
     }
-    pintar (url,x,y){
+
+    pintar(url, x, y) {
         console.log(this._position);
         var image = new Image();
         var context = this._context;
         image.src = url;
         image.onload = function () {
-            context.drawImage(image, x, y);
+            context.drawImage(image, x + 5, y + 5, 35, 35);
         };
     }
+
+    icon(url, x, y) {
+        var icono = new Image();
+        var context = this._context;
+        icono.src = url;
+        icono.onload = function () {
+            context.drawImage(icono, x + 155, y + 25, 20, 20);
+        };
+    }
+
+    lineLeft(inicio, fin) {
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.beginPath();
+        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
+        this._context.lineTo(inicio.x + 90, inicio.y + 75);   //baja final
+        this._context.lineTo(fin.x + 120, inicio.y + 75);    //izquierda
+        this._context.quadraticCurveTo(fin.x + 90, inicio.y + 75, fin.x + 90, fin.y);
+        this._context.stroke();
+    }
+
+    lineRight(inicio, fin) {
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.beginPath();
+        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
+        this._context.lineTo(inicio.x + 90, inicio.y + 75);   //baja final
+        this._context.lineTo(fin.x + 60, inicio.y + 75);   //derecha
+        this._context.quadraticCurveTo(fin.x + 90, inicio.y + 75, fin.x + 90, fin.y);
+        this._context.stroke();
+    }
+
+    lineViewMore(inicio,url) {
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.beginPath();
+        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
+        this._context.lineTo(inicio.x + 90, inicio.y + 75);   //baja final
+        this._context.stroke();
+        this.iconPlus(url,inicio.x + 90,inicio.y + 75);
+    }
+
+    iconPlus(url, x, y) {
+        var icon_plus = new Image();
+        var context = this._context;
+        icon_plus.src = url;
+        icon_plus.onload = function () {
+            context.drawImage(icon_plus, x-12, y, 25, 25);
+        };
+    }
+
 }
 
 class BinaryTree {
@@ -238,7 +295,6 @@ class BinaryTree {
  ctx.fillStyle = "white";
  ctx.fillText("user name",posInicial.x-130,190);
  }*/
-
 
 
 //Path
