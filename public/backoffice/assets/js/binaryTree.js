@@ -32,273 +32,100 @@
  }
  }*/
 
-
-class TreeNode {
-    constructor(context, position, bgcolor = "#2196F3", dimensions = {w: 180, h: 50}) {
-        this._context = context;
-        this._position = position;
-        this._dimensions = dimensions;
-        this._bgcolor = bgcolor;
-        this._context.fillStyle = this._bgcolor;
-        // this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
-        this._image = new Image();
-        this._context.setLineDash([]);
-    }
-
-    set SetPosition(position) {
-        this._position = position
-    }
-
-    set SetbgColor(bgcolor) {
-        this._bgcolor = bgcolor
-    }
-
-    set SetDash(lineDash) {
-        this._context.setLineDash([]);
-    }
-
-    set SetUsername(name) {
-        this._context.fillStyle = "#FFFFFF";
-        this._username = name;
-        this._context.font = "12px Verdana";
-        this._context.fillText(this._username, this._position.x + 52, this._position.y + 25);
-    }
-
-    set SetImage(url) {
-        // var context = this._context;
-        this._image.src = url;
-        this._image.onload = (function () {
-            this._context.drawImage(this._image, this._position.x, this._position.y);
-        }).bind(this);
-        console.log(this._position.x, this._position.y);
-        console.log(this._context.drawImage);
-    }
-
-    createNode(d) {
-        console.log("create");
-        console.log(this._position);
-        this._context.fillStyle = this._bgcolor;
-        this._context.fillRect(this._position.x+d.x, this._position.y, this._dimensions.w - d.d, this._dimensions.h);
-    }
-
-    drawUserName(username,d){
-        this._context.fillStyle = "#FFFFFF";
-        this._context.font = "12px Verdana";
-        this._context.fillText(username, this._position.x+d.x + 45, this._position.y + 25);
-    }
-
-    drawPaquete(url, x, y,d) {
-        console.log(this._position);
-        var image = new Image();
-        var context = this._context;
-        image.src = url;
-        image.onload = function () {
-            context.drawImage(image, x +d.x+ 5, y + 5, 35, 35);
-        };
-    }
-
-    drawIconInfo(url, x, y,d) {
-        var icono = new Image();
-        var context = this._context;
-        icono.src = url;
-        icono.onload = function () {
-            context.drawImage(icono, x + 155-d.x, y + 25, 20, 20);
-        };
-    }
-
-    lineLeft(inicio, fin) {
-        this._context.lineWidth = 2;
-        this._context.strokeStyle = "rgba(58,150,235,1)";
-        this._context.beginPath();
-        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
-        this._context.lineTo(inicio.x + 90, inicio.y + 75);   //baja final
-        this._context.lineTo(fin.x + 120, inicio.y + 75);    //izquierda
-        this._context.quadraticCurveTo(fin.x + 90, inicio.y + 75, fin.x + 90, fin.y);
-        this._context.stroke();
-    }
-
-    lineRight(inicio, fin) {
-        this._context.lineWidth = 2;
-        this._context.strokeStyle = "rgba(58,150,235,1)";
-        this._context.beginPath();
-        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
-        this._context.lineTo(inicio.x + 90, inicio.y + 75);   //baja final
-        this._context.lineTo(fin.x + 60, inicio.y + 75);   //derecha
-        this._context.quadraticCurveTo(fin.x + 90, inicio.y + 75, fin.x + 90, fin.y);
-        this._context.stroke();
-    }
-
-    drawLineRoot(inicio,fin) {
-        this._context.lineWidth = 2;
-        this._context.strokeStyle = "rgba(58,150,235,1)";
-        this._context.setLineDash([10, 5]);
-        this._context.beginPath();
-        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
-        this._context.lineTo(inicio.x + 90, inicio.y + 70);   //baja final
-        this._context.lineTo(fin.x + 60, fin.y+30);   //derecha
-        this._context.stroke();
-        this._context.save();
-    }
-
-    drawLineViewMore(inicio,url) {
-        this._context.lineWidth = 2;
-        this._context.strokeStyle = "rgba(58,150,235,1)";
-        this._context.beginPath();
-        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
-        this._context.lineTo(inicio.x + 90, inicio.y + 75);   //baja final
-        this._context.stroke();
-        this.drawIconPlus(url,inicio.x + 90,inicio.y + 75);
-    }
-
-    drawIconPlus(url, x, y) {
-        var icon_plus = new Image();
-        var context = this._context;
-        icon_plus.src = url;
-        icon_plus.onload = function () {
-            context.drawImage(icon_plus, x-12, y, 25, 25);
-        };
-    }
-
-}
-
-
-/****************************************************************************************/
 class BinaryTree {
 
-    constructor(ctx) {
+    constructor(ctx,paquete,adduser,icon,icon_plus) {
         this._context = ctx;
+        this._paquete = paquete;
+        this._adduser = adduser;
+        this._icon = icon;
+        this._icon_plus= icon_plus;
         //------------------------------------------
         this._context.font = "15px Verdana";
         this._context.lineWidth = 2;
         this._context.fillStyle = "white";
         //------------------------------------------
-        this.posInicial = {x: 300, y: 50};
-        this.rectangulo = {largo: 180, alto: 50};
-        this.rectangulo2 = {largo: 150, alto: 50, fondo: "rgba(33,150,243,1)"};
-    }
-
-    createNode(x, y, color, paquete, icon, ctx) {
-        ctx.lineWidth = 1;
-        ctx.fillStyle = color;
-        ctx.fillRect(x, y, this.rectangulo.largo, this.rectangulo.alto);
-        this.pinta(paquete, icon, ctx, x, y);
-        ctx.font = "15px Verdana";
-        ctx.lineWidth = 2;
-        ctx.fillStyle = "white";
-        ctx.fillText("user name", x + 52, y + 25);
-        ctx.strokeRect(x, y, this.rectangulo.largo, this.rectangulo.alto);
-    }
-
-    createNodeS(x, y, color, paquete, icon, ctx) {
-        ctx.lineWidth = 1;
-        ctx.fillStyle = color;
-        ctx.fillRect(x, y, this.rectangulo2.largo, this.rectangulo2.alto);
-        this.pinta2(paquete, icon, ctx, x, y);
-        ctx.font = "15px Verdana";
-        ctx.lineWidth = 2;
-        ctx.fillStyle = "white";
-        ctx.fillText("user name", x + 40, y + 25);
-        // ctx.strokeRect(x,y,this.rectangulo.largo, this.rectangulo.alto);
-    }
-
-    createNodeHijo(x, y, color, paquete, icon, ctx) {
-        ctx.fillStyle = color;
-        ctx.fillRect(x - 90, y, this.rectangulo.largo, this.rectangulo.alto);
-        this.pinta2(paquete, icon, ctx, x, y);
-        ctx.font = "15px Verdana";
-        ctx.lineWidth = 2;
-        ctx.fillStyle = "white";
-        ctx.fillText("user name", x - 38, y + 25);
-    }
-
-    lineLeft(x, y) {
-        this._context.lineWidth = 2;
-        this._context.strokeStyle = "rgba(58,150,235,1)";
-        this._context.beginPath();
-        this._context.moveTo(x + 100, y + 50);   //baja inicio
-        this._context.lineTo(x + 100, 110);   //baja final
-        this._context.lineTo(x - 70, 110);    //izquierda
-        this._context.quadraticCurveTo(x - 100, 110, x - 100, y + 100);
-        this._context.stroke();
-        var pl = {x: x - 100, y: y + 100};
-        return (pl);
-    }
-
-    lineLeft2(x, y) {
-        console.log("izquierda x=" + x);
-        this._context.lineWidth = 2;
-        this._context.strokeStyle = "rgba(58,150,235,1)";
-        this._context.beginPath();
-        this._context.moveTo(x, y + 50);   //baja inicio
-        // this.ctx.fillRect(x,y+50,10,10);
-        this._context.lineTo(x, y + 80);   //baja final
-        this._context.lineTo(x - (x / 2 - 30), y + 80);    //izquierda
-        this._context.quadraticCurveTo(x - (x / 2), y + 80, x - (x / 2), y + 100);
-        this._context.stroke();
-        var pl = {x: x - 100, y: y + 100};
-        return (pl);
-    }
-
-    lineRight2(x, y) {
-        this._context.beginPath();
-        this._context.moveTo(x, y + 80);   //baja final
-        this._context.lineTo(x + 100, y + 80);   //derecha
-        this._context.quadraticCurveTo(x + 130, y + 80, x + 130, y + 100);
-        this._context.stroke();
-        var pI = {x: x + 300, y: y + 100};
-        return (pI);
-    }
-
-    lineRight(x, y) {
-        this.ctx.beginPath();
-        this.ctx.moveTo(x + 100, y + 80);   //baja final
-        this.ctx.lineTo(x + 260, y + 80);   //derecha
-        this.ctx.quadraticCurveTo(x + 300, y + 80, x + 300, y + 100);
-        this.ctx.stroke();
-        var pI = {x: x + 300, y: y + 100};
-        return (pI);
-    }
-
-    pinta(paquete, icon, ctx, x, y) {
-        // ctx.fillStyle = colorDelante;
-        // ctx.fillRect(carta.x, carta.y, carta.ancho, carta.largo);
-        var imagen = new Image();
-        var icono = new Image();
-        imagen.src = paquete;
-        icono.src = icon;
-        imagen.onload = function () {
-            ctx.drawImage(imagen, x, y);
+        this._posInicial={x:10,y:10};
+        this._node = {w: 180, h: 50};
+        this._nodeS = {w: 150, h: 50, fondo: "rgba(33,150,243,1)"};
+        this._posiciones = {
+            "1,1": {x: canvas.width / 2 - 90, y: 50, hl:"2,1",hr:"2,2"},
+            "2,1": {x: canvas.width / 4 - 80, y: 150,hl:"3,1",hr:"3,2"},
+            "2,2": {x: canvas.width / 4 * 3 - 80, y: 150,hl:"3,3",hr:"3,4"},
+            "3,1": {x: canvas.width / 8 - 80, y: 250,hl:"4,1",hr:"4,2"},
+            "3,2": {x: canvas.width / 8 * 3 - 80, y: 250,hl:"4,3",hr:"4,4"},
+            "3,3": {x: canvas.width / 8 * 5 - 80, y: 250,hl:"4,5",hr:"4,6"},
+            "3,4": {x: canvas.width / 8 * 7 - 80, y: 250,hl:"4,7",hr:"4,8"},
+            "4,1": {x: 0, y: 340,hl:"no",hr:"no"},
+            "4,2": {x: canvas.width / 8 + 5, y: 340,hl:"no",hr:"no"},
+            "4,3": {x: canvas.width / 8 * 2 + 5, y: 350,hl:"no",hr:"no"},
+            "4,4": {x: canvas.width / 8 * 3 + 5, y: 350,hl:"no",hr:"no"},
+            "4,5": {x: canvas.width / 8 * 4 + 5, y: 350,hl:"no",hr:"no"},
+            "4,6": {x: canvas.width / 8 * 5 + 5, y: 350,hl:"no",hr:"no"},
+            "4,7": {x: canvas.width / 8 * 6 + 5, y: 350,hl:"no",hr:"no"},
+            "4,8": {x: canvas.width / 8 * 7 + 5, y: 350,hl:"no",hr:"no"}
         };
-        icono.onload = function () {
-            ctx.drawImage(icono, x + 155, y + 25, 20, 20);
-        };
+        this._nodes = [];
     }
 
-    pinta2(paquete, icon, ctx, x, y) {
-        var imagen = new Image();
-        var icono = new Image();
-        imagen.src = paquete;
-        icono.src = icon;
-        imagen.onload = function () {
-            ctx.drawImage(imagen, x, y + 5, 35, 35);
-            // ctx.drawImage(icono, x + 115, y+15);
-        };
-        icono.onload = function () {
-            ctx.drawImage(icono, x + 125, y + 25, 20, 20);
-        };
+    initTree(json){
+        var dimensions = {x:0, d:0};
+        let paquete = this._paquete;
+        let icon = this._icon;
+
+        if (user !== json[0]["username"] ){
+            var tNodeF = new TreeNode(this._context,this._posInicial);
+            console.log("draw padre");
+            tNodeF.SetPosition = this._posInicial;
+            tNodeF.createNode(dimensions);
+            tNodeF.drawUserName(user,dimensions);
+            tNodeF.drawPaquete(this._paquete, this._posInicial.x, this._posInicial.y,dimensions);
+            tNodeF.drawIconInfo(this._icon, this._posInicial.x, this._posInicial.y,dimensions);
+            console.log(this._posiciones["1,1"]);
+            tNodeF.drawLineRoot(this._posInicial,this._posiciones["1,1"]);
+            this._nodes.push(tNodeF);
+        }
+
+        for (let k in json) {
+            console.log("indice =" + k, "position =" + json[k]["position"]);
+            let nombre = "tNode"+k;
+            console.log(nombre);
+            nombre = new TreeNode(this._context,this._posInicial);
+            let pos=this._posiciones[json[k]["position"]];    // se obtiene la posicion del nodo
+            //se checa si el nodo es de nivel 4 para cambiar el tipo de linea
+            if(pos["hl"] !== "no" && json[k]["type"] === "user"){
+                let fin_l=this._posiciones[pos["hl"]];
+                nombre.lineLeft(pos, fin_l);
+                let fin_r=this._posiciones[pos["hr"]];
+                nombre.lineRight(pos,fin_r);
+                dimensions = {x:0, d:0};
+            }else if(pos["hl"] === "no" ) {
+                console.log("linea de mostrar mas ");
+                nombre.drawLineViewMore(pos, this._icon_plus);
+                dimensions = {x:15,d:30};
+            }else{
+                console.log("no hay linea");
+            }
+            // se checa que tipo de usuario es para cambiar el color y los iconos
+            if (json[k]["type"] === "user") {
+                nombre.SetbgColor = "#2196F3";
+                paquete = this._paquete;
+                icon = this._icon;
+            } else {
+                nombre.SetbgColor = "#1bb04a";
+                paquete = this._adduser;
+                icon = "";
+            }
+            //se dibuja el nodo
+            nombre.SetPosition = pos;
+            nombre.createNode(dimensions);
+            nombre.drawUserName(json[k]["username"],dimensions);
+            nombre.drawPaquete(paquete, pos.x, pos.y,dimensions);
+            nombre.drawIconInfo(icon, pos.x, pos.y,dimensions);
+            this._nodes.push(nombre);
+        }
+        console.log(this._nodes);
     }
 
-    pinta3(paquete, icon, ctx, x, y) {
-        // ctx.fillStyle = colorDelante;
-        // ctx.fillRect(carta.x, carta.y, carta.ancho, carta.largo);
-        var imagen = new Image();
-        var icono = new Image();
-        imagen.src = paquete;
-        icono.src = icon;
-        imagen.onload = function () {
-            ctx.drawImage(imagen, x - 90, y);
-            ctx.drawImage(icono, x + 50, y + 6);
-        };
-    }
 }
 

@@ -66,39 +66,16 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/binaryTree.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backoffice/assets/js/treeNode.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
     <script>
         var canvas;
         var ctx;
         var info_array = new Array();
-        var nextRoot = new Array();
+
         var user = "{{Auth::user()->first_name}}";
 
-        function ajusta(xx, yy) {
-            var posCanvas = canvas.getBoundingClientRect();
-            var x = xx - posCanvas.left;
-            var y = yy - posCanvas.top;
-            return {x: x, y: y}
-        }
 
-        function selecciona(e) {
-            var pos = ajusta(e.clientX, e.clientY);
-            console.log(pos);
-            var x = pos.x;
-            var y = pos.y;
-            var tecla;
-            var bandera = false;
-            for (var i = 0; i < info_array.length; i++) {
-                tecla = info_array[i];
-                if (tecla.x > 0) {
-                    if ((x > tecla.x) && (x < tecla.x + tecla.ancho) && (y > tecla.y) && (y < tecla.y + tecla.alto)) {
-                        break;
-                    }
-                }
-            }
-            if (i < info_array.length) {
-                alert(i);
-            }
-        }
 
         var json = [
             {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
@@ -118,7 +95,28 @@
             {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
         ];
 
-        window.onload = function () {
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            // RUTA DE LAS IMAGENES
+            var paquete = "{{asset('backoffice/images/circulo1.png')}}";                            //paquete
+            const addUser = "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}";    //agregar usuario
+            var icon = "{{ asset('backoffice/images/icons/info.svg') }}";                           //icono de info
+            var icon_plus = "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}";    //ver mas alla
+
+            canvas = document.getElementById("miCanvas");
+            if (canvas && canvas.getContext) {
+                ctx = canvas.getContext("2d");
+                if (ctx) {
+                    var bt = new BinaryTree(ctx,paquete,addUser,icon,icon_plus);
+                    bt.initTree(json);
+
+                } else {
+                    alert("NO cuentas con CANVAS");
+                }
+
+            }
+        });
+        /*window.onload = function () {
             canvas = document.getElementById("miCanvas");
             if (canvas && canvas.getContext) {
                 ctx = canvas.getContext("2d");
@@ -126,9 +124,9 @@
                     console.log(canvas.width);
                     console.log(canvas.width / 2);
                     canvas.addEventListener("click", selecciona, false);
-                    /****************
+                    /!****************
                      VARIABLES
-                     *****************/
+                     *****************!/
                     var pos={x:10,y:10};
                     var posInicial = {x: canvas.width / 2 - 90, y: 30};
 
@@ -157,29 +155,7 @@
                     var icon_plus = "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}";
                     console.log(json);
                     console.log(posiciones);
-                    console.log(nextRoot);
 
-                    /*****************
-                     FUNCIONES
-                     ******************/
-                    function pintaGrid(disX, disY, color) {
-                        ctx.strokeStyle = color;
-                        ctx.lineWidth = 0.5;
-
-                        for (var i = disX + 0.5; i < canvas.width; i += disX) {
-                            ctx.beginPath();
-                            ctx.moveTo(i, 0);
-                            ctx.lineTo(i, ctx.canvas.height);
-                            ctx.stroke();
-                        }
-
-                        for (var i = disY + 0.5; i < canvas.height; i += disY) {
-                            ctx.beginPath();
-                            ctx.moveTo(0, i);
-                            ctx.lineTo(ctx.canvas.width, i);
-                            ctx.stroke();
-                        }
-                    }
 
 //                    pintaGrid(20, 20, "gray");
                     var tNode = new TreeNode(ctx, posInicial);
@@ -238,6 +214,6 @@
                 }
 
             }
-        };
+        };*/
     </script>
 @endsection
