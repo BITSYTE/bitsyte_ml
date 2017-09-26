@@ -36,27 +36,29 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'Web'], function () {
 
-    Route::get('/home', 'DashboardController@index')->name('home');
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/home', 'DashboardController@index')->name('home');
 
-    Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-        Route::get('/new', 'UsersControllers@new')->name('new');
-        Route::post('/store', 'UsersControllers@store')->name('store');
-    });
+        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+            Route::get('/new', 'UsersControllers@new')->name('new');
+            Route::post('/store', 'UsersControllers@store')->name('store');
+        });
 
-    Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
-        Route::get('/', 'WalletsController@index')->name('index');
-        Route::get('/show/{name}', 'WalletsController@show')->name('show');
-    });
+        Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
+            Route::get('/', 'WalletsController@index')->name('index');
+            Route::get('/show/{name}', 'WalletsController@show')->name('show');
+        });
 
-    Route::group(['prefix' => 'trees', 'as' => 'trees.'], function () {
-//        Route::get('/', 'TreesController@index')->name('index');
-        Route::get('/unilevel', 'UnilevelTreeController@index')->name('unilevel');
-        Route::get('/binary', 'BinaryTreeController@index')->name('binary');
-//        Route::get('/show', 'BinaryTreeController@show')->name('show');
-    });
+        Route::group(['prefix' => 'trees', 'as' => 'trees.'], function () {
+            //        Route::get('/', 'TreesController@index')->name('index');
+            Route::get('/unilevel', 'UnilevelTreeController@index')->name('unilevel');
+            Route::get('/binary', 'BinaryTreeController@index')->name('binary');
+            //        Route::get('/show', 'BinaryTreeController@show')->name('show');
+        });
 
-    Route::get('payments', function () {
-        return view('payments.index');
+        Route::get('payments', function () {
+            return view('payments.index');
+        });
     });
 
     /*******************        ADMIN.      ****************/
@@ -65,7 +67,7 @@ Route::group(['namespace' => 'Web'], function () {
             return view('admin.index');
         })->name('index');
 
-        Route::group(['prefix' => 'wallets', 'as' => 'wallets.'],function (){
+        Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
             Route::get('/', function () {
                 return view('admin.wallets.index');
             })->name('index');

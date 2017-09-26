@@ -42,6 +42,7 @@ class TreeNode {
         this._context.fillStyle = this._bgcolor;
         // this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
         this._image = new Image();
+        this._context.setLineDash([]);
     }
 
     set SetPosition(position) {
@@ -50,6 +51,10 @@ class TreeNode {
 
     set SetbgColor(bgcolor) {
         this._bgcolor = bgcolor
+    }
+
+    set SetDash(lineDash) {
+        this._context.setLineDash([]);
     }
 
     set SetUsername(name) {
@@ -70,6 +75,8 @@ class TreeNode {
     }
 
     createNode(d) {
+        console.log("create");
+        console.log(this._position);
         this._context.fillStyle = this._bgcolor;
         this._context.fillRect(this._position.x+d.x, this._position.y, this._dimensions.w - d.d, this._dimensions.h);
     }
@@ -119,6 +126,18 @@ class TreeNode {
         this._context.lineTo(fin.x + 60, inicio.y + 75);   //derecha
         this._context.quadraticCurveTo(fin.x + 90, inicio.y + 75, fin.x + 90, fin.y);
         this._context.stroke();
+    }
+
+    drawLineRoot(inicio,fin) {
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.setLineDash([10, 5]);
+        this._context.beginPath();
+        this._context.moveTo(inicio.x + 90, inicio.y + 50);   //baja inicio
+        this._context.lineTo(inicio.x + 90, inicio.y + 70);   //baja final
+        this._context.lineTo(fin.x + 60, fin.y+30);   //derecha
+        this._context.stroke();
+        this._context.save();
     }
 
     drawLineViewMore(inicio,url) {
