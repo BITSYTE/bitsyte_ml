@@ -1,13 +1,16 @@
 
 class TreeNode {
-    constructor(context, position, bgcolor = "#2196F3", dimensions = {w: 180, h: 50}) {
+    constructor(context, position,type,paquete, bgcolor = "#2196F3", dimensions = {w: 180, h: 50}) {
         this._context = context;
         this._position = position;
         this._dimensions = dimensions;
         this._bgcolor = bgcolor;
         this._username = "";
+        this._paquete= paquete;
+        this._type = type;
         // this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
         this._image = new Image();
+        this._iconinfo = new Image();
         this._context.setLineDash([]);
     }
 
@@ -15,6 +18,9 @@ class TreeNode {
         this._position = position
     }
 
+    set setDimensions(dimension) {
+        this._dimensions = dimension;
+    }
     set SetbgColor(bgcolor) {
         this._bgcolor = bgcolor
     }
@@ -31,27 +37,15 @@ class TreeNode {
     }
 
     set SetImage(url) {
-        // var context = this._context;
         this._image.src = url;
         this._image.onload = (function () {
-            this._context.drawImage(this._image, this._position.x, this._position.y);
+            this._context.drawImage(this._image, this._position.x+5, this._position.y+8,35,35);
         }).bind(this);
-        // console.log(this._position.x, this._position.y);
-        // console.log(this._context.drawImage);
     }
 
-    createNode(d) {
-        // console.log("create");
-        // console.log(this._position);
+    createNode() {
         this._context.fillStyle = this._bgcolor;
-        this._context.fillRect(this._position.x+d.x, this._position.y, this._dimensions.w - d.d, this._dimensions.h);
-    }
-
-    drawUserName(username,d){
-        this._username = username;
-        this._context.fillStyle = "#FFFFFF";
-        this._context.font = "12px Verdana";
-        this._context.fillText(username, this._position.x+d.x + 45, this._position.y + 25);
+        this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
     }
 
     drawPaquete(url, x, y,d) {
@@ -64,13 +58,18 @@ class TreeNode {
         };
     }
 
-    drawIconInfo(url, x, y,d) {
-        var icono = new Image();
-        var context = this._context;
-        icono.src = url;
-        icono.onload = function () {
-            context.drawImage(icono, x + 155-d.x, y + 25, 20, 20);
-        };
+    drawIconInfo(url) {
+        this._iconinfo.src = url;
+        this._iconinfo.onload = function () {
+            this._context.drawImage(this._iconinfo, this._position.x + this._dimensions.w-30 , this._position.y + 25, 20, 20);
+        }.bind(this);
+    }
+
+    drawUserName(username,d){
+        this._username = username;
+        this._context.fillStyle = "#FFFFFF";
+        this._context.font = "12px Verdana";
+        this._context.fillText(username, this._position.x+d.x + 45, this._position.y + 25);
     }
 
     lineLeft(inicio, fin) {
