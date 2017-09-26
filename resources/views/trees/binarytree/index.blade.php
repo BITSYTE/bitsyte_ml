@@ -101,7 +101,7 @@
         }
 
         var json = [
-            {"username": "asd", "paquete": "gold", "type": "user", "position": "1,1"},
+            {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
             {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
             {"username": "jose2", "paquete": "gold", "type": "user", "position": "2,2"},
             {"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
@@ -181,7 +181,7 @@
                         }
                     }
 
-                    pintaGrid(20, 20, "gray");
+//                    pintaGrid(20, 20, "gray");
                     var tNode = new TreeNode(ctx, posInicial);
                     var dimensions = {x:0, d:0};
 
