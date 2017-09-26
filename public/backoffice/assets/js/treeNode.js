@@ -5,7 +5,7 @@ class TreeNode {
         this._position = position;
         this._dimensions = dimensions;
         this._bgcolor = bgcolor;
-        // this._context.fillStyle = this._bgcolor;
+        this._username = "";
         // this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
         this._image = new Image();
         this._context.setLineDash([]);
@@ -36,25 +36,26 @@ class TreeNode {
         this._image.onload = (function () {
             this._context.drawImage(this._image, this._position.x, this._position.y);
         }).bind(this);
-        console.log(this._position.x, this._position.y);
-        console.log(this._context.drawImage);
+        // console.log(this._position.x, this._position.y);
+        // console.log(this._context.drawImage);
     }
 
     createNode(d) {
-        console.log("create");
-        console.log(this._position);
+        // console.log("create");
+        // console.log(this._position);
         this._context.fillStyle = this._bgcolor;
         this._context.fillRect(this._position.x+d.x, this._position.y, this._dimensions.w - d.d, this._dimensions.h);
     }
 
     drawUserName(username,d){
+        this._username = username;
         this._context.fillStyle = "#FFFFFF";
         this._context.font = "12px Verdana";
         this._context.fillText(username, this._position.x+d.x + 45, this._position.y + 25);
     }
 
     drawPaquete(url, x, y,d) {
-        console.log(this._position);
+        // console.log(this._position);
         var image = new Image();
         var context = this._context;
         image.src = url;

@@ -47,7 +47,7 @@ class BinaryTree {
         //------------------------------------------
         this._posInicial={x:10,y:10};
         this._node = {w: 180, h: 50};
-        this._nodeS = {w: 150, h: 50, fondo: "rgba(33,150,243,1)"};
+        this._nodeSmall = {w: 150, h: 50, fondo: "rgba(33,150,243,1)"};
         this._posiciones = {
             "1,1": {x: canvas.width / 2 - 90, y: 50, hl:"2,1",hr:"2,2"},
             "2,1": {x: canvas.width / 4 - 80, y: 150,hl:"3,1",hr:"3,2"},
@@ -65,7 +65,7 @@ class BinaryTree {
             "4,7": {x: canvas.width / 8 * 6 + 5, y: 350,hl:"no",hr:"no"},
             "4,8": {x: canvas.width / 8 * 7 + 5, y: 350,hl:"no",hr:"no"}
         };
-        this._nodes = [];
+        this._nodesPos = [];
     }
 
     initTree(json){
@@ -75,21 +75,21 @@ class BinaryTree {
 
         if (user !== json[0]["username"] ){
             var tNodeF = new TreeNode(this._context,this._posInicial);
-            console.log("draw padre");
+            // console.log("draw padre");
             tNodeF.SetPosition = this._posInicial;
             tNodeF.createNode(dimensions);
             tNodeF.drawUserName(user,dimensions);
             tNodeF.drawPaquete(this._paquete, this._posInicial.x, this._posInicial.y,dimensions);
             tNodeF.drawIconInfo(this._icon, this._posInicial.x, this._posInicial.y,dimensions);
-            console.log(this._posiciones["1,1"]);
+            // console.log(this._posiciones["1,1"]);
             tNodeF.drawLineRoot(this._posInicial,this._posiciones["1,1"]);
-            this._nodes.push(tNodeF);
+            this._nodesPos.push(tNodeF);
         }
 
         for (let k in json) {
             console.log("indice =" + k, "position =" + json[k]["position"]);
             let nombre = "tNode"+k;
-            console.log(nombre);
+            // console.log(nombre);
             nombre = new TreeNode(this._context,this._posInicial);
             let pos=this._posiciones[json[k]["position"]];    // se obtiene la posicion del nodo
             //se checa si el nodo es de nivel 4 para cambiar el tipo de linea
@@ -100,11 +100,11 @@ class BinaryTree {
                 nombre.lineRight(pos,fin_r);
                 dimensions = {x:0, d:0};
             }else if(pos["hl"] === "no" ) {
-                console.log("linea de mostrar mas ");
+                // console.log("linea de mostrar mas ");
                 nombre.drawLineViewMore(pos, this._icon_plus);
                 dimensions = {x:15,d:30};
             }else{
-                console.log("no hay linea");
+                // console.log("no hay linea");
             }
             // se checa que tipo de usuario es para cambiar el color y los iconos
             if (json[k]["type"] === "user") {
@@ -122,10 +122,27 @@ class BinaryTree {
             nombre.drawUserName(json[k]["username"],dimensions);
             nombre.drawPaquete(paquete, pos.x, pos.y,dimensions);
             nombre.drawIconInfo(icon, pos.x, pos.y,dimensions);
-            this._nodes.push(nombre);
+            this._nodesPos.push(nombre);
         }
-        console.log(this._nodes);
+
     }
 
+    arrayNodes(){
+        return this._nodesPos;
+    }
+
+    selecciona (e){
+        let pos = ajusta(e.clientX, e.clientY);
+        console.log(pos);
+        let x = false;
+        let y = false;
+        this._nodesPos.map(function (item) {
+            if(pos.x > item._position.x && pos.x < item._position.x+180 && pos.y > item._position.y && pos.y < item._position.y+50){
+                console.log(item._position);
+                console.log("click en nodo");
+                alert(item._username);
+            }
+        });
+    }
 }
 

@@ -71,12 +71,7 @@
     <script>
         var canvas;
         var ctx;
-        var info_array = new Array();
-
         var user = "{{Auth::user()->first_name}}";
-
-
-
         var json = [
             {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
             {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
@@ -109,6 +104,8 @@
                 if (ctx) {
                     var bt = new BinaryTree(ctx,paquete,addUser,icon,icon_plus);
                     bt.initTree(json);
+                    let nodes = bt.arrayNodes();
+                    canvas.addEventListener("click", function(e){ bt.selecciona(e)}, false);
 
                 } else {
                     alert("NO cuentas con CANVAS");
@@ -116,104 +113,6 @@
 
             }
         });
-        /*window.onload = function () {
-            canvas = document.getElementById("miCanvas");
-            if (canvas && canvas.getContext) {
-                ctx = canvas.getContext("2d");
-                if (ctx) {
-                    console.log(canvas.width);
-                    console.log(canvas.width / 2);
-                    canvas.addEventListener("click", selecciona, false);
-                    /!****************
-                     VARIABLES
-                     *****************!/
-                    var pos={x:10,y:10};
-                    var posInicial = {x: canvas.width / 2 - 90, y: 30};
 
-                    //ARREGLO DE LAS POSICIONES
-                    var posiciones = {
-                        "1,1": {x: canvas.width / 2 - 90, y: 50, hl:"2,1",hr:"2,2"},
-                        "2,1": {x: canvas.width / 4 - 80, y: 150,hl:"3,1",hr:"3,2"},
-                        "2,2": {x: canvas.width / 4 * 3 - 80, y: 150,hl:"3,3",hr:"3,4"},
-                        "3,1": {x: canvas.width / 8 - 80, y: 250,hl:"4,1",hr:"4,2"},
-                        "3,2": {x: canvas.width / 8 * 3 - 80, y: 250,hl:"4,3",hr:"4,4"},
-                        "3,3": {x: canvas.width / 8 * 5 - 80, y: 250,hl:"4,5",hr:"4,6"},
-                        "3,4": {x: canvas.width / 8 * 7 - 80, y: 250,hl:"4,7",hr:"4,8"},
-                        "4,1": {x: 0, y: 340,hl:"no",hr:"no"},
-                        "4,2": {x: canvas.width / 8 + 5, y: 340,hl:"no",hr:"no"},
-                        "4,3": {x: canvas.width / 8 * 2 + 5, y: 350,hl:"no",hr:"no"},
-                        "4,4": {x: canvas.width / 8 * 3 + 5, y: 350,hl:"no",hr:"no"},
-                        "4,5": {x: canvas.width / 8 * 4 + 5, y: 350,hl:"no",hr:"no"},
-                        "4,6": {x: canvas.width / 8 * 5 + 5, y: 350,hl:"no",hr:"no"},
-                        "4,7": {x: canvas.width / 8 * 6 + 5, y: 350,hl:"no",hr:"no"},
-                        "4,8": {x: canvas.width / 8 * 7 + 5, y: 350,hl:"no",hr:"no"}
-                    };
-
-                    // RUTA DE LAS IMAGENES
-                    var paquete = "{{asset('backoffice/images/circulo1.png')}}";
-                    var icon = "{{ asset('backoffice/images/icons/info.svg') }}";
-                    var icon_plus = "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}";
-                    console.log(json);
-                    console.log(posiciones);
-
-
-//                    pintaGrid(20, 20, "gray");
-                    var tNode = new TreeNode(ctx, posInicial);
-                    var dimensions = {x:0, d:0};
-
-                    if (user !== json[0]["username"] ){
-                        console.log("draw padre");
-                        tNode.SetPosition = pos;
-                        tNode.createNode(dimensions);
-                        tNode.drawUserName(user,dimensions);
-                        tNode.drawPaquete(paquete, pos.x, pos.y,dimensions);
-                        tNode.drawIconInfo(icon, pos.x, pos.y,dimensions);
-                        console.log(posiciones["1,1"]);
-                        tNode.drawLineRoot(pos,posiciones["1,1"]);
-                    }
-                    tNode.SetDash=[];
-                    for (var k in json) {
-                        console.log("indice =" + k, "position =" + json[k]["position"]);
-
-                        pos=posiciones[json[k]["position"]];    // se obtiene la posicion del nodo
-                        //se checa si el nodo es de nivel 4 para cambiar el tipo de linea
-                        if(pos["hl"] !== "no" && json[k]["type"] === "user"){
-                            fin_l=posiciones[pos["hl"]];
-                            tNode.lineLeft(pos, fin_l);
-                            fin_r=posiciones[pos["hr"]];
-                            tNode.lineRight(pos,fin_r);
-                            dimensions = {x:0, d:0};
-                        }else if(pos["hl"] === "no" ) {
-                            console.log("linea de mostrar mas ");
-                            tNode.drawLineViewMore(pos, icon_plus);
-                            dimensions = {x:15,d:30};
-                        }else{
-                            console.log("no hay linea");
-                        }
-                        // se checa que tipo de usuario es para cambiar el color y los iconos
-                        if (json[k]["type"] === "user") {
-                            tNode.SetbgColor = "#2196F3";
-                            paquete = "{{asset('backoffice/images/circulo1.png')}}";
-                            icon = "{{ asset('backoffice/images/icons/info.svg') }}";
-                        } else {
-                            tNode.SetbgColor = "#1bb04a";
-                            paquete = "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}";
-                            icon = "{{ asset('') }}";
-                        }
-                        //se dibuja el nodo
-                        tNode.SetPosition = pos;
-                        tNode.createNode(dimensions);
-                        tNode.drawUserName(json[k]["username"],dimensions);
-                        tNode.drawPaquete(paquete, pos.x, pos.y,dimensions);
-                        tNode.drawIconInfo(icon, pos.x, pos.y,dimensions);
-
-                    }
-
-                } else {
-                    alert("NO cuentas con CANVAS");
-                }
-
-            }
-        };*/
     </script>
 @endsection
