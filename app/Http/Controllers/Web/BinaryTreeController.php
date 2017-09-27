@@ -26,4 +26,19 @@ class BinaryTreeController extends Controller
         return view('');
     }
 
+    /**
+     * @return mixed
+     */
+    public function ajax()
+    {
+        $json = array();
+        $json["username"]="asdrubal";
+        $json["paquete"]="gold";
+        $json["algo"]="algo";
+
+        $json = json_encode($json);
+        return $json;
+
+    }
+
 }

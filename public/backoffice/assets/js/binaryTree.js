@@ -100,8 +100,10 @@ class BinaryTree {
                 let fin_r = this._posiciones[pos["hr"]];
                 nombre.lineRight(pos, fin_r);
                 dimensions = {x: 0, d: 0};
-            } else if (pos["hl"] === "no") {
-                nombre.drawLineViewMore(pos, this._icon_plus);
+            } else if (pos["hl"] === "no" ) {
+                if (json[k]["type"] === "user"){
+                    nombre.drawLineViewMore(pos, this._icon_plus);
+                }
                 nombre.setDimensions= {w: 150, h: 50};
                 pos = {x:pos.x+15, y: pos.y};
             }
@@ -136,9 +138,42 @@ class BinaryTree {
         console.log(pos);
         this._nodesPos.map(function (item) {
             if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
-                console.log(item._position);
+                console.log(item);
                 console.log("click en nodo");
                 // console.log($("#boton").click());
+                $.ajax({
+                    method: "POST",
+                    url: "/ajax",
+                    data: {username: item._username, paquete: item._paquete, _token: csr},
+                    success: function (result) {
+                        var user = JSON.parse(result);
+                        console.log(user);
+                        // var tam = Object.keys(obj.postalLocation).length;
+                        var tam = Object.keys(user).length;
+                        // var tam = result.length;
+                        console.log(tam);
+                        let campos = "";
+                       campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                           "<label for=\"email\">username: "+user.username+"</label>\n" +
+                           // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
+                           "</fieldset>\n" +
+                           "<br>\n" +
+                           "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                           "<label for=\"title\">"+"paquete: "+user.paquete+"</label>\n" +
+                           // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
+                           "</fieldset>\n" +
+                           "<br>\n" +
+                           "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                           "<label for=\"title1\">dato extra: "+user.algo+"</label>\n" +
+                           // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
+                           "</fieldset>";
+                        $("#modal-body").html(campos);
+                    },
+                    error: function (httpReq, status, exception) {
+//                    alert(status+"-"+exception);
+                        console.log(status + "-" + exception);
+                    }
+                });
                 $('#boton').trigger("click")
             }
         });

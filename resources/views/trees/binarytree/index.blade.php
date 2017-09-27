@@ -1,13 +1,7 @@
 @extends('layouts.main')
 
 @section('head')
-    <style>
-        #miCanvas {
-            /*background: #eaeaea;*/
-            /*border: solid red 3px;*/
-            margin: auto;
-        }
-    </style>
+
 @endsection
 @section('breadcrumbs')
     <div class="content-header row">
@@ -41,18 +35,20 @@
         <div class="card-header col-xs-1 col-sm-1 col-md-12 col-lg-12 col-xl-12" style="padding: 6px!important;">
             {{--<div class=" col-xs-12 col-sm-12 ">--}}
             <div class="canvas-wrapper">
-                <div style="width: 50%; float: left">
-                    <fieldset class="form-group position-relative has-icon-left">
-                        <input type="text" class="form-control form-control-xl input-xl" id="iconLeft" placeholder="search">
-                        <div class="form-control-position">
-                            <i class="ft-search success font-medium-4"></i>
-                        </div>
-                    </fieldset>
-                </div>
-                <div style="width: 50%;float: right">
-                    <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg" style="float: right">
-                        <i class="fa fa-arrow-circle-up"></i> TOP
-                    </button>
+                <div class="navTree">
+                    <div >
+                        <fieldset class="form-group position-relative has-icon-left">
+                            <input type="text" class="form-control" id="iconLeft4" placeholder="search">
+                            <div class="form-control-position">
+                                <i class="ft-search success font-medium-4"></i>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div >
+                        <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg" style="float: right">
+                            <i class="fa fa-arrow-circle-up"></i> TOP
+                        </button>
+                    </div>
                 </div>
                 <canvas id="miCanvas" width="1310" height="500">
                     Tu navegador no soporta el canvas de HTML5
@@ -74,13 +70,9 @@
                                 </button>
                                 <h4 class="modal-title" id="myModalLabel5">Basic Modal</h4>
                             </div>
-                            <div class="modal-body">
-                                <h5>Check First Paragraph</h5>
-                                <p>Oat cake ice cream candy chocolate cake chocolate cake cotton candy dragée apple pie. Brownie carrot cake candy canes bonbon fruitcake topping halvah. Cake sweet roll cake cheesecake cookie chocolate cake liquorice. Apple pie sugar plum powder donut soufflé.</p>
-                                <p>Sweet roll biscuit donut cake gingerbread. Chocolate cupcake chocolate bar ice cream. Danish candy cake.</p>
-                                <hr>
-                                <h5>Some More Text</h5>
-                                <p>Cupcake sugar plum dessert tart powder chocolate fruitcake jelly. Tootsie roll bonbon toffee danish. Biscuit sweet cake gummies danish. Tootsie roll cotton candy tiramisu lollipop candy cookie biscuit pie.</p>
+                            <div id="modal-body" class="modal-body">
+                                <h5>USer</h5>
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
@@ -99,6 +91,7 @@
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/treeNode.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
     <script>
+        var csr = "{{ csrf_token() }}";
         var canvas;
         var ctx;
         var user = "{{Auth::user()->first_name}}";
@@ -142,6 +135,10 @@
                     alert("NO cuentas con CANVAS");
                 }
 
+            }
+
+            function refresh(){
+                bt.initTree(json);
             }
         });
 

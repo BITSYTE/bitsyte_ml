@@ -59,15 +59,15 @@
 
                                                 <!--Carousel-->
                                                 <div id="owl-carousel" class="">
-                                                    <div class="slide-item carousel-slide-item">
+                                                    <div  class="slide-item carousel-slide-item">
                                                         <div class="image-box">
-                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                            <img id="slide-1" src="{{ asset('backoffice/images/post-image-4.jpg') }}"
                                                                  class="carousel-img">
                                                         </div>
                                                         <div class="item-caption carousel-item-caption">
                                                             {{--<h6><strong>Package Golden</strong></h6>--}}
                                                             <div class="row skin skin-line">
-                                                                <div class="col-md-12 col-sm-12">
+                                                                <div id="radio1" class="col-md-12 col-sm-12">
                                                                     <input type="radio" name="paquete"
                                                                            id="input-radio-1" checked value="gold">
                                                                     <label for="input-radio-1">Package Golden</label>
@@ -77,14 +77,14 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="slide-item carousel-slide-item">
+                                                    <div  class="slide-item carousel-slide-item">
                                                         <div class="image-box">
-                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                            <img id="slide-2" src="{{ asset('backoffice/images/post-image-4.jpg') }}"
                                                                  class="carousel-img">
                                                         </div>
                                                         <div class="item-caption carousel-item-caption">
                                                             <div class="row skin skin-line">
-                                                                <div class="col-md-12 col-sm-12">
+                                                                <div id="radio2" class="col-md-12 col-sm-12">
                                                                     <input type="radio" name="paquete"
                                                                            id="input-radio-2" value="silver">
                                                                     <label for="input-radio-1">Package silver</label>
@@ -93,14 +93,14 @@
                                                             <p>price $5000</p>
                                                         </div>
                                                     </div>
-                                                    <div class="slide-item carousel-slide-item">
+                                                    <div  class="slide-item carousel-slide-item">
                                                         <div class="image-box">
-                                                            <img src="{{ asset('backoffice/images/post-image-4.jpg') }}"
+                                                            <img id="slide-3" src="{{ asset('backoffice/images/post-image-4.jpg') }}"
                                                                  class="carousel-img">
                                                         </div>
                                                         <div class="item-caption carousel-item-caption">
                                                             <div class="row skin skin-line">
-                                                                <div class="col-md-12 col-sm-12">
+                                                                <div id="radio3" class="col-md-12 col-sm-12">
                                                                     <input type="radio" name="paquete"
                                                                            id="input-radio-3" value="platino">
                                                                     <label for="input-radio-1">Package platino</label>
@@ -272,6 +272,28 @@
 
         item();
 
+        /*var slide1= document.getElementById("slide-1");
+        console.log(slide1);
+        slide1.addEventListener("click", function(e){ seleccionar(e,1)}, false);
+        var slide2= document.getElementById("slide-2");
+        console.log(slide2);
+        slide2.addEventListener("click", function(e){ seleccionar(e,2)}, false);
+        var slide3= document.getElementById("slide-3");
+        console.log(slide2);
+        slide3.addEventListener("click", function(e){ seleccionar(e,3)}, false);*/
+
+        $( "[id^='slide-']" ).on( "click", function() {
+            var slide = $(this).attr('id');
+//            console.log(slide);
+            let b = slide.split('-');
+//            console.log(b);
+            seleccionar(b[1]);
+        });
+
+        function seleccionar(num) {
+//            console.log(num);
+            $('#radio'+num).find(".iCheck-helper").trigger("click");
+        }
 
     </script>
 
