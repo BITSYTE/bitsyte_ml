@@ -36,16 +36,16 @@
             {{--<div class=" col-xs-12 col-sm-12 ">--}}
             <div class="canvas-wrapper">
                 <div class="navTree">
-                    <div>
+                    <div class="navTree-child">
                         <fieldset class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control" id="iconLeft4" placeholder="search">
+                            <input type="text" class="form-control " id="iconLeft4" placeholder="search">
                             <div class="form-control-position">
                                 <i class="ft-search success font-medium-4"></i>
                             </div>
                         </fieldset>
                     </div>
-                    <div>
-                        <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg" style="float: right">
+                    <div class="navTree-child">
+                        <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg navTree-b" >
                             <i class="fa fa-arrow-circle-up"></i> TOP
                         </button>
                     </div>
