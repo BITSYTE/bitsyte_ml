@@ -141,40 +141,44 @@ class BinaryTree {
                 console.log(item);
                 console.log("click en nodo");
                 // console.log($("#boton").click());
-                $.ajax({
-                    method: "POST",
-                    url: "/ajax",
-                    data: {username: item._username, paquete: item._paquete, _token: csr},
-                    success: function (result) {
-                        var user = JSON.parse(result);
-                        console.log(user);
-                        // var tam = Object.keys(obj.postalLocation).length;
-                        var tam = Object.keys(user).length;
-                        // var tam = result.length;
-                        console.log(tam);
-                        let campos = "";
-                       campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                           "<label for=\"email\">username: "+user.username+"</label>\n" +
-                           // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
-                           "</fieldset>\n" +
-                           "<br>\n" +
-                           "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                           "<label for=\"title\">"+"paquete: "+user.paquete+"</label>\n" +
-                           // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
-                           "</fieldset>\n" +
-                           "<br>\n" +
-                           "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                           "<label for=\"title1\">dato extra: "+user.algo+"</label>\n" +
-                           // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
-                           "</fieldset>";
-                        $("#modal-body").html(campos);
-                    },
-                    error: function (httpReq, status, exception) {
+                if (item._type === "add"){
+                    $('#add').trigger("click")
+                }else {
+                    $.ajax({
+                        method: "POST",
+                        url: "/ajax",
+                        data: {username: item._username, paquete: item._paquete, _token: csr},
+                        success: function (result) {
+                            var user = JSON.parse(result);
+                            console.log(user);
+                            // var tam = Object.keys(obj.postalLocation).length;
+                            var tam = Object.keys(user).length;
+                            // var tam = result.length;
+                            console.log(tam);
+                            let campos = "";
+                            campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                "<label for=\"email\">username: "+user.username+"</label>\n" +
+                                // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
+                                "</fieldset>\n" +
+                                "<br>\n" +
+                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                "<label for=\"title\">"+"paquete: "+user.paquete+"</label>\n" +
+                                // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
+                                "</fieldset>\n" +
+                                "<br>\n" +
+                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                "<label for=\"title1\">dato extra: "+user.algo+"</label>\n" +
+                                // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
+                                "</fieldset>";
+                            $("#modal-body").html(campos);
+                        },
+                        error: function (httpReq, status, exception) {
 //                    alert(status+"-"+exception);
-                        console.log(status + "-" + exception);
-                    }
-                });
-                $('#boton').trigger("click")
+                            console.log(status + "-" + exception);
+                        }
+                    });
+                    $('#boton').trigger("click")
+                }
             }
         });
     }

@@ -36,7 +36,7 @@
             {{--<div class=" col-xs-12 col-sm-12 ">--}}
             <div class="canvas-wrapper">
                 <div class="navTree">
-                    <div >
+                    <div>
                         <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" class="form-control" id="iconLeft4" placeholder="search">
                             <div class="form-control-position">
@@ -44,7 +44,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <div >
+                    <div>
                         <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg" style="float: right">
                             <i class="fa fa-arrow-circle-up"></i> TOP
                         </button>
@@ -56,12 +56,14 @@
             </div>
             {{--</div>--}}
             <div>
-                <button style="display: none" id="boton" type="button" class="btn btn-outline-primary block btn-lg" data-toggle="modal" data-show="false" data-target="#show">
+                <button style="display: none" id="boton" type="button" class="btn btn-outline-primary block btn-lg"
+                        data-toggle="modal" data-show="false" data-target="#show">
                     Launch Modal
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade text-xs-left" id="show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+                <div class="modal fade text-xs-left" id="show" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel5" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -75,72 +77,112 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
+                                    Close
+                                </button>
                                 <button type="button" class="btn btn-outline-primary">Save changes</button>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div>
+                <button style="display: none" id="add" type="button" class="btn btn-outline-primary block btn-lg"
+                        data-toggle="modal" data-show="false" data-target="#show-add">
+                    Launch Modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade text-xs-left" id="show-add" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel5" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel5">Add User</h4>
+                            </div>
+                            <div id="modal-body-add" class="modal-body">
+                                <span>Nota:</span>
+                                <p>
+                                    To add a user. you have to first register it.<br>
+                                    Click in continue register.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
+                                    Close
+                                </button>
+                                <a href="{{ route('users.new') }}">
+                                    <button type="button" class="btn btn-outline-primary">Continue to Register</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    {{--{{ Auth::user()->first_name }}--}}
-@endsection
+        {{--{{ Auth::user()->first_name }}--}}
+        @endsection
 
-@section('scripts')
-    <script type="text/javascript" src="{{ asset('backoffice/assets/js/binaryTree.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backoffice/assets/js/treeNode.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
-    <script>
-        var csr = "{{ csrf_token() }}";
-        var canvas;
-        var ctx;
-        var user = "{{Auth::user()->first_name}}";
-        var json = [
-            {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
-            {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
-            {"username": "jose2", "paquete": "gold", "type": "user", "position": "2,2"},
-            {"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
-            {"username": "jose4", "paquete": "gold", "type": "add", "position": "3,2"},
-            {"username": "jose5", "paquete": "gold", "type": "user", "position": "3,3"},
-            {"username": "jose6", "paquete": "gold", "type": "user", "position": "3,4"},
-            {"username": "jose7", "paquete": "gold", "type": "user", "position": "4,1"},
-            {"username": "jose8", "paquete": "gold", "type": "add", "position": "4,2"},
+        @section('scripts')
+            <script type="text/javascript" src="{{ asset('backoffice/assets/js/binaryTree.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('backoffice/assets/js/treeNode.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
+            <script>
+                var csr = "{{ csrf_token() }}";
+                var canvas;
+                var ctx;
+                var user = "{{Auth::user()->first_name}}";
+                var json = [
+                    {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
+                    {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
+                    {"username": "jose2", "paquete": "gold", "type": "user", "position": "2,2"},
+                    {"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
+                    {"username": "jose4", "paquete": "gold", "type": "add", "position": "3,2"},
+                    {"username": "jose5", "paquete": "gold", "type": "user", "position": "3,3"},
+                    {"username": "jose6", "paquete": "gold", "type": "user", "position": "3,4"},
+                    {"username": "jose7", "paquete": "gold", "type": "user", "position": "4,1"},
+                    {"username": "jose8", "paquete": "gold", "type": "add", "position": "4,2"},
 //                        {"username": "jose9", "paquete": "gold", "type": "add", "position": "4,3"},
 //                        {"username": "jose10", "paquete": "gold", "type": "add", "position": "4,4"},
-            {"username": "jose11", "paquete": "gold", "type": "add", "position": "4,5"},
-            {"username": "jose12", "paquete": "gold", "type": "user", "position": "4,6"},
-            {"username": "jose13", "paquete": "gold", "type": "add", "position": "4,7"},
-            {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
-        ];
+                    {"username": "jose11", "paquete": "gold", "type": "add", "position": "4,5"},
+                    {"username": "jose12", "paquete": "gold", "type": "user", "position": "4,6"},
+                    {"username": "jose13", "paquete": "gold", "type": "add", "position": "4,7"},
+                    {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
+                ];
 
-        $( document ).ready(function() {
-            $("#boton").click();
-            console.log( "ready!" );
-            // RUTA DE LAS IMAGENES
-            var paquete = "{{asset('backoffice/images/circulo1.png')}}";                            //paquete
-            const addUser = "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}";    //agregar usuario
-            var icon = "{{ asset('backoffice/images/icons/info.svg') }}";                           //icono de info
-            var icon_plus = "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}";    //ver mas alla
+                $(document).ready(function () {
+                    $("#boton").click();
+                    console.log("ready!");
+                    // RUTA DE LAS IMAGENES
+                    var paquete = "{{asset('backoffice/images/circulo1.png')}}";                            //paquete
+                    const addUser = "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}";    //agregar usuario
+                    var icon = "{{ asset('backoffice/images/icons/info.svg') }}";                           //icono de info
+                    var icon_plus = "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}";    //ver mas alla
 
-            canvas = document.getElementById("miCanvas");
-            if (canvas && canvas.getContext) {
-                ctx = canvas.getContext("2d");
-                if (ctx) {
-                    var bt = new BinaryTree(ctx,paquete,addUser,icon,icon_plus);
-                    bt.initTree(json);
-                    let nodes = bt.arrayNodes();
-                    canvas.addEventListener("click", function(e){ bt.selecciona(e)}, false);
+                    canvas = document.getElementById("miCanvas");
+                    if (canvas && canvas.getContext) {
+                        ctx = canvas.getContext("2d");
+                        if (ctx) {
+                            var bt = new BinaryTree(ctx, paquete, addUser, icon, icon_plus);
+                            bt.initTree(json);
+                            let nodes = bt.arrayNodes();
+                            canvas.addEventListener("click", function (e) {
+                                bt.selecciona(e)
+                            }, false);
 
-                } else {
-                    alert("NO cuentas con CANVAS");
-                }
+                        } else {
+                            alert("NO cuentas con CANVAS");
+                        }
 
-            }
+                    }
 
-            function refresh(){
-                bt.initTree(json);
-            }
-        });
+                    function refresh() {
+                        bt.initTree(json);
+                    }
+                });
 
-    </script>
+            </script>
 @endsection
