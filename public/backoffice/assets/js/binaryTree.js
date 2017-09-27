@@ -102,7 +102,13 @@ class BinaryTree {
                 dimensions = {x: 0, d: 0};
             } else if (pos["hl"] === "no") {
                 if (json[k]["type"] === "user") {
-                    nombre.drawLineViewMore(pos, this._icon_plus);
+                    let nodeMore = "NodeMore" + k;
+                    nodeMore = new TreeNode(this._context, {x: pos.x, y: pos.y + 75}, "viewMore", "root");
+                    // nombre.drawLineViewMore(pos, this._icon_plus);
+                    nodeMore.setDimensions = {w: 25, h: 25};
+                    nodeMore.SetUsername = json[k]["username"];
+                    nodeMore.createNodeViewMore(this._icon_plus);
+                    this._nodesPos.push(nodeMore);
                 }
                 nombre.setDimensions = {w: 150, h: 50};
                 pos = {x: pos.x + 15, y: pos.y};
@@ -126,120 +132,122 @@ class BinaryTree {
             nombre.drawIconInfo(icon);
             this._nodesPos.push(nombre);
         }
-
+        console.log(this._nodesPos);
     }
 
     getarrayNodes() {
         return this._nodesPos;
     }
 
-    selecciona(e,csr) {
+    selecciona(e, csr) {
         let pos = ajusta(e.clientX, e.clientY);
         // console.log(pos);
         this._nodesPos.map(function (item) {
-                if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
-                    console.log("click en nodo");
-                    console.log(item);
-                    // console.log($("#boton").click());
-                    if (item._type === "add") {
-                        let users;
-                        $.ajax({
-                            method: "POST",
-                            url: "/ajax",
-                            data: {username: item._username, paquete: item._paquete, _token: csr},
-                            success: function (result) {
-                                let campos="";
-                                let route="";
-                                let users = JSON.parse(result);
-                                console.log(users);
-                                if (users.length === 0){
-                                    console.log("vacio");
-                                    $("#modal-body-add").html();
-                                    $("#add-route").html();
-                                    campos = "<span>Nota:</span>\n" +
-                                        "                                <p>\n" +
-                                        "                                    To add a user. you have to first register it.<br>\n" +
-                                        "                                    Click in continue .\n" +
-                                        "                                </p>";
-                                    $("#modal-body-add").html(campos);
-                                    $("#add-route").html(route);
-                                    // $('#add').trigger("click")
-                                }else if (users.length === 1){
-                                    console.log("uno");
-                                    $("#modal-body-add").html();
-                                    campos = "<span>Nota:</span>\n" +
-                                        "                                <p>\n" +
-                                        "                                    confirm that you want to add the user: <strong>"+users[0].username+"</strong>  here.<br>\n" +
-                                        "                                    Click in continue .\n" +
-                                        "                                </p>";
-                                    $("#modal-body-add").html(campos);
-                                    // $('#add').trigger("click")
-                                }else{
-                                    console.log("lleno");
-                                    $("#modal-body-add").html();
-                                    campos="<div class=\"list-group\">";
-                                    for (let k in users){
-                                        console.log(k +"users ="+users[k].username );
-                                        campos+="<a href=\"#\" class=\"list-group-item list-group-item-action\">"+users[k].username+"</a>"
-                                    }
-                                    campos+="</div>";
-                                    $("#modal-body-add").html(campos);
-                                    // $('#add').trigger("click")
-                                }
-                            },
-                            error: function (httpReq, status, exception) {
-//                    alert(status+"-"+exception);
-                                console.log(status + "-" + exception);
+            if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
+                console.log("click en nodo");
+                console.log(item);
+                // console.log($("#boton").click());
+                if (item._type === "add") {
+                    let users;
+                    $.ajax({
+                        method: "POST",
+                        url: "/ajax",
+                        data: {username: item._username, paquete: item._paquete, _token: csr},
+                        success: function (result) {
+                            let campos = "";
+                            let route = "";
+                            let users = JSON.parse(result);
+                            console.log(users);
+                            if (users.length === 0) {
+                                console.log("vacio");
                                 $("#modal-body-add").html();
-                                campos= "<span> ERROR REFRESH THE PAGE TRY LETER </span>";
+                                $("#add-route").html();
+                                campos = "<span>Nota:</span>\n" +
+                                    "                                <p>\n" +
+                                    "                                    To add a user. you have to first register it.<br>\n" +
+                                    "                                    Click in continue .\n" +
+                                    "                                </p>";
                                 $("#modal-body-add").html(campos);
+                                $("#add-route").html(route);
+                                // $('#add').trigger("click")
+                            } else if (users.length === 1) {
+                                console.log("uno");
+                                $("#modal-body-add").html();
+                                campos = "<span>Nota:</span>\n" +
+                                    "                                <p>\n" +
+                                    "                                    confirm that you want to add the user: <strong>" + users[0].username + "</strong>  here.<br>\n" +
+                                    "                                    Click in continue .\n" +
+                                    "                                </p>";
+                                $("#modal-body-add").html(campos);
+                                // $('#add').trigger("click")
+                            } else {
+                                console.log("lleno");
+                                $("#modal-body-add").html();
+                                campos = "<div class=\"list-group\">";
+                                for (let k in users) {
+                                    console.log(k + "users =" + users[k].username);
+                                    campos += "<a href=\"#\" class=\"list-group-item list-group-item-action\">" + users[k].username + "</a>"
+                                }
+                                campos += "</div>";
+                                $("#modal-body-add").html(campos);
+                                // $('#add').trigger("click")
                             }
-                        });
-                        $('#add').trigger("click")
-                    } else {
-                        $.ajax({
-                            method: "POST",
-                            url: "/ajax",
-                            data: {username: item._username, paquete: item._paquete, _token: csr},
-                            success: function (result) {
-                                var user = JSON.parse(result);
-                                console.log(user);
-                                // var tam = Object.keys(obj.postalLocation).length;
-                                var tam = Object.keys(user).length;
-                                // var tam = result.length;
-                                console.log(tam);
-                                let campos = "";
-                                campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                    "<label for=\"email\">username: " + user.username + "</label>\n" +
-                                    // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
-                                    "</fieldset>\n" +
-                                    "<br>\n" +
-                                    "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                    "<label for=\"title\">" + "paquete: " + user.paquete + "</label>\n" +
-                                    // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
-                                    "</fieldset>\n" +
-                                    "<br>\n" +
-                                    "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                    "<label for=\"title1\">dato extra: " + user.algo + "</label>\n" +
-                                    // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
-                                    "</fieldset>";
-                                $("#modal-body").html(campos);
-                                $('#boton').trigger("click")
-                            },
-                            error: function (httpReq, status, exception) {
+                        },
+                        error: function (httpReq, status, exception) {
 //                    alert(status+"-"+exception);
-                                console.log(status + "-" + exception);
-                            }
-                        });
-                    }
+                            console.log(status + "-" + exception);
+                            $("#modal-body-add").html();
+                            campos = "<span> ERROR REFRESH THE PAGE TRY LETER </span>";
+                            $("#modal-body-add").html(campos);
+                        }
+                    });
+                    $('#add').trigger("click")
+                } else if(item._type === "user"){
+                    $.ajax({
+                        method: "POST",
+                        url: "/ajax",
+                        data: {username: item._username, paquete: item._paquete, _token: csr},
+                        success: function (result) {
+                            var user = JSON.parse(result);
+                            console.log(user);
+                            // var tam = Object.keys(obj.postalLocation).length;
+                            var tam = Object.keys(user).length;
+                            // var tam = result.length;
+                            console.log(tam);
+                            let campos = "";
+                            campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                "<label for=\"email\">username: " + user.username + "</label>\n" +
+                                // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
+                                "</fieldset>\n" +
+                                "<br>\n" +
+                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                "<label for=\"title\">" + "paquete: " + user.paquete + "</label>\n" +
+                                // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
+                                "</fieldset>\n" +
+                                "<br>\n" +
+                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                "<label for=\"title1\">dato extra: " + user.algo + "</label>\n" +
+                                // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
+                                "</fieldset>";
+                            $("#modal-body").html(campos);
+                            $('#boton').trigger("click")
+                        },
+                        error: function (httpReq, status, exception) {
+//                    alert(status+"-"+exception);
+                            console.log(status + "-" + exception);
+                        }
+                    });
+                }else{
+                    alert("cargar siguiente arbol");
                 }
+            }
         });
     }
 }
 
-class event{
+class event {
 
-    eventAdd(result){
+    eventAdd(result) {
 
     }
 

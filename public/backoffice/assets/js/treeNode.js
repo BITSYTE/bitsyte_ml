@@ -1,6 +1,6 @@
 
 class TreeNode {
-    constructor(context, position,type,paquete, bgcolor = "#2196F3", dimensions = {w: 180, h: 50}) {
+    constructor(context, position,type,paquete,dimensions = {w: 180, h: 50}, bgcolor = "#2196F3") {
         this._context = context;
         this._position = position;
         this._dimensions = dimensions;
@@ -116,6 +116,17 @@ class TreeNode {
         this.drawIconPlus(url,inicio.x + 90,inicio.y + 75);
     }
 
+    createNodeViewMore(url){
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.beginPath();
+        this._context.moveTo(this._position.x+90, this._position.y );   //baja inicio
+        this._context.lineTo(this._position.x+90, this._position.y - 75);   //baja final
+        this._context.stroke();
+        this.drawIconPlus(url,this._position.x+90,this._position.y );
+        // this.drawIconPlus(url,this._position.x + 90,this._position.y + 75);
+    }
+
     drawIconPlus(url, x, y) {
         var icon_plus = new Image();
         var context = this._context;
@@ -125,4 +136,43 @@ class TreeNode {
         };
     }
 
+}
+
+class NodeViewMore {
+
+    constructor(context, position,type,paquete,dimensions = {w: 25, h: 25}, bgcolor = "#2196F3") {
+        this._context = context;
+        this._position = position;
+        this._dimensions = dimensions;
+        this._bgcolor = bgcolor;
+        this._username = "";
+        this._paquete= paquete;
+        this._type = type;
+        this._image = new Image();
+        this._iconinfo = new Image();
+        this._context.setLineDash([]);
+    }
+
+    set SetUserName(name){
+        this._username = name;
+    }
+    createNodeViewMore(url){
+        this._context.lineWidth = 2;
+        this._context.strokeStyle = "rgba(58,150,235,1)";
+        this._context.beginPath();
+        this._context.moveTo(this._position.x, this._position.y );   //baja inicio
+        this._context.lineTo(this._position.x, this._position.y - 75);   //baja final
+        this._context.stroke();
+        this.drawIconPlus(url,this._position.x,this._position.y );
+        // this.drawIconPlus(url,this._position.x + 90,this._position.y + 75);
+    }
+
+    drawIconPlus(url, x, y) {
+        var icon_plus = new Image();
+        var context = this._context;
+        icon_plus.src = url;
+        icon_plus.onload = function () {
+            context.drawImage(icon_plus, x-12, y, 25, 25);
+        };
+    }
 }

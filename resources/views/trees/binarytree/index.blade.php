@@ -55,37 +55,7 @@
                 </canvas>
             </div>
             {{--</div>--}}
-            <div>
-                <button style="display: none" id="boton" type="button" class="btn btn-outline-primary block btn-lg"
-                        data-toggle="modal" data-show="false" data-target="#show">
-                    Launch Modal
-                </button>
 
-                <!-- Modal -->
-                <div class="modal fade text-xs-left" id="show" tabindex="-1" role="dialog"
-                     aria-labelledby="myModalLabel5" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 class="modal-title" id="myModalLabel5">Basic Modal</h4>
-                            </div>
-                            <div id="modal-body" class="modal-body">
-                                <h5>USer</h5>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
-                                    Close
-                                </button>
-                                <button type="button" class="btn btn-outline-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div>
                 <button style="display: none" id="add" type="button" class=""
                         data-toggle="modal" data-show="false" data-target="#show-add">
@@ -122,6 +92,37 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <button style="display: none" id="boton" type="button" class="btn btn-outline-primary block btn-lg"
+                        data-toggle="modal" data-show="false" data-target="#show">
+                    Launch Modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade text-xs-left" id="show" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel5" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel5">Basic Modal</h4>
+                            </div>
+                            <div id="modal-body" class="modal-body">
+                                <h5>USer</h5>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-outline-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         {{--{{ Auth::user()->first_name }}--}}
         @endsection
@@ -144,7 +145,7 @@
                     {"username": "jose5", "paquete": "gold", "type": "user", "position": "3,3"},
                     {"username": "jose6", "paquete": "gold", "type": "user", "position": "3,4"},
                     {"username": "jose7", "paquete": "gold", "type": "user", "position": "4,1"},
-                    {"username": "jose8", "paquete": "gold", "type": "add", "position": "4,2"},
+                    {"username": "jose8", "paquete": "plate", "type": "user", "position": "4,2"},
 //                        {"username": "jose9", "paquete": "gold", "type": "add", "position": "4,3"},
 //                        {"username": "jose10", "paquete": "gold", "type": "add", "position": "4,4"},
                     {"username": "jose11", "paquete": "gold", "type": "add", "position": "4,5"},
