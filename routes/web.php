@@ -61,7 +61,7 @@ Route::group(['namespace' => 'Web'], function () {
         });
     });
 
-        Route::post('/ajax', 'BinaryTreeController@ajax')->name('ajax');
+        Route::any('/ajax', 'BinaryTreeController@ajax')->name('ajax');
     /*******************        ADMIN.      ****************/
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('home', function () {

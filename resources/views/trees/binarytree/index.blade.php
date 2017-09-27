@@ -45,7 +45,7 @@
                         </fieldset>
                     </div>
                     <div class="navTree-child">
-                        <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg navTree-b" >
+                        <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg navTree-button" >
                             <i class="fa fa-arrow-circle-up"></i> TOP
                         </button>
                     </div>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div>
-                <button style="display: none" id="add" type="button" class="btn btn-outline-primary block btn-lg"
+                <button style="display: none" id="add" type="button" class=""
                         data-toggle="modal" data-show="false" data-target="#show-add">
                     Launch Modal
                 </button>
@@ -114,8 +114,8 @@
                                 <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
                                     Close
                                 </button>
-                                <a href="{{ route('users.new') }}">
-                                    <button type="button" class="btn btn-outline-primary">Continue to Register</button>
+                                <a id="add-route" href="{{ route('users.new') }}">
+                                    <button type="button" class="btn btn-outline-primary">Continue </button>
                                 </a>
                             </div>
                         </div>
@@ -168,9 +168,10 @@
                         if (ctx) {
                             var bt = new BinaryTree(ctx, paquete, addUser, icon, icon_plus);
                             bt.initTree(json);
-                            let nodes = bt.arrayNodes();
+//                            let nodes = bt.arrayNodes();
+                            //SE AGREGA EVENTO DE CLICK AL CANVAS
                             canvas.addEventListener("click", function (e) {
-                                bt.selecciona(e)
+                                bt.selecciona(e,csr)
                             }, false);
 
                         } else {

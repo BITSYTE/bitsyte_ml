@@ -32,9 +32,12 @@ class BinaryTreeController extends Controller
     public function ajax()
     {
         $json = array();
-        $json["username"]="asdrubal";
-        $json["paquete"]="gold";
-        $json["algo"]="algo";
+
+        for ($i=0; $i<10;$i++){
+            $json[$i]["username"]="asdrubal$i";
+            $json[$i]["paquete"]="gold";
+            $json[$i]["algo"]="algo";
+        }
 
         $json = json_encode($json);
         return $json;
