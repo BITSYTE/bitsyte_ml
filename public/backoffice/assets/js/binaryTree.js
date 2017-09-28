@@ -69,6 +69,7 @@ class BinaryTree {
     }
 
     initTree(json) {
+        this._nodesPos = [];
         var dimensions = {x: 0, d: 0};
         let paquete = this._paquete;
         let icon = this._icon;

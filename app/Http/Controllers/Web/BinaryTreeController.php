@@ -33,7 +33,7 @@ class BinaryTreeController extends Controller
     {
         $json = array();
 
-        for ($i=0; $i<10;$i++){
+        for ($i=0; $i<1;$i++){
             $json[$i]["username"]="asdrubal$i";
             $json[$i]["paquete"]="gold";
             $json[$i]["algo"]="algo";

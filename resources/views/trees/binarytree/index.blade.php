@@ -45,7 +45,7 @@
                         </fieldset>
                     </div>
                     <div class="navTree-child">
-                        <button type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg navTree-button" >
+                        <button id="top" type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg navTree-button" >
                             <i class="fa fa-arrow-circle-up"></i> TOP
                         </button>
                     </div>
@@ -153,6 +153,19 @@
                     {"username": "jose13", "paquete": "gold", "type": "add", "position": "4,7"},
                     {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
                 ];
+                var json2 = [
+                    {"username": "asd", "paquete": "gold", "type": "user", "position": "1,1"},
+                    {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
+                    {"username": "jose2", "paquete": "gold", "type": "user", "position": "2,2"},
+                    {"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
+                    {"username": "jose4", "paquete": "gold", "type": "add", "position": "3,2"},
+                    {"username": "jose5", "paquete": "gold", "type": "add", "position": "3,3"},
+                    {"username": "jose6", "paquete": "gold", "type": "user", "position": "3,4"},
+                    {"username": "jose7", "paquete": "gold", "type": "user", "position": "4,1"},
+                    {"username": "jose8", "paquete": "plate", "type": "user", "position": "4,2"},
+                    {"username": "jose13", "paquete": "gold", "type": "add", "position": "4,7"},
+                    {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
+                ];
 
                 $(document).ready(function () {
                     $("#boton").click();
@@ -182,8 +195,17 @@
                     }
 
                     function refresh() {
-                        bt.initTree(json);
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        bt.initTree(json2);
                     }
+
+                    $('#top').on( "click", function() {
+                        var slide = $(this).attr('id');
+                        console.log(slide);
+                        refresh();
+                        console.log("reinicio");
+                    });
+
                 });
 
             </script>
