@@ -92,6 +92,7 @@
                     </div>
                 </div>
             </div>
+
             <div>
                 <button style="display: none" id="boton" type="button" class="btn btn-outline-primary block btn-lg"
                         data-toggle="modal" data-show="false" data-target="#show">
