@@ -3,18 +3,13 @@
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/switch.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/wizard.css') }}">
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
 @endsection
 
 @section('breadcrumbs')
@@ -99,14 +94,14 @@
                                                                 <div id="radio2" class="col-md-12 col-sm-12">
                                                                     <input type="radio" name="paquete"
                                                                            id="input-radio-2" value="silver">
-                                                                    <label for="input-radio-1">Package silver</label>
+                                                                    <label for="input-radio-2">Package silver</label>
                                                                 </div>
                                                             </div>
                                                             <p>price $5000</p>
                                                         </div>
                                                     </div>
                                                     <div class="slide-item carousel-slide-item">
-                                                        <div class="image-box">
+                                                        <div id="box" class="image-box">
                                                             <img id="slide-3"
                                                                  src="{{ asset('backoffice/images/post-image-4.jpg') }}"
                                                                  class="carousel-img">
@@ -116,7 +111,7 @@
                                                                 <div id="radio3" class="col-md-12 col-sm-12">
                                                                     <input type="radio" name="paquete"
                                                                            id="input-radio-3" value="platino">
-                                                                    <label for="input-radio-1">Package platino</label>
+                                                                    <label for="input-radio-3">Package platino</label>
                                                                 </div>
                                                             </div>
                                                             <p>price $5000</p>
@@ -128,19 +123,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row skin skin-line">
-                                        <div class="col-md-6 col-sm-12">
-                                            <fieldset>
-                                                <input type="radio" name="input-radio-1" id="input-radio-1">
-                                                <label for="input-radio-1">Radio Button</label>
-                                            </fieldset>
-                                        </div>
-                                    </div>
                                 </fieldset>
 
                                 <h6>Step 2</h6>
                                 <fieldset>
-                                    {{--<h4 class="form-section"><i class="ft-user"></i> New User</h4>--}}
+                                    <h4 class="form-section"><i class="ft-user"></i> New User</h4>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -191,7 +178,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{--<h4 class="form-section"><i class="ft-mail"></i> Contact Info </h4>--}}
+                                    <h4 class="form-section"><i class="ft-mail"></i> Contact Info </h4>
 
                                     <div class="form-group">
                                         <label for="userinput5">Email <span class="required">*</span></label>
@@ -254,7 +241,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="userinput5">Postal Code</label>
-                                        <input class="form-control border-primary" type="email"
+                                        <input class="form-control border-primary" type="number"
                                                placeholder="Postal Code"
                                                name="cp" id="cp" required
                                                data-validation-required-message="This field is required">
@@ -266,30 +253,45 @@
                                         <div class="form-group col-md-6">
                                             <label for="userinput5">Number Credit Card</label>
                                             <input class="form-control border-primary" placeholder="Number Credit"
-                                                   name="numbercredit" id="numbercredit" required
+                                                   name="numbercredit" id="numbercredit" type="number" required
                                                    data-validation-required-message="This field is required">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="userinput5">CVV</label>
-                                            <input class="form-control border-primary" placeholder="CVV"
-                                                   name="cvv" id="cvv" required
+                                            <label for="userinput5">Name on Card</label>
+                                            <input class="form-control border-primary" placeholder="Name on Card"
+                                                   name="namecredit" id="namecredit"  required
                                                    data-validation-required-message="This field is required">
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="row">
                                         <div class="col-md-12 no-padding">
-                                            <label for="username">Expiration Date</label>
-                                        </div>
-                                        <div class="col-md-6 " style="padding-left: 0px">
-                                            <input type="number" id="day" class="form-control border-primary"
-                                                   name="day" required
-                                                   data-validation-required-message="This field is required">
-                                        </div>
-                                        <div class="col-md-6 " style="padding-right: 0px">
-                                            <input type="date" id="year" class="form-control" name="year"
-                                                   data-toggle="tooltip" data-trigger="hover" data-placement="top"
-                                                   data-title="birthday" style="float: right">
+                                            <div class="col-md-8">
+                                                <label for="mount">Expiration Date</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="userinput5">CVV</label>
+                                            </div>
+                                            <div class="form-group col-md-4 " >
+                                                <input type="number" id="mount" class="form-control "
+                                                       name="mount" placeholder="MM" required
+                                                       data-validation-required-message="This field is required">
+                                            </div>
+                                            <div class="form-group col-md-4 " >
+                                                <input type="number" id="year" class="form-control "
+                                                       name="year" placeholder="YYYY" required
+                                                       data-validation-required-message="This field is required">
+                                            </div>
+                                            {{--<div class="form-group col-md-4 " >
+                                                <input type="date" id="year" class="form-control" name="year"
+                                                       data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                       data-title="birthday" style="float: right">
+                                            </div>--}}
+                                            <div class="form-group col-md-4">
+                                                <input class="form-control border-primary" placeholder="CVV"
+                                                       name="cvv" id="cvv" type="number" required
+                                                       data-validation-required-message="This field is required">
+                                            </div>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -298,6 +300,7 @@
                                 <fieldset>
                                     <h6>Thank you for signing up </h6>
                                 </fieldset>
+
                             </form>
                         </div>
                     </div>
@@ -312,26 +315,19 @@
 @section('scripts')
     <script src="{{ asset('backoffice/assets/js/owl.carousel.min.js')}}" type="text/javascript"></script>
 
-    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')}}"
-            type="text/javascript"></script>
-    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}"
-            type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')}}" type="text/javascript"></script>
+    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}" type="text/javascript"></script>--}}
 
-    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/toggle/switchery.min.js')}}"
-            type="text/javascript"></script>
-    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/icheck/icheck.min.js')}}"
-            type="text/javascript"></script>
-    <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/jquery.steps.min.js') }}"
-            type="text/javascript"></script>
-
-    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}"
-            type="text/javascript"></script>
-    {{--<script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>--}}
-    <script src="{{ asset('backoffice/app-assets/vendors/js/pickers/daterange/daterangepicker.js') }}"
-            type="text/javascript"></script>
-    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jquery.validate.min.js') }}"
-            type="text/javascript"></script>
+    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>--}}
+    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/icheck/icheck.min.js')}}" type="text/javascript"></script>--}}
+    <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/jquery.steps.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/vendors/js/pickers/daterange/daterangepicker.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jquery.validate.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/wizard-steps.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>
+    {{--<script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>--}}
+
+
 
 
     <script>
@@ -371,7 +367,6 @@
         }
 
         item();
-
 
         $("[id^='slide-']").on("click", function () {
             var slide = $(this).attr('id');
