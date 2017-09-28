@@ -169,7 +169,6 @@
                 ];
 
                 $(document).ready(function () {
-                    $("#boton").click();
                     console.log("ready!");
                     // RUTA DE LAS IMAGENES
                     var paquete = "{{asset('backoffice/images/circulo1.png')}}";                            //paquete
@@ -183,7 +182,6 @@
                         if (ctx) {
                             var bt = new BinaryTree(ctx, paquete, addUser, icon, icon_plus);
                             bt.initTree(json);
-//                            let nodes = bt.arrayNodes();
                             //SE AGREGA EVENTO DE CLICK AL CANVAS
                             canvas.addEventListener("click", function (e) {
                                 bt.selecciona(e,csr)
@@ -200,11 +198,9 @@
                         bt.initTree(json2);
                     }
 
+                    //click en el boton top
                     $('#top').on( "click", function() {
-                        var slide = $(this).attr('id');
-                        console.log(slide);
                         refresh();
-                        console.log("reinicio");
                     });
 
                 });

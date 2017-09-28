@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/switch.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/wizard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
 @endsection
 
 @section('breadcrumbs')
@@ -44,11 +46,10 @@
                 <div class="card">
                     <div class="card-body collapse in">
                         <div class="card-block">
-                            <form class="form" action="{{ route('users.store') }}" method="post" novalidate>
+                            <form class="steps-validation wizard-circle" action="{{ route('users.store') }}" method="post" novalidate>
                                 {{ csrf_field() }}
-                                <div class="form-body">
-                                    <h4 class="form-section"><i class="ft-user"></i> New User</h4>
-
+                                <h6>Step 1</h6>
+                                <fieldset>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 ">
                                             <div class="" style="">
@@ -115,7 +116,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row skin skin-line">
+                                        <div class="col-md-6 col-sm-12">
+                                            <fieldset>
+                                                <input type="radio" name="input-radio-1" id="input-radio-1">
+                                                <label for="input-radio-1">Radio Button</label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </fieldset>
 
+                                <h6>Step 2</h6>
+                                <fieldset>
+                                    <h4 class="form-section"><i class="ft-user"></i> New User</h4>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -166,7 +179,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <h4 class="form-section"><i class="ft-mail"></i> Contact Info </h4>
 
                                     <div class="form-group">
@@ -196,20 +208,72 @@
                                                    data-validation-required-message="This field is required">
                                         </div>
                                     </div>
+                                </fieldset>
 
-                                </div>
+                                <h6>Step 3</h6>
+                                <fieldset>
+                                    <h4 class="form-section"><i class="ft-user"></i> My info</h4>
 
-                                <div class="form-actions right">
-                                    <a href="{{ route('home') }}">
-                                        <button type="button" class="btn btn-warning mr-1">
-                                            <i class="ft-x"></i> Cancel
-                                        </button>
-                                    </a>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-check-square-o"></i> Save
-                                    </button>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="first_name">Fist Name</label>
+                                                <input type="text" id="first_name" class="form-control border-primary"
+                                                       placeholder="Fist Name" name="first_name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="last_name">Last Name</label>
+                                                <input type="text" id="last_name" class="form-control border-primary"
+                                                       placeholder="Last Name" name="last_name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput5">Email</label>
+                                        <input class="form-control border-primary" type="email" placeholder="Email"
+                                               name="email" id="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput5">Postal Code</label>
+                                        <input class="form-control border-primary" type="email" placeholder="Postal Code"
+                                               name="cp" id="cp">
+                                    </div>
 
+                                    <h4 class="form-section"><i class="ft-mail"></i> Billing Details </h4>
+
+                                    <div class="form-group">
+                                        <label for="userinput5">Number Credit Card</label>
+                                        <input class="form-control border-primary" placeholder="Number Credit"
+                                               name="numbercredit" id="numbercredit">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput5">CVV</label>
+                                        <input class="form-control border-primary" placeholder="CVV"
+                                               name="cvv" id="cvv">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12 no-padding">
+                                            <label for="username">Expiration Date</label>
+                                        </div>
+                                        <div class="col-md-6 " style="padding-left: 0px">
+                                            <input type="number" id="day" class="form-control border-primary"
+                                                   name="day">
+                                        </div>
+                                        <div class="col-md-6 " style="padding-right: 0px">
+                                            <input type="date" id="year" class="form-control" name="year"
+                                                   data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                   data-title="birthday" style="float: right">
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <h6>Step 4</h6>
+                                <fieldset>
+                                    <h6>Thank you for signing up </h6>
+                                </fieldset>
                             </form>
                         </div>
                     </div>
@@ -229,9 +293,13 @@
 
     <script src="{{ asset('backoffice/app-assets/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/vendors/js/forms/icheck/icheck.min.js')}}" type="text/javascript"></script>
-    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/jquery.steps.min.js') }}" type="text/javascript"></script>
 
-    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>
+    {{--<script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>--}}
+    <script src="{{ asset('backoffice/app-assets/vendors/js/pickers/daterange/daterangepicker.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jquery.validate.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backoffice/app-assets/js/scripts/forms/wizard-steps.js') }}" type="text/javascript"></script>
 
 
     <script>
@@ -272,26 +340,14 @@
 
         item();
 
-        /*var slide1= document.getElementById("slide-1");
-        console.log(slide1);
-        slide1.addEventListener("click", function(e){ seleccionar(e,1)}, false);
-        var slide2= document.getElementById("slide-2");
-        console.log(slide2);
-        slide2.addEventListener("click", function(e){ seleccionar(e,2)}, false);
-        var slide3= document.getElementById("slide-3");
-        console.log(slide2);
-        slide3.addEventListener("click", function(e){ seleccionar(e,3)}, false);*/
 
         $( "[id^='slide-']" ).on( "click", function() {
             var slide = $(this).attr('id');
-//            console.log(slide);
             let b = slide.split('-');
-//            console.log(b);
             seleccionar(b[1]);
         });
 
         function seleccionar(num) {
-//            console.log(num);
             $('#radio'+num).find(".iCheck-helper").trigger("click");
         }
 

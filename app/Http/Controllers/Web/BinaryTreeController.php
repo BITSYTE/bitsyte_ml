@@ -18,7 +18,7 @@ class BinaryTreeController extends Controller
 //        $Users = array();
 //        $Users['padre']=
 
-        return view('trees.binarytree.index')->with(['breadcrumbs'=>$breadcrumbs]);
+        return view('trees.binary.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 
     public function show()
