@@ -97,4 +97,19 @@ $factory->define(App\Models\UserSettings::class, function (Faker\Generator $fake
     ];
 });
 
+$factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
+    return [
+        'category_id'   =>  1,
+        'description'   =>  $faker->text(),
+        'image'         =>  $faker->word.'.jpg',
+        'color'         =>  $faker->randomElement(['red','blue','yellow','green']),
+        'price'         =>  $faker->randomElement(['100','200','300']),
+        'qv'            =>  1,
+        'bv'            =>  1,
+        'cv'            =>  1,
+        'lv'            =>  1
+
+    ];
+});
+
 
