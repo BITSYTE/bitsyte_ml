@@ -100,9 +100,9 @@
                                                 <div class="form-group">
                                                 <label for="userinput5">Email <span class="required">*</span></label>
                                                 <div class="controls">
-                                                    <input class="form-control border-primary" type="email"
+                                                    <input name="email" id="email" required type="email"
+                                                           class="form-control border-primary"
                                                            placeholder="Email"
-                                                           name="emailLog" id="emailLog" required
                                                            data-validation-required-message="This field is required">
                                                 </div>
                                                 </div>
@@ -113,7 +113,7 @@
                                                 {{--<div class="form-group">--}}
                                                     <label for="username">Username<span class="required">*</span></label>
                                                     <div class="controls">
-                                                        <input id="username_log" name="username_log"
+                                                        <input id="username" name="username"
                                                                class="form-control border-primary"
                                                                placeholder="Username"  required
                                                                data-validation-required-message="This field is required">
@@ -185,14 +185,29 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label for="userinput5">Email <span class="required">*</span></label>
-                                            <div class="controls">
-                                                <input name="user_email" id="user_email" placeholder="Email" required
-                                                        class="form-control border-primary" type="email"
-                                                       data-validation-required-message="This field is required">
+                                        @if(env('APP_LOGIN_WITH')== "email")
+                                            <div class="col-md-6">
+                                                <label for="username">Username<span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <input id="username" name="username"
+                                                           class="form-control border-primary"
+                                                           placeholder="Username"  required
+                                                           data-validation-required-message="This field is required">
+                                                </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="userinput5">Email <span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <input name="email" id="email" required
+                                                               class="form-control border-primary" type="email"
+                                                               placeholder="Email"
+                                                               data-validation-required-message="This field is required">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
 
                                 </fieldset>
