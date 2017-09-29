@@ -20,10 +20,6 @@ class UsersControllers extends Controller
      * @var Product model
      */
     protected $product;
-    /**
-     * @var \Illuminate\Contracts\Auth\Authenticatable|null
-     */
-    protected $auth;
 
     /*
      * UsersController constructor.
@@ -31,10 +27,6 @@ class UsersControllers extends Controller
      */
     public function __construct(User $user, Product $product)
     {
-        $this->middleware(function ($request, $next) {
-            $this->auth = auth()->user();
-            return $next($request);
-        });
         $this->user     = $user;
         $this->product  = $product;
 
@@ -50,8 +42,7 @@ class UsersControllers extends Controller
         return view('Users.new')
             ->with([
                 'breadcrumbs'   =>  $breadcrumbs,
-                'products'      =>  $products,
-                'user'          =>  $this->auth
+                'products'      =>  $products
             ]);
     }
 
