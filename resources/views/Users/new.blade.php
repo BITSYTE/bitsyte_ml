@@ -79,12 +79,11 @@
                                                                                id="input-radio-1" value="{{$product->id}}">
                                                                         <label for="input-radio-1">{{$product->name}}</label>
                                                                     </div>
-                                                                </div>
-                                                                <p>price ${{$product->price}}</p>
+                                                                <p>price {{$product->price}}</p>
                                                             </div>
                                                         </div>
-                                                    @endforeach
-
+                                                    </div>
+                                                   @endforeach
                                                 </div>
                                                 {{--</div>--}}
                                             </div>
@@ -200,87 +199,25 @@
 
                                 <h6>Step 3</h6>
                                 <fieldset>
-                                    <h4 class="form-section"><i class="ft-user"></i> My info</h4>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="first_name">Fist Name</label>
-                                                <input type="text" id="first_name" class="form-control border-primary"
-                                                       placeholder="Fist Name" name="first_name" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="last_name">Last Name</label>
-                                                <input type="text" id="last_name" class="form-control border-primary"
-                                                       placeholder="Last Name" name="last_name" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="userinput5">Email</label>
-                                        <input class="form-control border-primary" type="email" placeholder="Email"
-                                               name="email" id="email" required
-                                               data-validation-required-message="This field is required">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="userinput5">Postal Code</label>
-                                        <input class="form-control border-primary" type="number"
-                                               placeholder="Postal Code"
-                                               name="cp" id="cp" required
-                                               data-validation-required-message="This field is required">
-                                    </div>
 
                                     <h4 class="form-section"><i class="ft-mail"></i> Billing Details </h4>
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="userinput5">Number Credit Card</label>
-                                            <input class="form-control border-primary" placeholder="Number Credit"
-                                                   name="numbercredit" id="numbercredit" type="number" required
+                                            <label for="userinput5">Account Bitcoin</label>
+                                            <input class="form-control border-primary" placeholder="Account Bitcoin"
+                                                   name="numbercredit" id="numbercredit"  required
                                                    data-validation-required-message="This field is required">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="userinput5">Name on Card</label>
-                                            <input class="form-control border-primary" placeholder="Name on Card"
+                                            <label for="userinput5">Quantity</label>
+                                            <input class="form-control border-primary" placeholder="0000.00"
                                                    name="namecredit" id="namecredit" required
                                                    data-validation-required-message="This field is required">
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12 no-padding">
-                                            <div class="col-md-8">
-                                                <label for="mount">Expiration Date</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="userinput5">CVV</label>
-                                            </div>
-                                            <div class="form-group col-md-4 ">
-                                                <input type="number" id="mount" class="form-control "
-                                                       name="mount" placeholder="MM" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                            <div class="form-group col-md-4 ">
-                                                <input type="number" id="year" class="form-control "
-                                                       name="year" placeholder="YYYY" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                            {{--<div class="form-group col-md-4 " >
-                                                <input type="date" id="year" class="form-control" name="year"
-                                                       data-toggle="tooltip" data-trigger="hover" data-placement="top"
-                                                       data-title="birthday" style="float: right">
-                                            </div>--}}
-                                            <div class="form-group col-md-4">
-                                                <input class="form-control border-primary" placeholder="CVV"
-                                                       name="cvv" id="cvv" type="number" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </fieldset>
 
                                 <h6>Step 4</h6>
