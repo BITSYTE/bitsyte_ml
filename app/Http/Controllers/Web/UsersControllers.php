@@ -56,7 +56,7 @@ class UsersControllers extends Controller
         try {
             DB::beginTransaction();
             $product    = $this->product->find($request->input('product_id'));
-            $user       = $this->user->fill($request->only(['first_name','last_name','birthday','password','email']));
+            $user       = $this->user->fill($request->only(['first_name','last_name','birthday','password','email','username']));
             $user->save();
             $product->users()->save($user);
 
