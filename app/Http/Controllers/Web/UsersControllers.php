@@ -38,7 +38,7 @@ class UsersControllers extends Controller
         $breadcrumbs[1]['name']='New';
         $breadcrumbs[1]['route']='new';
 
-        $products = $product->select('name','id','price','image','uuid')->get();
+        $products = $this->product->select('name','id','price','image','uuid')->get();
         return view('Users.new')
             ->with([
                 'breadcrumbs'   =>  $breadcrumbs,
@@ -56,9 +56,8 @@ class UsersControllers extends Controller
         try {
             DB::beginTransaction();
             $product    = $this->product->find($request->input('product_id'));
-            $user       = $this->user->fill($request->except('product_id'));
+            $user       = $this->user->fill($request->only(['first_name','last_name','birthday','password','email']));
             $user->save();
-
             $product->users()->save($user);
 
         }catch (\Exception $e) {
