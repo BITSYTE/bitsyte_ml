@@ -127,7 +127,60 @@
 
                                 <h6>Step 2</h6>
                                 <fieldset>
-                                    <h4 class="form-section"><i class="ft-user"></i> New User</h4>
+                                    <h4 class="form-section"><i class="ft-user"></i>Login Data</h4>
+                                    <div class="row">
+                                        @if(env('APP_LOGIN_WITH')== "email")
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                <label for="userinput5">Email <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <input class="form-control border-primary" type="email"
+                                                           placeholder="Email"
+                                                           name="emailLog" id="emailLog" required
+                                                           data-validation-required-message="This field is required">
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                        @else
+                                            <div class="col-md-12">
+                                                {{--<div class="form-group">--}}
+                                                    <label for="username">Username<span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <input id="username_log" name="username_log"
+                                                               class="form-control border-primary"
+                                                               placeholder="Username"  required
+                                                               data-validation-required-message="This field is required">
+                                                    </div>
+                                                {{--</div>--}}
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="password">Password <span class="required">*</span></label>
+                                            <div class="controls">
+                                                <input name="password" id="password" required  type="password"
+                                                       placeholder="Password" class="form-control border-primary"
+                                                       data-validation-required-message="This field is required">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="confirmation">Confirmation Password <span
+                                                        class="required">*</span></label>
+                                            <div class="controls">
+                                                <input name="password_confirm" id="password_confirm"
+                                                       class="form-control border-primary" type="password"
+                                                       placeholder="Confirmation Password"  data-validation-match-match="password"
+                                                       required
+                                                       data-validation-required-message="This field is required">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="form-section"><i class="ft-mail"></i> User Data </h4>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -157,58 +210,25 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="username">Username <span class="required">*</span></label>
+                                                <label for="birthday">Birthday <span class="required">*</span></label>
                                                 <div class="controls">
-                                                    <input type="text" id="username" class="form-control border-primary"
-                                                           placeholder="Username" name="username" required
+                                                    <input name="birthday" id="Birthday" type="date" class="form-control"
+                                                           data-toggle="tooltip" data-trigger="hover"
+                                                           data-title="birthday" data-placement="top" required
                                                            data-validation-required-message="This field is required">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="birthday">Birthday <span class="required">*</span></label>
-                                                <div class="controls">
-                                                    <input type="date" id="Birthday" class="form-control"
-                                                           name="birthday" data-placement="top"
-                                                           data-toggle="tooltip" data-trigger="hover"
-                                                           data-title="birthday" required
-                                                           data-validation-required-message="This field is required">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h4 class="form-section"><i class="ft-mail"></i> Contact Info </h4>
-
-                                    <div class="form-group">
-                                        <label for="userinput5">Email <span class="required">*</span></label>
-                                        <div class="controls">
-                                            <input class="form-control border-primary" type="email" placeholder="Email"
-                                                   name="email" id="email" required
-                                                   data-validation-required-message="This field is required">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-6">
-                                            <label for="password">Password <span class="required">*</span></label>
+                                            <label for="userinput5">Email <span class="required">*</span></label>
                                             <div class="controls">
-                                                <input class="form-control border-primary" type="password"
-                                                       placeholder="Password" name="password" id="password" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group col-md-6">
-                                            <label for="confirmation">Confirmation Password <span
-                                                        class="required">*</span></label>
-                                            <div class="controls">
-                                                <input class="form-control border-primary" type="password"
-                                                       placeholder="Confirmation Password" name="password_confirm"
-                                                       id="confirmation" data-validation-match-match="password" required
+                                                <input name="user_email" id="user_email" placeholder="Email" required
+                                                        class="form-control border-primary" type="email"
                                                        data-validation-required-message="This field is required">
                                             </div>
                                         </div>
                                     </div>
+
                                 </fieldset>
 
                                 <h6>Step 3</h6>
@@ -259,7 +279,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="userinput5">Name on Card</label>
                                             <input class="form-control border-primary" placeholder="Name on Card"
-                                                   name="namecredit" id="namecredit"  required
+                                                   name="namecredit" id="namecredit" required
                                                    data-validation-required-message="This field is required">
                                         </div>
                                     </div>
@@ -272,12 +292,12 @@
                                             <div class="col-md-4">
                                                 <label for="userinput5">CVV</label>
                                             </div>
-                                            <div class="form-group col-md-4 " >
+                                            <div class="form-group col-md-4 ">
                                                 <input type="number" id="mount" class="form-control "
                                                        name="mount" placeholder="MM" required
                                                        data-validation-required-message="This field is required">
                                             </div>
-                                            <div class="form-group col-md-4 " >
+                                            <div class="form-group col-md-4 ">
                                                 <input type="number" id="year" class="form-control "
                                                        name="year" placeholder="YYYY" required
                                                        data-validation-required-message="This field is required">
