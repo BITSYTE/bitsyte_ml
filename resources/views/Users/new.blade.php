@@ -251,36 +251,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12 no-padding">
-                                            <div class="col-md-8">
-                                                <label for="mount">Expiration Date</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="userinput5">CVV</label>
-                                            </div>
-                                            <div class="form-group col-md-4 ">
-                                                <input type="number" id="mount" class="form-control "
-                                                       name="mount" placeholder="MM" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                            <div class="form-group col-md-4 ">
-                                                <input type="number" id="year" class="form-control "
-                                                       name="year" placeholder="YYYY" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                            {{--<div class="form-group col-md-4 " >
-                                                <input type="date" id="year" class="form-control" name="year"
-                                                       data-toggle="tooltip" data-trigger="hover" data-placement="top"
-                                                       data-title="birthday" style="float: right">
-                                            </div>--}}
-                                            <div class="form-group col-md-4">
-                                                <input class="form-control border-primary" placeholder="CVV"
-                                                       name="cvv" id="cvv" type="number" required
-                                                       data-validation-required-message="This field is required">
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </fieldset>
 
                                 <h6>Step 4</h6>
