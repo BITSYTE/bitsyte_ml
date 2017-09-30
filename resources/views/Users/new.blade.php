@@ -64,7 +64,7 @@
 
                                                 <!--Carousel-->
                                                 <div id="owl-carousel" class="">
-                                                    @foreach($products as $product)
+                                                    {{--@foreach($products as $product)
                                                         <div class="slide-item carousel-slide-item">
                                                             <div class="image-box">
                                                                 <img id="slide-{{$product->id}}"
@@ -72,7 +72,7 @@
                                                                      class="carousel-img">
                                                             </div>
                                                             <div class="item-caption carousel-item-caption">
-                                                                {{--<h6><strong>Package Golden</strong></h6>--}}
+                                                                --}}{{--<h6><strong>Package Golden</strong></h6>--}}{{--
                                                                 <div class="row skin skin-line">
                                                                     <div id="radio{{$product->id}}" class="col-md-12 col-sm-12" style="word-break: break-all;">
                                                                         <input type="radio" name="product_id"
@@ -84,7 +84,61 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                   @endforeach
+                                                   @endforeach--}}
+
+                                                        <div class="slide-item carousel-slide-item">
+                                                            <div class="image-box">
+                                                                <img id="slide-1"
+                                                                     src="{{ asset('backoffice/images/package Golden.png') }}"
+                                                                     class="carousel-img">
+                                                            </div>
+                                                            <div class="item-caption carousel-item-caption">
+                                                                {{--<h6><strong>Package Golden</strong></h6>--}}
+                                                                <div class="row skin skin-line">
+                                                                    <div id="radio1" class="col-md-12 col-sm-12">
+                                                                        <input type="radio" name="paquete"
+                                                                               id="input-radio-1" checked value="gold">
+                                                                        <label for="input-radio-1">Package Golden</label>
+                                                                    </div>
+                                                                </div>
+                                                                <p>price $5000</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="slide-item carousel-slide-item">
+                                                            <div class="image-box">
+                                                                <img id="slide-2"
+                                                                     src="{{ asset('backoffice/images/Package Platinum.png') }}"
+                                                                     class="carousel-img">
+                                                            </div>
+                                                            <div class="item-caption carousel-item-caption">
+                                                                <div class="row skin skin-line">
+                                                                    <div id="radio2" class="col-md-12 col-sm-12">
+                                                                        <input type="radio" name="paquete"
+                                                                               id="input-radio-2" value="silver">
+                                                                        <label for="input-radio-2">Package silver</label>
+                                                                    </div>
+                                                                </div>
+                                                                <p>price $3000</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slide-item carousel-slide-item">
+                                                            <div id="box" class="image-box">
+                                                                <img id="slide-3"
+                                                                     src="{{ asset('backoffice/images/Package silver.png') }}"
+                                                                     class="carousel-img">
+                                                            </div>
+                                                            <div class="item-caption carousel-item-caption">
+                                                                <div class="row skin skin-line">
+                                                                    <div id="radio3" class="col-md-12 col-sm-12">
+                                                                        <input type="radio" name="paquete"
+                                                                               id="input-radio-3" value="platino">
+                                                                        <label for="input-radio-3">Package platino</label>
+                                                                    </div>
+                                                                </div>
+                                                                <p>price $1000</p>
+                                                            </div>
+                                                        </div>
                                                 </div>
                                                 {{--</div>--}}
                                             </div>
