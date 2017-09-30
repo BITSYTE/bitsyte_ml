@@ -59,11 +59,32 @@ var form = $(".steps-validation").show();
 $(".steps-validation").steps({
     headerTag: "h6",
     bodyTag: "fieldset",
-    transitionEffect: "fade",
+    enableAllSteps: true,
+    transitionEffect: 2,
+    transitionEffectSpeed:500,
     titleTemplate: '<span class="step">#index#</span> #title#',
-    labels: {
+    enableCancelButton: true,
+    enablePagination: true,
+    /*labels: {
         finish: 'Submit'
+    },*/
+
+    /* Labels */
+    labels: {
+        cancel: "Cancel",
+        current: "current step:",
+        pagination: "Pagination",
+        finish: "accept",
+        next: "Next",
+        previous: "Previous",
+        loading: "Loading ..."
     },
+    /* Events */
+    // onStepChanging: function (event, currentIndex, newIndex) { return true; },
+    // onStepChanged: function (event, currentIndex, priorIndex) { }},
+    onCanceled: function (event) { },
+    // onFinishing: function (event, currentIndex) { return true; },
+    // onFinished: function (event, currentIndex) { },
     onStepChanging: function (event, currentIndex, newIndex)
     {
         // Allways allow previous action even if the current form is not valid!
@@ -93,7 +114,8 @@ $(".steps-validation").steps({
     },
     onFinished: function (event, currentIndex)
     {
-        alert("Submitted!");
+        console.log("accept");
+        window.location.href = "https://bitsyte.mxcorp.net/home";
     }
 });
 

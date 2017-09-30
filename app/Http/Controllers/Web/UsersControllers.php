@@ -53,23 +53,31 @@ class UsersControllers extends Controller
      */
     public function store(UserStoreRequest $request)
     {
+//        dd($request->all());
+
         try {
             DB::beginTransaction();
             $product    = $this->product->find($request->input('product_id'));
             $user       = $this->user->fill($request->only(['first_name','last_name','birthday','password','email','username']));
+            $user->status = "pending";
             $user->save();
             $product->users()->save($user);
 
             DB::commit();
 
+            $res["ok"]= "ok";
+            $json = json_encode($res);
+            return response("$json",201);
 
         }catch (\Exception $e) {
             DB::rollBack();
-            return redirect()
+            $res["ok"]= "try leter";
+            $json = json_encode($res);
+            return response("$json",500);
+            /*return redirect()
                 ->back()
                 ->withInput(Input::all())
-                ->with('error', 'The new user could not be created');
-
+                ->with('error', 'The new user could not be created');*/
         }
 
     }
