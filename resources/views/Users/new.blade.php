@@ -89,7 +89,7 @@
                                                         <div class="slide-item carousel-slide-item">
                                                             <div class="image-box">
                                                                 <img id="slide-1"
-                                                                     src="{{ asset('backoffice/images/package Golden.png') }}"
+                                                                     src="{{ asset('backoffice/images/Package Golden.png') }}"
                                                                      class="carousel-img">
                                                             </div>
                                                             <div class="item-caption carousel-item-caption">
@@ -125,7 +125,7 @@
                                                         <div class="slide-item carousel-slide-item">
                                                             <div id="box" class="image-box">
                                                                 <img id="slide-3"
-                                                                     src="{{ asset('backoffice/images/Package silver.png') }}"
+                                                                     src="{{ asset('backoffice/images/Package Silver.png') }}"
                                                                      class="carousel-img">
                                                             </div>
                                                             <div class="item-caption carousel-item-caption">
