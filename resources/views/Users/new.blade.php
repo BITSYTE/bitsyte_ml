@@ -286,12 +286,20 @@
                                                    data-validation-required-message="This field is required">
                                         </div>
                                     </div>
-                                    <div id="alert" style="display: none">
+                                    <div id="alertS" style="display: none">
                                         <div class="alert bg-blue alert-dismissible fade in mb-2" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             <strong>Great!</strong> Your pay is completed.      click in next to continue.
+                                        </div>
+                                    </div>
+                                    <div id="alertE" style="display: none">
+                                        <div class="alert bg-blue alert-dismissible fade in mb-2" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Great!</strong> the user already exist.
                                         </div>
                                     </div>
                                     <input id="submit" class="btn btn-primary btn-min-width mr-1 mb-1" type="button" value="Pay now">
@@ -415,15 +423,16 @@
                 data : postData,
                 success:function(data, textStatus, jqXHR)
                 {
+                    console.log(data);
                     let result = JSON.parse(data);
                     console.log(result);
                     if (result.ok === "ok"){
                         console.log("bien");
                         $("a[href='#previous']").hide();
-                        $( "#alert" ).show();
+                        $( "#alertS" ).show();
                     }else{
                         console.log("error");
-                        $( "#alert" ).show();
+                        $( "#alertE" ).show();
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown)
