@@ -13,12 +13,15 @@ class ProductsTableSeeder extends Seeder
     {
         factory(\App\Models\Product::class)->create([
             'name'  =>  "Package Silver",
+            'image'  =>  "silver.png",
         ]);
         factory(\App\Models\Product::class)->create([
             'name'  =>  "Package Golden",
+            'image'  =>  "golden.png",
         ]);
         factory(\App\Models\Product::class)->create([
             'name'  =>  "Package Platinum",
+            'image'  =>  "platinum.png",
         ]);
     }
 }

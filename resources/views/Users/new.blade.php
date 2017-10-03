@@ -165,7 +165,7 @@
 
                                         @else
                                             <div class="col-md-12">
-                                                {{--<div class="form-group">--}}
+                                                <div class="form-group">
                                                     <label for="username">Username<span class="required">*</span></label>
                                                     <div class="controls">
                                                         <input id="username" name="username"
@@ -173,7 +173,7 @@
                                                                placeholder="Username"  required
                                                                data-validation-required-message="This field is required">
                                                     </div>
-                                                {{--</div>--}}
+                                                </div>
                                             </div>
                                         @endif
                                     </div>
@@ -347,7 +347,8 @@
 
     <script>
         //Four Column Slider
-
+        const tree = "{{ route('trees.binary') }}";
+        const home = "{{ route('home') }}";
         var owl = $('#owl-carousel');
         owl.owlCarousel({
             loop: false,
@@ -418,12 +419,12 @@
                     console.log(result);
                     if (result.ok === "ok"){
                         console.log("bien");
+                        $("a[href='#previous']").hide();
                         $( "#alert" ).show();
                     }else{
                         console.log("error");
                         $( "#alert" ).show();
                     }
-
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {

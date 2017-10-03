@@ -56,18 +56,16 @@ $(".vertical-tab-steps").steps({
 // Show form
 var form = $(".steps-validation").show();
 
-$(".steps-validation").steps({
+var wiz = $(".steps-validation");
+wiz.steps({
     headerTag: "h6",
     bodyTag: "fieldset",
-    enableAllSteps: true,
+    enableAllSteps: false,
     transitionEffect: 2,
     transitionEffectSpeed:500,
     titleTemplate: '<span class="step">#index#</span> #title#',
     enableCancelButton: true,
     enablePagination: true,
-    /*labels: {
-        finish: 'Submit'
-    },*/
 
     /* Labels */
     labels: {
@@ -81,12 +79,27 @@ $(".steps-validation").steps({
     },
     /* Events */
     // onStepChanging: function (event, currentIndex, newIndex) { return true; },
-    // onStepChanged: function (event, currentIndex, priorIndex) { }},
-    onCanceled: function (event) { },
-    // onFinishing: function (event, currentIndex) { return true; },
-    // onFinished: function (event, currentIndex) { },
+        // onFinishing: function (event, currentIndex) { return true; },
+        // onFinished: function (event, currentIndex) { },
+    onStepChanged: function (event, currentIndex, priorIndex) {
+        console.log("cambio");
+        console.log(this.$);
+        if (currentIndex === 3 )
+        {
+            console.log(currentIndex);
+            $("a[href='#previous']").hide();
+            $('a[href$="cancel"]').text('Go to BinatyTree');
+            // $('a[href$="previous"]').text('new register');
+            wiz.find("[aria-label=Pagination]").append('<li class="" aria-disabled="true"><a class="imp-sub" href="http://localhost:8002/users/new">New User</a></li>');
+        }else{
+            $('a[href$="cancel"]').text('Cancel');
+            $('a[href$="previous"]').text('Previous');
+        }
+    }.bind(this),
+
     onStepChanging: function (event, currentIndex, newIndex)
     {
+        console.log("cambiando");
         // Allways allow previous action even if the current form is not valid!
         if (currentIndex > newIndex)
         {
@@ -95,7 +108,9 @@ $(".steps-validation").steps({
         // Forbid next action on "Warning" step if the user is to young
         if (newIndex === 3 && Number($("#age-2").val()) < 18)
         {
-            return false;
+            console.log(currentIndex);
+            // return false;
+            // enablePagination:false;
         }
         // Needed in some cases if the user went back (clean up)
         if (currentIndex < newIndex)
@@ -107,6 +122,13 @@ $(".steps-validation").steps({
         form.validate().settings.ignore = ":disabled,:hidden";
         return form.valid();
     },
+
+    onCanceled: function (event) {
+        console.log("cancel");
+        console.log(event);
+        window.location.href = tree;
+    },
+
     onFinishing: function (event, currentIndex)
     {
         form.validate().settings.ignore = ":disabled";
@@ -115,7 +137,7 @@ $(".steps-validation").steps({
     onFinished: function (event, currentIndex)
     {
         console.log("accept");
-        window.location.href = "https://bitsyte.mxcorp.net/home";
+        window.location.href = home;
     }
 });
 
