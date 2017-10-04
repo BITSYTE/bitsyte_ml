@@ -565,9 +565,9 @@
 </section>
 <!-- End team -->
 <!-- Start contact header / Google Map -->
-<section id="contact-top">
+{{--<section id="contact-top">
     <div id="gmap"></div>
-</section>
+</section>--}}
 <!-- End contact header / Google Map -->
 <!-- Start contact -->
 <section id="contact" class="white-bg">

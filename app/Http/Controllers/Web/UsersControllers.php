@@ -23,11 +23,18 @@ class UsersControllers extends Controller
      */
     protected $product;
 
+    /**
+     * @var array ERRORS
+     */
     public $errors = [];
 
-    /*
+    /**
      * UsersController constructor.
-     * @param User
+     *
+     * @param \App\Models\User    $user
+     * @param \App\Models\Product $product
+     *
+     * @internal param $User
      */
     public function __construct(User $user, Product $product)
     {
@@ -36,6 +43,10 @@ class UsersControllers extends Controller
 
     }
 
+    /**
+     * RETURN VIEW OF NEW USER
+     * @return $this
+     */
     public function new()
     {
         $breadcrumbs[0]['name'] = 'Users';
@@ -97,6 +108,12 @@ class UsersControllers extends Controller
 
     }
 
+    /**
+     * VALID IF USER AND EMAIL EXIST
+     * AND RETURN ERROR IF EXIST
+     * @param $request
+     * @return bool
+     */
     public function ifExist($request)
     {
         $band = false;

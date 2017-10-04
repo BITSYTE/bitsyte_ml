@@ -8,7 +8,7 @@
     <!-- IE compatibility modes -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Set the title of you site -->
-    <title>Myway - Onepage Bootstrap Multi-Purpose Parallax Retina Template</title>
+    <title>Bitsyte</title>
     <!-- Set the descritpion of your site -->
     <meta name="description" content="Responsive, Mobile First, Retina, Bootstrap 3, One Page, Multi Page, Multi-Purpose, Agency, Clean, Creative, Minimal, Components, Photography, Portfolio, Business, Corporate, White, Modern">
     <!-- Set the author of your site -->
@@ -46,7 +46,7 @@
 </div>
 <!-- End preloader -->
 <!-- Start navigation -->
-<div class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation" data-start="padding: 10px 0px; background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .1);" data-20p="padding: 0px 0px; background: rgba(255, 255, 255, .95); border-color: rgba(231, 231, 231, 1);">
+<div class="navbar navbar-default navbar-transparent navbar-fixed-top" style="color: black">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -65,13 +65,14 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#intro">Home</a></li>
-                <li><a href="#services" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Services</a></li>
-                <li><a href="#features" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Features</a></li>
-                <li><a href="#works-top" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Works</a></li>
-                <li><a href="#gallery-top" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Gallery</a></li>
-                <li><a href="#team-top" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Team</a></li>
-                <li><a href="#contact-top" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Contact</a></li>
-                <li><a href="https://themeforest.net/item/myway-onepage-bootstrap-parallax-retina-template/4058880?ref=awerest" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Purchase</a></li>
+                <li><a href="#services" data-20p="color: rgb(0, 0, 0);">Services</a></li>
+                <li><a href="#features" data-20p="color: rgb(0, 0, 0);">Features</a></li>
+                <li><a href="#works-top" data-20p="color: rgb(0, 0, 0);">Works</a></li>
+                <li><a href="#gallery-top" data-20p="color: rgb(0, 0, 0);">Gallery</a></li>
+                <li><a href="#team-top" data-20p="color: rgb(0, 0, 0);">Team</a></li>
+                <li><a href="#contact-top" data-20p="color: rgb(0, 0, 0);">Contact</a></li>
+                {{--<li><a href="https://themeforest.net/item/myway-onepage-bootstrap-parallax-retina-template/4058880?ref=awerest" data-start="color: rgb(255, 255, 255);" data-20p="color: rgb(0, 0, 0);">Purchase</a></li>--}}
+                <li><a href="{{ route('home') }}" data-20p="color: rgb(0, 0, 0);">Bitsyte</a></li>
             </ul>
         </div>
     </div>
@@ -137,7 +138,7 @@
 <script src="{{ asset('landing/js/ekko-lightbox.min.js') }}"></script>
 <!-- Contact form and google map -->
 {{--<script src="https://maps.google.com/maps/api/js?sensor=false"></script>--}}
-<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+{{--<script src="https://maps.google.com/maps/api/js?sensor=true"></script>--}}
 {{--<script src="{{ asset('landing/js/googlemaps.js') }}"></script>--}}
 <script src="{{ asset('landing/js/jquery.form.js') }}"></script>
 <script src="{{ asset('landing/js/jquery.flowuplabels.js') }}"></script>
