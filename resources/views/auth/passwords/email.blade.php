@@ -53,11 +53,11 @@
         <div class="content-header row">
         </div>
         <div class="content-body"><section class="flexbox-container">
-                <div class="col-md-4 offset-md-4 col-xs-10 offset-xs-1 box-shadow-2 p-0">
+                <div class="col-md-6 offset-md-3 col-xs-10 offset-xs-1 box-shadow-2 p-0">
                     <div class="card border-grey border-lighten-3 px-2 py-2 m-0">
                         <div class="card-header no-border pb-0">
                             <div class="card-title text-xs-center">
-                                <img src="../../app-assets/images/logo/stack-logo-dark.png" alt="branding logo">
+                                <img src="{{ asset('backoffice/images/bitsyte_logo.png') }}" alt="branding logo">
                             </div>
                             <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>We will send you a link to reset password.</span></h6>
                         </div>
@@ -82,8 +82,8 @@
                             </div>
                         </div>
                         <div class="card-footer no-border">
-                            <p class="float-sm-left text-xs-center"><a href="../login/login.html" class="card-link">Login</a></p>
-                            <p class="float-sm-right text-xs-center">New to BitSite ? <a href="../register/register.html" class="card-link">Create Account</a></p>
+                            <p class="float-sm-left text-xs-center"><a href="{{ route('login') }}" class="card-link">Login</a></p>
+                            {{--<p class="float-sm-right text-xs-center">New to BitSite ? <a href="../register/register.html" class="card-link">Create Account</a></p>--}}
                         </div>
                     </div>
                 </div>

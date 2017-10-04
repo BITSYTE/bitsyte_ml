@@ -57,8 +57,8 @@
                         <div class="card-header no-border">
                             <div class="card-title text-xs-center">
                                 <div class="p-1">
-                                    <img src="{{ asset('backoffice/app-assets/images/logo/stack-logo-dark.png')}}"
-                                         alt="branding logo"></div>
+                                    <img src="{{ asset('backoffice/images/bitsyte_logo.png') }}" alt="branding logo">
+                                </div>
                             </div>
                             <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Login to BitSyte</span>
                             </h6>
