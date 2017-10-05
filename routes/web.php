@@ -73,6 +73,10 @@ Route::group(['namespace' => 'Web'], function () {
                 return view('admin.wallets.index');
             })->name('index');
         });
+
+        Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
+            Route::get('/', 'Admin\SettingsController@index')->name('settings');
+        });
     });
 
 });
