@@ -12,6 +12,12 @@ class SettingsController extends Controller
     public function index()
     {
         $settings = SystemSettings::Where('status','!=','archive')->get();
-        dd($settings);
+//        dd($settings[0]->data);
+//        $data = json_encode($settings[0]->data);
+//        dd($data);
+        return view('admin.settings.index')
+            ->with([
+                'settings'    => $settings,
+            ]);
     }
 }
