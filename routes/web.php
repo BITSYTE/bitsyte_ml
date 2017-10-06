@@ -59,24 +59,27 @@ Route::group(['namespace' => 'Web'], function () {
         Route::get('payments', function () {
             return view('payments.index');
         });
+
+        /*******************        ADMIN.      ****************/
+        Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+            Route::get('home', function () {
+                return view('admin.index');
+            })->name('index');
+
+            Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
+                Route::get('/', function () {
+                    return view('admin.wallets.index');
+                })->name('index');
+            });
+
+            Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
+                Route::get('/', 'Admin\SettingsController@index')->name('settings');
+            });
+        });
+
     });
 
         Route::any('/ajax', 'BinaryTreeController@ajax')->name('ajax');
-    /*******************        ADMIN.      ****************/
-    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-        Route::get('home', function () {
-            return view('admin.index');
-        })->name('index');
 
-        Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
-            Route::get('/', function () {
-                return view('admin.wallets.index');
-            })->name('index');
-        });
-
-        Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
-            Route::get('/', 'Admin\SettingsController@index')->name('settings');
-        });
-    });
 
 });

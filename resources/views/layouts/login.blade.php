@@ -7,7 +7,7 @@
     <meta name="description" content="BitSyte">
     <meta name="keywords" content="layout">
     <meta name="author" content="Bitsyte">
-    <title> Login </title>
+    <title> BITSYTE </title>
 
 
     <link rel="apple-touch-icon" href="{{ asset('backoffice/app-assets/images/ico/apple-icon-120.png')}}">

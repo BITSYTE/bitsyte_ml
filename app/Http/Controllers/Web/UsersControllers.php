@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Web;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Product;
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
