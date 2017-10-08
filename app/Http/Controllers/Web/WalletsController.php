@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class WalletsController extends Controller
 {
 
+    /**
+     * THIS METHOD RETURN THE VIEW SHOWING AL WALLETS
+     * @return $this
+     */
     public function index()
     {
         $breadcrumbs[0]['name']='Wallets';
@@ -18,6 +22,12 @@ class WalletsController extends Controller
         return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 
+    /**
+     * THIS METHOD RETURN THE INFORMATION AND VIEW OF A WALLET
+     * @param $name
+     *
+     * @return $this
+     */
     public function show($name)
     {
         $breadcrumbs[0]['name']='wallets';

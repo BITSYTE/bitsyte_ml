@@ -56,8 +56,9 @@
                     </a>
                 </li>
                 <li class="nav-item"><a href="{{ route('home') }}" class="navbar-brand">
-                        <img alt="stack admin logo" src="{{ asset('backoffice/app-assets/images/logo/stack-logo-light.png')}}" class="brand-logo">
-                        <h2 class="brand-text">Stack</h2></a>
+                        <img alt="Bitsyte" src="{{ asset('backoffice/images/bitsyte_logo 2.png')}}" class="brand-logo"
+                        style="height: 50px;margin: -10px">
+                        {{--<h2 class="brand-text">Stack</h2></a>--}}
                 </li>
                 <li class="nav-item hidden-md-up float-xs-right">
                     <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container">

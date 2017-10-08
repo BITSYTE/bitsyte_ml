@@ -62,8 +62,7 @@ class UsersControllers extends Controller
     }
 
     /**
-     * Store User
-     *
+     * Store User IN DATABASE
      * @param UserStoreRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse

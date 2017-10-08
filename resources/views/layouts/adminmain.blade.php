@@ -135,13 +135,13 @@
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">
                     <i class="fa fa-sitemap"></i><span>Networks</span>
                 </a>
-                <ul class="dropdown-menu">
+                {{--<ul class="dropdown-menu">
                     <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Binary</a></li>
                     <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
-                </ul>
+                </ul>--}}
             </li>
             <li class=" nav-item"><a href="#" class=" nav-link"><i class="ft-user"></i><span>Compensations</span></a></li>
-            <li class=" nav-item"><a href="#" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a>
+            <li class=" nav-item"><a href="{{ route('admin.settings.settings') }}" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a>
             </li>
         </ul>
         <!-- menu-->
