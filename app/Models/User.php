@@ -62,6 +62,9 @@ class User extends Authenticatable
         return $this->belongsTo(Product::class);
     }
 
+    /**
+     * @return string
+     */
     public function getFullNameAttribute()
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);

@@ -11,6 +11,9 @@ class Product extends Model
      */
     protected $table = "products";
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name',
         'description',
@@ -25,6 +28,7 @@ class Product extends Model
     ];
 
     /**
+     * RELATION WHIT CATEGORY
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category()
@@ -32,6 +36,7 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
     /**
+     * RELATION WHIT USERS
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()

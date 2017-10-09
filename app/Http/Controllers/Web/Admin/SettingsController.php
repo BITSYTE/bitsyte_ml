@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 class SettingsController extends Controller
 {
 
+    /**
+     * RETURN THE MAIN VIEW OF SETTINGS WHIT A LIST OF AL SETTING
+     * @return $this
+     */
     public function index()
     {
         $settings = SystemSettings::Where('status','!=','archive')->get();

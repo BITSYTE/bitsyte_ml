@@ -8,25 +8,19 @@ use App\Http\Controllers\Controller;
 class BinaryTreeController extends Controller
 {
 
+    /**
+     * RETURN THE VIEW OF BINARYTREE WHIT YOUR DATA
+     * @return $this
+     */
     public function index()
     {
         $breadcrumbs[0]['name']='Binary';
-//        $breadcrumbs[0]['route']='binarytree';
-        /*$breadcrumbs[1]['name']='summary';
-        $breadcrumbs[1]['route']='summary';*/
-
-//        $Users = array();
-//        $Users['padre']=
 
         return view('trees.binary.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 
-    public function show()
-    {
-        return view('');
-    }
-
     /**
+     * THIS METHOD RESPONSE A AJAX AND RETURN THE ARRAY OF USER IN A BINARYTREE
      * @return mixed
      */
     public function ajax()

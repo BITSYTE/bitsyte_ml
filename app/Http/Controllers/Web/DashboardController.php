@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
 
+    /**
+     * RETURN THE VIEW OF DASHBOARD
+     * @return $this
+     */
     public function index()
     {
         $breadcrumbs[0]['name']='home';

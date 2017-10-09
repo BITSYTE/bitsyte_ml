@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class UnilevelTreeController extends Controller
 {
 
+    /**
+     * RETURN THE VIEW OF UNILEVEL TREE
+     * @return $this
+     */
     public function index()
     {
         $breadcrumbs[0]['name']='Unilevel';
@@ -18,9 +22,5 @@ class UnilevelTreeController extends Controller
         return view('trees.unilevel.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
 
-    public function show()
-    {
-        return view('');
-    }
 
 }
