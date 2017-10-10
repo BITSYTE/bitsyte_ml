@@ -10,6 +10,21 @@ NOTE:
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
+.canvas-wrapper-unilevel{
+    position: relative;
+    margin: 0vh auto;
+    width: 1314px;
+    height: 600px;
+}
+.navTree-unilevel{
+    position: fixed;
+    max-width: 430px;
+    /*float: left;*/
+}
+.unilevelT{
+    float: left;
+    overflow: auto;
+}
 .canvas-wrapper{
     position: relative;
     margin: 5vh auto;
