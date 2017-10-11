@@ -20,7 +20,6 @@ class CreateBinaryTreesTable extends Migration
             // Take a look at the model scaffold comments for details.
             // We add indexes on parent_id, lft, rgt columns by default.
             $table->increments('id');
-            $table->uuid('uuid')->unique()->index();
             $table->integer('user_id')->unique()->index();
             $table->integer('parent_id')->nullable()->index();
             $table->integer('product_id')->nullable()->index();
