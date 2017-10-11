@@ -32,16 +32,16 @@ class EventServiceProvider extends ServiceProvider
     /**
      * @var $models \Illuminate\Database\Eloquent\Model[]
      */
-    protected $models =[
+    protected $models = [
         User::class,
-        UserAddresses:: class,
-        Category:: class,
-        Country:: class,
-        State:: class,
-        City:: class,
+        //UserAddresses:: class,
+        //Category:: class,
+        //Country:: class,
+        //State:: class,
+        //City:: class,
         Product:: class,
-        SystemSettings:: class,
-        UserSettings:: class,
+        //SystemSettings:: class,
+        //UserSettings:: class,
         Wallet::class,
     ];
 

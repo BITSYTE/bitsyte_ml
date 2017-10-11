@@ -14,7 +14,7 @@ class WalletsController extends Controller
      */
     public function index()
     {
-        
+
         $breadcrumbs[0]['name']='Wallets';
         $breadcrumbs[0]['route']='wallets';
         $breadcrumbs[1]['name']='summary';
