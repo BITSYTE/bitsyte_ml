@@ -19,7 +19,6 @@ class CreateUserSettingsTable extends Migration
             $table->string('field');
             $table->json('data');
             $table->string('status');
-            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
