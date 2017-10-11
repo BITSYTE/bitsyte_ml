@@ -112,4 +112,13 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Wallet::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->word,
+        'status' => 'active',
+    ];
+});
+
 

@@ -55,6 +55,8 @@ class User extends Authenticatable
     }
 
     /**
+     * Return related products
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function product()
@@ -63,10 +65,22 @@ class User extends Authenticatable
     }
 
     /**
+     * Return the full name
+     *
      * @return string
      */
     public function getFullNameAttribute()
     {
-        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+        return sprintf('%s %s', ucfirst($this->first_name), ucfirst($this->last_name));
+    }
+
+    /**
+     * Return related wallets
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function wallets()
+    {
+        return $this->belongsToMany(Wallet::class)->withPivot('balance', 'status');
     }
 }
