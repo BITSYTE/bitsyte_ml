@@ -29,9 +29,12 @@ class CreateUsersTable extends Migration
 
             $table->string('password');
             $table->date('birthday');
+            $table->unsignedBigInteger('product_id')->nullable();
             $table->string('status');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

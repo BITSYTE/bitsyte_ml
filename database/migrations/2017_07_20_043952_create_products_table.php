@@ -22,10 +22,6 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->string('color');
             $table->decimal('price', 12, 2);
-            $table->integer('qv');
-            $table->integer('bv');
-            $table->integer('cv');
-            $table->integer('lv');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');
