@@ -218,9 +218,10 @@ class LinesNode {
         this._context.save();
     }
 
-    beeline(inicio,fin){
-        this._context.lineWidth = 2;
-        this._context.strokeStyle = "rgba(58,150,235,1)";
+    beeline(inicio,fin,bgcolor='#2196F3'){
+        // 2196F3
+        this._context.lineWidth = 3;
+        this._context.strokeStyle = bgcolor;
         // this._context.setLineDash([]);
         this._context.beginPath();
         this._context.moveTo(inicio.x , inicio.y );   // inicio

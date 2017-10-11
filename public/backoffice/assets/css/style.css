@@ -25,6 +25,13 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     float: left;
     overflow: auto;
 }
+.easyScroll_scroll_vertical{
+    top: 600px;
+    right: auto;
+    left: 437px;
+}
+
+/**** binary  ***/
 .canvas-wrapper{
     position: relative;
     margin: 5vh auto;
