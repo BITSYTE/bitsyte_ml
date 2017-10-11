@@ -1,44 +1,58 @@
 class UnilevelTree {
 
-    constructor(ctx, images) {
-        this._context = ctx;
+    constructor( images, lvl1) {
+        // this._context = ctx;
         this._images = images;
         this._band = false;
         //------------------------------------------
-        this._context.font = "15px Verdana";
+        /*this._context.font = "15px Verdana";
         this._context.lineWidth = 2;
-        this._context.fillStyle = "white";
+        this._context.fillStyle = "white";*/
         //------------------------------------------
         this._posInicial = {x: lvl1.width / 2 - 90, y: 20};
         this._nodeDimension = {w: 180, h: 50};
         this._nodeSmall = {w: 150, h: 50, fondo: "rgba(33,150,243,1)"};
-        this._posiciones = {
+        /*this._posiciones = {
             "1,1": {x: lvl1.width / 2 - 90, y: 50, hl: "2,1", hr: "2,2"},
             "2,1": {x: lvl1.width / 4 - 80, y: 150, hl: "3,1", hr: "3,2"},
             "2,2": {x: lvl1.width / 4 * 3 - 80, y: 150, hl: "3,3", hr: "3,4"},
-        };
+        };*/
         this._nodesPos = [];
         this._nodesLvl3 = [];
-        this._linesDraw = new LinesNode(this._context, {x: this._posInicial.x, y: this._posInicial.y + 25});
+        // this._linesDraw = new LinesNode(this._context, {x: this._posInicial.x, y: this._posInicial.y + 25});
     }
 
-    initTree(json) {
-        this._nodesPos = [];
-        var dimensions = {x: 0, d: 0};
-        let paquete = this._paquete;
-        let icon = this._icon;
-
-        this.lvl1(dimensions);
-
-
-        console.log(this._nodesPos);
+    set SetCanvas(lvl1){
+        this._posInicial = {x: lvl1.width / 2 - 90, y: 20};
+    }
+    set SetLvl1(lvl) {
+        this._lvl1 = lvl;
+        this._lvl1.font = "15px Verdana";
+        this._lvl1.lineWidth = 2;
+        this._lvl1.fillStyle = "white";
+        this._linesDraw = new LinesNode(this._lvl1, {x: this._posInicial.x, y: this._posInicial.y + 25});
+    }
+    SetLvl2(lvlContext,canvas) {
+        this._lvl2 = lvlContext;
+        this._lvl2.font = "15px Verdana";
+        this._lvl2.lineWidth = 2;
+        this._lvl2.fillStyle = "white";
+        this._lvl2posInicial = {x: canvas.width / 2 - 90, y: 20};
+        this._linesDraw = new LinesNode(this._lvl2, {x: this._posInicial.x, y: this._posInicial.y + 25});
+    }
+    set SetLvl3(lvl) {
+        this._lvl3 = lvl;
+        this._lvl3.font = "15px Verdana";
+        this._lvl3.lineWidth = 2;
+        this._lvl3.fillStyle = "white";
+        // this._lvl2posInicial = {x: lvl3.width / 2 - 90, y: 20};
     }
 
     lvl1() {
-        var linesDrawR = new LinesNode(this._context, this._posInicial);
+        // var linesDrawR = new LinesNode(this._context, this._posInicial);
 
         if (user !== json[0]["username"]) {
-            var lvl1_1 = new TreeNode(this._context, {x: lvl1.width / 2 - 90, y: 60}, "root");
+            var lvl1_1 = new TreeNode(this._lvl1, {x: lvl1.width / 2 - 90, y: 60}, "root");
             // console.log("draw padre");
             // lvl1_1.SetPosition = this._posInicial;
             lvl1_1.createNode();
@@ -47,11 +61,11 @@ class UnilevelTree {
             lvl1_1.drawIconInfo(this._images.iconInfo);
             // console.log(lvl1.width /2-90);
             // lvl1_1.drawLineRoot(this._posInicial, {x:this._posInicial.x,y:lvl1.height /2});
-            linesDrawR.LineRootU(this._posInicial, {x: this._posInicial.x, y: lvl1.height / 2 - 75});
+            this._linesDraw.LineRootU(this._posInicial, {x: this._posInicial.x, y: lvl1.height / 2 - 75});
             // this._nodesPos.push(lvl1-1);
         }
 
-        var lvl1_2 = new TreeNode(this._context, this._posInicial, "user");
+        var lvl1_2 = new TreeNode(this._lvl1, this._posInicial, "user");
         this._posInicial = {x: this._posInicial.x, y: lvl1.height / 2 - 45};
         lvl1_2.SetPosition = this._posInicial;
         lvl1_2.createNode();
@@ -59,7 +73,7 @@ class UnilevelTree {
         lvl1_2.drawPaquete(this._images.paquetes.gold);
         lvl1_2.drawIconInfo(this._images.iconInfo);
 
-        linesDrawR.beeline({x: lvl1.width / 2 + 90, y: lvl1.height / 2 - 20}, {x: lvl1.width, y: lvl1.height / 2 - 20});
+        this._linesDraw.beeline(this._lvl1,{x: lvl1.width / 2 + 90, y: lvl1.height / 2 - 20}, {x: lvl1.width, y: lvl1.height / 2 - 20});
         // this._nodesPos.push(lvl1-2);
 
     }
@@ -68,45 +82,52 @@ class UnilevelTree {
 
         // SetPosition()={x:this._posInicial.x,y:this._posInicial.y+25};
         // this._posInicial = {x:this._posInicial.x,y:this._posInicial.y+25};
+        console.log("lvl2 inicio");
+
+        this._lvl2.clearRect(300, 0, 600, 1500);
+        this._nodesPos = [];
+        console.log(json);
         for (let k in json) {
             let nombre = "tNode" + k;
-
-            nombre = new TreeNode(this._context, this._posInicial, "user");
-            nombre.SetPosition = this._posInicial;
+            console.log(json[k]["username"]);
+            nombre = new TreeNode(this._lvl2, this._lvl2posInicial, "user");
+            // nombre.SetPosition = this._lvl2posInicial;
             nombre.createNode();
-            nombre.drawUserName(user);
+            nombre.drawUserName(json[k]["username"]);
             nombre.drawPaquete(this._images.paquetes.gold);
             nombre.drawIconInfo(this._images.iconInfo);
 
-            this._linesDraw.beeline({x: 0, y: this._posInicial.y + 25}, {x: lvl2.width / 2 - 80, y: this._posInicial.y + 25});
+            this._linesDraw.beeline(this._lvl2,{x: 0, y: this._lvl2posInicial.y + 25}, {x: lvl2.width / 2 - 80, y: this._lvl2posInicial.y + 25});
             this._nodesPos.push(nombre);
-            this._posInicial = {x: this._posInicial.x, y: this._posInicial.y + 80};
+            this._lvl2posInicial = {x: this._lvl2posInicial.x, y: this._lvl2posInicial.y + 80};
 
         }
-        // console.log(this._nodesPos);
-        /*this._nodesPos.map(function (item){
-            console.log(item);
-        });*/
+        this._posInicial = {x: lvl2.width / 2 - 90, y: 20};
+        console.log(this._nodesPos);
+        console.log("lvl2 termino");
     }
 
-    lvl3(json) {
-        var linesDraw3 = new LinesNode(this._context, this._posInicial);
+    lvl3(json2) {
+        // var linesDraw3 = new LinesNode(this._context, this._posInicial);
 
-        for (let k in json) {
+        for (let k in json2) {
             let nombre = "tNode" + k;
-            nombre = new TreeNode(this._context, this._posInicial, "user");
-            console.log();
-            nombre.SetPosition = this._posInicial;
+            nombre = new TreeNode(this._lvl3, this._posInicial, "user");
+
+            // nombre.SetPosition = this._posInicial;
             console.log(this._posInicial);
             nombre.createNode();
-            nombre.drawUserName(user);
+            nombre.drawUserName(json2[k]["username"]);
             nombre.drawPaquete(this._images.paquetes.gold);
             nombre.drawIconInfo(this._images.iconInfo);
             // console.log(lvl1.width /2-90);
-            // linesDraw.beeline({x: lvl1.width / 2+90, y: lvl1.height /2-20},{x:lvl1.width,y:lvl1.height /2-20});
-            this._nodesLvl3.push(nombre);
+            this._linesDraw.beeline(this._lvl3,{x: lvl3.width / 2+90, y: lvl3.height /2-20},{x:lvl3.width,y:lvl3.height /2-20});
+            // this._nodesLvl3.push(nombre);
             this._posInicial = {x: this._posInicial.x, y: this._posInicial.y + 80};
         }
+
+        this._posInicial = {x: lvl1.width / 2 - 90, y: 20};
+        console.log("lvl3 termino");
     }
 
 
@@ -121,7 +142,9 @@ class UnilevelTree {
         return {x: x, y: y}
     }
 
-    selecciona(e) {
+    selecciona(e,lvl) {
+        lvl = this.getLVL(lvl);
+        // console.log(lvl);
         let pos = this.ajusta2(e.clientX, e.clientY);
         console.log(pos);
         this._nodesPos.map(function (item) {
@@ -133,15 +156,15 @@ class UnilevelTree {
                 // IF BAND IS FALSE NO NODE SELECTED AND CHARGE YOUR CHILDS
                 if(this._band === false){
                     this._band = true;
-                    this._context.save();
-                    desactivScroll();
-                    this._linesDraw.beeline({x:item._position.x+180,y:item._position.y+25},{x:lvl2.width , y:item._position.y+25},'#2196F3');
-                    this._linesDraw.beeline({x:lvl2.width,y:0},{x:lvl2.width , y:lvl2.height},'#2196F3');
+                    // this._context.save();
+                    this.desactivateScroll();
+                    this._linesDraw.beeline(lvl,{x:item._position.x+180,y:item._position.y+25},{x:lvl2.width , y:item._position.y+25},'#2196F3');
+                    this._linesDraw.beeline(lvl,{x:lvl2.width,y:0},{x:lvl2.width , y:lvl2.height},'#2196F3');
 
                 }else {
                     this._band = false;
-                    this._context.restore();
-                    activeScroll();
+                    // this._context.restore();
+                    this.activeScroll();
                     // this._linesDraw.beeline({x:item._position.x+180,y:item._position.y+25},{x:lvl2.width , y:item._position.y+25},'#FFFFFF');
                     // this._linesDraw.beeline({x:lvl2.width,y:0},{x:lvl2.width , y:lvl2.height},'#FFFFFF');
                 }
@@ -152,14 +175,41 @@ class UnilevelTree {
             }
         }.bind(this));
     }
+
+    activeScroll() {
+
+        this.lvl2(json);
+        $('.easyScroll_scroll_vertical').css('visibility', 'visible');
+    }
+
+    desactivateScroll() {
+        $('.easyScroll_scroll_vertical').css('visibility', 'hidden');
+        // console.log('lvl3');
+        this.lvl3(json2);
+        // $('#wrap2').css('border-right', '3px solid');
+    }
+
+    getLVL(lvl){
+
+        if(lvl === "lvl2"){
+            return this._lvl2;
+        }else {
+            return this._lvl3;
+        }
+
+    }
+
 }
 
-function activeScroll() {
+/*function activeScroll(context,lvl) {
+    context.clearRect(0, 0, lvl.width, lvl.height);
+    lvl2(json);
     $('.easyScroll_scroll_vertical').css('visibility', 'visible');
     // $('#wrap2').css('border-right', 'none');
-}
+}*/
 
 function desactivScroll() {
     $('.easyScroll_scroll_vertical').css('visibility', 'hidden');
+
     // $('#wrap2').css('border-right', '3px solid');
 }
