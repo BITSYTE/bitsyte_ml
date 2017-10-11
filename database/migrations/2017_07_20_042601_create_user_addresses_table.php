@@ -19,11 +19,11 @@ class CreateUserAddressesTable extends Migration
             $table->string('type');
             $table->text('address');
             $table->string('zip_code');
-            $table->string('status');
-            $table->timestamps();
             $table->unsignedBigInteger('country_id')->nullable();
             $table->unsignedBigInteger('state_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
+            $table->string('status');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('country_id')->references('id')->on('countries');
