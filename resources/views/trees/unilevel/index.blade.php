@@ -92,7 +92,7 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/unilevelTree.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/treeNode2.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
+    {{--<script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>--}}
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/easyScroll/easyScroll.js') }}"></script>
 
     <script>
@@ -280,6 +280,13 @@
             $('#top').on("click", function () {
                 refresh();
             });
+
+            function ajusta(xx, yy,canvas) {
+                var posCanvas = canvas.getBoundingClientRect();
+                var x = xx - posCanvas.left;
+                var y = yy - posCanvas.top;
+                return {x: x, y: y}
+            }
 
         });
 

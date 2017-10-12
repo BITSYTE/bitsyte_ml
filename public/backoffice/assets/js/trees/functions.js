@@ -17,7 +17,7 @@ function pintaGrid(disX, disY, color) {
     }
 }
 
-function ajusta(xx, yy,canvas) {
+function ajusta(xx, yy) {
     var posCanvas = canvas.getBoundingClientRect();
     var x = xx - posCanvas.left;
     var y = yy - posCanvas.top;
