@@ -104,11 +104,6 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
         'image'         =>  $faker->word.'.jpg',
         'color'         =>  $faker->randomElement(['red','blue','yellow','green']),
         'price'         =>  $faker->randomElement(['100','200','300']),
-        'qv'            =>  1,
-        'bv'            =>  1,
-        'cv'            =>  1,
-        'lv'            =>  1
-
     ];
 });
 
