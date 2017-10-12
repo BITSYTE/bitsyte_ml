@@ -69,18 +69,19 @@
                     </canvas>
                 </div>
                 <div>
-                    <div id="wrap2" class="unilevelT" class="" style="width: 438px; height: 600px">
-                        <canvas class="" id="lvl2" width="420" height="1050">
+                    <div id="wrap2" class="unilevelT" style="width: 438px; height: 600px">
+                        <canvas class="" id="lvl2" width="437" height="1050">
                             Tu navegador no soporta el canvas de HTML5
                         </canvas>
                     </div>
                 </div>
-                <div id="wrap3" class="unilevelT" style="width: 438px; height: 610px">
-                    <canvas class="" id="lvl3" width="420" height="600">
-                        Tu navegador no soporta el canvas de HTML5
-                    </canvas>
+                <div>
+                    <div id="wrap3" class="unilevelT" style="width: 438px; height: 610px">
+                        <canvas class="" id="lvl3" width="420" height="1050">
+                            Tu navegador no soporta el canvas de HTML5
+                        </canvas>
+                    </div>
                 </div>
-
             </div>
 
         </div>
@@ -159,10 +160,7 @@
                 iconInfo: "{{ asset('backoffice/images/icons/info.svg') }}",
                 addUser: "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}",
             };
-            var imageAdd = {
-                addUser: "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}",
-                {{--icon_plus: "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}"--}}
-            };
+
             console.log(images);
 
             lvl1 = document.getElementById("lvl1");
@@ -173,8 +171,8 @@
                 if (ctx) {
 
 //                    unilevelT.SetCanvas=lvl1;
-                    unilevelT.SetLvl1=ctx;
-                    unilevelT.lvl1(json);
+//                    unilevelT.SetLvl1=ctx;
+                    unilevelT.lvl1(ctx,json);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {
                         ut.selecciona(e, csr)
@@ -189,11 +187,11 @@
                 ctx = lvl2.getContext("2d");
                 if (ctx) {
 
-                    unilevelT.SetLvl2(ctx,lvl2);
-                    unilevelT.lvl2(json);
+//                    unilevelT.SetLvl2(ctx,lvl2);
+                    unilevelT.lvl2(ctx,json);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     lvl2.addEventListener("click", function (e) {
-                        unilevelT.selecciona(e,"lvl2")
+                        unilevelT.selecciona2(e,ctx)
                     }, false);
                 } else {
                     alert("NO cuentas con CANVAS");
@@ -204,7 +202,7 @@
                 ctx = lvl3.getContext("2d");
                 if (ctx) {
 
-                    unilevelT.SetLvl3=ctx;
+                    unilevelT.SetLvl3(ctx, lvl3);
 //                    unilevelT.lvl3(json2);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {

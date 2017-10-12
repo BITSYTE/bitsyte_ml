@@ -179,11 +179,11 @@ class NodeViewMore {
 
 class LinesNode {
 
-    constructor(context, position, bgcolor = "#2196F3") {
+    constructor(context, bgcolor = "#2196F3") {
         this._context = context;
-        this._position = position;
+        // this._position = position;
         this._bgcolor = bgcolor;
-        this._context.setLineDash([]);
+        // this._context.setLineDash([]);
     }
 
     set SetPosition(position) {
