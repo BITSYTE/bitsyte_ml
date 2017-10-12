@@ -179,14 +179,17 @@ class NodeViewMore {
 
 class LinesNode {
 
-    constructor(context, position, bgcolor = "#2196F3") {
+    constructor(context, bgcolor = "#2196F3") {
         this._context = context;
-        this._position = position;
+        // this._position = position;
         this._bgcolor = bgcolor;
-        this._context.setLineDash([]);
+        // this._context.setLineDash([]);
     }
 
     set SetPosition(position) {
+        this._position = position
+    }
+    set SetContext(position) {
         this._position = position
     }
 
@@ -218,16 +221,16 @@ class LinesNode {
         this._context.save();
     }
 
-    beeline(inicio,fin,bgcolor='#2196F3'){
+    beeline(context,inicio,fin,bgcolor='#2196F3'){
         // 2196F3
-        this._context.lineWidth = 3;
-        this._context.strokeStyle = bgcolor;
+        context.lineWidth = 3;
+        context.strokeStyle = bgcolor;
         // this._context.setLineDash([]);
-        this._context.beginPath();
-        this._context.moveTo(inicio.x , inicio.y );   // inicio
-        this._context.lineTo(fin.x , fin.y );   //final
-        this._context.stroke();
-        this._context.save();
+        context.beginPath();
+        context.moveTo(inicio.x , inicio.y );   // inicio
+        context.lineTo(fin.x , fin.y );   //final
+        context.stroke();
+        context.save();
     }
 
 }

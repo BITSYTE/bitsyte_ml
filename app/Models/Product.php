@@ -20,10 +20,6 @@ class Product extends Model
         'image',
         'color',
         'price',
-        'qv',
-        'bv',
-        'cv',
-        'lv',
         'category_id'
     ];
 

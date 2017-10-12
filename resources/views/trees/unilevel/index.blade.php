@@ -69,18 +69,19 @@
                     </canvas>
                 </div>
                 <div>
-                    <div id="wrap2" class="unilevelT" class="" style="width: 438px; height: 600px">
-                        <canvas class="" id="lvl2" width="420" height="1050">
+                    <div id="wrap2" class="unilevelT" style="width: 438px; height: 600px">
+                        <canvas class="" id="lvl2" width="437" height="1050">
                             Tu navegador no soporta el canvas de HTML5
                         </canvas>
                     </div>
                 </div>
-                <div id="wrap3" class="unilevelT" style="width: 438px; height: 610px">
-                    <canvas class="" id="lvl3" width="420" height="600">
-                        Tu navegador no soporta el canvas de HTML5
-                    </canvas>
+                <div>
+                    <div id="wrap3" class="unilevelT" style="width: 438px; height: 610px">
+                        <canvas class="" id="lvl3" width="420" height="1050">
+                            Tu navegador no soporta el canvas de HTML5
+                        </canvas>
+                    </div>
                 </div>
-
             </div>
 
         </div>
@@ -98,6 +99,7 @@
         var csr = "{{ csrf_token() }}";
         var lvl1;
         var lvl2;
+        var lvl3;
         var ctx;
         var user = "{{Auth::user()->first_name}}";
         var json = [
@@ -118,15 +120,15 @@
             {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
         ];
         var json2 = [
-            {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
-            {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
-            {"username": "jose2", "paquete": "gold", "type": "user", "position": "2,2"},
-            {"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
-            {"username": "jose4", "paquete": "gold", "type": "add", "position": "3,2"},
-            {"username": "jose5", "paquete": "gold", "type": "user", "position": "3,3"},
-            {"username": "jose6", "paquete": "gold", "type": "user", "position": "3,4"},
-            {"username": "jose7", "paquete": "gold", "type": "user", "position": "4,1"},
-            {"username": "jose8", "paquete": "plate", "type": "user", "position": "4,2"},
+            {"username": "jhon", "paquete": "gold", "type": "user", "position": [1,1]},
+            {"username": "jose1", "paquete": "gold", "type": "user", "position": [2,1]},
+            {"username": "jose2", "paquete": "gold", "type": "user", "position": [2,2]},
+            {"username": "jose3", "paquete": "gold", "type": "user", "position": [3,1]},
+            {"username": "jose4", "paquete": "gold", "type": "add", "position": [3,2]},
+            {"username": "jose5", "paquete": "gold", "type": "user", "position": [3,3]},
+            {"username": "jose6", "paquete": "gold", "type": "user", "position": [3,4]},
+            {"username": "jose7", "paquete": "gold", "type": "user", "position": [4,1]},
+            {"username": "jose8", "paquete": "plate", "type": "user", "position": [4,2]}
         ];
 
         $(document).ready(function () {
@@ -158,18 +160,19 @@
                 iconInfo: "{{ asset('backoffice/images/icons/info.svg') }}",
                 addUser: "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}",
             };
-            var imageAdd = {
-                addUser: "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}",
-                {{--icon_plus: "{{ asset('backoffice/images/icons/add-button-blue-circle.svg') }}"--}}
-            };
+
             console.log(images);
 
             lvl1 = document.getElementById("lvl1");
+            var unilevelT = new UnilevelTree(images, lvl1);
+
             if (lvl1 && lvl1.getContext) {
                 ctx = lvl1.getContext("2d");
                 if (ctx) {
-                    var unilevelT = new UnilevelTree(ctx, images);
-                    unilevelT.lvl1(json);
+
+//                    unilevelT.SetCanvas=lvl1;
+//                    unilevelT.SetLvl1=ctx;
+                    unilevelT.lvl1(ctx,json);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {
                         ut.selecciona(e, csr)
@@ -183,11 +186,12 @@
             if (lvl2 && lvl2.getContext) {
                 ctx = lvl2.getContext("2d");
                 if (ctx) {
-                    var unilevelT2 = new UnilevelTree(ctx, images);
-                    unilevelT2.lvl2(json);
+
+//                    unilevelT.SetLvl2(ctx,lvl2);
+                    unilevelT.lvl2(ctx,json);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     lvl2.addEventListener("click", function (e) {
-                        unilevelT2.selecciona(e)
+                        unilevelT.selecciona2(e,ctx)
                     }, false);
                 } else {
                     alert("NO cuentas con CANVAS");
@@ -197,8 +201,9 @@
             if (lvl3 && lvl3.getContext) {
                 ctx = lvl3.getContext("2d");
                 if (ctx) {
-                    var unilevelT3 = new UnilevelTree(ctx, images);
-//                    unilevelT3.lvl3(json);
+
+                    unilevelT.SetLvl3(ctx, lvl3);
+//                    unilevelT.lvl3(json2);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {
                         ut.selecciona(e, csr)
