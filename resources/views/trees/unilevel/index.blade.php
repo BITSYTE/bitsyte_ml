@@ -133,9 +133,6 @@
 
         $(document).ready(function () {
             console.log("ready!");
-            // RUTA DE LAS IMAGENES
-            //  objeto de imagenes
-
             $('#wrap2').easyScroll({
                 theme : 'dafault',
                 scrollAutoHide : false,
@@ -145,12 +142,7 @@
                 scrollButtons : false,
                 scrollHorizontal : false
             });
-
-            var paquetes = {
-                gold: "{{asset('backoffice/images/Package Golden.png')}}",
-                silver: "{{asset('backoffice/images/Package Silver.png')}}",
-                platinum: "{{asset('backoffice/images/Package Platinum.png')}}",
-            };
+            // RUTA DE LAS IMAGENES.     objeto de imagenes
             var images = {
                 paquetes :{
                     gold: "{{asset('backoffice/images/Package Golden.png')}}",
@@ -160,19 +152,24 @@
                 iconInfo: "{{ asset('backoffice/images/icons/info.svg') }}",
                 addUser: "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}",
             };
-
-            console.log(images);
-
+            //VARIABLES
+            var band = false;
             lvl1 = document.getElementById("lvl1");
             var unilevelT = new UnilevelTree(images, lvl1);
+
+            lvl2 = document.getElementById("lvl2");
+            const unilevelT2 = new UnilevelTree(images, lvl2);
+
+            lvl3 = document.getElementById("lvl3");
+            const unilevelT3 = new UnilevelTree(images, lvl3);
 
             if (lvl1 && lvl1.getContext) {
                 ctx = lvl1.getContext("2d");
                 if (ctx) {
 
 //                    unilevelT.SetCanvas=lvl1;
-//                    unilevelT.SetLvl1=ctx;
-                    unilevelT.lvl1(ctx,json);
+//                    unilevelT.SetLvl1(ctx);
+//                    unilevelT.lvl1(ctx,json);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {
                         ut.selecciona(e, csr)
@@ -182,27 +179,24 @@
                 }
             }
 
-            lvl2 = document.getElementById("lvl2");
             if (lvl2 && lvl2.getContext) {
                 ctx = lvl2.getContext("2d");
                 if (ctx) {
-
-//                    unilevelT.SetLvl2(ctx,lvl2);
-                    unilevelT.lvl2(ctx,json);
+                    unilevelT2.SetContext(ctx);     // LE PASAMOS EL CONTEXTO
+                    unilevelT2.initDraw(json);       // INICIA EL DIBUJADO
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     lvl2.addEventListener("click", function (e) {
-                        unilevelT.selecciona2(e,ctx)
+                        selecciona(e,ctx,lvl2)
                     }, false);
                 } else {
                     alert("NO cuentas con CANVAS");
                 }
             }
-            lvl3 = document.getElementById("lvl3");
+
             if (lvl3 && lvl3.getContext) {
                 ctx = lvl3.getContext("2d");
                 if (ctx) {
-
-                    unilevelT.SetLvl3(ctx, lvl3);
+                    unilevelT3.SetContext(ctx);
 //                    unilevelT.lvl3(json2);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {
@@ -210,6 +204,59 @@
                     }, false);*/
                 } else {
                     alert("NO cuentas con CANVAS");
+                }
+            }
+
+            /**
+             *
+             * @param e
+             * @param context2
+             * @param canvas
+             */
+            function selecciona(e,context2,canvas) {
+//                lvl = getLVL(lvl);
+                let nodesPos =unilevelT2.getArrayNodes();
+                let context =unilevelT2.getContext();
+                // console.log(lvl);
+                let pos = ajusta(e.clientX, e.clientY,canvas);
+                console.log(pos);
+                nodesPos.map(function (item) {
+                    // console.log(item);
+                    console.log("map");
+                    if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
+                        console.log("click en nodo");
+                        console.log(item);
+                        // IF BAND IS FALSE NO NODE SELECTED AND CHARGE YOUR CHILDS
+                        if(band === false){
+                            band = true;
+                            console.log("click");
+                            console.log(context);
+
+                            $('.easyScroll_scroll_vertical').css('visibility', 'hidden');
+                            var linesDraw = new LinesNode(context, {x: item.x, y: item.y + 25});
+                            linesDraw.beeline(context, {x:item._position.x+180,y:item._position.y+25},{x:lvl2.width , y:item._position.y+25},'#2196F3');
+                            linesDraw.beeline(context, {x:lvl2.width,y:0},{x:lvl2.width , y:lvl2.height},'#2196F3');
+                            unilevelT3.initDraw(json2);
+                        }else {
+                            band = false;
+//                            this.activeScroll();
+                            context.clearRect(0, 0, canvas.width, canvas.height);
+                            $('.easyScroll_scroll_vertical').css('visibility', 'visible');
+                            unilevelT2.initDraw(json);
+                            // this._linesDraw.beeline({x:item._position.x+180,y:item._position.y+25},{x:lvl2.width , y:item._position.y+25},'#FFFFFF');
+                            // this._linesDraw.beeline({x:lvl2.width,y:0},{x:lvl2.width , y:lvl2.height},'#FFFFFF');
+                        }
+                        // console.log($("#boton").click());
+                        // this.lvl3(json);
+                    }
+                }.bind(this));
+            }
+
+            function getLVL(lvl){
+                if(lvl === "lvl2"){
+                    return unilevelT2;
+                }else {
+                    return unilevelT3;
                 }
             }
 
