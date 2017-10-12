@@ -167,9 +167,8 @@
                 ctx = lvl1.getContext("2d");
                 if (ctx) {
 
-//                    unilevelT.SetCanvas=lvl1;
-//                    unilevelT.SetLvl1(ctx);
-//                    unilevelT.lvl1(ctx,json);
+                    unilevelT.SetContext(ctx);     // LE PASAMOS EL CONTEXTO
+                    unilevelT.root(json);       // INICIA EL DIBUJADO
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {
                         ut.selecciona(e, csr)
@@ -186,7 +185,7 @@
                     unilevelT2.initDraw(json);       // INICIA EL DIBUJADO
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     lvl2.addEventListener("click", function (e) {
-                        selecciona(e,ctx,lvl2)
+                        selecciona(e,lvl2)
                     }, false);
                 } else {
                     alert("NO cuentas con CANVAS");
@@ -199,9 +198,9 @@
                     unilevelT3.SetContext(ctx);
 //                    unilevelT.lvl3(json2);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
-                    /*lvl1.addEventListener("click", function (e) {
-                        ut.selecciona(e, csr)
-                    }, false);*/
+                    lvl1.addEventListener("click", function (e) {
+                        clickCanvas3(e, csr)
+                    }, false);
                 } else {
                     alert("NO cuentas con CANVAS");
                 }
@@ -209,11 +208,10 @@
 
             /**
              *
-             * @param e
-             * @param context2
-             * @param canvas
+             * @param e         ES EL PARAMETRO QUE RECIBO DEL EVENTO CLICK SE NECESITA
+             * @param canvas    canvas se NECESITA PARA PODER LA FUNCION QUE SE ENCARGA DEL CLICK
              */
-            function selecciona(e,context2,canvas) {
+            function selecciona(e,canvas) {
 //                lvl = getLVL(lvl);
                 let nodesPos =unilevelT2.getArrayNodes();
                 let context =unilevelT2.getContext();
@@ -239,12 +237,12 @@
                             unilevelT3.initDraw(json2);
                         }else {
                             band = false;
-//                            this.activeScroll();
+
                             context.clearRect(0, 0, canvas.width, canvas.height);
                             $('.easyScroll_scroll_vertical').css('visibility', 'visible');
                             unilevelT2.initDraw(json);
-                            // this._linesDraw.beeline({x:item._position.x+180,y:item._position.y+25},{x:lvl2.width , y:item._position.y+25},'#FFFFFF');
-                            // this._linesDraw.beeline({x:lvl2.width,y:0},{x:lvl2.width , y:lvl2.height},'#FFFFFF');
+                            let context3 =unilevelT3.getContext();
+                            context3.clearRect(0, 0, lvl3.width, lvl3.height);
                         }
                         // console.log($("#boton").click());
                         // this.lvl3(json);
@@ -252,12 +250,25 @@
                 }.bind(this));
             }
 
-            function getLVL(lvl){
-                if(lvl === "lvl2"){
-                    return unilevelT2;
-                }else {
-                    return unilevelT3;
-                }
+            function clickCanvas3(e,canvas) {
+//                lvl = getLVL(lvl);
+                let nodesPos =unilevelT2.getArrayNodes();
+                let context =unilevelT2.getContext();
+                // console.log(lvl);
+                let pos = ajusta(e.clientX, e.clientY,canvas);
+                console.log(pos);
+                nodesPos.map(function (item) {
+                    // console.log(item);
+                    console.log("map");
+                    if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
+                        console.log("click en nodo");
+                        console.log(item);
+                        // IF BAND IS FALSE NO NODE SELECTED AND CHARGE YOUR CHILDS
+
+                        // console.log($("#boton").click());
+                        // this.lvl3(json);
+                    }
+                }.bind(this));
             }
 
             function refresh() {
