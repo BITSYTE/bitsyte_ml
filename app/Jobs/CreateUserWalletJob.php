@@ -15,6 +15,7 @@ class CreateUserWalletJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    private $wallet;
     /**
      * Create a new job instance.
      *
