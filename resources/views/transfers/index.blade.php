@@ -115,7 +115,10 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="col-md-3">
+                                        <img src="{{ asset('backoffice/images/circulo1.png') }}" style="height: 85px">
+                                    </div>
+                                    <div class="col-md-9">
                                         <label for="projectinput5">Receiver</label>
                                         <select id="projectinput5" name="interested" class="form-control">
                                             <option value="none" selected="" disabled="">Receiver</option>
