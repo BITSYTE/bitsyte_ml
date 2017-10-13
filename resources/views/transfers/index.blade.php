@@ -44,18 +44,18 @@
             <div class="col-md-6">
                 <div id="bUsers" style="margin: auto; width: 50%">
                     <button type="button" class="btn btn-icon btn-info" style="width: 100%; height: 65px">
-                        <span><i class="fa fa-user"></i></span>
-                        <span><i class="fa fa-exchange"></i></span>
-                        <span><i class="fa fa-user"></i></span>
+                        <span class="icon-transfer"><i class="fa fa-user icon-tam"></i></span>
+                        <span class="icon-transfer"><i class="fa fa-exchange icon-tam"></i></span>
+                        <span class="icon-transfer"><i class="fa fa-user icon-tam"></i></span>
                     </button>
                 </div>
             </div>
             <div  class="col-md-6">
                 <div id="bWallets" style="margin: auto; width: 50%">
-                    <button type="button" class="btn btn-icon btn-info" style="width: 100%; height: 65px">
-                        <span><i class="fa fa-user"></i></span>
-                        <span><i class="fa fa-exchange"></i></span>
-                        <span><i class="fa fa-user"></i></span>
+                    <button type="button" class="btn btn-icon btn-info " style="width: 100%; height: 65px">
+                        <span class="icon-transfer"><i class="icon-wallet icon-tam"></i></span>
+                        <span class="icon-transfer"><i class="fa fa-exchange icon-tam"></i></span>
+                        <span class="icon-transfer"><i class="icon-wallet icon-tam"></i></span>
                     </button>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="">
 
             </div>
-            <h4 class="form-section"><i class=""></i></h4>
+            <h4 class="form-section"><i class=""></i> Users</h4>
             <div>
                 <div class="row">
                     <div class="col-md-6">
@@ -134,7 +134,7 @@
             <div class="">
 
             </div>
-            <h4 class="form-section"><i class=""></i></h4>
+            <h4 class="form-section"><i class=""></i>Wallets</h4>
             <div>
                 {{--<div class="row">
                     <div class="col-md-6">
