@@ -86,5 +86,7 @@ Route::group(['namespace' => 'Web'], function () {
 
         Route::any('/ajax', 'BinaryTreeController@ajax')->name('ajax');
 
-
+        Route::get('/test/queue', function (){
+            \App\Models\Wallet::create(['name'=>'test2','status'=>'active']);
+        });
 });

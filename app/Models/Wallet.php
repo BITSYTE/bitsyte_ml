@@ -10,8 +10,12 @@ class Wallet extends Model
         'name', 'balance', 'status',
     ];
 
+    protected $dispatchesEvents = [];
+
     public function users()
     {
         return $this->belongsToMany(User::class);
     }
+
+
 }
