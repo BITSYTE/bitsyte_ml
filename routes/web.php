@@ -56,6 +56,11 @@ Route::group(['namespace' => 'Web'], function () {
             //        Route::get('/show', 'BinaryTreeController@show')->name('show');
         });
 
+        Route::group(['prefix' => 'transfer', 'as' => 'transfer.'], function () {
+            Route::get('/', 'TransferController@index')->name('index');
+
+        });
+
         Route::get('payments', function () {
             return view('payments.index');
         });
