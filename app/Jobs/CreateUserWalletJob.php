@@ -32,7 +32,7 @@ class CreateUserWalletJob implements ShouldQueue
      */
     public function handle()
     {
-        DB::table('users')->orderBy('id')->chunk(100, function ($users) {
+        User::orderBy('id')->chunk(100, function ($users) {
             foreach($users as $user){
                 $user->wallets()->attach($this->wallet->id, [
                     'balance' => 0,
