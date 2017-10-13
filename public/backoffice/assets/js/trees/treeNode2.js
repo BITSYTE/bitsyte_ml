@@ -221,7 +221,7 @@ class LinesNode {
         // 2196F3
         context.lineWidth = 3;
         context.strokeStyle = bgcolor;
-        // this._context.setLineDash([]);
+        context.setLineDash([]);
         context.beginPath();
         context.moveTo(inicio.x , inicio.y );   // inicio
         context.lineTo(fin.x , fin.y );   //final

@@ -3,17 +3,11 @@
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/easyScroll/easyScroll.css')}}">
     <style>
-        canvas {
-            /*background: orange;*/
-            /*border: solid red 3px;*/
-        }
         #lvl1{
             border-right: 3px solid;
             border-color: #2196F3 ;
         }
-        #lvl2{
-            /*border-right: 3px solid;*/
-        }
+
     </style>
 @endsection
 @section('breadcrumbs')
@@ -92,7 +86,6 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/unilevelTree.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/treeNode2.js') }}"></script>
-    {{--<script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>--}}
     <script type="text/javascript" src="{{ asset('backoffice/assets/js/easyScroll/easyScroll.js') }}"></script>
 
     <script>

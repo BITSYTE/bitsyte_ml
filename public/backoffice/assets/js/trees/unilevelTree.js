@@ -34,7 +34,7 @@ class UnilevelTree {
             nombre.drawPaquete(this._images.paquetes.gold);
             nombre.drawIconInfo(this._images.iconInfo);
 
-            this._linesDraw.beeline(this._context,{x: 0, y: this._posInicial.y + 25}, {x: this._posInicial, y: this._posInicial.y + 25});        //DIBUJA LA LINEA
+            this._linesDraw.beeline(this._context,{x: 0, y: this._posInicial.y + 25}, {x: this._posInicial.x, y: this._posInicial.y + 25});        //DIBUJA LA LINEA
             this._nodesPos.push(nombre);        // GUARDA LOS NODOS EN ARRAY
             //REGRESA A LA POSICION INICIAL
             this._posInicial = {x: this._posInicial.x, y: this._posInicial.y + 80};
