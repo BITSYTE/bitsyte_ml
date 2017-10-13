@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('unilevel/children/{user}', 'UnilevelTreeController@index')->name('unilevel');
+Route::get('binary/children/{user}', 'Api\BinaryTreeController@treeJson')->name('binary');

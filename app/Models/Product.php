@@ -31,12 +31,29 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
     /**
      * RELATION WHIT USERS
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function binaryNode()
+    {
+        return $this->hasMany(BinaryTree::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function unilevelNode()
+    {
+        return $this->hasMany(UnilevelTree::class);
     }
 }

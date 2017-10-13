@@ -1,19 +1,45 @@
 <?php
 namespace App\Models;
 
-use Baum\Node;
+use Illuminate\Database\Eloquent\Model;
+use Kalnoy\Nestedset\NodeTrait;
 
 /**
 * BinaryTree
 */
-class BinaryTree extends Node {
+class BinaryTree extends Model {
 
-  /**
+    use NodeTrait;
+
+   /**
    * Table name.
    *
    * @var string
    */
-  protected $table = 'binary_trees';
+    protected $table = 'binary_trees';
+
+    /** @var array  */
+    protected $fillable = [
+        'status', 'volume_lft', 'volume_rgt',
+    ];
+
+    /**
+     * Get related user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 
   //////////////////////////////////////////////////////////////////////////////
 
