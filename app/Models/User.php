@@ -83,4 +83,24 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Wallet::class)->withPivot('balance', 'status');
     }
+
+    public function binaryNode()
+    {
+        return $this->hasOne(BinaryTree::class);
+    }
+
+    public function unilevelNode()
+    {
+        return $this->hasOne(UnilevelTree::class);
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
 }

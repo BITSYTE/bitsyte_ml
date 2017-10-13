@@ -100,6 +100,7 @@ $factory->define(App\Models\UserSettings::class, function (Faker\Generator $fake
 $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     return [
         'category_id'   =>  1,
+        'name'          =>  $faker->word,
         'description'   =>  $faker->text(),
         'image'         =>  $faker->word.'.jpg',
         'color'         =>  $faker->randomElement(['red','blue','yellow','green']),
