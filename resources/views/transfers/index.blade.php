@@ -106,10 +106,10 @@
                                         <label for="projectinput6">My Wallets</label>
                                         <select id="projectinput6" name="wallets" class="form-control">
                                             <option value="0" selected="" disabled="">My wallets</option>
-                                            <option value="less than 5000$">wallet 1 </option>
-                                            <option value="5000$ - 10000$">personal</option>
-                                            <option value="10000$ - 20000$">wallet 2</option>
-                                            <option value="more than 20000$">wallet 3</option>
+                                            <option value="wallet ">wallet 1 </option>
+                                            <option value="wallet 1">personal</option>
+                                            <option value="wallet 2">wallet 2</option>
+                                            <option value="wallet 3">wallet 3</option>
                                         </select>
                                     </div>
                                 </div>
@@ -150,53 +150,45 @@
                         </div>
                         <h4 class="form-section"><i class=""></i>Wallets</h4>
                         <div>
-                            {{--<div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="projectinput5">Interested in</label>
-                                        <select id="projectinput5" name="interested" class="form-control">
-                                            <option value="none" selected="" disabled="">Interested in</option>
-                                            <option value="design">design</option>
-                                            <option value="development">development</option>
-                                            <option value="illustration">illustration</option>
-                                            <option value="branding">branding</option>
-                                            <option value="video">video</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="projectinput6">Budget</label>
-                                        <select id="projectinput6" name="budget" class="form-control">
-                                            <option value="0" selected="" disabled="">Budget</option>
-                                            <option value="less than 5000$">less than 5000$</option>
-                                            <option value="5000$ - 10000$">5000$ - 10000$</option>
-                                            <option value="10000$ - 20000$">10000$ - 20000$</option>
-                                            <option value="more than 20000$">more than 20000$</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>--}}
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>amount to be transferred</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control"
-                                                   placeholder="amount to be transferred"
-                                                   aria-label="Amount (to the nearest dollar)" name="amount">
-                                            {{--<span class="input-group-addon">.00</span>--}}
-                                        </div>
+                                        <label>Wallet from</label>
+                                        <select id="projectinput6" name="wallets" class="form-control">
+                                            <option value="0" selected="" disabled="">My wallets</option>
+                                            <option value="wallet ">wallet 1 </option>
+                                            <option value="wallet 1">personal</option>
+                                            <option value="wallet 2">wallet 2</option>
+                                            <option value="wallet 3">wallet 3</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label>Request Token</label>
+                                <div class="col-md-1">
+                                    <span class="icon-transfer"><i class="fa fa-long-arrow-right icon-tam"></i></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Amount</label>
                                     <div class="input-group">
-                                        <button type="button" class="btn btn-primary bg-blue btn-block" style="">
-                                            Request Token
-                                        </button>
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control"
+                                               placeholder="amount to be transferred"
+                                               aria-label="Amount (to the nearest dollar)" name="amount">
+                                        {{--<span class="input-group-addon">.00</span>--}}
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <span class="icon-transfer"><i class="fa fa-long-arrow-right icon-tam"></i></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>wallet to</label>
+                                    <div class="input-group">
+                                        <select id="projectinput6" name="wallets" class="form-control">
+                                            <option value="0" selected="" disabled="">My wallets</option>
+                                            <option value="wallet ">wallet 1 </option>
+                                            <option value="wallet 1">personal</option>
+                                            <option value="wallet 2">wallet 2</option>
+                                            <option value="wallet 3">wallet 3</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
