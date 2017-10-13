@@ -11,7 +11,6 @@ class TreeNode {
         // this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
         this._image = new Image();
         this._iconinfo = new Image();
-        this._context.setLineDash([]);
 
     }
 
@@ -44,9 +43,6 @@ class TreeNode {
         }).bind(this);
     }
 
-    /**
-     *
-     */
     createNode() {
         this._context.fillStyle = this._bgcolor;
         this._context.fillRect(this._position.x, this._position.y, this._dimensions.w, this._dimensions.h);
@@ -179,11 +175,11 @@ class NodeViewMore {
 
 class LinesNode {
 
-    constructor(context, bgcolor = "#2196F3") {
+    constructor(context, position, bgcolor = "#2196F3") {
         this._context = context;
-        // this._position = position;
+        this._position = position;
         this._bgcolor = bgcolor;
-        // this._context.setLineDash([]);
+        this._context.setLineDash([]);
     }
 
     set SetPosition(position) {
@@ -225,7 +221,7 @@ class LinesNode {
         // 2196F3
         context.lineWidth = 3;
         context.strokeStyle = bgcolor;
-        // this._context.setLineDash([]);
+        context.setLineDash([]);
         context.beginPath();
         context.moveTo(inicio.x , inicio.y );   // inicio
         context.lineTo(fin.x , fin.y );   //final
