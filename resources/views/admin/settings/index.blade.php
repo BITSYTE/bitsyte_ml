@@ -1,42 +1,101 @@
 @extends ('layouts.adminmain')
 
 @section('content')
-    <div class="row match-height">
+    <section>
+        <div class="row match-height ">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-block">
 
-        <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <div class="mb-2 mt-2">
-                <h5 class="mb-0 text-uppercase">Accordion with Left Icon</h5>
-                <p>Use class <code>.collapse-icon.left</code>, for accordion with left icon. Use <code>.accordion-icon-rotate</code>
-                    class for rotation animation for icons.</p>
-            </div>
-            <div class="card">
-                <span>settings</span>
-            </div>
-        </div>
-        <div id="description" class=" col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
-            <div class="mb-2 mt-2">
-                <h5 class="mb-0 text-uppercase">Accordion with Left Icon</h5>
-                <p>Use class <code>.collapse-icon.left</code>, for accordion with left icon. Use <code>.accordion-icon-rotate</code>
-                    class for rotation animation for icons.</p>
-            </div>
-            <div id="accordionWrap2" role="tablist" aria-multiselectable="true">
-                <div class="card collapse-icon accordion-icon-rotate left">
-
-                    @foreach($settings as $setting)
-                        <div id="heading{{ $setting->id }}"  class="card-header">
-                            <a data-toggle="collapse" data-parent="#accordionWrap2" href="#accordion{{ $setting->id }}" aria-expanded="false" aria-controls="accordion{{ $setting->id }}" class="card-title lead collapsed">{{ $setting->field }}</a>
-                        </div>
-                        <div id="accordion{{ $setting->id }}" role="tabpanel" aria-labelledby="heading{{ $setting->id }}" class="card-collapse collapse" aria-expanded="false">
-                            <div class="card-body">
-                                <div class="card-block">
-                                    {{ $data = json_encode($setting->data)  }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset class="form-group position-relative has-icon-left">
+                                        <input type="text" class="form-control " id="iconLeft4" placeholder="search">
+                                        <div class="form-control-position">
+                                            <i class="ft-search success font-medium-4"></i>
+                                        </div>
+                                    </fieldset>
                                 </div>
                             </div>
+                            <h4 class="separator"><i class=""></i> </h4>
+
+                            <form id="users" class="form" action="">
+                                <h4 class=""><i class=""></i> Sections</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label>Variable name</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="icon-transfer"><i class="fa fa-question icon-tam-sm "></i></a>
+                                            {{--<a href="#"></a>--}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label>Value</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="icon-transfer"><i class="ft-eye icon-tam-sm "></i></a>
+                                            <a class="icon-transfer"><i class="ft-edit icon-tam-sm "></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form id="users" class="form" action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label>Variable name</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="icon-transfer"><i class="fa fa-question icon-tam-sm "></i></a>
+                                            {{--<a href="#"></a>--}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label>Value</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="icon-transfer"><i class="ft-eye icon-tam-sm "></i></a>
+                                            <a class="icon-transfer"><i class="ft-edit icon-tam-sm "></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form id="users" class="form" action="">
+                                <h4 class="form-section"><i class=""></i> Sections</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label>Variable name</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="icon-transfer"><i class="fa fa-question icon-tam-sm "></i></a>
+                                            {{--<a href="#"></a>--}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label>Value</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="icon-transfer"><i class="ft-eye icon-tam-sm "></i></a>
+                                            <a class="icon-transfer"><i class="ft-edit icon-tam-sm "></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </section>
 
 @endsection

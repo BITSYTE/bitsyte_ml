@@ -20,6 +20,16 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     font-size: 6rem!important;
 }
 
+.icon-tam-sm {
+    font-size: 1.5rem!important;
+}
+
+.separator{
+    color: #404E67;
+    line-height: 3rem;
+    border-bottom: 1px solid #404E67;
+}
+
 .canvas-wrapper-unilevel{
     position: relative;
     margin: 0vh auto;
