@@ -57,7 +57,7 @@ Route::group(['namespace' => 'Web'], function () {
         });
 
         Route::group(['prefix' => 'transfer', 'as' => 'transfer.'], function () {
-            Route::get('/', 'TransferController@index')->name('index');
+            Route::get('/', 'TransfersController@index')->name('index');
 
         });
 
