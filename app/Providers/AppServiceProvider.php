@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Wallet;
+use App\Observers\WalletObserver;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Wallet::observe(WalletObserver::class);
     }
 
     /**

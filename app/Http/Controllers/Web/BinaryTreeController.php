@@ -18,7 +18,7 @@ class BinaryTreeController extends Controller
     {
         $breadcrumbs[0]['name']='Binary';
 
-        $nodes = BinaryTree::withDepth()->having('depth', '<=', 1)->with('user', 'products')->get()->toTree()->toArray();
+        $nodes = BinaryTree::withDepth()->having('depth', '<=', 1)->with('user', 'product')->get()->toTree()->toArray();
 
         $array = [];
 
@@ -40,9 +40,9 @@ class BinaryTreeController extends Controller
 
         $array = transverse($nodes, $array);
 
-        dd($array);
+//        dd($array);
 
-        //return view('trees.binary.index', compact('breadcrumbs'));
+        return view('trees.binary.index')->with(['breadcrumbs'=>$breadcrumbs])->with(['users'=>$array]);
     }
 
     public function create()

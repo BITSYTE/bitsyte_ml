@@ -45,7 +45,7 @@
                         </fieldset>
                     </div>
                     <div class="navTree-child">
-                        <button id="top" type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg navTree-button" >
+                        <button id="top" type="button" class="btn mr-1 mb-1 btn-primary bg-blue btn-lg navTree-button">
                             <i class="fa fa-arrow-circle-up"></i> TOP
                         </button>
                     </div>
@@ -85,7 +85,7 @@
                                     Close
                                 </button>
                                 <a id="add-route" href="{{ route('users.new') }}">
-                                    <button type="button" class="btn btn-outline-primary">Continue </button>
+                                    <button type="button" class="btn btn-outline-primary">Continue</button>
                                 </a>
                             </div>
                         </div>
@@ -133,6 +133,22 @@
             <script type="text/javascript" src="{{ asset('backoffice/assets/js/treeNode.js') }}"></script>
             <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
             <script>
+                var users = [
+                    {"username": "schmitt.lourdes", "type": "user", "position": [0,1,1]},
+                    {"username": "jbeier", "type": "user", "position": [1, 1,1]},
+                    {"username": "rankunding", "type": "user", "position": [1, 2,2]},
+                    {"username": "kathlyn99", "type": "user", "position": [2, 1,1]},
+                    {"username": "jeanie.yundt", "type": "user", "position": [2, 2,2]},
+                    {"username": "pbechtelar", "type": "user", "position": [2, 3, 1]},
+                    {"username": "witting.jazmyn", "type": "user", "position": [3, 5,1]},
+                    {"username": "gnader", "type": "user", "position": [3, 1,2]}
+                ];
+                var asd=[
+                    {"username":"vena.hodkiewicz","type":"user","position":[0,1]},
+                    {"username":"orval.wuckert","type":"add","position":[1,1]},
+                    {"username":"cummings.armani","type":"add","position":[1,2]},
+                ];
+                console.log(users);
                 var csr = "{{ csrf_token() }}";
                 var canvas;
                 var ctx;
@@ -181,10 +197,11 @@
                         ctx = canvas.getContext("2d");
                         if (ctx) {
                             var bt = new BinaryTree(ctx, paquete, addUser, icon, icon_plus);
-                            bt.initTree(json);
+                            bt.initTree(users);
+//                            bt.makeAdd(users);
                             //SE AGREGA EVENTO DE CLICK AL CANVAS
                             canvas.addEventListener("click", function (e) {
-                                bt.selecciona(e,csr)
+                                bt.selecciona(e, csr)
                             }, false);
 
                         } else {
@@ -199,7 +216,7 @@
                     }
 
                     //click en el boton top
-                    $('#top').on( "click", function() {
+                    $('#top').on("click", function () {
                         refresh();
                     });
 
