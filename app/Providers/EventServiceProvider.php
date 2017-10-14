@@ -13,6 +13,7 @@ use App\Models\UserAddresses;
 use App\Models\UserSettings;
 use App\Models\Wallet;
 use App\Observers\UuidObserver;
+use App\Observers\WalletObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -33,16 +34,9 @@ class EventServiceProvider extends ServiceProvider
      * @var $models \Illuminate\Database\Eloquent\Model[]
      */
     protected $models = [
-        User::class,
-        //UserAddresses:: class,
-        //Category:: class,
-        //Country:: class,
-        //State:: class,
-        //City:: class,
-        Product:: class,
-        //SystemSettings:: class,
-        //UserSettings:: class,
-        Wallet::class,
+       'user' => User::class,
+        'product' => Product:: class,
+        'wallet' => Wallet::class,
     ];
 
     /**
@@ -54,7 +48,6 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
         $this->registerUuidObservers();
-
     }
 
     public function registerUuidObservers()
@@ -62,6 +55,9 @@ class EventServiceProvider extends ServiceProvider
         collect($this->models)->each(function($model) {
             /** @var \Illuminate\Database\Eloquent\Model $model */
             $model::observe(app(UuidObserver::class));
+        })->only('wallet')->each(function($model){
+            /** @var \Illuminate\Database\Eloquent\Model $model */
+            $model::observe(app(WalletObserver::class));
         });
     }
 }

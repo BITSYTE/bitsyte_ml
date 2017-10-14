@@ -4,14 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Wallet
+ *
+ * @package App\Models
+ */
 class Wallet extends Model
 {
+    /**
+     * @var array
+     */
     protected $fillable = [
-        'name', 'balance', 'status',
+        'name', 'status',
     ];
 
-    protected $dispatchesEvents = [];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function users()
     {
         return $this->belongsToMany(User::class);
