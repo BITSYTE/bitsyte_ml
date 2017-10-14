@@ -19,7 +19,7 @@ class CreateUnilevelTreesTable extends Migration
             NestedSet::columns($table);
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

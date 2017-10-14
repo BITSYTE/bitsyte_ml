@@ -46,7 +46,7 @@ class UsersControllers extends Controller
      * RETURN VIEW OF NEW USER
      * @return $this
      */
-    public function new()
+    public function create()
     {
         $breadcrumbs[0]['name'] = 'Users';
         $breadcrumbs[0]['route'] = 'users';

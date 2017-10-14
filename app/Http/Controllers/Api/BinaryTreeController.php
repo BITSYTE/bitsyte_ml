@@ -17,19 +17,41 @@ class BinaryTreeController extends Controller
 
         $array = [];
 
+        function fix_position($node, $position) {
+
+            if ($node['depth'] == 0) {
+                return $position;
+            } else {
+                return $node['side'] == 1 ? $position: $position + 1;
+            }
+        }
+
+        function node($node, $position) {
+            return [
+                'username' => $node['user']['username'],
+                'type' => 'user',
+                'product' => $node['product']['name'],
+                'position' => [
+                    $node['depth'],
+                    fix_position($node, $position),
+                    $node['side'],
+                ],
+            ];
+        }
+
+
         function transverse($nodes, &$array)
         {
-            $index = 1;
+            $position = 1;
+
             foreach ($nodes as $node) {
 
-                $array[] = [
-                    'username' => $node['user']['username'],
-                    'type' => empty($node['children']) ? 'add' : 'user',
-                    'product' => $node['product']['name'],
-                    'position' => [$node['depth'], $index++]
-                ];
+                $array[] = node($node, $position);
 
-                if (is_array($node['children'])) transverse($node['children'], $array);
+                if (!empty($node['children'])) {
+                    transverse($node['children'], $array);
+                }
+
             }
 
             return $array;

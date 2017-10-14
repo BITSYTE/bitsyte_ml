@@ -16,19 +16,25 @@ class UnilevelTreeController extends Controller
 
         $array = [];
 
+        function node($node, $position) {
+            return [
+                'username' => $node['user']['username'],
+                'type' => empty($node['children']) ? 'add' : 'user',
+                'product' => $node['product']['name'],
+                'position' => [$node['depth'], $position++]
+            ];
+        }
+
         function transverse($nodes, &$array)
         {
             $index = 1;
             foreach ($nodes as $node) {
 
-                $array[] = [
-                    'username' => $node['user']['username'],
-                    'type' => empty($node['children']) ? 'add' : 'user',
-                    'product' => $node['product']['name'],
-                    'position' => [$node['depth'], $index++]
-                ];
+                $array[] = node($nodes, $index);
 
-                if (is_array($node['children'])) transverse($node['children'], $array);
+                if (!empty($node['children'])) {
+                    transverse($node['children'], $array);
+                }
             }
 
             return $array;

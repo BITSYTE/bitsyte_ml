@@ -20,7 +20,7 @@ class BinaryTree extends Model {
 
     /** @var array  */
     protected $fillable = [
-        'status', 'volume_lft', 'volume_rgt',
+        'status', 'volume_lft', 'volume_rgt', 'side',
     ];
 
     /**

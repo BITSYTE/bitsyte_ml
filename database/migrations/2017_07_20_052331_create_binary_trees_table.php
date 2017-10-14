@@ -20,18 +20,15 @@ class CreateBinaryTreesTable extends Migration
             // in the model.
             // Take a look at the model scaffold comments for details.
             // We add indexes on parent_id, lft, rgt columns by default.
-            $table->increments('id');
-            //$table->unsignedBigInteger('parent_id')->nullable();
-            /*$table->integer('lft')->nullable()->index();
-            $table->integer('rgt')->nullable()->index();
-            $table->integer('depth')->nullable();
-            $table->string('status')->nullable();*/
+            $table->bigIncrements('id');
+
             NestedSet::columns($table);
 
             // Add needed columns here (f.ex: name, slug, path, etc.)
-            // $table->string('name', 255);
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
+            $table->tinyInteger('side')->default(0);
+            $table->string('status')->default('active');
             $table->integer('volume_lft')->default(0);
             $table->integer('volume_rgt')->default(0);
             $table->timestamps();
