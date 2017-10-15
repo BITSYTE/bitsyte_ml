@@ -66,21 +66,21 @@ class BinaryTree {
             "3,8": {x: canvas.width / 8 * 7 + 5, y: 350, hl: "no", hr: "no"}
         };
         this._posiciones2 = [
-            {id:"0,1", x: canvas.width / 2 - 90, y: 50, hl: "1,1", hr: "1,2"},
-            {id:"1,1", x: canvas.width / 4 - 80, y: 150, hl: "2,1", hr: "2,2"},
-            {id:"1,2", x: canvas.width / 4 * 3 - 80, y: 150, hl: "2,3", hr: "2,4"},
-            {id:"2,1", x: canvas.width / 8 - 80, y: 250, hl: "3,1", hr: "3,2"},
-            {id:"2,2", x: canvas.width / 8 * 3 - 80, y: 250, hl: "3,3", hr: "3,4"},
-            {id:"2,3", x: canvas.width / 8 * 5 - 80, y: 250, hl: "3,5", hr: "3,6"},
-            {id:"2,4", x: canvas.width / 8 * 7 - 80, y: 250, hl: "3,7", hr: "3,8"},
-            {id:"3,1", x: 0, y: 340, hl: "no", hr: "no"},
-            {id:"3,2", x: canvas.width / 8 + 5, y: 340, hl: "no", hr: "no"},
-            {id:"3,3", x: canvas.width / 8 * 2 + 5, y: 350, hl: "no", hr: "no"},
-            {id:"3,4", x: canvas.width / 8 * 3 + 5, y: 350, hl: "no", hr: "no"},
-            {id:"3,5", x: canvas.width / 8 * 4 + 5, y: 350, hl: "no", hr: "no"},
-            {id:"3,6", x: canvas.width / 8 * 5 + 5, y: 350, hl: "no", hr: "no"},
-            {id:"3,7", x: canvas.width / 8 * 6 + 5, y: 350, hl: "no", hr: "no"},
-            {id:"3,8", x: canvas.width / 8 * 7 + 5, y: 350, hl: "no", hr: "no"}
+            {id: "0,1", x: canvas.width / 2 - 90, y: 50, hl: "1,1", hr: "1,2"},
+            {id: "1,1", x: canvas.width / 4 - 80, y: 150, hl: "2,1", hr: "2,2"},
+            {id: "1,2", x: canvas.width / 4 * 3 - 80, y: 150, hl: "2,3", hr: "2,4"},
+            {id: "2,1", x: canvas.width / 8 - 80, y: 250, hl: "3,1", hr: "3,2"},
+            {id: "2,2", x: canvas.width / 8 * 3 - 80, y: 250, hl: "3,3", hr: "3,4"},
+            {id: "2,3", x: canvas.width / 8 * 5 - 80, y: 250, hl: "3,5", hr: "3,6"},
+            {id: "2,4", x: canvas.width / 8 * 7 - 80, y: 250, hl: "3,7", hr: "3,8"},
+            {id: "3,1", x: 0, y: 340, hl: "no", hr: "no"},
+            {id: "3,2", x: canvas.width / 8 + 5, y: 340, hl: "no", hr: "no"},
+            {id: "3,3", x: canvas.width / 8 * 2 + 5, y: 350, hl: "no", hr: "no"},
+            {id: "3,4", x: canvas.width / 8 * 3 + 5, y: 350, hl: "no", hr: "no"},
+            {id: "3,5", x: canvas.width / 8 * 4 + 5, y: 350, hl: "no", hr: "no"},
+            {id: "3,6", x: canvas.width / 8 * 5 + 5, y: 350, hl: "no", hr: "no"},
+            {id: "3,7", x: canvas.width / 8 * 6 + 5, y: 350, hl: "no", hr: "no"},
+            {id: "3,8", x: canvas.width / 8 * 7 + 5, y: 350, hl: "no", hr: "no"}
         ];
         this._nodesPos = [];
     }
@@ -108,35 +108,16 @@ class BinaryTree {
             this._nodesPos.push(tNodeF);
         }
 
-        let nodes =this._posiciones2;
-        console.log("nodes");
-        console.log(nodes);
         for (let k in users) {
             // console.log("indice =" + k, "position =" + users[k]["position"]);
             let nombre = "tNode" + k;                 // CREA EL NOMBRE DEL OBJETO
             /******          se crea el objeto.       ****/
             nombre = new TreeNode(this._context, this._posInicial, users[k]["type"], users[k]["paquete"]);
 
-            let asdpos = users[k]["position"][0]+","+users[k]["position"][1];
-            console.log(asdpos);
-            console.log("nodes despues");
-            // console.log(pos);
-            for (let i in this._posiciones2) {
-                console.log(this._posiciones2[i]);
-                if(this._posiciones2[i]['id'] === asdpos+"") {
-                    console.log("entro if");
-                    nodes.splice(i,1);
-                }
-            }
-            this.makeAdd(nodes);
-
+            let asdpos = users[k]["position"][0] + "," + users[k]["position"][1];
             let pos = this._posiciones[asdpos];    // se obtiene la posicion del nodo
-            // console.log(users[k]["type"]);
             //se checa si el nodo es de nivel 4 para cambiar el tipo de linea
             if (pos["hl"] !== "no" && users[k]["type"] === "user") {
-                // console.log(users[k]);
-                // console.log(pos["hl"]);
-
                 let fin_l = this._posiciones[pos["hl"]];
                 nombre.lineLeft(pos, fin_l);
                 let fin_r = this._posiciones[pos["hr"]];
@@ -174,27 +155,24 @@ class BinaryTree {
             nombre.drawIconInfo(icon);
             this._nodesPos.push(nombre);
         }
-        console.log("nodes despues");
-        console.log(nodes);
-        this.makeAdd(nodes);
         console.log(this._nodesPos);
     }
 
     fillOut(users) {
-        let nodes =this._posiciones2;
+        let nodes = this._posiciones2;
 
         console.log("nodes");
         console.log(nodes);
         for (let k in users) {
-            let asdpos = users[k]["position"][0]+","+users[k]["position"][1];
+            let asdpos = users[k]["position"][0] + "," + users[k]["position"][1];
             // console.log(asdpos);
             // console.log("nodes entre");
             // console.log(pos);
             for (let i in this._posiciones2) {
                 // console.log(this._posiciones2[i]);
-                if(this._posiciones2[i]['id'] === asdpos+"") {
+                if (this._posiciones2[i]['id'] === asdpos + "") {
                     // console.log("entro if");
-                    nodes.splice(i,1);
+                    nodes.splice(i, 1);
                 }
             }
         }
@@ -207,51 +185,36 @@ class BinaryTree {
         let nodes2 = nodes;
         for (let k in nodes) {
             console.log(nodes[k]["hl"]);
-            if(nodes[k]["hl"] === "no"){
+            if (nodes[k]["hl"] === "no") {
                 console.log("no agrega nada");
                 // users.push({"username": "add user", "paquete": "none", "type": "add", "position": nodes[k]['id']});
-            }else {
+            } else {
                 // json += {id: nodes[k]["hl"]}+",";
                 // json += {id: nodes[k]["hl"]}+",";
                 console.log("nodes 2 intermedio");
                 // console.log(nodes2.findIndex(obj => obj['id'] === nodes[k]['hl']));
                 let lado1 = nodes2.findIndex(obj => obj['id'] === nodes[k]['hl']);
-                nodes2.splice(lado1,1);
+                nodes2.splice(lado1, 1);
                 // console.log(nodes2.findIndex(obj => obj['id'] === nodes[k]['hr']));
                 let lado2 = nodes2.findIndex(obj => obj['id'] === nodes[k]['hr']);
-                nodes2.splice(lado2,1);
+                nodes2.splice(lado2, 1);
                 // console.log(json);
             }
         }
         console.log("nodes 2 ");
         console.log(nodes2);
 
-        /*for (let k in nodes2){
-            nodes = this.remove(nodes,'id',nodes2[k])
+        ///AGREGA LOS NODOS ADD AL ARRAY USER
+        for (let k in nodes2) {
+            console.log(nodes2[k]['id']);
+            let indice = nodes2[k]['id'].split(",");
+            console.log(indice);
+            users.push({"username": "add user", "paquete": "none", "type": "add", "position": indice});
         }
-        console.log(nodes);*/
-
-        /*for (let k in nodes) {
-            let pos = nodes[k]["hl"];
-            console.log(pos);
-            if(pos === "no"){
-                users.push({"username": "add user", "paquete": "none", "type": "add", "position": nodes[k]['id']});
-            }else{
-                console.log("diferente de no");
-                nodes2.push("id"[nodes[k]["hl"]]);
-                nodes2.push(nodes[k]["hr"]);
-                console.log("nodes 2");
-                console.log(nodes2);
-                console.log(nodes.findIndex(obj => obj['id'] === nodes[k]['id']));
-                if (nodes2.findIndex(obj => obj['id'] === nodes[k]['id'])){
-                    console.log("no agrega nada");
-                }else {
-                    users.push({"username": "add user", "paquete": "none", "type": "add", "position": nodes[k]['id']});
-                }
-
-            }
-        }*/
         console.log(users);
+
+        this.initTree(users);
+
     }
 
     remove(array, key, value) {
@@ -263,6 +226,7 @@ class BinaryTree {
             array.slice(index + 1)
         ] : this;
     }
+
     selecciona(e, csr) {
         let pos = ajusta(e.clientX, e.clientY);
         // console.log(pos);
@@ -326,7 +290,7 @@ class BinaryTree {
                         }
                     });
                     $('#add').trigger("click")
-                } else if(item._type === "user"){
+                } else if (item._type === "user") {
                     $.ajax({
                         method: "POST",
                         url: "/ajax",
@@ -361,7 +325,7 @@ class BinaryTree {
                             console.log(status + "-" + exception);
                         }
                     });
-                }else{
+                } else {
                     alert("cargar siguiente arbol");
                 }
             }
