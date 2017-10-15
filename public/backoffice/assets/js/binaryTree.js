@@ -1,37 +1,3 @@
-/*function start(img) {
- console.log(img);
- var canvas = document.getElementById("miCanvas");
- if (canvas && canvas.getContext) {
- var ctx = canvas.getContext("2d");
- if (ctx) {
- /!*ctx.lineWidth = 2;
- ctx.strokeStyle = "black";
- ctx.fillStyle = "red";*!/
-
- var png = new Image();
-
- png.src = img;
-
- png.onload = function () {
- var patron = ctx.createPattern(png,"repeat");
- ctx.fillStyle = patron;
- ctx.fillRect(0,0,canvas.Width,canvas.height);
- // ctx.strokeRect(350,50,100,100);
- };
-
-
-
- // ctx.fillStyle = "rgba(19,52,149,1)";
-
- // ctx.fillRect(350,50,100,50);
- // ctx.strokeRect(350,50,100,50);
-
- } else {
- alert("NO cuentas con CANVAS");
- }
- }
- }*/
-
 class BinaryTree {
 
     constructor(ctx, paquete, adduser, icon, icon_plus) {
@@ -85,8 +51,11 @@ class BinaryTree {
         this._nodesPos = [];
     }
 
-    getarrayNodes() {
+    getArrayNodes() {
         return this._nodesPos;
+    }
+    getContext() {
+        return this._context;
     }
 
     initTree(users) {
@@ -227,116 +196,6 @@ class BinaryTree {
         ] : this;
     }
 
-    selecciona(e, csr) {
-        let pos = ajusta(e.clientX, e.clientY);
-        // console.log(pos);
-        this._nodesPos.map(function (item) {
-            if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
-                console.log("click en nodo");
-                console.log(item);
-                // console.log($("#boton").click());
-                if (item._type === "add") {
-                    let users;
-                    $.ajax({
-                        method: "POST",
-                        url: "/ajax",
-                        data: {username: item._username, paquete: item._paquete, _token: csr},
-                        success: function (result) {
-                            let campos = "";
-                            let route = "";
-                            let users = JSON.parse(result);
-                            console.log(users);
-                            if (users.length === 0) {
-                                console.log("vacio");
-                                $("#modal-body-add").html();
-                                $("#add-route").html();
-                                campos = "<span>Nota:</span>\n" +
-                                    "                                <p>\n" +
-                                    "                                    To add a user. you have to first register it.<br>\n" +
-                                    "                                    Click in continue .\n" +
-                                    "                                </p>";
-                                $("#modal-body-add").html(campos);
-                                $("#add-route").html(route);
-                                // $('#add').trigger("click")
-                            } else if (users.length === 1) {
-                                console.log("uno");
-                                $("#modal-body-add").html();
-                                campos = "<span>Nota:</span>\n" +
-                                    "                                <p>\n" +
-                                    "                                    confirm that you want to add the user: <strong>" + users[0].username + "</strong>  here.<br>\n" +
-                                    "                                    Click in continue .\n" +
-                                    "                                </p>";
-                                $("#modal-body-add").html(campos);
-                                // $('#add').trigger("click")
-                            } else {
-                                console.log("lleno");
-                                $("#modal-body-add").html();
-                                campos = "<div class=\"list-group\">";
-                                for (let k in users) {
-                                    console.log(k + "users =" + users[k].username);
-                                    campos += "<a href=\"#\" class=\"list-group-item list-group-item-action\">" + users[k].username + "</a>"
-                                }
-                                campos += "</div>";
-                                $("#modal-body-add").html(campos);
-                                // $('#add').trigger("click")
-                            }
-                        },
-                        error: function (httpReq, status, exception) {
-//                    alert(status+"-"+exception);
-                            console.log(status + "-" + exception);
-                            $("#modal-body-add").html();
-                            campos = "<span> ERROR REFRESH THE PAGE TRY LETER </span>";
-                            $("#modal-body-add").html(campos);
-                        }
-                    });
-                    $('#add').trigger("click")
-                } else if (item._type === "user") {
-                    $.ajax({
-                        method: "POST",
-                        url: "/ajax",
-                        data: {username: item._username, paquete: item._paquete, _token: csr},
-                        success: function (result) {
-                            var user = JSON.parse(result);
-                            console.log(user);
-                            // var tam = Object.keys(obj.postalLocation).length;
-                            var tam = Object.keys(user).length;
-                            // var tam = result.length;
-                            console.log(tam);
-                            let campos = "";
-                            campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                "<label for=\"email\">username: " + user.username + "</label>\n" +
-                                // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
-                                "</fieldset>\n" +
-                                "<br>\n" +
-                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                "<label for=\"title\">" + "paquete: " + user.paquete + "</label>\n" +
-                                // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
-                                "</fieldset>\n" +
-                                "<br>\n" +
-                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                "<label for=\"title1\">dato extra: " + user.algo + "</label>\n" +
-                                // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
-                                "</fieldset>";
-                            $("#modal-body").html(campos);
-                            $('#boton').trigger("click")
-                        },
-                        error: function (httpReq, status, exception) {
-//                    alert(status+"-"+exception);
-                            console.log(status + "-" + exception);
-                        }
-                    });
-                } else {
-                    alert("cargar siguiente arbol");
-                }
-            }
-        });
-    }
-}
-
-class event {
-
-    eventAdd(result) {
-
-    }
 
 }
+
