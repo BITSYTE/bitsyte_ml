@@ -197,8 +197,8 @@
                         ctx = canvas.getContext("2d");
                         if (ctx) {
                             var bt = new BinaryTree(ctx, paquete, addUser, icon, icon_plus);
-                            bt.initTree(users);
-//                            bt.makeAdd(users);
+//                            bt.initTree(users);
+                            bt.fillOut(users);
                             //SE AGREGA EVENTO DE CLICK AL CANVAS
                             canvas.addEventListener("click", function (e) {
                                 bt.selecciona(e, csr)

@@ -180,16 +180,89 @@ class BinaryTree {
         console.log(this._nodesPos);
     }
 
-    makeAdd(nodes) {
-        for (let i in nodes) {
-            console.log(nodes[i]);
-            /*if(nodes[i]['id'] === asdpos+"") {
-                console.log("entro if");
-                nodes.splice(i,1);
-            }*/
+    fillOut(users) {
+        let nodes =this._posiciones2;
+
+        console.log("nodes");
+        console.log(nodes);
+        for (let k in users) {
+            let asdpos = users[k]["position"][0]+","+users[k]["position"][1];
+            // console.log(asdpos);
+            // console.log("nodes entre");
+            // console.log(pos);
+            for (let i in this._posiciones2) {
+                // console.log(this._posiciones2[i]);
+                if(this._posiciones2[i]['id'] === asdpos+"") {
+                    // console.log("entro if");
+                    nodes.splice(i,1);
+                }
+            }
         }
+        console.log("nodes despues");
+        console.log(nodes);
+        // console.log(users);
+
+        /// QUITA LOS EXEDENTES DE NODOS VACIOS
+        console.log("rellenar");
+        let nodes2 = nodes;
+        for (let k in nodes) {
+            console.log(nodes[k]["hl"]);
+            if(nodes[k]["hl"] === "no"){
+                console.log("no agrega nada");
+                // users.push({"username": "add user", "paquete": "none", "type": "add", "position": nodes[k]['id']});
+            }else {
+                // json += {id: nodes[k]["hl"]}+",";
+                // json += {id: nodes[k]["hl"]}+",";
+                console.log("nodes 2 intermedio");
+                // console.log(nodes2.findIndex(obj => obj['id'] === nodes[k]['hl']));
+                let lado1 = nodes2.findIndex(obj => obj['id'] === nodes[k]['hl']);
+                nodes2.splice(lado1,1);
+                // console.log(nodes2.findIndex(obj => obj['id'] === nodes[k]['hr']));
+                let lado2 = nodes2.findIndex(obj => obj['id'] === nodes[k]['hr']);
+                nodes2.splice(lado2,1);
+                // console.log(json);
+            }
+        }
+        console.log("nodes 2 ");
+        console.log(nodes2);
+
+        /*for (let k in nodes2){
+            nodes = this.remove(nodes,'id',nodes2[k])
+        }
+        console.log(nodes);*/
+
+        /*for (let k in nodes) {
+            let pos = nodes[k]["hl"];
+            console.log(pos);
+            if(pos === "no"){
+                users.push({"username": "add user", "paquete": "none", "type": "add", "position": nodes[k]['id']});
+            }else{
+                console.log("diferente de no");
+                nodes2.push("id"[nodes[k]["hl"]]);
+                nodes2.push(nodes[k]["hr"]);
+                console.log("nodes 2");
+                console.log(nodes2);
+                console.log(nodes.findIndex(obj => obj['id'] === nodes[k]['id']));
+                if (nodes2.findIndex(obj => obj['id'] === nodes[k]['id'])){
+                    console.log("no agrega nada");
+                }else {
+                    users.push({"username": "add user", "paquete": "none", "type": "add", "position": nodes[k]['id']});
+                }
+
+            }
+        }*/
+        console.log(users);
     }
 
+    remove(array, key, value) {
+        // console.log(array.findIndex(obj => obj[key] === value);
+        const index = array.findIndex(obj => obj[key] === value);
+        console.log(index);
+        return index >= 0 ? [
+            array.slice(0, index),
+            array.slice(index + 1)
+        ] : this;
+    }
     selecciona(e, csr) {
         let pos = ajusta(e.clientX, e.clientY);
         // console.log(pos);
