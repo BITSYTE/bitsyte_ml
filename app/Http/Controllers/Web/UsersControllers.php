@@ -30,7 +30,7 @@ class UsersControllers extends Controller
     /**
      * UsersController constructor.
      *
-     * @param \App\Models\User    $user
+     * @param \App\Models\User $user
      * @param \App\Models\Product $product
      *
      * @internal param $User
@@ -57,7 +57,7 @@ class UsersControllers extends Controller
         return view('Users.new')
             ->with([
                 'breadcrumbs' => $breadcrumbs,
-                'products'    => $products,
+                'products' => $products,
             ]);
     }
 
@@ -71,12 +71,11 @@ class UsersControllers extends Controller
     {
         //VERIFICO SI YA EXISTE EL USUARIO
         if ($this->ifExist($request)) {
-            $res["ok"] = "user existe";
+            $res["ok"] = 'user_exist';
             $res["errors"] = $this->errors;
             $json = json_encode($res);
             return response("$json", 201);
         } else {
-            //            echo "<br>no existe user<br>";
             try {
                 DB::beginTransaction();
                 $product = $this->product->find($request->input('product_id'));
@@ -92,10 +91,6 @@ class UsersControllers extends Controller
                 return response("$json", 201);
 
             } catch (\Exception $e) {
-                DB::rollBack();
-                /*$res["ok"] = "try leter";
-                $json = json_encode($res);
-                return response("$json", 500);*/
                 return redirect()
                     ->back()
                     ->withInput(Input::all())
@@ -113,26 +108,21 @@ class UsersControllers extends Controller
      */
     public function ifExist($request)
     {
-        $band = false;
-        $user2 = null;
         $type = env('APP_LOGIN_WITH');
-        if ($type == "username") {
-            //            $user = User::where("$type",$request->input("$type"))->first();
-            $user = User::where('username', $request->input('username'))->first();
-        } else {
-            $user2 = User::where('email', $request->input('email'))->first();
-            $user = User::where('username', $request->input('username'))->first();
-        }
 
-        if ($user) {
-            $band = true;
+        $this->user = User::where('username', $request->input('username'))
+            ->where(function ($q) use ($type, $request) {
+                if ($type == "email") {
+                    $q->orWhere('email', $request->input('email'));
+                }
+            })->first();
+
+        $band = $this->user ? true : false;
+        if (!empty($this->user->usename)) {
             $this->errors['user'] = ['username already exist'];
-            $this->user = $user;
         }
-        if ($user2) {
-            $band = true;
+        if (!empty($this->user->email)) {
             $this->errors['email'] = ['email already exist'];
-            $this->user = $user2;
         }
         return $band;
     }
