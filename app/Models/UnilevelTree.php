@@ -10,7 +10,7 @@ class UnilevelTree extends Model
     use NodeTrait;
 
     protected $fillable = [
-        'status',
+        'user_id','parent_id','status',
     ];
 
     public function user()
