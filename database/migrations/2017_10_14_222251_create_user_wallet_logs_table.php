@@ -14,10 +14,10 @@ class CreateUserWalletLogsTable extends Migration
     public function up()
     {
         Schema::create('user_wallet_logs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
 
-            $table->integer('user_id');
-            $table->integer('user_wallet_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_wallet_id');
             $table->string('type', 3);
             $table->decimal('amount', 10, 4);
             $table->decimal('balance', 10, 4);
@@ -26,6 +26,9 @@ class CreateUserWalletLogsTable extends Migration
             $table->integer('transaction_id');
 
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_wallet_id')->references('id')->on('user_wallet');
         });
     }
 

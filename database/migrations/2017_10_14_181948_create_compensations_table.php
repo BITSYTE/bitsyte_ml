@@ -14,7 +14,7 @@ class CreateCompensationsTable extends Migration
     public function up()
     {
         Schema::create('compensations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->string('key')->unique();
             $table->string('name');
