@@ -134,19 +134,19 @@
             <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
             <script>
                 var users = [
-                    {"username": "schmitt.lourdes", "type": "user", "position": [0,1,1]},
-                    {"username": "jbeier", "type": "user", "position": [1, 1,1]},
-                    {"username": "rankunding", "type": "user", "position": [1, 2,2]},
-                    {"username": "kathlyn99", "type": "user", "position": [2, 1,1]},
-                    {"username": "jeanie.yundt", "type": "user", "position": [2, 2,2]},
+                    {"username": "schmitt.lourdes", "type": "user", "position": [0, 1, 1]},
+                    {"username": "jbeier", "type": "user", "position": [1, 1, 1]},
+                    {"username": "rankunding", "type": "user", "position": [1, 2, 2]},
+                    {"username": "kathlyn99", "type": "user", "position": [2, 1, 1]},
+                    {"username": "jeanie.yundt", "type": "user", "position": [2, 2, 2]},
                     {"username": "pbechtelar", "type": "user", "position": [2, 3, 1]},
-                    {"username": "witting.jazmyn", "type": "user", "position": [3, 5,1]},
-                    {"username": "gnader", "type": "user", "position": [3, 1,2]}
+                    {"username": "witting.jazmyn", "type": "user", "position": [3, 5, 1]},
+                    {"username": "gnader", "type": "user", "position": [3, 1, 2]}
                 ];
-                var asd=[
-                    {"username":"vena.hodkiewicz","type":"user","position":[0,1]},
-                    {"username":"orval.wuckert","type":"add","position":[1,1]},
-                    {"username":"cummings.armani","type":"add","position":[1,2]},
+                var asd = [
+                    {"username": "vena.hodkiewicz", "type": "user", "position": [0, 1]},
+                    {"username": "orval.wuckert", "type": "add", "position": [1, 1]},
+                    {"username": "cummings.armani", "type": "add", "position": [1, 2]},
                 ];
                 console.log(users);
                 var csr = "{{ csrf_token() }}";
@@ -197,11 +197,11 @@
                         ctx = canvas.getContext("2d");
                         if (ctx) {
                             var bt = new BinaryTree(ctx, paquete, addUser, icon, icon_plus);
-                            bt.initTree(users);
-//                            bt.makeAdd(users);
+//                            bt.initTree(users);
+                            bt.fillOut(users);
                             //SE AGREGA EVENTO DE CLICK AL CANVAS
                             canvas.addEventListener("click", function (e) {
-                                bt.selecciona(e, csr)
+                                selecciona(e, csr)
                             }, false);
 
                         } else {
@@ -219,6 +219,116 @@
                     $('#top').on("click", function () {
                         refresh();
                     });
+
+                    function selecciona(e, csr) {
+
+                        let nodesPos = bt.getArrayNodes();
+                        let context = bt.getContext();
+                        let pos = ajusta(e.clientX, e.clientY);
+                        // console.log(pos);
+                        nodesPos.map(function (item) {
+                            if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
+                                console.log("click en nodo");
+                                console.log(item);
+                                // console.log($("#boton").click());
+                                if (item._type === "add") {
+                                    alert("add");
+                                    let users;
+//                                    $.ajax({
+//                                        method: "POST",
+//                                        url: "/ajax",
+//                                        data: {username: item._username, paquete: item._paquete, _token: csr},
+//                                        success: function (result) {
+//                                            let campos = "";
+//                                            let route = "";
+//                                            let users = JSON.parse(result);
+//                                            console.log(users);
+//                                            if (users.length === 0) {
+//                                                console.log("vacio");
+//                                                $("#modal-body-add").html();
+//                                                $("#add-route").html();
+//                                                campos = "<span>Nota:</span>\n" +
+//                                                    "                                <p>\n" +
+//                                                    "                                    To add a user. you have to first register it.<br>\n" +
+//                                                    "                                    Click in continue .\n" +
+//                                                    "                                </p>";
+//                                                $("#modal-body-add").html(campos);
+//                                                $("#add-route").html(route);
+//                                                // $('#add').trigger("click")
+//                                            } else if (users.length === 1) {
+//                                                console.log("uno");
+//                                                $("#modal-body-add").html();
+//                                                campos = "<span>Nota:</span>\n" +
+//                                                    "                                <p>\n" +
+//                                                    "                                    confirm that you want to add the user: <strong>" + users[0].username + "</strong>  here.<br>\n" +
+//                                                    "                                    Click in continue .\n" +
+//                                                    "                                </p>";
+//                                                $("#modal-body-add").html(campos);
+//                                                // $('#add').trigger("click")
+//                                            } else {
+//                                                console.log("lleno");
+//                                                $("#modal-body-add").html();
+//                                                campos = "<div class=\"list-group\">";
+//                                                for (let k in users) {
+//                                                    console.log(k + "users =" + users[k].username);
+//                                                    campos += "<a href=\"#\" class=\"list-group-item list-group-item-action\">" + users[k].username + "</a>"
+//                                                }
+//                                                campos += "</div>";
+//                                                $("#modal-body-add").html(campos);
+//                                                // $('#add').trigger("click")
+//                                            }
+//                                        },
+//                                        error: function (httpReq, status, exception) {
+////                    alert(status+"-"+exception);
+//                                            console.log(status + "-" + exception);
+//                                            $("#modal-body-add").html();
+//                                            campos = "<span> ERROR REFRESH THE PAGE TRY LETER </span>";
+//                                            $("#modal-body-add").html(campos);
+//                                        }
+//                                    });
+                                    $('#add').trigger("click")
+                                } else if (item._type === "user") {
+                                    /*$.ajax({
+                                        method: "POST",
+                                        url: "/ajax",
+                                        data: {username: item._username, paquete: item._paquete, _token: csr},
+                                        success: function (result) {
+                                            var user = JSON.parse(result);
+                                            console.log(user);
+                                            // var tam = Object.keys(obj.postalLocation).length;
+                                            var tam = Object.keys(user).length;
+                                            // var tam = result.length;
+                                            console.log(tam);
+                                            let campos = "";
+                                            campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                                "<label for=\"email\">username: " + user.username + "</label>\n" +
+                                                // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
+                                                "</fieldset>\n" +
+                                                "<br>\n" +
+                                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                                "<label for=\"title\">" + "paquete: " + user.paquete + "</label>\n" +
+                                                // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
+                                                "</fieldset>\n" +
+                                                "<br>\n" +
+                                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                                "<label for=\"title1\">dato extra: " + user.algo + "</label>\n" +
+                                                // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
+                                                "</fieldset>";
+                                            $("#modal-body").html(campos);
+                                            $('#boton').trigger("click")
+                                        },
+                                        error: function (httpReq, status, exception) {
+//                    alert(status+"-"+exception);
+                                            console.log(status + "-" + exception);
+                                        }
+                                    });*/
+                                    alert("user");
+                                } else {
+                                    alert("cargar siguiente arbol");
+                                }
+                            }
+                        });
+                    }
 
                 });
 
