@@ -28,6 +28,7 @@ class BinaryTreeController extends Controller
 
         function node($node, $position) {
             return [
+                'uuid' => $node['user']['uuid'],
                 'username' => $node['user']['username'],
                 'type' => 'user',
                 'product' => $node['product']['name'],

@@ -56,4 +56,9 @@ class Product extends Model
     {
         return $this->hasMany(UnilevelTree::class);
     }
+
+    public function volumes()
+    {
+        return $this->belongsToMany(Volume::class);
+    }
 }

@@ -2,19 +2,14 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
-use App\Models\City;
-use App\Models\Country;
-use App\Models\Product;
-use App\Models\State;
-use App\Models\SystemSettings;
 use App\Models\User;
-use App\Models\UserAddresses;
-use App\Models\UserSettings;
 use App\Models\Wallet;
+use App\Models\Product;
+use App\Models\BinaryTree;
 use App\Observers\UuidObserver;
 use App\Observers\WalletObserver;
 use Illuminate\Support\Facades\Event;
+use App\Observers\BinaryTreeObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -34,9 +29,10 @@ class EventServiceProvider extends ServiceProvider
      * @var $models \Illuminate\Database\Eloquent\Model[]
      */
     protected $models = [
-       'user' => User::class,
+        'user' => User::class,
         'product' => Product:: class,
         'wallet' => Wallet::class,
+        'binary' => BinaryTree::class,
     ];
 
     /**
@@ -48,16 +44,32 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
         $this->registerUuidObservers();
+        $this->registerBinaryTreeObservers();
+        $this->registerWalletObservers();
+
     }
 
     public function registerUuidObservers()
     {
-        collect($this->models)->each(function($model) {
+        collect($this->models)->except('binary')->each(function($model) {
             /** @var \Illuminate\Database\Eloquent\Model $model */
             $model::observe(app(UuidObserver::class));
-        })->only('wallet')->each(function($model){
+        });
+    }
+
+    public function registerWalletObservers()
+    {
+        collect($this->models)->only('wallet')->each(function($model){
             /** @var \Illuminate\Database\Eloquent\Model $model */
             $model::observe(app(WalletObserver::class));
+        });
+    }
+
+    public function registerBinaryTreeObservers()
+    {
+        collect($this->models)->only('binary')->each(function($model){
+            /** @var \Illuminate\Database\Eloquent\Model $model */
+            $model::observe(app(BinaryTreeObserver::class));
         });
     }
 }

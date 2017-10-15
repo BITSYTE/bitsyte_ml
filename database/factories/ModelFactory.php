@@ -99,7 +99,7 @@ $factory->define(App\Models\UserSettings::class, function (Faker\Generator $fake
 
 $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     return [
-        'category_id'   =>  1,
+        //'category_id'   =>  1,
         'name'          =>  $faker->word,
         'description'   =>  $faker->text(),
         'image'         =>  $faker->word.'.jpg',
@@ -113,6 +113,16 @@ $factory->define(App\Models\Wallet::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->word,
+        'status' => 'active',
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Volume::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->word,
+        'value' => $faker->randomElement([50, 100, 200]),
         'status' => 'active',
     ];
 });
