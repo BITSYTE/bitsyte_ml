@@ -124,6 +124,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         {{--{{ Auth::user()->first_name }}--}}
         @endsection
@@ -133,7 +134,7 @@
             <script type="text/javascript" src="{{ asset('backoffice/assets/js/treeNode.js') }}"></script>
             <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
             <script>
-                var users = [
+                /*var users = [
                     {"username": "schmitt.lourdes", "type": "user", "position": [0, 1, 1]},
                     {"username": "jbeier", "type": "user", "position": [1, 1, 1]},
                     {"username": "rankunding", "type": "user", "position": [1, 2, 2]},
@@ -142,17 +143,19 @@
                     {"username": "pbechtelar", "type": "user", "position": [2, 3, 1]},
                     {"username": "witting.jazmyn", "type": "user", "position": [3, 5, 1]},
                     {"username": "gnader", "type": "user", "position": [3, 1, 2]}
-                ];
-                var asd = [
-                    {"username": "vena.hodkiewicz", "type": "user", "position": [0, 1]},
-                    {"username": "orval.wuckert", "type": "add", "position": [1, 1]},
-                    {"username": "cummings.armani", "type": "add", "position": [1, 2]},
-                ];
-                console.log(users);
+                ];*/
+                        {{--var users = {!! $users !!};--}}
+
+                /*var users = [
+                        {"username": "vena.hodkiewicz", "type": "user", "position": [0, 1]},
+                        {"username": "orval.wuckert", "type": "user", "position": [1, 1]},
+                    {"username": "cummings.armani", "type": "user", "position": [1, 2]},
+                    ];*/
+//                console.log(users);
                 var csr = "{{ csrf_token() }}";
                 var canvas;
                 var ctx;
-                var user = "{{Auth::user()->first_name}}";
+                var user = "{{$uuid}}";
                 var json = [
                     {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
                     {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
@@ -186,6 +189,33 @@
 
                 $(document).ready(function () {
                     console.log("ready!");
+                    var res ;
+                    function getNodesTree(csr,uuid) {
+
+                        $.ajax({
+                            method: "POST",
+                            url: "/api/binary/children/"+user,
+                            data: {uuid: uuid, _token: csr},
+                            async: false,
+                            success: function (result) {
+//                                console.log("result");
+//                                console.log(result);
+                                res = result;
+//                                result.map()
+//                                let users = JSON.parse(result);
+                                return result;
+                            },
+                            error: function (httpReq, status, exception) {
+                                console.log(status + "-" + exception);
+                            }
+                        });
+//                        console.log(res);
+                        return res;
+                    }
+                    var users = getNodesTree(csr,user);
+                    console.log("users");
+                    console.log(users);
+
                     // RUTA DE LAS IMAGENES
                     var paquete = "{{asset('backoffice/images/circulo1.png')}}";                            //paquete
                     const addUser = "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}";    //agregar usuario
@@ -220,6 +250,8 @@
                         refresh();
                     });
 
+
+
                     function selecciona(e, csr) {
 
                         let nodesPos = bt.getArrayNodes();
@@ -233,7 +265,7 @@
                                 // console.log($("#boton").click());
                                 if (item._type === "add") {
                                     alert("add");
-                                    let users;
+//                                    let users;
 //                                    $.ajax({
 //                                        method: "POST",
 //                                        url: "/ajax",
@@ -242,41 +274,41 @@
 //                                            let campos = "";
 //                                            let route = "";
 //                                            let users = JSON.parse(result);
-//                                            console.log(users);
-//                                            if (users.length === 0) {
-//                                                console.log("vacio");
-//                                                $("#modal-body-add").html();
-//                                                $("#add-route").html();
-//                                                campos = "<span>Nota:</span>\n" +
-//                                                    "                                <p>\n" +
-//                                                    "                                    To add a user. you have to first register it.<br>\n" +
-//                                                    "                                    Click in continue .\n" +
-//                                                    "                                </p>";
-//                                                $("#modal-body-add").html(campos);
-//                                                $("#add-route").html(route);
-//                                                // $('#add').trigger("click")
-//                                            } else if (users.length === 1) {
-//                                                console.log("uno");
-//                                                $("#modal-body-add").html();
-//                                                campos = "<span>Nota:</span>\n" +
-//                                                    "                                <p>\n" +
-//                                                    "                                    confirm that you want to add the user: <strong>" + users[0].username + "</strong>  here.<br>\n" +
-//                                                    "                                    Click in continue .\n" +
-//                                                    "                                </p>";
-//                                                $("#modal-body-add").html(campos);
-//                                                // $('#add').trigger("click")
-//                                            } else {
-//                                                console.log("lleno");
-//                                                $("#modal-body-add").html();
-//                                                campos = "<div class=\"list-group\">";
-//                                                for (let k in users) {
-//                                                    console.log(k + "users =" + users[k].username);
-//                                                    campos += "<a href=\"#\" class=\"list-group-item list-group-item-action\">" + users[k].username + "</a>"
-//                                                }
-//                                                campos += "</div>";
-//                                                $("#modal-body-add").html(campos);
-//                                                // $('#add').trigger("click")
-//                                            }
+                                    console.log(users);
+                                    if (users.length === 0) {
+                                        console.log("vacio");
+                                        $("#modal-body-add").html();
+                                        $("#add-route").html();
+                                        campos = "<span>Nota:</span>\n" +
+                                            "                                <p>\n" +
+                                            "                                    To add a user. you have to first register it.<br>\n" +
+                                            "                                    Click in continue .\n" +
+                                            "                                </p>";
+                                        $("#modal-body-add").html(campos);
+                                        $("#add-route").html(route);
+                                        // $('#add').trigger("click")
+                                    } else if (users.length === 1) {
+                                        console.log("uno");
+                                        $("#modal-body-add").html();
+                                        campos = "<span>Nota:</span>\n" +
+                                            "                                <p>\n" +
+                                            "                                    confirm that you want to add the user: <strong>" + users[0].username + "</strong>  here.<br>\n" +
+                                            "                                    Click in continue .\n" +
+                                            "                                </p>";
+                                        $("#modal-body-add").html(campos);
+                                        // $('#add').trigger("click")
+                                    } else {
+                                        console.log("lleno");
+                                        $("#modal-body-add").html();
+                                        campos = "<div class=\"list-group\">";
+                                        for (let k in users) {
+                                            console.log(k + "users =" + users[k].username);
+                                            campos += "<a href=\"#\" class=\"list-group-item list-group-item-action\">" + users[k].username + "</a>"
+                                        }
+                                        campos += "</div>";
+                                        $("#modal-body-add").html(campos);
+                                        $('#add').trigger("click")
+                                    }
 //                                        },
 //                                        error: function (httpReq, status, exception) {
 ////                    alert(status+"-"+exception);

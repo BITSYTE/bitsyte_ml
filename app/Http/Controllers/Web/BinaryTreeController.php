@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class BinaryTreeController extends Controller
 {
@@ -18,31 +19,12 @@ class BinaryTreeController extends Controller
     {
         $breadcrumbs[0]['name']='Binary';
 
-        $nodes = BinaryTree::withDepth()->having('depth', '<=', 1)->with('user', 'product')->get()->toTree()->toArray();
+        $product = Product::all();
 
-        $array = [];
+        $uuid = User::where('id',4)->first();
+//        dd($uuid);
 
-        function transverse($nodes, &$array) {
-            $index = 1;
-            foreach ($nodes as $node) {
-
-                $array[] = [
-                    'username' => $node['user']['username'],
-                    'type' => empty($node['children']) ? 'add': 'user',
-                    'position' => [$node['depth'], $index++]
-                ];
-
-                if (is_array($node['children'])) transverse($node['children'], $array);
-            }
-
-            return json_encode($array);
-        }
-
-        $array = transverse($nodes, $array);
-
-//        dd($array);
-
-        return view('trees.binary.index')->with(['breadcrumbs'=>$breadcrumbs])->with(['users'=>$array]);
+        return view('trees.binary.index')->with(['breadcrumbs'=>$breadcrumbs])->with(['uuid'=>$uuid->uuid]);
     }
 
     public function create()
