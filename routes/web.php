@@ -40,7 +40,7 @@ Route::group(['namespace' => 'Web'], function () {
         Route::get('/home', 'DashboardController@index')->name('home');
 
         Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-            Route::get('/new', 'UsersControllers@create')->name('new');
+            Route::get('/new', 'UsersControllers@create')->name('create');
             Route::post('/store', 'UsersControllers@store')->name('store');
         });
 
