@@ -29,6 +29,7 @@ class WalletsController extends Controller
         $this->user = auth()->user();
 
         return view('wallet.index')->with([
+            'name' => 'My Wallets',
             'breadcrumbs' => $this->breadcrumbs,
             'wallets' => $this->user->wallets,
         ]);
@@ -36,8 +37,7 @@ class WalletsController extends Controller
 
     /**
      * THIS METHOD RETURN THE INFORMATION AND VIEW OF A WALLET
-     * @param $name
-     *
+     * @param $uuid
      * @return $this
      */
     public function show($uuid)
