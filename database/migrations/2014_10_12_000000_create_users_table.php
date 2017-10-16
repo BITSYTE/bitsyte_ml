@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('birthday');
             $table->unsignedBigInteger('product_id')->nullable();
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->rememberToken();
             $table->timestamps();
 

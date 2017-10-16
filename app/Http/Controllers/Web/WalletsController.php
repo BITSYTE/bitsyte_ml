@@ -7,6 +7,12 @@ use App\Http\Controllers\Controller;
 
 class WalletsController extends Controller
 {
+    protected $user;
+
+    public function __construct()
+    {
+        $this->user = auth()->user();
+    }
 
     /**
      * THIS METHOD RETURN THE VIEW SHOWING AL WALLETS
@@ -19,6 +25,7 @@ class WalletsController extends Controller
         $breadcrumbs[0]['route']='wallets';
         $breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';
+
 
         return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
     }
