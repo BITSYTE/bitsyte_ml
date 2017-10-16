@@ -59,7 +59,7 @@ class BinaryTreeController extends Controller
             return $array;
         }
 
-        return response()->json(['tree' => transverse1($nodes, $array)]);
+        return response()->json(['tree' => transverse($nodes, $array)]);
     }
 
     public function create(Request $request)
