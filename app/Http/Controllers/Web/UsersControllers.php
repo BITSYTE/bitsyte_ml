@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Jobs\CreateUnilevelJob;
+use DB;
 use App\Models\User;
 use App\Models\Product;
-use App\Http\Requests\UserStoreRequest;
+use App\Jobs\CreateUnilevelJob;
 use App\Http\Controllers\Controller;
-use DB;
 use Illuminate\Support\Facades\Input;
+use App\Http\Requests\UserStoreRequest;
 
 
 class UsersControllers extends Controller
@@ -34,7 +34,7 @@ class UsersControllers extends Controller
         $breadcrumbs[1]['name'] = 'New';
         $breadcrumbs[1]['route'] = 'new';
 
-        $products = $this->product->select('name', 'id', 'price', 'image', 'uuid')->get();
+        $products = Product::select('name', 'id', 'price', 'image', 'uuid')->get();
         return view('Users.new')
             ->with([
                 'breadcrumbs' => $breadcrumbs,

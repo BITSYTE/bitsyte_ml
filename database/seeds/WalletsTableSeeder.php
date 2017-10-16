@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Wallet;
 use Illuminate\Database\Seeder;
 
 class WalletsTableSeeder extends Seeder
@@ -11,12 +12,12 @@ class WalletsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Wallet::class)->create([
+        factory(Wallet::class)->create([
             'name'  =>  'Main',
             'status' => 'active',
         ]);
 
-        factory(\App\Models\Wallet::class)->create([
+        factory(Wallet::class)->create([
             'name'  =>  'Mining',
             'status' => 'active',
         ]);

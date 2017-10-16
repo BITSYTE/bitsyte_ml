@@ -1,0 +1,35 @@
+<?php
+
+use App\Models\Transaction;
+use Illuminate\Database\Seeder;
+
+class TransactionsTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        factory(Transaction::class)->create([
+            'name'  =>  'Wallet to Wallet', 'type' => 'in', 'status' => 'active',
+        ]);
+        factory(Transaction::class)->create([
+            'name'  =>  'Wallet to Wallet', 'type' => 'out', 'status' => 'active',
+        ]);
+
+        factory(Transaction::class)->create([
+            'name'  =>  'User to User', 'type' => 'in', 'status' => 'active',
+        ]);
+        factory(Transaction::class)->create([
+            'name'  =>  'User to User', 'type' => 'out', 'status' => 'active',
+        ]);
+
+        factory(Transaction::class)->create([
+            'name'  =>  'CashOut', 'type' => 'out', 'status' => 'active',
+        ]);
+
+
+    }
+}
