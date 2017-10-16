@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/switch.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/wizard.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/toastr.css') }}">
 @endsection
 
 @section('breadcrumbs')
@@ -64,7 +65,7 @@
 
                                                 <!--Carousel-->
                                                 <div id="owl-carousel" class="">
-                                                    {{--@foreach($products as $product)
+                                                    @foreach($products as $product)
                                                         <div class="slide-item carousel-slide-item">
                                                             <div class="image-box">
                                                                 <img id="slide-{{$product->id}}"
@@ -72,7 +73,7 @@
                                                                      class="carousel-img">
                                                             </div>
                                                             <div class="item-caption carousel-item-caption">
-                                                                --}}{{--<h6><strong>Package Golden</strong></h6>--}}{{--
+                                                                <h6><strong>Package Golden</strong></h6>
                                                                 <div class="row skin skin-line">
                                                                     <div id="radio{{$product->id}}" class="col-md-12 col-sm-12" style="word-break: break-all;">
                                                                         <input type="radio" name="product_id"
@@ -80,72 +81,16 @@
                                                                         <label for="input-radio-{{$product->id}}">{{$product->name}}</label>
                                                                         <p>price {{$product->price}}</p>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                   @endforeach--}}
-
-                                                        <div class="slide-item carousel-slide-item">
-                                                            <div class="image-box">
-                                                                <img id="slide-1"
-                                                                     src="{{ asset('backoffice/images/Package Golden.png') }}"
-                                                                     class="carousel-img">
-                                                            </div>
-                                                            <div class="item-caption carousel-item-caption">
-                                                                {{--<h6><strong>Package Golden</strong></h6>--}}
-                                                                <div class="row skin skin-line">
-                                                                    <div id="radio1" class="col-md-12 col-sm-12">
-                                                                        <input type="radio" name="product_id"
-                                                                               id="input-radio-1" checked value="2">
-                                                                        <label for="input-radio-1">Package Golden</label>
-                                                                    </div>
-                                                                </div>
-                                                                <p>price $5000</p>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="slide-item carousel-slide-item">
-                                                            <div class="image-box">
-                                                                <img id="slide-2"
-                                                                     src="{{ asset('backoffice/images/Package Platinum.png') }}"
-                                                                     class="carousel-img">
-                                                            </div>
-                                                            <div class="item-caption carousel-item-caption">
-                                                                <div class="row skin skin-line">
-                                                                    <div id="radio2" class="col-md-12 col-sm-12">
-                                                                        <input type="radio" name="product_id"
-                                                                               id="input-radio-2" value="3">
-                                                                        <label for="input-radio-2">Package silver</label>
-                                                                    </div>
-                                                                </div>
-                                                                <p>price $3000</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="slide-item carousel-slide-item">
-                                                            <div id="box" class="image-box">
-                                                                <img id="slide-3"
-                                                                     src="{{ asset('backoffice/images/Package Silver.png') }}"
-                                                                     class="carousel-img">
-                                                            </div>
-                                                            <div class="item-caption carousel-item-caption">
-                                                                <div class="row skin skin-line">
-                                                                    <div id="radio3" class="col-md-12 col-sm-12">
-                                                                        <input type="radio" name="product_id"
-                                                                               id="input-radio-3" value="1">
-                                                                        <label for="input-radio-3">Package platino</label>
-                                                                    </div>
-                                                                </div>
-                                                                <p>price $1000</p>
-                                                            </div>
-                                                        </div>
+                                                   @endforeach
                                                 </div>
                                                 {{--</div>--}}
                                             </div>
                                         </div>
                                     </div>
                                 </fieldset>
-
                                 <h6>Step 2</h6>
                                 <fieldset>
                                     <h4 class="form-section"><i class="ft-user"></i>Login Data</h4>
@@ -191,7 +136,7 @@
                                             <label for="confirmation">Confirmation Password <span
                                                         class="required">*</span></label>
                                             <div class="controls">
-                                                <input name="confirm_password" id="confirm_password"
+                                                <input name="password_confirmation" id="confirm_password"
                                                        class="form-control border-primary" type="password"
                                                        placeholder="Confirmation Password"  data-validation-match-match="password"
                                                        required
@@ -273,36 +218,57 @@
                                     <h4 class="form-section"><i class="ft-mail"></i> Billing Details </h4>
 
                                     <div class="row">
-                                        <div class="form-group col-md-6">
-                                            <label for="userinput5">Account Bitcoin</label>
-                                            <input class="form-control border-primary" placeholder="Account Bitcoin"
-                                                   name="numbercredit" id="numbercredit"  required
-                                                   data-validation-required-message="This field is required">
+                                        <div class="form-group col-md-2">
+                                            {{--<label for="userinput5">Account Bitcoin</label>--}}
+                                            <div class="">
+                                                <img src="{!!   asset('backoffice/images')."/".$products[0]['name'].".png" !!}">
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="userinput5">Quantity</label>
-                                            <input class="form-control border-primary" placeholder="0000.00"
-                                                   name="namecredit" id="namecredit" required
-                                                   data-validation-required-message="This field is required">
+                                        <div class="form-group col-md-5">
+                                            <div><label for="userinput5"><b>Product Name:</b></label></div>
+                                            <div><label for="userinput5">{{$products[0]['name']}}</label></div>
+                                            <div><label for="userinput5"><b>Price:</b>{{$products[0]['price']}}</label></div>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            {{--<label for="userinput5"></label>--}}
+                                            <div class="col-md-3">
+                                                <div style="width: 100%">
+                                                    <span class="icon-transfer"><i class="icon-wallet icon-tam"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <select id="projectinput5" name="interested" class="form-control" style="margin-top: 25px">
+                                                    <option value="none" selected="" disabled="">select a wallets</option>
+                                                    <option value="design">maining</option>
+                                                    <option value="development">wallet2</option>
+                                                    <option value="illustration">wallet3</option>
+                                                    <option value="branding">comision</option>
+                                                </select>
+                                            </div>
+
                                         </div>
                                     </div>
-                                    <div id="alertS" style="display: none">
+                                    {{--<div id="alertS" style="display: none">
                                         <div class="alert bg-blue alert-dismissible fade in mb-2" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             <strong>Great!</strong> Your pay is completed.      click in next to continue.
                                         </div>
-                                    </div>
-                                    <div id="alertE" style="display: none">
+                                    </div>--}}
+                                    {{--<div id="alertE" style="display: none">
                                         <div class="alert bg-blue alert-dismissible fade in mb-2" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             <strong>Great!</strong> the user already exist.
                                         </div>
+                                    </div>--}}
+                                    <div class="col-md-12">
+                                        <div class="col-md-2" style="margin-left: 40%;">
+                                            <input id="submit" class="btn btn-primary btn-min-width mr-1 mb-1" type="button" value="Pay now">
+                                        </div>
                                     </div>
-                                    <input id="submit" class="btn btn-primary btn-min-width mr-1 mb-1" type="button" value="Pay now">
 
 
                                 </fieldset>
@@ -349,6 +315,7 @@
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/wizard-steps.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>
     {{--<script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>--}}
+    <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/toastr.min.js') }}" type="text/javascript"></script>
 
 
 
@@ -400,6 +367,7 @@
 
         function seleccionar(num) {
             $('#radio' + num).find(".iCheck-helper").trigger("click");
+
         }
 
         $("#submit").on("click", function () {
@@ -407,8 +375,10 @@
             console.log(slide);
             let url = "{{ route('users.store') }}";
             console.log(url);
-
+            toastr.info('yoour pay was exito.', 'user pay!', {positionClass: 'toast-top-center', containerId: 'toast-top-center',
+                "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 8000});
             $("#newuser").submit();
+
         });
 
         $("#newuser").submit(function(e)

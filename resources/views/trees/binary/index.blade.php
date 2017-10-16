@@ -94,31 +94,43 @@
             </div>
 
             <div>
-                <button style="display: none" id="boton" type="button" class="btn btn-outline-primary block btn-lg"
-                        data-toggle="modal" data-show="false" data-target="#show">
+                <button id="modal-user" type="button" class="btn btn-outline-success block btn-lg" data-toggle="modal"
+                        data-target="#defaultSize">
                     Launch Modal
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade text-xs-left" id="show" tabindex="-1" role="dialog"
-                     aria-labelledby="myModalLabel5" aria-hidden="true">
+                <div class="modal fade text-xs-left" id="defaultSize" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel18" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title" id="myModalLabel5">Basic Modal</h4>
+                                <h4 class="modal-title" id="myModalLabel18"><i class="fa fa-tree"></i> Binary Tree</h4>
                             </div>
-                            <div id="modal-body" class="modal-body">
-                                <h5>USer</h5>
-
+                            <div class="modal-body">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        {{--<label for="userinput5">Account Bitcoin</label>--}}
+                                        <img src="http://localhost:8002/backoffice/images/Package Silver.png" class="">
+                                    </div>
+                                    <div class=" col-md-8">
+                                        <div><label for="userinput1"><b>Product Name:</b></label></div>
+                                        <div><label for="userinput2"></label>asdasd</div>
+                                        <p><label for="userinput3"><b>Price:</b></label>500000</p>
+                                    </div>
+                                </div>
+                                <p>Registered since : 27/08/94</p>
+                                <p>Volume Left : 100</p>
+                                <p>Volume Right : 100</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="button" class="btn btn-outline-primary">Save changes</button>
+                                <button id="view-tree" type="button" class="btn btn-outline-primary">view tree</button>
                             </div>
                         </div>
                     </div>
@@ -144,14 +156,19 @@
                     {"username": "witting.jazmyn", "type": "user", "position": [3, 5, 1]},
                     {"username": "gnader", "type": "user", "position": [3, 1, 2]}
                 ];*/
-                        {{--var users = {!! $users !!};--}}
+                {{--var users = {!! $users !!};--}}
+                /*var binary = [];
 
-                /*var users = [
-                        {"username": "vena.hodkiewicz", "type": "user", "position": [0, 1]},
-                        {"username": "orval.wuckert", "type": "user", "position": [1, 1]},
-                    {"username": "cummings.armani", "type": "user", "position": [1, 2]},
-                    ];*/
-//                console.log(users);
+                var nextPartStage = 1310 / (this._binary[nodeData.position[0] + 1]);
+                var destinoIzquierda = [
+                    (nextPartStage * ((nodeData.position[1] * 2) - 1)) - (nextPartStage / 2),
+                    (125 * (nodeData.position[0] + 1)) - ((125 / 2) + 25)
+                ];
+                var destinoDerecha = [
+                    (nextPartStage * (nodeData.position[1] * 2)) - (nextPartStage / 2),
+                    (125 * (nodeData.position[0] + 1)) - ((125 / 2) + 25)
+                ];*/
+                //                console.log(users);
                 var csr = "{{ csrf_token() }}";
                 var canvas;
                 var ctx;
@@ -189,12 +206,12 @@
 
                 $(document).ready(function () {
                     console.log("ready!");
-                    var res ;
-                    function getNodesTree(csr,uuid) {
+                    var res;
 
+                    function getNodesTree(csr, uuid) {
                         $.ajax({
                             method: "POST",
-                            url: "/api/binary/children/"+user,
+                            url: "/api/binary/children/" + uuid,
                             data: {uuid: uuid, _token: csr},
                             async: false,
                             success: function (result) {
@@ -209,10 +226,10 @@
                                 console.log(status + "-" + exception);
                             }
                         });
-//                        console.log(res);
                         return res;
                     }
-                    var users = getNodesTree(csr,user);
+
+                    var users = getNodesTree(csr, user);
                     console.log("users");
                     console.log(users);
 
@@ -249,7 +266,6 @@
                     $('#top').on("click", function () {
                         refresh();
                     });
-
 
 
                     function selecciona(e, csr) {
@@ -320,6 +336,7 @@
 //                                    });
                                     $('#add').trigger("click")
                                 } else if (item._type === "user") {
+                                    $('#modal-user').click();
                                     /*$.ajax({
                                         method: "POST",
                                         url: "/ajax",
@@ -330,30 +347,30 @@
                                             // var tam = Object.keys(obj.postalLocation).length;
                                             var tam = Object.keys(user).length;
                                             // var tam = result.length;
-                                            console.log(tam);
-                                            let campos = "";
-                                            campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                                "<label for=\"email\">username: " + user.username + "</label>\n" +
-                                                // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
-                                                "</fieldset>\n" +
-                                                "<br>\n" +
-                                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                                "<label for=\"title\">" + "paquete: " + user.paquete + "</label>\n" +
-                                                // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
-                                                "</fieldset>\n" +
-                                                "<br>\n" +
-                                                "<fieldset class=\"form-group floating-label-form-group\">\n" +
-                                                "<label for=\"title1\">dato extra: " + user.algo + "</label>\n" +
-                                                // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
-                                                "</fieldset>";
-                                            $("#modal-body").html(campos);
-                                            $('#boton').trigger("click")
-                                        },
-                                        error: function (httpReq, status, exception) {
+                                            console.log(tam);*/
+                                    /*let campos = "";
+                                    campos += "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                        "<label for=\"email\">username: " + user.username + "</label>\n" +
+                                        // "<input type=\"text\" class=\"form-control\" id=\"email\" placeholder=\"\">\n" +
+                                        "</fieldset>\n" +
+                                        "<br>\n" +
+                                        "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                        "<label for=\"title\">" + "paquete: " + user.paquete + "</label>\n" +
+                                        // "<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"Password\">\n" +
+                                        "</fieldset>\n" +
+                                        "<br>\n" +
+                                        "<fieldset class=\"form-group floating-label-form-group\">\n" +
+                                        "<label for=\"title1\">dato extra: " + user.algo + "</label>\n" +
+                                        // "<textarea class=\"form-control\" id=\"title1\" rows=\"3\" placeholder=\"Description\"></textarea>\n" +
+                                        "</fieldset>";
+                                    $("#modal-body").html(campos);
+                                    $('#modalUser').trigger("click");*/
+                                    /*},
+                                    error: function (httpReq, status, exception) {
 //                    alert(status+"-"+exception);
-                                            console.log(status + "-" + exception);
-                                        }
-                                    });*/
+                                        console.log(status + "-" + exception);
+                                    }
+                                });*/
                                     alert("user");
                                 } else {
                                     alert("cargar siguiente arbol");
