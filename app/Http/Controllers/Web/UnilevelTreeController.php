@@ -35,7 +35,7 @@ class UnilevelTreeController extends Controller
         /*$breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';*/
 
-        return view('trees.unilevel.index')->with(['breadcrumbs'=>$breadcrumbs]);
+        return view('trees.unilevel.index')->with(['breadcrumbs'=>$this->breadcrumbs]);
     }
 
     public function create()
