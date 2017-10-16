@@ -10,18 +10,17 @@ class UnilevelTreeController extends Controller
 {
     public function treeJson(User $user)
     {
-        $node = $user->unileveNode()->first();
+        $node = $user->unilevelNode()->first();
 
-        $nodes = $node->withDepth()->having('depth', '<=', 3)->with('user', 'product')->get()->toTree()->toArray();
+        $nodes = $node->withDepth()->having('depth', '<=', 1)->with('user', 'product')->get()->toTree()->toArray();
 
         $array = [];
 
         function node($node, $position) {
             return [
+                'uuid' => $node['user']['uuid'],
                 'username' => $node['user']['username'],
-                'type' => empty($node['children']) ? 'add' : 'user',
                 'product' => $node['product']['name'],
-                'position' => [$node['depth'], $position++]
             ];
         }
 
@@ -30,7 +29,7 @@ class UnilevelTreeController extends Controller
             $index = 1;
             foreach ($nodes as $node) {
 
-                $array[] = node($nodes, $index);
+                $array[] = node($node, $index);
 
                 if (!empty($node['children'])) {
                     transverse($node['children'], $array);

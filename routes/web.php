@@ -52,6 +52,7 @@ Route::group(['namespace' => 'Web'], function () {
         Route::group(['prefix' => 'trees', 'as' => 'trees.'], function () {
             //        Route::get('/', 'TreesController@index')->name('index');
             Route::get('/unilevel', 'UnilevelTreeController@index')->name('unilevel');
+            Route::get('/unilevel/create', 'UnilevelTreeController@create')->name('unilevel.create');
             Route::get('/binary/create', 'BinaryTreeController@create')->name('binary.create');
             Route::get('/binary', 'BinaryTreeController@index')->name('binary');
             //        Route::get('/show', 'BinaryTreeController@show')->name('show');
