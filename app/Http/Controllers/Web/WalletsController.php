@@ -39,12 +39,12 @@ class WalletsController extends Controller
      */
     public function show($name)
     {
-        $breadcrumbs[0]['name']='wallets';
-        $breadcrumbs[0]['route']='wallets';
-        $breadcrumbs[1]['name']='Details';
+        $this->breadcrumbs['name'][1]='Details';
+        $this->breadcrumbs['route'][1]='Details';
 
 
-        return view('wallet.show')->with(['breadcrumbs'=>$breadcrumbs,'name'=>$name]);
+
+        return view('wallet.show')->with(['breadcrumbs'=>$this->breadcrumbs,'name'=>$name]);
     }
 
 
