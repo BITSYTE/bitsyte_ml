@@ -12,12 +12,12 @@ class TransactionsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Transaction::class)->create(['name' => 'Transfer from other Wallet', 'type' => 'in', 'status' => 'active']);
-        factory(Transaction::class)->create(['name' => 'Transfer to other wallet', 'type' => 'out', 'status' => 'active']);
+        Transaction::create(['name' => 'Transfer from other Wallet', 'type' => 'in', 'status' => 'active']);
+        Transaction::create(['name' => 'Transfer to other wallet', 'type' => 'out', 'status' => 'active']);
 
-        factory(Transaction::class)->create(['name' => 'Transfer from other User', 'type' => 'in', 'status' => 'active']);
-        factory(Transaction::class)->create(['name' => 'Transfer to other User', 'type' => 'out', 'status' => 'active']);
+        Transaction::create(['name' => 'Transfer from other User', 'type' => 'in', 'status' => 'active']);
+        Transaction::create(['name' => 'Transfer to other User', 'type' => 'out', 'status' => 'active']);
 
-        factory(Transaction::class)->create(['name' => 'CashOut', 'type' => 'out', 'status' => 'active']);
+        Transaction::create(['name' => 'CashOut', 'type' => 'out', 'status' => 'active']);
     }
 }

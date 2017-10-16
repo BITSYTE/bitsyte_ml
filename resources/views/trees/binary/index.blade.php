@@ -94,7 +94,7 @@
             </div>
 
             <div>
-                <button id="modal-user" type="button" class="btn btn-outline-success block btn-lg" data-toggle="modal"
+                <button style="display: none" id="modal-user" type="button" class="btn btn-outline-success block btn-lg" data-toggle="modal"
                         data-target="#defaultSize">
                     Launch Modal
                 </button>
