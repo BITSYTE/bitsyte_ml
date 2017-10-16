@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('breadcrumbs')
+    @include('layouts.partial.breadcrumbs')
+@endsection
+
 @section('content')
 
     <section id="description" class="card">
