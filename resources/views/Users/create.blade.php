@@ -250,33 +250,16 @@
                                             <div class="col-md-9">
                                                 <select id="projectinput5" name="interested" class="form-control"
                                                         style="margin-top: 25px">
-                                                    <option value="none" selected="" disabled="">select a wallets
-                                                    </option>
-                                                    <option value="design">maining</option>
-                                                    <option value="development">wallet2</option>
-                                                    <option value="illustration">wallet3</option>
-                                                    <option value="branding">comision</option>
+                                                    <option value="none" selected="" disabled="">select a wallet</option>
+                                                    @foreach($wallets as $wallet)
+                                                        <option value="design">{{ "name".$wallet->name."-balance".$wallet->balance }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
 
                                         </div>
                                     </div>
-                                    {{--<div id="alertS" style="display: none">
-                                        <div class="alert bg-blue alert-dismissible fade in mb-2" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <strong>Great!</strong> Your pay is completed.      click in next to continue.
-                                        </div>
-                                    </div>--}}
-                                    {{--<div id="alertE" style="display: none">
-                                        <div class="alert bg-blue alert-dismissible fade in mb-2" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <strong>Great!</strong> the user already exist.
-                                        </div>
-                                    </div>--}}
+
                                     <div class="col-md-12">
                                         <div class="col-md-2" style="margin-left: 40%;">
                                             <input id="submit" class="btn btn-primary btn-min-width mr-1 mb-1"
@@ -300,10 +283,6 @@
 
                                 </fieldset>
 
-                                {{--<input type="button" onclick="myFunction()" value="Submit form">--}}
-                                {{--<button type="submit" class="btn btn-blue btn-lg btn-block"><i
-                                            class="ft-unlock"></i> Login
-                                </button>--}}
                             </form>
 
                         </div>

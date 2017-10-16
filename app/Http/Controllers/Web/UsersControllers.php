@@ -42,7 +42,7 @@ class UsersControllers extends Controller
             ->with([
                 'breadcrumbs' => $this->breadcrumbs,
                 'products' => $products,
-                'wallet' => $user->wallets,
+                'wallets' => $user->wallets,
             ]);
     }
 
@@ -62,7 +62,7 @@ class UsersControllers extends Controller
             $json = json_encode($res);
             return response("$json", 201);
         } else {
-            try {
+//            try {
                 DB::beginTransaction();
                 $user = User::create($request->only(['first_name', 'last_name', 'birthday', 'password', 'email', 'username', 'product_id']));
                 $user->status = 'active';
@@ -75,12 +75,13 @@ class UsersControllers extends Controller
                 $json = json_encode($res);
                 return response($json, 201);
 
-            } catch (\Exception $e) {
+            /*} catch (\Exception $e) {
+                return response($json, 500);
                 return redirect()
                     ->back()
                     ->withInput(Input::all())
                     ->with('error', 'The new user could not be created');
-            }
+            }*/
         }
 
     }
