@@ -12,14 +12,10 @@ class WalletsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Wallet::class)->create([
-            'name'  =>  'Main',
-            'status' => 'active',
-        ]);
-
-        factory(Wallet::class)->create([
-            'name'  =>  'Mining',
-            'status' => 'active',
-        ]);
+        factory(Wallet::class)->create(['name' => 'Money', 'status' => 'active',]);
+        factory(Wallet::class)->create(['name' => 'Credit', 'status' => 'active',]);
+        factory(Wallet::class)->create(['name' => 'Mining', 'status' => 'active',]);
+        factory(Wallet::class)->create(['name' => 'Trading', 'status' => 'active',]);
+        factory(Wallet::class)->create(['name' => 'CashBack', 'status' => 'active',]);
     }
 }

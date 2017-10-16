@@ -13,6 +13,8 @@ use App\Http\Requests\UserStoreRequest;
 
 class UsersControllers extends Controller
 {
+    protected $breadcrumbs;
+
     /**
      * UsersController constructor.
      *
@@ -20,7 +22,8 @@ class UsersControllers extends Controller
      */
     public function __construct()
     {
-
+        $this->breadcrumbs['name'][0] = 'Users';
+        $this->breadcrumbs['route'][0] = 'users';
     }
 
     /**
@@ -29,16 +32,17 @@ class UsersControllers extends Controller
      */
     public function create()
     {
-        $breadcrumbs[0]['name'] = 'Users';
-        $breadcrumbs[0]['route'] = 'users';
-        $breadcrumbs[1]['name'] = 'New';
-        $breadcrumbs[1]['route'] = 'new';
+        $this->breadcrumbs['name'][1] = 'New';
+        $this->breadcrumbs['route'][1] = 'new';
 
+        $user = auth()->user();
         $products = Product::select('name', 'id', 'price', 'image', 'uuid')->get();
-        return view('Users.new')
+
+        return view('users.create')
             ->with([
-                'breadcrumbs' => $breadcrumbs,
+                'breadcrumbs' => $this->breadcrumbs,
                 'products' => $products,
+                'wallet' => $user->wallets,
             ]);
     }
 
