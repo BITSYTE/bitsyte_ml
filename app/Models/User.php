@@ -118,7 +118,8 @@ class User extends Authenticatable
      */
     public function wallets()
     {
-        return $this->belongsToMany(Wallet::class)->withPivot('balance', 'status')->using(UserWallet::class);
+        return $this->belongsToMany(Wallet::class)
+            ->withPivot('balance', 'status', 'id')->using(UserWallet::class);
     }
 
     public function binaryNode()

@@ -26,12 +26,13 @@
     </div>
 @endsection
 
+{{--@include('layouts.partial.breadcrumbs',['name' => ])--}}
+
 @section('content')
 <div class="row match-height">
 
     <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" >
         <div class="card">
-            @include('wallet.partials.selectWallets')
             @include('wallet.partials.wallets')
         </div>
     </div>

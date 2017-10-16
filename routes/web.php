@@ -46,7 +46,7 @@ Route::group(['namespace' => 'Web'], function () {
 
         Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
             Route::get('/', 'WalletsController@index')->name('index');
-            Route::get('/show/{name}', 'WalletsController@show')->name('show');
+            Route::get('/show/{uuid}', 'WalletsController@show')->name('show');
         });
 
         Route::group(['prefix' => 'trees', 'as' => 'trees.'], function () {
@@ -87,8 +87,4 @@ Route::group(['namespace' => 'Web'], function () {
     });
 
     Route::any('/ajax', 'BinaryTreeController@ajax')->name('ajax');
-
-    Route::get('/test/queue', function () {
-        \App\Models\Wallet::create(['name' => 'test2', 'status' => 'active']);
-    });
 });
