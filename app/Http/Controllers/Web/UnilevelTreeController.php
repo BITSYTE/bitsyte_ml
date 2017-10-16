@@ -11,6 +11,19 @@ use App\Http\Controllers\Controller;
 class UnilevelTreeController extends Controller
 {
 
+    protected $breadcrumbs;
+
+    /**
+     * UsersController constructor.
+     *
+     * @internal param $User
+     */
+    public function __construct()
+    {
+        $this->breadcrumbs['name'][0] = 'Binary';
+        $this->breadcrumbs['route'][0] = 'Binary';
+    }
+
     /**
      * RETURN THE VIEW OF UNILEVEL TREE
      * @return $this
