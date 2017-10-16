@@ -28,6 +28,6 @@ class Transaction extends Model
 
     public function log()
     {
-        return $this->morphMany('App\Models\UserWalletLog', 'transaction');
+        return $this->morphMany(UserWalletLog::class, 'transaction');
     }
 }
