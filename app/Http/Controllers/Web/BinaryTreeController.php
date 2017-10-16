@@ -11,20 +11,34 @@ use Illuminate\Support\Facades\Auth;
 
 class BinaryTreeController extends Controller
 {
+    protected $breadcrumbs;
+
+    /**
+     * UsersController constructor.
+     *
+     * @internal param $User
+     */
+    public function __construct()
+    {
+        $this->breadcrumbs['name'][0] = 'Users';
+        $this->breadcrumbs['route'][0] = 'users';
+    }
+
     /**
      * RETURN THE VIEW OF BINARYTREE WHIT YOUR DATA
      * @return $this
      */
     public function index()
     {
-        $breadcrumbs[0]['name']='Binary';
+        $this->breadcrumbs['name'][1] = 'Binary';
+        $this->breadcrumbs['route'][1] = 'Binary';
 
         $product = Product::all();
 
         $uuid = User::where('id',4)->first();
 //        dd($uuid);
 
-        return view('trees.binary.index')->with(['breadcrumbs'=>$breadcrumbs])->with(['uuid'=>$uuid->uuid]);
+        return view('trees.binary.index')->with(['breadcrumbs'=>$this->breadcrumbs])->with(['uuid'=>$uuid->uuid]);
     }
 
     public function create()
