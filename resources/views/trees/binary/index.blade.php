@@ -84,7 +84,7 @@
                                 <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
                                     Close
                                 </button>
-                                <a id="add-route" href="{{ route('users.new') }}">
+                                <a id="add-route" href="{{ route('users.create') }}">
                                     <button type="button" class="btn btn-outline-primary">Continue</button>
                                 </a>
                             </div>
