@@ -54,6 +54,7 @@ class UsersControllers extends Controller
      */
     public function store(UserStoreRequest $request)
     {
+        dd($request->all());
         //VERIFICO SI YA EXISTE EL USUARIO
         if ($this->ifExist($request)) {
             $res['ok'] = 'user_exist';
