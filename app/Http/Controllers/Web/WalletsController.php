@@ -8,10 +8,13 @@ use App\Http\Controllers\Controller;
 class WalletsController extends Controller
 {
     protected $user;
+    protected $breadcrumbs;
 
     public function __construct()
     {
         $this->user = auth()->user();
+        $this->breadcrumbs['name'][0] = 'wallets';
+        $this->breadcrumbs['route'][0] = 'wallets';
     }
 
     /**
@@ -21,10 +24,8 @@ class WalletsController extends Controller
     public function index()
     {
 
-        $breadcrumbs[0]['name']='Wallets';
-        $breadcrumbs[0]['route']='wallets';
-        $breadcrumbs[1]['name']='summary';
-        $breadcrumbs[1]['route']='summary';
+        $breadcrumbs['name'][1]='summary';
+        $breadcrumbs['route'][1]='summary';
 
 
         return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
