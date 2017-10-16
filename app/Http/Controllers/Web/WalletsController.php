@@ -24,11 +24,11 @@ class WalletsController extends Controller
     public function index()
     {
 
-        $breadcrumbs['name'][1]='summary';
-        $breadcrumbs['route'][1]='summary';
+        $this->breadcrumbs['name'][1]='summary';
+        $this->breadcrumbs['route'][1]='summary';
 
 
-        return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
+        return view('wallet.index')->with(['breadcrumbs'=>$this->breadcrumbs]);
     }
 
     /**
