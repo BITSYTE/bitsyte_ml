@@ -30,8 +30,8 @@ class UnilevelTreeController extends Controller
      */
     public function index()
     {
-//        $breadcrumbs[0]['name']='Unilevel';
-//        $breadcrumbs[0]['route']='unileveltree';
+        $this->breadcrumbs['name'][1] = 'Unilevel';
+        $this->breadcrumbs['route'][1] = 'Unilevel';
         /*$breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';*/
 
