@@ -9,12 +9,12 @@
 namespace App\Observers;
 
 
-use App\Jobs\CreateUserWalletJob;
+use App\Jobs\CreateUserWalletFromWalletJob;
 use App\Models\Wallet;
 
 class WalletObserver
 {
     public function created(Wallet $wallet){
-        CreateUserWalletJob::dispatch($wallet);
+        CreateUserWalletFromWalletJob::dispatch($wallet);
     }
 }

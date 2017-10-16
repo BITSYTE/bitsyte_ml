@@ -26,12 +26,11 @@ class UserStoreRequest extends FormRequest
         return [
             'first_name'    =>  'required',
             'last_name'     =>  'required',
-            'username'      =>  'required',
+            'username'      =>  'required|unique:users,username|regex:/(^[A-Za-z0-9 ]+$)+/',
             'birthday'      =>  'required',
             'email'         =>  'required|email',
-            'password'      =>  'required',
-            'confirm_password' => 'required|same:password',
-            'product_id'    =>  'required'
+            'password'      =>  'required|confirmed',
+            'product_id'    =>  'required|exists:products,id'
 
         ];
     }

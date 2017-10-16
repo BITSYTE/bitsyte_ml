@@ -5,8 +5,39 @@ use Illuminate\Database\Eloquent\Model;
 use Kalnoy\Nestedset\NodeTrait;
 
 /**
-* BinaryTree
-*/
+ * BinaryTree
+ *
+ * @property int $id
+ * @property int $_lft
+ * @property int $_rgt
+ * @property int|null $parent_id
+ * @property int|null $user_id
+ * @property int|null $product_id
+ * @property int $side
+ * @property string $status
+ * @property int $volume_lft
+ * @property int $volume_rgt
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Kalnoy\Nestedset\Collection|\App\Models\BinaryTree[] $children
+ * @property-read \App\Models\BinaryTree|null $parent
+ * @property-read \App\Models\Product|null $product
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree d()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereLft($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereRgt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereSide($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereVolumeLft($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BinaryTree whereVolumeRgt($value)
+ * @mixin \Eloquent
+ */
 class BinaryTree extends Model {
 
     use NodeTrait;

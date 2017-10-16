@@ -129,10 +129,13 @@ class BinaryTree {
 
     fillOut(users) {
         let nodes = this._posiciones2;
-
+        users = users['tree'];
+        console.log(users);
         console.log("nodes");
         console.log(nodes);
         for (let k in users) {
+            console.log(k);
+            console.log(users[k]);
             let asdpos = users[k]["position"][0] + "," + users[k]["position"][1];
             // console.log(asdpos);
             // console.log("nodes entre");

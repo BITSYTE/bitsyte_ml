@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Product;
 use App\Models\BinaryTree;
+use App\Observers\UserObserver;
 use App\Observers\UuidObserver;
 use App\Observers\WalletObserver;
 use Illuminate\Support\Facades\Event;
@@ -45,8 +46,9 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
         $this->registerUuidObservers();
         $this->registerBinaryTreeObservers();
-        $this->registerWalletObservers();
 
+        User::observe(UserObserver::class);
+        Wallet::observe(WalletObserver::class);
     }
 
     public function registerUuidObservers()
@@ -54,14 +56,6 @@ class EventServiceProvider extends ServiceProvider
         collect($this->models)->except('binary')->each(function($model) {
             /** @var \Illuminate\Database\Eloquent\Model $model */
             $model::observe(app(UuidObserver::class));
-        });
-    }
-
-    public function registerWalletObservers()
-    {
-        collect($this->models)->only('wallet')->each(function($model){
-            /** @var \Illuminate\Database\Eloquent\Model $model */
-            $model::observe(app(WalletObserver::class));
         });
     }
 

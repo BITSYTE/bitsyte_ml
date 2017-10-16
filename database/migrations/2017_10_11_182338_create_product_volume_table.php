@@ -18,6 +18,9 @@ class CreateProductVolumeTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('volume_id');
             $table->timestamps();
+
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('volume_id')->references('id')->on('volumes');
         });
     }
 
