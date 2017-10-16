@@ -371,10 +371,6 @@
             console.log(slide);
             let url = "{{ route('users.store') }}";
             console.log(url);
-            toastr.info('yoour pay was exito.', 'user pay!', {
-                positionClass: 'toast-top-center', containerId: 'toast-top-center',
-                "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 8000
-            });
             $("#newuser").submit();
 
         });
@@ -393,19 +389,42 @@
                 success: function (data, textStatus, jqXHR) {
                     console.log(data);
                     let result = JSON.parse(data);
+                    console.log("respuesta");
                     console.log(result);
                     if (result.ok === "ok") {
                         console.log("bien");
                         $("a[href='#previous']").hide();
-                        $("#alertS").show();
+//                        $("#alertS").show();
+                        toastr.info('yoour pay was exito.', 'user pay!', {
+                            positionClass: 'toast-top-center', containerId: 'toast-top-center',
+                            "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 8000
+                        });
                     } else {
                         console.log("error");
-                        $("#alertE").show();
+                        console.log(result);
+//                        $("#alertE").show();
+                        toastr.error('error.', 'error pay!', {
+                            positionClass: 'toast-top-center', containerId: 'toast-top-center',
+                            "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 8000
+                        });
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.log("error");
-                    alert("error try letter");
+                    console.log("error error");
+                    console.log(jqXHR);
+                    let result =jqXHR.responseJSON;
+                    console.log(result);
+                    /*result.map(function (item) {
+                        console.log(item);
+                    });*/
+
+                    for (let k in result) {
+                        let ms = result[k];
+                        toastr.error( ms, k, {
+                            positionClass: 'toast-top-center', containerId: 'toast-top-center',
+                            "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 0
+                        });
+                    }
                 }
             });
         });
