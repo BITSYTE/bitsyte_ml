@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Product;
+use App\Models\UnilevelTree;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,59 +31,59 @@ class UnilevelTreeController extends Controller
         $user = factory(User::class)->create();
         $product = factory(Product::class)->create();
 
-        $root = BinaryTree::create();
+        $root = UnilevelTree::create();
 
-        $user->binaryNode()->save($root);
-        $product->binaryNode()->save($root);
+        $user->unilevelNode()->save($root);
+        $product->unilevelNode()->save($root);
 
         $user = factory(User::class)->create();
 
-        $node1 = BinaryTree::create();
+        $node1 = UnilevelTree::create();
         $node1->appendToNode($root);
 
-        $user->binaryNode()->save($node1);
+        $user->unilevelNode()->save($node1);
 
         $user = factory(User::class)->create();
 
-        $node2 = BinaryTree::create();
+        $node2 = UnilevelTree::create();
         $node2->appendToNode($root);
 
-        $user->binaryNode()->save($node2);
+        $user->unilevelNode()->save($node2);
 
         $user = factory(User::class)->create();
 
-        $node3 = BinaryTree::create();
-        $node3->appendToNode($node1);
+        $node3 = UnilevelTree::create();
+        $node3->appendToNode($root);
 
-        $user->binaryNode()->save($node3);
-
-        $user = factory(User::class)->create();
-
-        $node4 = BinaryTree::create();
-        $node4->appendToNode($node1);
-
-        $user->binaryNode()->save($node4);
+        $user->unilevelNode()->save($node3);
 
         $user = factory(User::class)->create();
 
-        $node5 = BinaryTree::create();
-        $node5->appendToNode($node2);
+        $node4 = UnilevelTree::create();
+        $node4->appendToNode($root);
 
-        $user->binaryNode()->save($node5);
-
-        $user = factory(User::class)->create();
-
-        $node6 = BinaryTree::create();
-        $node6->appendToNode($node2);
-
-        $user->binaryNode()->save($node6);
+        $user->unilevelNode()->save($node4);
 
         $user = factory(User::class)->create();
 
-        $node7 = BinaryTree::create();
-        $node7->appendToNode($node6);
+        $node5 = UnilevelTree::create();
+        $node5->appendToNode($root);
 
-        $user->binaryNode()->save($node7);
+        $user->unilevelNode()->save($node5);
+
+        $user = factory(User::class)->create();
+
+        $node6 = UnilevelTree::create();
+        $node6->appendToNode($root);
+
+        $user->unilevelNode()->save($node6);
+
+        $user = factory(User::class)->create();
+
+        $node7 = UnilevelTree::create();
+        $node7->appendToNode($root);
+
+        $user->unilevelNode()->save($node7);
     }
 
 }

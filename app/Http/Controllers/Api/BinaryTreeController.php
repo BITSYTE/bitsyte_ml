@@ -11,11 +11,12 @@ class BinaryTreeController extends Controller
 {
     public function treeJson(User $user)
     {
+
         $node = $user->binaryNode()->first();
 
         $nodes = $node->withDepth()->having('depth', '<=', 3)->with('user', 'product')->get()->toTree()->toArray();
 
-        $array = [];
+        $array = array_fill(0,15, null);
 
         function fix_position($node, $position) {
 
@@ -58,6 +59,11 @@ class BinaryTreeController extends Controller
             return $array;
         }
 
-        return response()->json(['tree' => transverse($nodes, $array)]);
+        return response()->json(['tree' => transverse1($nodes, $array)]);
+    }
+
+    public function create(Request $request)
+    {
+
     }
 }
