@@ -44,6 +44,7 @@ class UsersControllers extends Controller
                 'breadcrumbs' => $this->breadcrumbs,
                 'products' => $products,
                 'wallets' => $user->wallets,
+                'user' => $user,
             ]);
     }
 

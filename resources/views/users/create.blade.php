@@ -60,8 +60,9 @@
                                                                                id="input-radio-{{$product->id}}"
                                                                                data="{{$product->name."-".$product->price}}"
                                                                                value="{{$product->id}}">
-                                                                        <label id="name-{{$product->id}}"  for="input-radio-{{$product->id}}">{{$product->name}}</label>
-                                                                        <p >price: {{$product->price}}</p>
+                                                                        <label id="name-{{$product->id}}"
+                                                                               for="input-radio-{{$product->id}}">{{$product->name}}</label>
+                                                                        <p>price: {{$product->price}}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -207,13 +208,15 @@
                                     <div class="row">
                                         <div class="form-group col-md-2">
                                             <div class="">
-                                                <img id="img-resumen" src="{!!   asset('backoffice/images')."/".$products[0]['name'].".png" !!}">
+                                                <img id="img-resumen"
+                                                     src="{!!   asset('backoffice/images')."/".$products[0]['name'].".png" !!}">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-5">
                                             <div><label for="userinput5"><b>Product Name:</b></label></div>
-                                            <div><label id="label-resumen" ></label></div>
-                                            <div><label id="price-resumen"><b>Price:</b>{{$products[0]['price']}}</label>
+                                            <div><label id="label-resumen"></label></div>
+                                            <div><label id="price-resumen"><b>Price:</b>{{$products[0]['price']}}
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-5">
@@ -225,11 +228,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <select id="projectinput5" name="interested" class="form-control"
+                                                <select id="wallets" name="wallets" class="form-control"
                                                         style="margin-top: 25px">
-                                                    <option value="none" selected="" disabled="">select a wallet</option>
+                                                    <option value="none" selected="" disabled="">select a wallet
+                                                    </option>
                                                     @foreach($wallets as $wallet)
-                                                        <option value="design">{{ "name".$wallet->name."-balance".$wallet->balance }}</option>
+                                                        <option value="{{$wallet->uuid}}">{{ "name".$wallet->name."-balance".$wallet->balance }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -300,6 +304,10 @@
         //Four Column Slider
         const tree = "{{ route('trees.binary') }}";
         const home = "{{ route('home') }}";
+        let user_uuid = "{{ $user->uuid }}";
+        let product_uuid = "";
+        let product_precio = "";
+
         var owl = $('#owl-carousel');
         owl.owlCarousel({
             loop: false,
@@ -343,7 +351,7 @@
 
         function seleccionar(num) {
             $('#radio' + num).find(".iCheck-helper").trigger("click");
-            var data =$('#input-radio-' + num).attr("data");
+            var data = $('#input-radio-' + num).attr("data");
             console.log(data);
             ponerprecio(data);
             /*var price =$('#input-radio-' + num).attr("price");
@@ -354,10 +362,12 @@
             console.log(data);
             let b = data.split('-');
             console.log(b);
+            product_uuid = b[0];
+            product_precio = b[1];
 
-            $('#img-resumen').attr('src', '{{ asset('backoffice/images') }}'+'/'+b[0]+'.png');
+            $('#img-resumen').attr('src', '{{ asset('backoffice/images') }}' + '/' + b[0] + '.png');
             $('#label-resumen').text(b[0]);
-            $('#price-resumen').text('Price: '+ b[1]);
+            $('#price-resumen').text('Price: ' + b[1]);
         }
 
         $("#submit").on("click", function () {
@@ -373,9 +383,20 @@
 
         });
 
+        let wallet = $( "#wallets option:selected" ).text();
+        console.log("wallet");
+        console.log(wallet);
         $("#newuser").submit(function (e) {
             console.log("entro");
             var postData = $(this).serializeArray();
+            console.log(postData);
+            postData.push({payment : {
+                user_id : user_uuid,
+                product_id : product_uuid,
+                type : 'wallet',
+                amount : product_precio,
+                wallet : wallet,
+            }});
             var formURL = $(this).attr("action");
             console.log(formURL);
             $.ajax({
@@ -401,6 +422,7 @@
                 }
             });
         });
+
 
         function submit() {
             console.log("entro");
