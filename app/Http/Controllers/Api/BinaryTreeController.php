@@ -16,7 +16,7 @@ class BinaryTreeController extends Controller
 
         $nodes = $node->withDepth()->having('depth', '<=', 3)->with('user', 'product')->get()->toTree()->toArray();
 
-        $array = array_fill(0,15, null);
+        //$array = array_fill(0,15, null);
 
         function fix_position($node, $position) {
 
