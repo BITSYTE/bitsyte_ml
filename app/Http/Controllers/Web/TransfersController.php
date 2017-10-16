@@ -19,10 +19,11 @@ class TransfersController extends Controller
     {
         $this->breadcrumbs['name'][1]='transfer';
         $this->breadcrumbs['route'][1]='transfer';
-        /*$breadcrumbs[1]['name']='summary';
-        $breadcrumbs[1]['route']='summary';*/
 
-        return view('transfers.index')->with(['breadcrumbs'=>$this->breadcrumbs]);
+        return view('transfers.index')->with([
+            'name' => 'Transfers',
+            'breadcrumbs'=>$this->breadcrumbs
+        ]);
 
     }
 }
