@@ -18,6 +18,8 @@ class BinaryTreeController extends Controller
 
         //$array = array_fill(0,15, null);
 
+        $array = [];
+
         function fix_position($node, $position) {
 
             if ($node['depth'] == 0) {
