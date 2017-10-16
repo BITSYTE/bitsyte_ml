@@ -17,12 +17,15 @@ class TransfersController extends Controller
 
     public function index()
     {
-        $this->breadcrumbs['name'][1]='transfer';
-        $this->breadcrumbs['route'][1]='transfer';
+        $user = auth()->user();
+
+        $this->breadcrumbs['name'][1] = 'transfer';
+        $this->breadcrumbs['route'][1] = 'transfer';
 
         return view('transfers.index')->with([
             'name' => 'Transfers',
-            'breadcrumbs'=>$this->breadcrumbs
+            'wallets' => $user->wallets,
+            'breadcrumbs' => $this->breadcrumbs,
         ]);
 
     }
