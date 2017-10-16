@@ -8,10 +8,13 @@ use App\Http\Controllers\Controller;
 class WalletsController extends Controller
 {
     protected $user;
+    protected $breadcrumbs;
 
     public function __construct()
     {
         $this->user = auth()->user();
+        $this->breadcrumbs['name'][0] = 'wallets';
+        $this->breadcrumbs['route'][0] = 'wallets';
     }
 
     /**
@@ -21,13 +24,11 @@ class WalletsController extends Controller
     public function index()
     {
 
-        $breadcrumbs[0]['name']='Wallets';
-        $breadcrumbs[0]['route']='wallets';
-        $breadcrumbs[1]['name']='summary';
-        $breadcrumbs[1]['route']='summary';
+        $this->breadcrumbs['name'][1]='summary';
+        $this->breadcrumbs['route'][1]='summary';
 
 
-        return view('wallet.index')->with(['breadcrumbs'=>$breadcrumbs]);
+        return view('wallet.index')->with(['breadcrumbs'=>$this->breadcrumbs]);
     }
 
     /**
@@ -38,12 +39,12 @@ class WalletsController extends Controller
      */
     public function show($name)
     {
-        $breadcrumbs[0]['name']='wallets';
-        $breadcrumbs[0]['route']='wallets';
-        $breadcrumbs[1]['name']='Details';
+        $this->breadcrumbs['name'][1]='Details';
+        $this->breadcrumbs['route'][1]='Details';
 
 
-        return view('wallet.show')->with(['breadcrumbs'=>$breadcrumbs,'name'=>$name]);
+
+        return view('wallet.show')->with(['breadcrumbs'=>$this->breadcrumbs,'name'=>$name]);
     }
 
 
