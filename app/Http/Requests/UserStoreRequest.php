@@ -30,7 +30,7 @@ class UserStoreRequest extends FormRequest
             'birthday'      =>  'required',
             'email'         =>  'required|email',
             'password'      =>  'required|min:6|confirmed',
-            'product_id'    =>  'required|exists:products,id'
+            'product_id'    =>  'required|exists:products,uuid'
 
         ];
     }

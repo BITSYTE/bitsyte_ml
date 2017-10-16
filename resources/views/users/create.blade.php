@@ -59,7 +59,7 @@
                                                                         <input type="radio" name="product_id"
                                                                                id="input-radio-{{$product->id}}"
                                                                                data="{{$product->name."-".$product->price}}"
-                                                                               value="{{$product->id}}">
+                                                                               value="{{$product->uuid}}">
                                                                         <label id="name-{{$product->id}}"
                                                                                for="input-radio-{{$product->id}}">{{$product->name}}</label>
                                                                         <p>price: {{$product->price}}</p>
@@ -214,9 +214,10 @@
                                         </div>
                                         <div class="form-group col-md-5">
                                             <div><label for="userinput5"><b>Product Name:</b></label></div>
-                                            <div><label id="label-resumen"></label></div>
-                                            <div><label id="price-resumen"><b>Price:</b>{{$products[0]['price']}}
-                                                </label>
+                                            <div><label id="label-resumen"><b>Product Name:</b></label></div>
+                                            <div><b>Price:</b>
+                                                <span class="input-group-addon" style="width: 20px">$ <label id="price-resumen"></label></span>
+
                                             </div>
                                         </div>
                                         <div class="form-group col-md-5">
@@ -228,12 +229,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <select id="wallets" name="wallets" class="form-control"
+                                                <select id="wallets" name="wallet" class="form-control"
                                                         style="margin-top: 25px">
                                                     <option value="none" selected="" disabled="">select a wallet
                                                     </option>
                                                     @foreach($wallets as $wallet)
-                                                        <option value="{{$wallet->uuid}}">{{ "name".$wallet->name."-balance".$wallet->balance }}</option>
+                                                        <option value="{{$wallet->uuid}}">{{ "name".$wallet->name."-$".$wallet->balance }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -247,7 +248,9 @@
                                                    type="button" value="Pay now">
                                         </div>
                                     </div>
-
+                                    <input type="hidden" name="payment-user_id" value="{{ $user->uuid }}">
+                                    <input type="hidden" name="type" value="wallet">
+                                    <input id="amount" type="hidden" name="amount" value="0">
 
                                 </fieldset>
 
@@ -261,7 +264,6 @@
                                             Thank you for signing up
                                         </p>
                                     </div>
-
                                 </fieldset>
 
                             </form>
@@ -280,10 +282,7 @@
 
     <script src="{{ asset('backoffice/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')}}"
             type="text/javascript"></script>
-    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}" type="text/javascript"></script>--}}
 
-    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>--}}
-    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/icheck/icheck.min.js')}}" type="text/javascript"></script>--}}
     <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/jquery.steps.min.js') }}"
             type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/vendors/js/pickers/daterange/daterangepicker.js') }}"
@@ -293,8 +292,7 @@
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/wizard-steps.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}"
             type="text/javascript"></script>
-    {{--<script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>--}}
-    <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/toastr.min.js') }}"
+        <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/toastr.min.js') }}"
             type="text/javascript"></script>
 
 
@@ -304,7 +302,6 @@
         //Four Column Slider
         const tree = "{{ route('trees.binary') }}";
         const home = "{{ route('home') }}";
-        let user_uuid = "{{ $user->uuid }}";
         let product_uuid = "";
         let product_precio = "";
 
@@ -354,8 +351,6 @@
             var data = $('#input-radio-' + num).attr("data");
             console.log(data);
             ponerprecio(data);
-            /*var price =$('#input-radio-' + num).attr("price");
-            console.log(price);*/
         }
 
         function ponerprecio(data) {
@@ -367,7 +362,8 @@
 
             $('#img-resumen').attr('src', '{{ asset('backoffice/images') }}' + '/' + b[0] + '.png');
             $('#label-resumen').text(b[0]);
-            $('#price-resumen').text('Price: ' + b[1]);
+            $('#price-resumen').text(b[1]);
+            $('#amount').val(b[1]);
         }
 
         $("#submit").on("click", function () {
@@ -383,20 +379,11 @@
 
         });
 
-        let wallet = $( "#wallets option:selected" ).text();
-        console.log("wallet");
-        console.log(wallet);
+        //form
         $("#newuser").submit(function (e) {
             console.log("entro");
             var postData = $(this).serializeArray();
             console.log(postData);
-            postData.push({payment : {
-                user_id : user_uuid,
-                product_id : product_uuid,
-                type : 'wallet',
-                amount : product_precio,
-                wallet : wallet,
-            }});
             var formURL = $(this).attr("action");
             console.log(formURL);
             $.ajax({
