@@ -29,7 +29,7 @@ class UserStoreRequest extends FormRequest
             'username'      =>  'required|unique:users,username|regex:/(^[A-Za-z0-9 ]+$)+/',
             'birthday'      =>  'required',
             'email'         =>  'required|email',
-            'password'      =>  'required|confirmed',
+            'password'      =>  'required|min:6|confirmed',
             'product_id'    =>  'required|exists:products,id'
 
         ];
