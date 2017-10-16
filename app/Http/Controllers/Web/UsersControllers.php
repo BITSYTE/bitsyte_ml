@@ -2,43 +2,24 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Requests\UserStoreRequest;
-use App\Models\Product;
+use App\Jobs\CreateUnilevelJob;
 use App\Models\User;
+use App\Models\Product;
+use App\Http\Requests\UserStoreRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use DB;
 use Illuminate\Support\Facades\Input;
+
 
 class UsersControllers extends Controller
 {
-
-    /**
-     * @var User model
-     */
-    protected $user;
-
-    /**
-     * @var Product model
-     */
-    protected $product;
-
-    /**
-     * @var array ERRORS
-     */
-    public $errors = [];
-
     /**
      * UsersController constructor.
      *
-     * @param \App\Models\User $user
-     * @param \App\Models\Product $product
-     *
      * @internal param $User
      */
-    public function __construct(User $user, Product $product)
+    public function __construct()
     {
-        $this->user = $user;
-        $this->product = $product;
 
     }
 
@@ -71,24 +52,23 @@ class UsersControllers extends Controller
     {
         //VERIFICO SI YA EXISTE EL USUARIO
         if ($this->ifExist($request)) {
-            $res["ok"] = 'user_exist';
-            $res["errors"] = $this->errors;
+            $res['ok'] = 'user_exist';
+            $res['errors'] = $this->errors;
             $json = json_encode($res);
             return response("$json", 201);
         } else {
             try {
                 DB::beginTransaction();
-                $product = $this->product->find($request->input('product_id'));
-                $user = $this->user->fill($request->only(['first_name', 'last_name', 'birthday', 'password', 'email', 'username']));
-                $user->status = "pending";
+                $user = User::create($request->only(['first_name', 'last_name', 'birthday', 'password', 'email', 'username', 'product_id']));
+                $user->status = 'active';
                 $user->save();
-                $product->users()->save($user);
-
                 DB::commit();
 
-                $res["ok"] = "ok";
+                CreateUnilevelJob::dispatch($user, auth()->user());
+
+                $res['ok'] = 'ok';
                 $json = json_encode($res);
-                return response("$json", 201);
+                return response($json, 201);
 
             } catch (\Exception $e) {
                 return redirect()
