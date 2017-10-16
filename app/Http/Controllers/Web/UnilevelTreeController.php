@@ -20,8 +20,8 @@ class UnilevelTreeController extends Controller
      */
     public function __construct()
     {
-        $this->breadcrumbs['name'][0] = 'Binary';
-        $this->breadcrumbs['route'][0] = 'Binary';
+        $this->breadcrumbs['name'][0] = 'Unilevel';
+        $this->breadcrumbs['route'][0] = 'Unilevel';
     }
 
     /**
@@ -30,7 +30,7 @@ class UnilevelTreeController extends Controller
      */
     public function index()
     {
-        $breadcrumbs[0]['name']='Unilevel';
+//        $breadcrumbs[0]['name']='Unilevel';
 //        $breadcrumbs[0]['route']='unileveltree';
         /*$breadcrumbs[1]['name']='summary';
         $breadcrumbs[1]['route']='summary';*/
