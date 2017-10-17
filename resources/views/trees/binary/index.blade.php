@@ -7,7 +7,7 @@
 @section('content')
     <div class="row match-height">
         <div class="card-header col-xs-1 col-sm-1 col-md-12 col-lg-12 col-xl-12" style="padding: 6px!important;">
-            {{--<div class=" col-xs-12 col-sm-12 ">--}}
+
             <div class="canvas-wrapper">
                 <div class="navTree">
                     <div class="navTree-child">
@@ -28,89 +28,13 @@
                     Tu navegador no soporta el canvas de HTML5
                 </canvas>
             </div>
-            {{--</div>--}}
 
-            <div>
-                <button style="display: none" id="add" type="button" class=""
-                        data-toggle="modal" data-show="false" data-target="#show-add">
-                    Launch Modal
-                </button>
+        </div>
 
-                <!-- Modal -->
-                <div class="modal fade text-xs-left" id="show-add" tabindex="-1" role="dialog"
-                     aria-labelledby="myModalLabel5" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 class="modal-title" id="myModalLabel5">Add User</h4>
-                            </div>
-                            <div id="modal-body-add" class="modal-body">
-                                <span>Nota:</span>
-                                <p>
-                                    To add a user. you have to first register it.<br>
-                                    Click in continue register.
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
-                                    Close
-                                </button>
-                                <a id="add-route" href="{{ route('users.create') }}">
-                                    <button type="button" class="btn btn-outline-primary">Continue</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <button style="display: none" id="modal-user" type="button" class="btn btn-outline-success block btn-lg" data-toggle="modal"
-                        data-target="#defaultSize">
-                    Launch Modal
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade text-xs-left" id="defaultSize" tabindex="-1" role="dialog"
-                     aria-labelledby="myModalLabel18" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 class="modal-title" id="myModalLabel18"><i class="fa fa-tree"></i> Binary Tree</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="col-md-12">
-                                    <div class="col-md-4">
-                                        {{--<label for="userinput5">Account Bitcoin</label>--}}
-                                        <img src="http://localhost:8002/backoffice/images/Package Silver.png" class="">
-                                    </div>
-                                    <div class=" col-md-8">
-                                        <div><label for="userinput1"><b>Product Name:</b></label></div>
-                                        <div><label for="userinput2"></label>asdasd</div>
-                                        <p><label for="userinput3"><b>Price:</b></label>500000</p>
-                                    </div>
-                                </div>
-                                <p>Registered since : 27/08/94</p>
-                                <p>Volume Left : 100</p>
-                                <p>Volume Right : 100</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">
-                                    Close
-                                </button>
-                                <button id="view-tree" type="button" class="btn btn-outline-primary">view tree</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Modal -->
+        <div id="modals">
+            @include('trees.partial.infoUser')
+            @include('trees.partial.addUser')
         </div>
         {{--{{ Auth::user()->first_name }}--}}
         @endsection
@@ -120,7 +44,7 @@
             <script type="text/javascript" src="{{ asset('backoffice/assets/js/treeNode.js') }}"></script>
             <script type="text/javascript" src="{{ asset('backoffice/assets/js/trees/functions.js') }}"></script>
             <script>
-                /*var users = [
+                var users = [
                     {"username": "schmitt.lourdes", "type": "user", "position": [0, 1, 1]},
                     {"username": "jbeier", "type": "user", "position": [1, 1, 1]},
                     {"username": "rankunding", "type": "user", "position": [1, 2, 2]},
@@ -129,7 +53,7 @@
                     {"username": "pbechtelar", "type": "user", "position": [2, 3, 1]},
                     {"username": "witting.jazmyn", "type": "user", "position": [3, 5, 1]},
                     {"username": "gnader", "type": "user", "position": [3, 1, 2]}
-                ];*/
+                ];
                 {{--var users = {!! $users !!};--}}
                 /*var binary = [];
 
@@ -168,18 +92,19 @@
                     {"username": "asd", "paquete": "gold", "type": "user", "position": "1,1"},
                     {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
                     {"username": "jose2", "paquete": "gold", "type": "user", "position": "2,2"},
-                    {"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
+                    /*{"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
                     {"username": "jose4", "paquete": "gold", "type": "add", "position": "3,2"},
                     {"username": "jose5", "paquete": "gold", "type": "add", "position": "3,3"},
                     {"username": "jose6", "paquete": "gold", "type": "user", "position": "3,4"},
                     {"username": "jose7", "paquete": "gold", "type": "user", "position": "4,1"},
                     {"username": "jose8", "paquete": "plate", "type": "user", "position": "4,2"},
                     {"username": "jose13", "paquete": "gold", "type": "add", "position": "4,7"},
-                    {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
+                    {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}*/
                 ];
 
                 $(document).ready(function () {
                     console.log("ready!");
+                    /*
                     var res;
 
                     function getNodesTree(csr, uuid) {
@@ -203,7 +128,7 @@
                         return res;
                     }
 
-                    var users = getNodesTree(csr, user);
+                    var users = getNodesTree(csr, user);*/
                     console.log("users");
                     console.log(users);
 
@@ -254,7 +179,7 @@
                                 console.log(item);
                                 // console.log($("#boton").click());
                                 if (item._type === "add") {
-                                    alert("add");
+//                                    alert("add");
 //                                    let users;
 //                                    $.ajax({
 //                                        method: "POST",
@@ -265,39 +190,38 @@
 //                                            let route = "";
 //                                            let users = JSON.parse(result);
                                     console.log(users);
-                                    if (users.length === 0) {
+                                    if (json2.length === 0) {
                                         console.log("vacio");
-                                        $("#modal-body-add").html();
-                                        $("#add-route").html();
-                                        campos = "<span>Nota:</span>\n" +
-                                            "                                <p>\n" +
-                                            "                                    To add a user. you have to first register it.<br>\n" +
-                                            "                                    Click in continue .\n" +
-                                            "                                </p>";
-                                        $("#modal-body-add").html(campos);
-                                        $("#add-route").html(route);
-                                        // $('#add').trigger("click")
-                                    } else if (users.length === 1) {
+                                        $("#add1").show();
+                                        $("#add2").hide();
+                                        $("#add3").hide();
+
+                                        $('#modal-add').trigger("click")
+                                    } else if (json2.length === 1) {
                                         console.log("uno");
-                                        $("#modal-body-add").html();
-                                        campos = "<span>Nota:</span>\n" +
-                                            "                                <p>\n" +
-                                            "                                    confirm that you want to add the user: <strong>" + users[0].username + "</strong>  here.<br>\n" +
-                                            "                                    Click in continue .\n" +
-                                            "                                </p>";
-                                        $("#modal-body-add").html(campos);
-                                        // $('#add').trigger("click")
+//                                        $("#modal-body-add").html();
+                                        user = "user prueba";
+
+//                                        $("#user-name-add").text();
+                                        $("#user-name-add").text(user);
+                                        $("#add1").hide();
+                                        $("#add2").show();
+                                        $("#add3").hide();
+                                         $('#modal-add').trigger("click")
                                     } else {
                                         console.log("lleno");
                                         $("#modal-body-add").html();
-                                        campos = "<div class=\"list-group\">";
-                                        for (let k in users) {
+                                        campos = "";
+                                        for (let k in json2) {
                                             console.log(k + "users =" + users[k].username);
                                             campos += "<a href=\"#\" class=\"list-group-item list-group-item-action\">" + users[k].username + "</a>"
                                         }
-                                        campos += "</div>";
-                                        $("#modal-body-add").html(campos);
-                                        $('#add').trigger("click")
+                                        $("#add1").hide();
+                                        $("#add2").hide();
+                                        $("#add3").show();
+                                        $("#add3-list").html();
+                                        $("#add3-list").html(campos);
+                                        $('#modal-add').trigger("click")
                                     }
 //                                        },
 //                                        error: function (httpReq, status, exception) {
@@ -308,7 +232,7 @@
 //                                            $("#modal-body-add").html(campos);
 //                                        }
 //                                    });
-                                    $('#add').trigger("click")
+
                                 } else if (item._type === "user") {
                                     $('#modal-user').click();
                                     /*$.ajax({
@@ -345,7 +269,7 @@
                                         console.log(status + "-" + exception);
                                     }
                                 });*/
-                                    alert("user");
+
                                 } else {
                                     alert("cargar siguiente arbol");
                                 }
