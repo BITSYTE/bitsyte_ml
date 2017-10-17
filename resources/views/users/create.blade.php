@@ -3,14 +3,20 @@
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/switch.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/wizard.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/toastr.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/extensions/toastr.css') }}">
 @endsection
 
 @section('breadcrumbs')
@@ -216,7 +222,8 @@
                                             <div><label for="userinput5"><b>Product Name:</b></label></div>
                                             <div><label id="label-resumen"><b>Product Name:</b></label></div>
                                             <div><b>Price:</b>
-                                                <span class="input-group-addon" style="width: 20px">$ <label id="price-resumen"></label></span>
+                                                <span class="input-group-addon" style="width: 20px">$ <label
+                                                            id="price-resumen"></label></span>
 
                                             </div>
                                         </div>
@@ -248,9 +255,9 @@
                                                    type="button" value="Pay now">
                                         </div>
                                     </div>
-                                    <input type="hidden" name="payment-user_id" value="{{ $user->uuid }}">
-                                    <input type="hidden" name="type" value="wallet">
-                                    <input id="amount" type="hidden" name="amount" value="0">
+                                    <input type="hidden" name="payment[uuid]" value="{{ $user->uuid }}">
+                                    <input type="hidden" name="payment[type]" value="wallet">
+                                    <input type="hidden" name="payment[amount]" value="0" id="amount"   >
 
                                 </fieldset>
 
@@ -292,11 +299,8 @@
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/wizard-steps.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}"
             type="text/javascript"></script>
-        <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/toastr.min.js') }}"
+    <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/toastr.min.js') }}"
             type="text/javascript"></script>
-
-
-
 
     <script>
         //Four Column Slider
@@ -412,7 +416,7 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log("error error");
                     console.log(jqXHR);
-                    let result =jqXHR.responseJSON;
+                    let result = jqXHR.responseJSON;
                     console.log(result);
                     /*result.map(function (item) {
                         console.log(item);
@@ -420,7 +424,7 @@
 
                     for (let k in result) {
                         let ms = result[k];
-                        toastr.error( ms, k, {
+                        toastr.error(ms, k, {
                             positionClass: 'toast-top-center', containerId: 'toast-top-center',
                             "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 0
                         });

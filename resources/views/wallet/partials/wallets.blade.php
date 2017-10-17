@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="card-body px-1">
-        <div id="recent-buyers" class="list-group height-300 position-relative">
+        <div id="recent-buyers" class="list-group position-relative">
             @foreach($wallets as $wallet)
                 <a href="{{ route('wallets.show', ['uuid' => $wallet->uuid]) }}"
                    class="list-group-item list-group-item-action media no-border ">

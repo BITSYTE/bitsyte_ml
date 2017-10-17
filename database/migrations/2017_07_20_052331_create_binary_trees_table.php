@@ -30,7 +30,6 @@ class CreateBinaryTreesTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            //$table->foreign('parent_id')->references('id')->on('users');
             $table->foreign('product_id')->references('id')->on('products');
         });
     }

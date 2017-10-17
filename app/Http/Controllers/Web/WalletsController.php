@@ -48,6 +48,10 @@ class WalletsController extends Controller
         $this->user = auth()->user();
         $wallet = $this->user->wallets()->whereUuid($uuid)->first();
 
+        if (!$wallet) {
+            return redirect()->route('wallets.index');
+        }
+
         return view('wallet.show')->with([
             'breadcrumbs' => $this->breadcrumbs,
             'name' => $wallet->name,
