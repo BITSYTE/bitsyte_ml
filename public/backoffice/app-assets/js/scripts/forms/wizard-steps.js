@@ -82,8 +82,8 @@ wiz.steps({
         // onFinishing: function (event, currentIndex) { return true; },
         // onFinished: function (event, currentIndex) { },
     onStepChanged: function (event, currentIndex, priorIndex) {
-        console.log("cambio");
-        console.log(this.$);
+        /*console.log("cambio");
+        console.log(this.$);*/
         if (currentIndex === 3 )
         {
             console.log(currentIndex);
@@ -99,7 +99,7 @@ wiz.steps({
 
     onStepChanging: function (event, currentIndex, newIndex)
     {
-        console.log("cambiando");
+        // console.log("cambiando");
         // Allways allow previous action even if the current form is not valid!
         if (currentIndex > newIndex)
         {

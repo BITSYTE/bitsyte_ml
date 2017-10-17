@@ -241,7 +241,7 @@
                                                     <option value="none" selected="" disabled="">select a wallet
                                                     </option>
                                                     @foreach($wallets as $wallet)
-                                                        <option value="{{$wallet->uuid}}">{{ "name".$wallet->name."-$".$wallet->balance }}</option>
+                                                        <option  data="{{$wallet['pivot']->balance}}" value="{{$wallet->uuid}}">{{ $wallet->name." -  $".$wallet['pivot']->balance }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -251,8 +251,11 @@
 
                                     <div class="col-md-12">
                                         <div class="col-md-2" style="margin-left: 40%;">
+                                            <label for="userinput5">Select a wallet with balance
+                                                <span class="required">*</span>
+                                            </label>
                                             <input id="submit" class="btn btn-primary btn-min-width mr-1 mb-1"
-                                                   type="button" value="Pay now">
+                                                   type="button" value="Pay now" disabled>
                                         </div>
                                     </div>
                                     <input type="hidden" name="payment[uuid]" value="{{ $user->uuid }}">
@@ -264,7 +267,6 @@
                                 <h6>Step 4</h6>
                                 <fieldset>
                                     <div class="form-group" style="margin:auto;width:330px;height: 160px">
-
                                         <img src="{{ asset('backoffice/images/bitsyte_logo.png') }}" alt="">
                                         <h6>Congratulations</h6>
                                         <p>
@@ -369,6 +371,18 @@
             $('#price-resumen').text(b[1]);
             $('#amount').val(b[1]);
         }
+//      validator saldo
+        $("#wallets").on("change", function () {
+            var saldo = $(this).find(':selected').attr('data');
+            saldo = parseInt(saldo);
+            product_precio = parseInt(product_precio);
+            if (saldo > product_precio){
+                $('#submit').prop('disabled', false);
+            }else{
+                $('#submit').prop('disabled', true);
+            }
+            console.log(saldo)
+        });
 
         $("#submit").on("click", function () {
             var slide = $(this).attr('id');
