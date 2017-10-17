@@ -112,6 +112,32 @@
                 scrollButtons : false,
                 scrollHorizontal : false
             });
+            var res;
+            function getNodesTree(csr, uuid) {
+                $.ajax({
+                    method: "POST",
+                    url: "/api/unilevel/children/" + uuid,
+                    data: {uuid: uuid, _token: csr},
+                    async: false,
+                    success: function (result) {
+//                                console.log("result");
+//                                console.log(result);
+                        res = result;
+//                                result.map()
+//                                let users = JSON.parse(result);
+                        return result;
+                    },
+                    error: function (httpReq, status, exception) {
+                        console.log(status + "-" + exception);
+                    }
+                });
+                return res;
+            }
+
+            var users = getNodesTree(csr, user);
+            console.log("users");
+            console.log(users);
+
             // RUTA DE LAS IMAGENES.     objeto de imagenes
             var images = {
                 paquetes :{

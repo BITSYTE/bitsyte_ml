@@ -62,7 +62,7 @@
                                                                     <div id="radio{{$product->id}}"
                                                                          class="col-md-12 col-sm-12"
                                                                          style="word-break: break-all;">
-                                                                        <input type="radio" name="product_id"
+                                                                        <input type="radio" name="payment[product_id]"
                                                                                id="input-radio-{{$product->id}}"
                                                                                data="{{$product->name."-".$product->price}}"
                                                                                value="{{$product->uuid}}">
