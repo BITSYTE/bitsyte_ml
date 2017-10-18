@@ -16,20 +16,27 @@ class BinaryTreeController extends Controller
 
         $nodes = $node->withDepth()->having('depth', '<=', 3)->with('user', 'product')->get()->toTree()->toArray();
 
-        //$array = array_fill(0,15, null);
-
         $array = [];
 
         function fix_position($node, $position) {
 
             if ($node['depth'] == 0) {
-                return $position;
-            } else {
-                return $node['side'] == 1 ? $position: $position + 1;
+                return 0;
             }
+
+            if (  $node['side'] == 1 ) {
+                $position['left'] = ($position['left'] * 2) + 1;
+                return $position['left'];
+            }
+
+            if (  $node['side'] == 2 ) {
+                $position['right'] = ($position['right'] * 2) + 2;
+                return $position['right'];
+            }
+
         }
 
-        function node($node, $position) {
+        function node($node, $position ) {
             return [
                 'uuid' => $node['user']['uuid'],
                 'username' => $node['user']['username'],
@@ -37,31 +44,36 @@ class BinaryTreeController extends Controller
                 'product' => $node['product']['name'],
                 'position' => [
                     $node['depth'],
-                    fix_position($node, $position),
+                    $position,
                     $node['side'],
                 ],
             ];
         }
 
+        $parent['left'] = 0;
+        $parent['right'] = 0;
 
-        function transverse($nodes, &$array)
+        function transverse($nodes, &$array, &$parent)
         {
-            $position = 1;
-
             foreach ($nodes as $node) {
 
-                $array[] = node($node, $position);
-
                 if (!empty($node['children'])) {
-                    transverse($node['children'], $array);
+                    transverse($node['children'], $array, $parent);
                 }
 
+                $pos = fix_position($node, $parent);
+
+                $array[] = node($node, $pos);
+
+                if (!empty($node['children'])) {
+                    transverse($node['children'], $array, $parent);
+                }
             }
 
             return $array;
         }
 
-        return response()->json(['tree' => transverse($nodes, $array)]);
+        return response()->json(['tree' => transverse($nodes, $array, $parent)]);
     }
 
     public function create(Request $request)

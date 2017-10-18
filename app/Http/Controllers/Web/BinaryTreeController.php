@@ -54,7 +54,7 @@ class BinaryTreeController extends Controller
 
         $user = factory(User::class)->create();
 
-        $node1 = BinaryTree::create(['side' => 2]);
+        $node1 = BinaryTree::create(['side' => 1]);
         $node1->appendToNode($root);
 
         $user->binaryNode()->save($node1);
@@ -62,21 +62,21 @@ class BinaryTreeController extends Controller
         $user = factory(User::class)->create();
 
         $node2 = BinaryTree::create(['side' => 2]);
-        $node2->appendToNode($node1);
+        $node2->appendToNode($root);
 
         $user->binaryNode()->save($node2);
 
         $user = factory(User::class)->create();
 
         $node3 = BinaryTree::create(['side' => 2]);
-        $node3->appendToNode($node2);
+        $node3->appendToNode($node1);
 
         $user->binaryNode()->save($node3);
 
         $user = factory(User::class)->create();
 
         $node4 = BinaryTree::create(['side' => 2]);
-        $node4->appendToNode($node3);
+        $node4->appendToNode($node2);
 
         $user->binaryNode()->save($node4);
 
