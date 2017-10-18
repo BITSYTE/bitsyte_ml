@@ -32,10 +32,18 @@ class UnilevelTreeController extends Controller
     {
         $this->breadcrumbs['name'][1] = 'Unilevel';
         $this->breadcrumbs['route'][1] = 'Unilevel';
+        $products = Product::all();
+
+        $paquetes = array();
+        foreach ($products as $product ){
+            $paquetes[$product->name] = asset('backoffice/images')."/".$product->image;
+        }
 
         return view('trees.unilevel.index')->with([
             'breadcrumbs'=>$this->breadcrumbs,
             'name' => 'UniLevel Tree',
+            'uuid' => auth()->user()->uuid,
+            'paquetes' => $paquetes,
         ]);
     }
 

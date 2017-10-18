@@ -21,6 +21,7 @@ class UnilevelTreeController extends Controller
                 'uuid' => $node['user']['uuid'],
                 'username' => $node['user']['username'],
                 'product' => $node['product']['name'],
+                'img' => asset('backoffice/images')."/".$node['product']['image'],
             ];
         }
 
@@ -39,6 +40,6 @@ class UnilevelTreeController extends Controller
             return $array;
         }
 
-        return response()->json(['tree' => transverse($nodes, $array)]);
+        return response()->json([transverse($nodes, $array)]);
     }
 }

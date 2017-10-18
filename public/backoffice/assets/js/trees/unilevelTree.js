@@ -19,19 +19,19 @@ class UnilevelTree {
         this._linesDraw = new LinesNode(this._context, {x: this._posInicial.x, y: this._posInicial.y + 25});
     }
 
-    initDraw(json) {
+    initDraw(users) {
         console.log("lvl2 inicio");
 
         this._nodesPos = [];
         console.log(this._nodesPos);
-        for (let k in json) {
+        for (let k in users) {
             let nombre = "tNode" + k;
-            console.log(json[k]["username"]);
+            console.log(users[k]["username"]);
             nombre = new TreeNode(this._context, this._posInicial, "user");
             // CREA EL NODO
             nombre.createNode();
-            nombre.drawUserName(json[k]["username"]);
-            nombre.drawPaquete(this._images.paquetes.gold);
+            nombre.drawUserName(users[k]["username"]);
+            nombre.drawPaquete(users[k]["img"]);
             nombre.drawIconInfo(this._images.iconInfo);
 
             this._linesDraw.beeline(this._context,{x: 0, y: this._posInicial.y + 25}, {x: this._posInicial.x, y: this._posInicial.y + 25});        //DIBUJA LA LINEA
@@ -45,14 +45,15 @@ class UnilevelTree {
         console.log("lvl2 termino");
     }
 
-    root(json) {
-
-        if (user !== json[0]["username"]) {
+    root(users) {
+        console.log("root");
+        console.log(users[0]["img"]);
+        if (user !== users[0]["uuid"]) {
             var lvl1_1 = new TreeNode(this._context, {x: this._posInicial.x, y: 60}, "root");
 
             lvl1_1.createNode();
-            lvl1_1.drawUserName(user);
-            lvl1_1.drawPaquete(this._images.paquetes.silver);
+            lvl1_1.drawUserName(user_name);
+            lvl1_1.drawPaquete(users[0]["img"]);
             lvl1_1.drawIconInfo(this._images.iconInfo);
 
             this._linesDraw.LineRootU(this._posInicial, {x: this._posInicial.x, y: lvl1.height / 2 - 75});
@@ -63,8 +64,8 @@ class UnilevelTree {
         this._posInicial = {x: this._posInicial.x, y: lvl1.height / 2 - 45};
         lvl1_2.SetPosition = this._posInicial;
         lvl1_2.createNode();
-        lvl1_2.drawUserName(user);
-        lvl1_2.drawPaquete(this._images.paquetes.gold);
+        lvl1_2.drawUserName(users[0]["username"]);
+        lvl1_2.drawPaquete(users[0]["img"]);
         lvl1_2.drawIconInfo(this._images.iconInfo);
 
         this._linesDraw.SetDash=[];
