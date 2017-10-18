@@ -63,7 +63,7 @@
                                                                          class="col-md-12 col-sm-12"
                                                                          style="word-break: break-all;">
                                                                         <input type="radio" name="payment[product_id]"
-                                                                               id="input-radio-{{$product->id}}"
+                                                                               id="input_radio-{{$product->id}}"
                                                                                data="{{$product->name."-".$product->price}}"
                                                                                value="{{$product->uuid}}">
                                                                         <label id="name-{{$product->id}}"
@@ -350,6 +350,15 @@
             var slide = $(this).attr('id');
             let b = slide.split('-');
             seleccionar(b[1]);
+        });
+
+        $(".iCheck-helper").on("click", function (){
+            console.log("iCheck-helper");
+            var asd = $(this);
+//            console.log(asd.context.parentElement.childNodes[0].attributes);
+            var data = asd.context.parentElement.childNodes[0].attributes[3].nodeValue;
+            console.log(data);
+            ponerprecio(data)
         });
 
         function seleccionar(num) {
