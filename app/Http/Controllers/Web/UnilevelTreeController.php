@@ -44,7 +44,7 @@ class UnilevelTreeController extends Controller
             'breadcrumbs'=>$this->breadcrumbs,
             'name' => 'UniLevel Tree',
 //            'uuid' => auth()->user()->uuid,
-            'user' => $user->uuid,
+            'uuid' => $user->uuid,
             'paquetes' => $paquetes,
         ]);
     }
