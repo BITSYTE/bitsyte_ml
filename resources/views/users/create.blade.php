@@ -53,7 +53,7 @@
                                                         <div class="slide-item carousel-slide-item">
                                                             <div class="image-box">
                                                                 <img id="slide-{{$product->id}}"
-                                                                     src="{!!   asset('backoffice/images')."/".$product->name.".png" !!}"
+                                                                     src="{!!   asset('backoffice/images')."/".$product->image !!}"
                                                                      class="carousel-img">
                                                             </div>
                                                             <div class="item-caption carousel-item-caption">
@@ -64,7 +64,7 @@
                                                                          style="word-break: break-all;">
                                                                         <input type="radio" name="payment[product_id]"
                                                                                id="input_radio-{{$product->id}}"
-                                                                               data="{{$product->name."-".$product->price}}"
+                                                                               data="{{$product->image."-".$product->price}}"
                                                                                value="{{$product->uuid}}">
                                                                         <label id="name-{{$product->id}}"
                                                                                for="input-radio-{{$product->id}}">{{$product->name}}</label>
@@ -355,7 +355,6 @@
         $(".iCheck-helper").on("click", function (){
             console.log("iCheck-helper");
             var asd = $(this);
-//            console.log(asd.context.parentElement.childNodes[0].attributes);
             var data = asd.context.parentElement.childNodes[0].attributes[3].nodeValue;
             console.log(data);
             ponerprecio(data)
@@ -363,19 +362,14 @@
 
         function seleccionar(num) {
             $('#radio' + num).find(".iCheck-helper").trigger("click");
-            var data = $('#input-radio-' + num).attr("data");
-            console.log(data);
-            ponerprecio(data);
         }
 
         function ponerprecio(data) {
-            console.log(data);
             let b = data.split('-');
-            console.log(b);
             product_uuid = b[0];
             product_precio = b[1];
 
-            $('#img-resumen').attr('src', '{{ asset('backoffice/images') }}' + '/' + b[0] + '.png');
+            $('#img-resumen').attr('src', '{{ asset('backoffice/images') }}' + '/' + b[0] );
             $('#label-resumen').text(b[0]);
             $('#price-resumen').text(b[1]);
             $('#amount').val(b[1]);
@@ -390,7 +384,6 @@
             }else{
                 $('#submit').prop('disabled', true);
             }
-            console.log(saldo)
         });
 
         $("#submit").on("click", function () {
@@ -399,16 +392,15 @@
             let url = "{{ route('users.store') }}";
             console.log(url);
             $("#newuser").submit();
-
         });
 
         //form
         $("#newuser").submit(function (e) {
-            console.log("entro");
+
             var postData = $(this).serializeArray();
-            console.log(postData);
+
             var formURL = $(this).attr("action");
-            console.log(formURL);
+
             $.ajax({
                 url: formURL,
                 type: "POST",
@@ -441,9 +433,6 @@
                     console.log(jqXHR);
                     let result = jqXHR.responseJSON;
                     console.log(result);
-                    /*result.map(function (item) {
-                        console.log(item);
-                    });*/
 
                     for (let k in result) {
                         let ms = result[k];
@@ -458,7 +447,6 @@
 
 
         function submit() {
-            console.log("entro");
 //            document.getElementById("myForm").submit();
             $("#theForm").ajaxForm({url: 'server.php', type: 'post'})
         }
