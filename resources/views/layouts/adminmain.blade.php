@@ -13,27 +13,34 @@
     <!-- BEGIN VENDOR CSS-->
     <link rel="apple-touch-icon" href="{{ asset('backoffice/app-assets/images/ico/apple-icon-120.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backoffice/app-assets/images/ico/favicon.ico')}}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+          rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/fonts/feather/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/fonts/font-awesome/css/font-awesome.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/fonts/flag-icon-css/css/flag-icon.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/fonts/font-awesome/css/font-awesome.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/fonts/flag-icon-css/css/flag-icon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/pace.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/unslider.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/extensions/unslider.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/charts/morris.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css')}}">
 
     <!-- END VENDOR CSS-->
     <!-- BEGIN STACK CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/bootstrap-extended.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/app.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/colors.css')}}">
-    {{--<link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/custom.css')}}">--}}
-    <!-- END STACK CSS-->
+{{--<link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/custom.css')}}">--}}
+<!-- END STACK CSS-->
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/horizontal-menu.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/horizontal-menu.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css')}}">
 
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
@@ -56,8 +63,8 @@
                     </a>
                 </li>
                 <li class="nav-item"><a href="{{ route('home') }}" class="navbar-brand">
-                        <img alt="stack admin logo" src="{{ asset('backoffice/app-assets/images/logo/stack-logo-light.png')}}" class="brand-logo">
-                        <h2 class="brand-text">Stack</h2></a>
+                        <img alt="Bitsyte" src="{{ asset('backoffice/images/bitsyte_logo 2.png')}}" class="brand-logo"
+                             style="height: 50px;margin: -10px">
                 </li>
                 <li class="nav-item hidden-md-up float-xs-right">
                     <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container">
@@ -140,8 +147,10 @@
                     <li data-menu=""><a href="#" data-toggle="dropdown" class="dropdown-item">Unilevel</a></li>
                 </ul>--}}
             </li>
-            <li class=" nav-item"><a href="#" class=" nav-link"><i class="ft-user"></i><span>Compensations</span></a></li>
-            <li class=" nav-item"><a href="{{ route('admin.settings.settings') }}" class="nav-link"><i class="icon-settings"></i><span>Settings</span></a>
+            <li class=" nav-item"><a href="#" class=" nav-link"><i class="ft-user"></i><span>Compensations</span></a>
+            </li>
+            <li class=" nav-item"><a href="{{ route('admin.settings.settings') }}" class="nav-link"><i
+                            class="icon-settings"></i><span>Settings</span></a>
             </li>
         </ul>
         <!-- menu-->
@@ -176,13 +185,16 @@
             <i class="ft-plus"></i>
         </a>
         <div class="md-fab-wrapper-small ">
-            <a class="md-fab md-fab-small md-fab-success" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="Help">
+            <a class="md-fab md-fab-small md-fab-success" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}"
+               title="Help">
                 <i class="fa fa-question"></i>
             </a>
-            <a class="md-fab md-fab-small md-fab-warning" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New Transfer">
+            <a class="md-fab md-fab-small md-fab-warning" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}"
+               title="New Transfer">
                 <i class="ft-chevrons-right"></i><i class="icon-wallet"></i>
             </a>
-            <a class="md-fab md-fab-small md-fab-danger" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New user">
+            <a class="md-fab md-fab-small md-fab-danger" href="#" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}"
+               title="New user">
                 <i class="ft-user-plus"></i>
             </a>
         </div>
@@ -195,7 +207,8 @@
 
 <!-- BEGIN PAGE VENDOR JS-->
 <script type="text/javascript" src="{{ asset('backoffice/app-assets/vendors/js/ui/jquery.sticky.js')}}"></script>
-<script type="text/javascript" src="{{ asset('backoffice/app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
+<script type="text/javascript"
+        src="{{ asset('backoffice/app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
 <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/unslider-min.js')}}" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/fonts/simple-line-icons/style.css')}}">
 <!-- END PAGE VENDOR JS-->
@@ -212,12 +225,12 @@
 <script type="text/javascript" src="{{ asset('backoffice/assets/js/admin_common.min.js') }}"></script>
 
 <script>
-    $(function() {
-        if(isHighDensity) {
+    $(function () {
+        if (isHighDensity) {
             // enable hires images
             altair_helpers.retina_images();
         }
-        if(Modernizr.touch) {
+        if (Modernizr.touch) {
             // fastClick (touch devices)
             FastClick.attach(document.body);
         }

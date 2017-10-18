@@ -3,44 +3,27 @@
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/assets/css/owl.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/icheck.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/forms/icheck/custom.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/plugins/forms/checkboxes-radios.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/plugins/forms/validation/form-validation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/switch.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/forms/wizard.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backoffice/app-assets/vendors/css/extensions/toastr.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/css/plugins/pickers/daterange/daterange.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('backoffice/app-assets/vendors/css/extensions/toastr.css') }}">
 @endsection
 
 @section('breadcrumbs')
-    <div class="content-header row">
-        <div class="content-header-left col-md-6 col-xs-12 mb-2">
-            <h3 class="content-header-title mb-0">New User</h3>
-            <div class="row breadcrumbs-top">
-                <div class="breadcrumb-wrapper col-xs-12">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        @include('layouts.partial.breadcrumbs')
-                    </ol>
-                </div>
-            </div>
-        </div>
-        <div id="bred-graph" class="content-header-right col-md-6 col-xs-12">
-            <div class="media width-250 float-xs-right">
-                <div class="media-left media-middle">
-                    <div id="sp-bar-total-sales"></div>
-                </div>
-                <div class="media-body media-right text-xs-right">
-                    <h3 class="m-0">$5,668</h3><span class="text-muted">Sales</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('layouts.partial.breadcrumbs')
 @endsection
 
 @section('content')
-
     <section id="register" class="card ">
         <div class="card-header">
             <h4 class="card-title">New User</h4>
@@ -79,12 +62,13 @@
                                                                     <div id="radio{{$product->id}}"
                                                                          class="col-md-12 col-sm-12"
                                                                          style="word-break: break-all;">
-                                                                        <input type="radio" name="product_id"
-                                                                               id="input-radio-{{$product->id}}"
+                                                                        <input type="radio" name="payment[product_id]"
+                                                                               id="input_radio-{{$product->id}}"
                                                                                data="{{$product->name."-".$product->price}}"
-                                                                               value="{{$product->id}}">
-                                                                        <label id="name-{{$product->id}}"  for="input-radio-{{$product->id}}">{{$product->name}}</label>
-                                                                        <p >price: {{$product->price}}</p>
+                                                                               value="{{$product->uuid}}">
+                                                                        <label id="name-{{$product->id}}"
+                                                                               for="input-radio-{{$product->id}}">{{$product->name}}</label>
+                                                                        <p>price: {{$product->price}}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -230,13 +214,17 @@
                                     <div class="row">
                                         <div class="form-group col-md-2">
                                             <div class="">
-                                                <img id="img-resumen" src="{!!   asset('backoffice/images')."/".$products[0]['name'].".png" !!}">
+                                                <img id="img-resumen"
+                                                     src="{!!   asset('backoffice/images')."/".$products[0]['name'].".png" !!}">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-5">
                                             <div><label for="userinput5"><b>Product Name:</b></label></div>
-                                            <div><label id="label-resumen" ></label></div>
-                                            <div><label id="price-resumen"><b>Price:</b>{{$products[0]['price']}}</label>
+                                            <div><label id="label-resumen"><b>Product Name:</b></label></div>
+                                            <div><b>Price:</b>
+                                                <span class="input-group-addon" style="width: 20px">$ <label
+                                                            id="price-resumen"></label></span>
+
                                             </div>
                                         </div>
                                         <div class="form-group col-md-5">
@@ -248,11 +236,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <select id="projectinput5" name="interested" class="form-control"
+                                                <select id="wallets" name="wallet" class="form-control"
                                                         style="margin-top: 25px">
-                                                    <option value="none" selected="" disabled="">select a wallet</option>
+                                                    <option value="none" selected="" disabled="">select a wallet
+                                                    </option>
                                                     @foreach($wallets as $wallet)
-                                                        <option value="design">{{ "name".$wallet->name."-balance".$wallet->balance }}</option>
+                                                        <option  data="{{$wallet['pivot']->balance}}" value="{{$wallet->uuid}}">{{ $wallet->name." -  $".$wallet['pivot']->balance }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -262,25 +251,28 @@
 
                                     <div class="col-md-12">
                                         <div class="col-md-2" style="margin-left: 40%;">
+                                            <label for="userinput5">Select a wallet with balance
+                                                <span class="required">*</span>
+                                            </label>
                                             <input id="submit" class="btn btn-primary btn-min-width mr-1 mb-1"
-                                                   type="button" value="Pay now">
+                                                   type="button" value="Pay now" disabled>
                                         </div>
                                     </div>
-
+                                    <input type="hidden" name="payment[uuid]" value="{{ $user->uuid }}">
+                                    <input type="hidden" name="payment[type]" value="wallet">
+                                    <input type="hidden" name="payment[amount]" value="0" id="amount"   >
 
                                 </fieldset>
 
                                 <h6>Step 4</h6>
                                 <fieldset>
                                     <div class="form-group" style="margin:auto;width:330px;height: 160px">
-
                                         <img src="{{ asset('backoffice/images/bitsyte_logo.png') }}" alt="">
                                         <h6>Congratulations</h6>
                                         <p>
                                             Thank you for signing up
                                         </p>
                                     </div>
-
                                 </fieldset>
 
                             </form>
@@ -299,10 +291,7 @@
 
     <script src="{{ asset('backoffice/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')}}"
             type="text/javascript"></script>
-    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}" type="text/javascript"></script>--}}
 
-    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>--}}
-    {{--<script src="{{ asset('backoffice/app-assets/vendors/js/forms/icheck/icheck.min.js')}}" type="text/javascript"></script>--}}
     <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/jquery.steps.min.js') }}"
             type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/vendors/js/pickers/daterange/daterangepicker.js') }}"
@@ -312,17 +301,16 @@
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/wizard-steps.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backoffice/app-assets/js/scripts/forms/checkbox-radio.js')}}"
             type="text/javascript"></script>
-    {{--<script src="{{ asset('backoffice/app-assets/js/scripts/forms/validation/form-validation.js')}}" type="text/javascript"></script>--}}
     <script src="{{ asset('backoffice/app-assets/vendors/js/extensions/toastr.min.js') }}"
             type="text/javascript"></script>
-
-
-
 
     <script>
         //Four Column Slider
         const tree = "{{ route('trees.binary') }}";
         const home = "{{ route('home') }}";
+        let product_uuid = "";
+        let product_precio = "";
+
         var owl = $('#owl-carousel');
         owl.owlCarousel({
             loop: false,
@@ -364,41 +352,61 @@
             seleccionar(b[1]);
         });
 
+        $(".iCheck-helper").on("click", function (){
+            console.log("iCheck-helper");
+            var asd = $(this);
+//            console.log(asd.context.parentElement.childNodes[0].attributes);
+            var data = asd.context.parentElement.childNodes[0].attributes[3].nodeValue;
+            console.log(data);
+            ponerprecio(data)
+        });
+
         function seleccionar(num) {
             $('#radio' + num).find(".iCheck-helper").trigger("click");
-            var data =$('#input-radio-' + num).attr("data");
+            var data = $('#input-radio-' + num).attr("data");
             console.log(data);
             ponerprecio(data);
-            /*var price =$('#input-radio-' + num).attr("price");
-            console.log(price);*/
         }
 
         function ponerprecio(data) {
             console.log(data);
             let b = data.split('-');
             console.log(b);
+            product_uuid = b[0];
+            product_precio = b[1];
 
-            $('#img-resumen').attr('src', '{{ asset('backoffice/images') }}'+'/'+b[0]+'.png');
+            $('#img-resumen').attr('src', '{{ asset('backoffice/images') }}' + '/' + b[0] + '.png');
             $('#label-resumen').text(b[0]);
-            $('#price-resumen').text('Price: '+ b[1]);
+            $('#price-resumen').text(b[1]);
+            $('#amount').val(b[1]);
         }
+//      validator saldo
+        $("#wallets").on("change", function () {
+            var saldo = $(this).find(':selected').attr('data');
+            saldo = parseInt(saldo);
+            product_precio = parseInt(product_precio);
+            if (saldo > product_precio){
+                $('#submit').prop('disabled', false);
+            }else{
+                $('#submit').prop('disabled', true);
+            }
+            console.log(saldo)
+        });
 
         $("#submit").on("click", function () {
             var slide = $(this).attr('id');
             console.log(slide);
             let url = "{{ route('users.store') }}";
             console.log(url);
-            toastr.info('yoour pay was exito.', 'user pay!', {
-                positionClass: 'toast-top-center', containerId: 'toast-top-center',
-                "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 8000
-            });
             $("#newuser").submit();
 
         });
 
+        //form
         $("#newuser").submit(function (e) {
             console.log("entro");
             var postData = $(this).serializeArray();
+            console.log(postData);
             var formURL = $(this).attr("action");
             console.log(formURL);
             $.ajax({
@@ -408,22 +416,46 @@
                 success: function (data, textStatus, jqXHR) {
                     console.log(data);
                     let result = JSON.parse(data);
+                    console.log("respuesta");
                     console.log(result);
                     if (result.ok === "ok") {
                         console.log("bien");
                         $("a[href='#previous']").hide();
-                        $("#alertS").show();
+//                        $("#alertS").show();
+                        toastr.info('yoour pay was exito.', 'user pay!', {
+                            positionClass: 'toast-top-center', containerId: 'toast-top-center',
+                            "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 8000
+                        });
                     } else {
                         console.log("error");
-                        $("#alertE").show();
+                        console.log(result);
+//                        $("#alertE").show();
+                        toastr.error('error.', 'error pay!', {
+                            positionClass: 'toast-top-center', containerId: 'toast-top-center',
+                            "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 8000
+                        });
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.log("error");
-                    alert("error try letter");
+                    console.log("error error");
+                    console.log(jqXHR);
+                    let result = jqXHR.responseJSON;
+                    console.log(result);
+                    /*result.map(function (item) {
+                        console.log(item);
+                    });*/
+
+                    for (let k in result) {
+                        let ms = result[k];
+                        toastr.error(ms, k, {
+                            positionClass: 'toast-top-center', containerId: 'toast-top-center',
+                            "showMethod": "slideDown", "hideMethod": "slideUp", timeOut: 0
+                        });
+                    }
                 }
             });
         });
+
 
         function submit() {
             console.log("entro");

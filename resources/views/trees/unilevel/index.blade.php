@@ -11,30 +11,7 @@
     </style>
 @endsection
 @section('breadcrumbs')
-    <div class="content-header row">
-        <div class="content-header-left col-md-6 col-xs-12 mb-2">
-            <h3 class="content-header-title mb-0">Unilevel Tree</h3>
-            <div class="row breadcrumbs-top">
-                <div class="breadcrumb-wrapper col-xs-12">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Trees</a></li>
-                        @include('layouts.partial.breadcrumbs')
-                    </ol>
-                </div>
-            </div>
-        </div>
-        <div id="bred-graph" class="content-header-right col-md-6 col-xs-12">
-            <div class="media width-250 float-xs-right">
-                <div class="media-left media-middle">
-                    <div id="sp-bar-total-sales"></div>
-                </div>
-                <div class="media-body media-right text-xs-right">
-                    <h3 class="m-0">$5,668</h3><span class="text-muted">Balance</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('layouts.partial.breadcrumbs')
 @endsection
 
 @section('content')
@@ -94,35 +71,9 @@
         var lvl2;
         var lvl3;
         var ctx;
-        var user = "{{Auth::user()->first_name}}";
-        var json = [
-            {"username": "jhon", "paquete": "gold", "type": "user", "position": "1,1"},
-            {"username": "jose1", "paquete": "gold", "type": "user", "position": "2,1"},
-            {"username": "jose2", "paquete": "gold", "type": "user", "position": "2,2"},
-            {"username": "jose3", "paquete": "gold", "type": "user", "position": "3,1"},
-            {"username": "jose4", "paquete": "gold", "type": "add", "position": "3,2"},
-            {"username": "jose5", "paquete": "gold", "type": "user", "position": "3,3"},
-            {"username": "jose6", "paquete": "gold", "type": "user", "position": "3,4"},
-            {"username": "jose7", "paquete": "gold", "type": "user", "position": "4,1"},
-            {"username": "jose8", "paquete": "plate", "type": "user", "position": "4,2"},
-//                        {"username": "jose9", "paquete": "gold", "type": "add", "position": "4,3"},
-//                        {"username": "jose10", "paquete": "gold", "type": "add", "position": "4,4"},
-            {"username": "jose11", "paquete": "gold", "type": "add", "position": "4,5"},
-            {"username": "jose12", "paquete": "gold", "type": "user", "position": "4,6"},
-            {"username": "jose13", "paquete": "gold", "type": "add", "position": "4,7"},
-            {"username": "add User", "paquete": "gold", "type": "add", "position": "4,8"}
-        ];
-        var json2 = [
-            {"username": "jhon", "paquete": "gold", "type": "user", "position": [1,1]},
-            {"username": "jose1", "paquete": "gold", "type": "user", "position": [2,1]},
-            {"username": "jose2", "paquete": "gold", "type": "user", "position": [2,2]},
-            {"username": "jose3", "paquete": "gold", "type": "user", "position": [3,1]},
-            {"username": "jose4", "paquete": "gold", "type": "add", "position": [3,2]},
-            {"username": "jose5", "paquete": "gold", "type": "user", "position": [3,3]},
-            {"username": "jose6", "paquete": "gold", "type": "user", "position": [3,4]},
-            {"username": "jose7", "paquete": "gold", "type": "user", "position": [4,1]},
-            {"username": "jose8", "paquete": "plate", "type": "user", "position": [4,2]}
-        ];
+        var user = "{{$uuid}}";
+        var user_name = "{{auth()->user()->username}}";
+
 
         $(document).ready(function () {
             console.log("ready!");
@@ -135,16 +86,39 @@
                 scrollButtons : false,
                 scrollHorizontal : false
             });
+
+            let res;
+            function getNodesTree(csr, uuid) {
+                $.ajax({
+                    method: "POST",
+                    url: "/api/unilevel/children/" + uuid,
+                    data: {uuid: uuid, _token: csr},
+                    async: false,
+                    success: function (result) {
+                        res = result;
+                        return result;
+                    },
+                    error: function (httpReq, status, exception) {
+                        console.log(status + "-" + exception);
+                    }
+                });
+                return res;
+            }
+
+            var users = getNodesTree(csr, user);
+            console.log("users");
+            users = users[0];
+            console.log(users);
+
             // RUTA DE LAS IMAGENES.     objeto de imagenes
             var images = {
-                paquetes :{
-                    gold: "{{asset('backoffice/images/Package Golden.png')}}",
-                    silver: "{{asset('backoffice/images/Package Silver.png')}}",
-                    platinum: "{{asset('backoffice/images/Package Platinum.png')}}",
-                },
+                paquetes :
+                    {!! json_encode($paquetes, JSON_PRETTY_PRINT) !!}
+                ,
                 iconInfo: "{{ asset('backoffice/images/icons/info.svg') }}",
                 addUser: "{{asset('backoffice/images/icons/add-button-blanco-circle.svg')}}",
             };
+            console.log(images);
             //VARIABLES
             var band = false;
             lvl1 = document.getElementById("lvl1");
@@ -161,7 +135,7 @@
                 if (ctx) {
 
                     unilevelT.SetContext(ctx);     // LE PASAMOS EL CONTEXTO
-                    unilevelT.root(json);       // INICIA EL DIBUJADO
+                    unilevelT.root(users);       // INICIA EL DIBUJADO
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     /*lvl1.addEventListener("click", function (e) {
                         ut.selecciona(e, csr)
@@ -175,7 +149,7 @@
                 ctx = lvl2.getContext("2d");
                 if (ctx) {
                     unilevelT2.SetContext(ctx);     // LE PASAMOS EL CONTEXTO
-                    unilevelT2.initDraw(json);       // INICIA EL DIBUJADO
+                    unilevelT2.initDraw(users);       // INICIA EL DIBUJADO
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
                     lvl2.addEventListener("click", function (e) {
                         selecciona(e,lvl2)
@@ -191,8 +165,8 @@
                     unilevelT3.SetContext(ctx);
 //                    unilevelT.lvl3(json2);
                     //SE AGREGA EVENTO DE CLICK AL CANVAS
-                    lvl1.addEventListener("click", function (e) {
-                        clickCanvas3(e, csr)
+                    lvl3.addEventListener("click", function (e) {
+                        clickCanvas3(e, lvl3)
                     }, false);
                 } else {
                     alert("NO cuentas con CANVAS");
@@ -200,7 +174,6 @@
             }
 
             /**
-             *
              * @param e         ES EL PARAMETRO QUE RECIBO DEL EVENTO CLICK SE NECESITA
              * @param canvas    canvas se NECESITA PARA PODER LA FUNCION QUE SE ENCARGA DEL CLICK
              */
@@ -227,39 +200,46 @@
                             var linesDraw = new LinesNode(context, {x: item.x, y: item.y + 25});
                             linesDraw.beeline(context, {x:item._position.x+180,y:item._position.y+25},{x:lvl2.width , y:item._position.y+25},'#2196F3');
                             linesDraw.beeline(context, {x:lvl2.width,y:0},{x:lvl2.width , y:lvl2.height},'#2196F3');
-                            unilevelT3.initDraw(json2);
+                            console.log("_uuid");
+                            console.log(item._uuid);
+//                            var users2 = getNodesTree(csr, item._uuid);
+//                            console.log("llamada desde llvl2");
+//                            console.log(users);
+                            unilevelT3.initDraw(users);
                         }else {
                             band = false;
 
                             context.clearRect(0, 0, canvas.width, canvas.height);
                             $('.easyScroll_scroll_vertical').css('visibility', 'visible');
-                            unilevelT2.initDraw(json);
+                            unilevelT2.initDraw(users);
                             let context3 =unilevelT3.getContext();
                             context3.clearRect(0, 0, lvl3.width, lvl3.height);
                         }
-                        // console.log($("#boton").click());
-                        // this.lvl3(json);
+
                     }
                 }.bind(this));
             }
 
             function clickCanvas3(e,canvas) {
-//                lvl = getLVL(lvl);
-                let nodesPos =unilevelT2.getArrayNodes();
-                let context =unilevelT2.getContext();
-                // console.log(lvl);
+                let nodesPos =unilevelT3.getArrayNodes();
+                let context =unilevelT3.getContext();
                 let pos = ajusta(e.clientX, e.clientY,canvas);
-                console.log(pos);
+                console.log("nodes pos");
+                console.log(nodesPos);
                 nodesPos.map(function (item) {
                     // console.log(item);
                     console.log("map");
                     if (pos.x > item._position.x && pos.x < item._position.x + 180 && pos.y > item._position.y && pos.y < item._position.y + 50) {
                         console.log("click en nodo");
                         console.log(item);
-                        // IF BAND IS FALSE NO NODE SELECTED AND CHARGE YOUR CHILDS
 
-                        // console.log($("#boton").click());
-                        // this.lvl3(json);
+                        lvl1.clearRect(0, 0, canvas.width, canvas.height);
+                        lvl2.clearRect(0, 0, canvas.width, canvas.height);
+                        lvl3.clearRect(0, 0, canvas.width, canvas.height);
+                        $('.easyScroll_scroll_vertical').css('visibility', 'visible');
+                        unilevelT2.initDraw(users);
+                        let context3 =unilevelT3.getContext();
+                        context3.clearRect(0, 0, lvl3.width, lvl3.height);
                     }
                 }.bind(this));
             }

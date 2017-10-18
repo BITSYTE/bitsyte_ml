@@ -194,7 +194,7 @@
             <a class="md-fab md-fab-small md-fab-warning" href="{{ route('transfers.new') }}" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New Transfer">
                 <i class="ft-chevrons-right"></i><i class="icon-wallet"></i>
             </a>
-            <a class="md-fab md-fab-small md-fab-danger" href="{{ route('users.new') }}" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New user">
+            <a class="md-fab md-fab-small md-fab-danger" href="{{ route('users.create') }}" data-uk-tooltip="{cls:'uk-tooltip-small',pos:'left'}" title="New user">
                 <i class="ft-user-plus"></i>
             </a>
         </div>

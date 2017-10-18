@@ -17,5 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('unilevel/children/{user}', 'Api\UnilevelTreeController@treeJson')->name('unilevel');
-Route::any('binary/children/{user}', 'Api\BinaryTreeController@treeJson')->name('binary');
+Route::group(['namespace' => 'Api'], function () {
+    Route::any('unilevel/children/{user}', 'UnilevelTreeController@treeJson')->name('unilevel');
+    Route::any('binary/children/{user}', 'BinaryTreeController@treeJson')->name('binary');
+});

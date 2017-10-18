@@ -40,9 +40,11 @@ class UsersControllers extends Controller
 
         return view('users.create')
             ->with([
+                'name' => 'New User',
                 'breadcrumbs' => $this->breadcrumbs,
                 'products' => $products,
                 'wallets' => $user->wallets,
+                'user' => $user,
             ]);
     }
 
@@ -51,10 +53,10 @@ class UsersControllers extends Controller
      * @param UserStoreRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function store(UserStoreRequest $request)
     {
-
         //VERIFICO SI YA EXISTE EL USUARIO
         if ($this->ifExist($request)) {
             $res['ok'] = 'user_exist';

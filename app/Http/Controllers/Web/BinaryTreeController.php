@@ -35,10 +35,11 @@ class BinaryTreeController extends Controller
 
         $product = Product::all();
 
-        $uuid = User::where('id',4)->first();
-//        dd($uuid);
-
-        return view('trees.binary.index')->with(['breadcrumbs'=>$this->breadcrumbs])->with(['uuid'=>$uuid->uuid]);
+        return view('trees.binary.index')->with([
+            'breadcrumbs' => $this->breadcrumbs,
+            'uuid' => auth()->user()->uuid,
+            'name' => 'Binary Tree',
+        ]);
     }
 
     public function create()
@@ -110,10 +111,10 @@ class BinaryTreeController extends Controller
     {
         $json = array();
 
-        for ($i=0; $i<1;$i++){
-            $json[$i]["username"]="asdrubal$i";
-            $json[$i]["paquete"]="gold";
-            $json[$i]["algo"]="algo";
+        for ($i = 0; $i < 1; $i++) {
+            $json[$i]["username"] = "asdrubal$i";
+            $json[$i]["paquete"] = "gold";
+            $json[$i]["algo"] = "algo";
         }
 
         $json = json_encode($json);

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\BinaryTree;
 use App\Models\User;
+use App\Models\BinaryTree;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -78,6 +78,17 @@ class BinaryTreeController extends Controller
 
     public function create(Request $request)
     {
+        /*$parent = User::whereUuid($request)->first();
+        $user = User::whereUuid($request)->first();
+
+        $parent->binaryNode()->first();
+
+        $newGen = $parent->view_position[0] + 1;
+        $newCell = $parent->view_position[1] * 2 - ($side == 1 ? 1:0);
+
+        $user->binaryNode()->create([
+            "view_position" => [$newGen, $newCell]
+        ]);*/
 
     }
 }
