@@ -20,7 +20,7 @@ class UnilevelTree {
     }
 
     initDraw(users) {
-        console.log("lvl2 inicio");
+        console.log("lvl iniciado");
 
         this._nodesPos = [];
         console.log(this._nodesPos);
@@ -30,6 +30,7 @@ class UnilevelTree {
             nombre = new TreeNode(this._context, this._posInicial, "user");
             // CREA EL NODO
             nombre.createNode();
+            nombre.SetUuid=users[k]["uuid"];
             nombre.drawUserName(users[k]["username"]);
             nombre.drawPaquete(users[k]["img"]);
             nombre.drawIconInfo(this._images.iconInfo);
@@ -52,6 +53,7 @@ class UnilevelTree {
             var lvl1_1 = new TreeNode(this._context, {x: this._posInicial.x, y: 60}, "root");
 
             lvl1_1.createNode();
+            lvl1_1.SetUuid=user;
             lvl1_1.drawUserName(user_name);
             lvl1_1.drawPaquete(users[0]["img"]);
             lvl1_1.drawIconInfo(this._images.iconInfo);
@@ -64,6 +66,7 @@ class UnilevelTree {
         this._posInicial = {x: this._posInicial.x, y: lvl1.height / 2 - 45};
         lvl1_2.SetPosition = this._posInicial;
         lvl1_2.createNode();
+        lvl1_2.SetUuid=users[0]["uuid"];
         lvl1_2.drawUserName(users[0]["username"]);
         lvl1_2.drawPaquete(users[0]["img"]);
         lvl1_2.drawIconInfo(this._images.iconInfo);
