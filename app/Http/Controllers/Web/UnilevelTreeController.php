@@ -60,7 +60,7 @@ class UnilevelTreeController extends Controller
         $user->unilevelNode()->save($root);
         $product->unilevelNode()->save($root);
 
-        $user = factory(User::class)->create();
+        /*$user = factory(User::class)->create();
 
         $node1 = UnilevelTree::create();
         $node1->appendToNode($root);
@@ -107,7 +107,7 @@ class UnilevelTreeController extends Controller
         $node7 = UnilevelTree::create();
         $node7->appendToNode($root);
 
-        $user->unilevelNode()->save($node7);
+        $user->unilevelNode()->save($node7);*/
     }
 
 }

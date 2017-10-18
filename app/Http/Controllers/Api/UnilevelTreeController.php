@@ -10,7 +10,8 @@ class UnilevelTreeController extends Controller
 {
     public function treeJson(User $user)
     {
-        $node = $user->unilevelNode()->first();
+
+        $node = $user->unilevelNode()->firstOrFail();
 
         $nodes = $node->withDepth()->having('depth', '<=', 1)->with('user', 'product')->get()->toTree()->toArray();
 
